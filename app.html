@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
+	<meta name="created" content="2024-03-31T22:02:41.546072739"/>
+	<meta name="changed" content="2024-03-31T22:49:18.015956122"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
+		h1 { margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Serif", serif; font-size: 24pt; font-weight: bold }
+		h1.cjk { font-family: "Noto Serif CJK SC"; font-size: 24pt; font-weight: bold }
+		h1.ctl { font-family: "Lohit Devanagari"; font-size: 24pt; font-weight: bold }
+		pre { background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-family: "Noto Sans Mono CJK SC", monospace; font-size: 10pt }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		h3 { margin-top: 0.25cm; margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Serif", serif; font-size: 14pt; font-weight: bold }
+		h3.cjk { font-family: "Noto Serif CJK SC"; font-size: 14pt; font-weight: bold }
+		h3.ctl { font-family: "Lohit Devanagari"; font-size: 14pt; font-weight: bold }
+		h4 { margin-top: 0.21cm; margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h4.western { font-family: "Liberation Serif", serif; font-size: 12pt; font-weight: bold }
+		h4.cjk { font-family: "Noto Serif CJK SC"; font-size: 12pt; font-weight: bold }
+		h4.ctl { font-family: "Lohit Devanagari"; font-size: 12pt; font-weight: bold }
+		h2 { margin-top: 0.35cm; margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Liberation Serif", serif; font-size: 18pt; font-weight: bold }
+		h2.cjk { font-family: "Noto Serif CJK SC"; font-size: 18pt; font-weight: bold }
+		h2.ctl { font-family: "Lohit Devanagari"; font-size: 18pt; font-weight: bold }
+		code.western { font-family: "Liberation Mono", monospace }
+		code.cjk { font-family: "Noto Sans Mono CJK SC", monospace }
+		code.ctl { font-family: "Liberation Mono", monospace }
+		a:link { color: #000080; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-IN" link="#000080" vlink="#800000" dir="ltr"><p style="line-height: 100%; margin-bottom: 0cm">
+Trying to build an Ionic App Which Displays PPT ,Pdf , doc , docx</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm">In ionic you can
+build it with angular</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><a name="user-content-ngx-doc-viewer"></a>
+<br/>
+
+</p>
+<h1 class="western">ngx-doc-viewer</h1>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>For that you need node js version v18.3.0 arounf</p>
+<p><br/>
+<br/>
+
+</p>
+<p>For tha you can install nvm</p>
+<p><br/>
+<br/>
+
+</p>
+<pre class="western"><code class="western">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash</code>
+
+<code class="western"># or</code>
+
+<code class="western">wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash</code></pre><p>
+<br/>
+<br/>
+
+</p>
+<p>The install node using</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>  766  mkdir nvm</p>
+<p>  767  cd nvm</p>
+<p>  768  curl -o-
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh |
+bash</p>
+<p>  769  bash install_nvm.sh</p>
+<p>  771  curl -o-
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh 
+</p>
+<p>  773  wget -qO-
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh 
+</p>
+<p>  774  wget -qO-
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh |
+bash</p>
+<p>  893  curl -o-
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh |
+bash</p>
+<p>  924  nvm use 18.13</p>
+<p> 1036  nvm install 17</p>
+<p> 1044  nvm install v18.13</p>
+<p> 1061  nvm --version</p>
+<p> 1067  nvm ls</p>
+<p> 1068  nvm install node18.0.0</p>
+<p> 1069  nvm ls-remote</p>
+<p> 1070  nvm install v18.1.0</p>
+<p>  <font size="6" style="font-size: 26pt"><b>nvm ls-remote</b></font></p>
+<p><font size="6" style="font-size: 26pt"><b>ng new  tuition-app     
+   </b></font>
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>                                                                  
+           
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>                                    ng new  tuition-app           
+        
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>1073  nvm install v16.1.0</p>
+<p> 1074  nvm use v16.1.0</p>
+<p> 1077  nvm install v18.13</p>
+<p> 1078  nvm use v18.13</p>
+<p> 1104  nvm install 14</p>
+<p> 1105  nvm use 14</p>
+<p> 1154  nvm use 18.13</p>
+<p> 1270  history | grep nvm</p>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">nstall the NPM Module</h3>
+<pre class="western" style="margin-bottom: 0.5cm">npm install ngx-doc-viewer --save</pre><h3 class="western">
+<a name="user-content-usage"></a>Usage</h3>
+<h4 class="western"><a name="user-content-1-import-ngxdocviewermodule"></a>
+1. Import <code class="western">NgxDocViewerModule</code> 
+</h4>
+<pre class="western">@NgModule({
+  imports: [NgxDocViewerModule],
+})
+export class AppModule {}</pre><h4 class="western">
+<a name="user-content-2-add-docviewer-to-component"></a>2. Add
+DocViewer to component:</h4>
+<pre class="western">&lt;ngx-doc-viewer
+  [url]=&quot;doc&quot;
+  viewer=&quot;google&quot;
+  style=&quot;width:100%;height:50vh;&quot;
+&gt;&lt;/ngx-doc-viewer&gt;</pre><p>
+<br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>To</p>
+<h4 class="western"><a name="user-content-api"></a>API:</h4>
+<p>Input:</p>
+<ul>
+	<li><p style="margin-bottom: 0cm">url: document url. 
+	</p>
+	<li><p style="margin-bottom: 0cm">viewer: google (default), office,
+	mammoth, pdf or url 
+	</p>
+	<li><p style="margin-bottom: 0cm">viewerUrl: only for viewer: 'url';
+	location of the document renderer. Only use this option for other
+	viewers then google or office. 
+	</p>
+	<li><p style="margin-bottom: 0cm">queryParams, e.g. to set language.
+	for google: hl=[lang] e.g. hl=nl 
+	</p>
+	<li><p style="margin-bottom: 0cm">disableContent: 'none' | 'all' |
+	'popout' | 'popout-hide' = 'none': 
+	</p>
+	<ul>
+		<li><p style="margin-bottom: 0cm">none: no overlay 
+		</p>
+		<li><p style="margin-bottom: 0cm">all: adds an overlay to the whole
+		iframe, which makes nothing in the document clickable/selectable 
+		</p>
+		<li><p style="margin-bottom: 0cm">popout: adds an overlay over
+		googles popout button or office popout and menu which disables just
+		this button/menu but keeps giving the possibility to select text.
+		The popout button is still visible (for google during a few
+		seconds) but not clickable. 
+		</p>
+		<li><p style="margin-bottom: 0cm">popout-hide: see popup, instead
+		of an transparent overlay a white one. This really hides the button
+		but you'll see a white block while loading for the google viewer. 
+		</p>
+	</ul>
+	<li><p>overrideLocalhost: documents from the assets folder are not
+	publicly available and therefor won't show in an external viewer
+	(google, office). If the site is already published to public server,
+	then pass that url and if will replace localhost by the other url.
+	Like:
+	overrideLocalhost=&quot;<a href="https://angular-doc-viewer.firebaseapp.com/">https://angular-doc-viewer.firebaseapp.com/</a>&quot;
+		</p>
+</ul>
+<p>There are some issues loading document in the google viewer. See:
+<a href="https://stackoverflow.com/questions/40414039/google-docs-viewer-returning-204-responses-no-longer-working-alternatives">https://stackoverflow.com/questions/40414039/google-docs-viewer-returning-204-responses-no-longer-working-alternatives</a>.
+If loading pdf's and Word documents, seems to work now with this hack
+let me know via a Github issue.</p>
+<ul>
+	<li><p>googleCheckContentLoaded = true | If true it will check by
+	interval if the content is loaded.</p>
+	<li><p>googleCheckInterval = 3000 | The interval in milliseconds
+	that is checked whether the iframe is loaded.</p>
+	<li><p>googleMaxChecks = 5 | max number of retries Output:</p>
+	<li><p>loaded: google only, notifies when iframe is loaded. Can be
+	used to show progress while loading</p>
+</ul>
+<h3 class="western"><a name="user-content-file-type-support"></a>File
+type support</h3>
+<h4 class="western"><a name="user-content-office-viewer"></a>office
+viewer</h4>
+<p>.ppt, .pptx, .doc, .docx, .xls and .xlsx</p>
+<h4 class="western"><a name="user-content-google-viewer"></a>google
+viewer</h4>
+<p>Only files under 25 MB can be previewed with the Google Drive
+viewer.</p>
+<p>Google Drive viewer helps you preview over 15 different file
+types, listed below:</p>
+<ul>
+	<li><p style="margin-bottom: 0cm">Text files (.TXT) 
+	</p>
+	<li><p style="margin-bottom: 0cm">Markup/Code (.CSS, .HTML, .PHP,
+	.C, .CPP, .H, .HPP, .JS) 
+	</p>
+	<li><p style="margin-bottom: 0cm">Microsoft Word (.DOC and .DOCX) 
+	</p>
+	<li><p style="margin-bottom: 0cm">Microsoft Excel (.XLS and .XLSX) 
+	</p>
+	<li><p style="margin-bottom: 0cm">Microsoft PowerPoint (.PPT and
+	.PPTX) 
+	</p>
+	<li><p style="margin-bottom: 0cm">Adobe Portable Document Format
+	(.PDF) 
+	</p>
+	<li><p style="margin-bottom: 0cm">Apple Pages (.PAGES) 
+	</p>
+	<li><p style="margin-bottom: 0cm">Adobe Illustrator (.AI) 
+	</p>
+	<li><p style="margin-bottom: 0cm">Adobe Photoshop (.PSD) 
+	</p>
+	<li><p style="margin-bottom: 0cm">Tagged Image File Format (.TIFF) 
+	</p>
+	<li><p style="margin-bottom: 0cm">Autodesk AutoCad (.DXF) 
+	</p>
+	<li><p style="margin-bottom: 0cm">Scalable Vector Graphics (.SVG) 
+	</p>
+	<li><p style="margin-bottom: 0cm">PostScript (.EPS, .PS) 
+	</p>
+	<li><p style="margin-bottom: 0cm">TrueType (.TTF) 
+	</p>
+	<li><p style="margin-bottom: 0cm">XML Paper Specification (.XPS) 
+	</p>
+	<li><p>Archive file types (.ZIP and .RAR) 
+	</p>
+</ul>
+<p><a href="https://gist.githubusercontent.com/tzmartin/1cf85dc3d975f94cfddc04bc0dd399be/raw/d4263c8faf7b68f4bbfd33b386ec33ed2bc11e7d/embedded-file-viewer.md">Source</a></p>
+<h4 class="western"><a name="user-content-url"></a>url</h4>
+<p>For another external document viewers that should be loaded in an
+iframe.</p>
+<p>For Google Drive</p>
+<pre class="western">&lt;ngx-doc-viewer
+  [url]=&quot;'https://drive.google.com/file/d/0B5ImRpiNhCfGZDVhMGEyYmUtZTdmMy00YWEyLWEyMTQtN2E2YzM3MDg3MTZh/preview'&quot;
+  viewer=&quot;url&quot;
+  style=&quot;width:100%;height:50vh;&quot;
+&gt;
+&lt;/ngx-doc-viewer&gt;</pre><p>
+For the Google Viewer or any other viewer where there is a base url
+and a parameter for the documentUrl:</p>
+<pre class="western">&lt;ngx-doc-viewer
+  [viewerUrl]=&quot;https://docs.google.com/gview?url=%URL%&amp;embedded=true&quot;
+  [url]=&quot;https://file-examples.com/wp-content/uploads/2017/02/file-sample_100kB.doc&quot;
+  viewer=&quot;url&quot;
+  style=&quot;width:100%;height:50vh;&quot;
+&gt;
+&lt;/ngx-doc-viewer&gt;</pre><h3 class="western">
+<a name="user-content-pdf"></a>pdf</h3>
+<p>.pdf</p>
+<p>NOTE: PDF's are shown in the embed tag. Browser support is not
+guaranteed. If you need to be sure the pdf renders on all browsers
+you better use PDF.js</p>
+<h3 class="western"><a name="user-content-mammoth"></a>mammoth</h3>
+<p>.docx</p>
+<p>To use mammoth, also add:</p>
+<pre class="western" style="margin-bottom: 0.5cm">npm install mammoth --save</pre><p>
+and make sure mammoth.browser.min.js is loaded. For the angular/cli
+you would add the following in angular.json:</p>
+<pre class="western">    &quot;scripts&quot;: [
+        &quot;node_modules/mammoth/mammoth.browser.min.js&quot;
+    ]</pre><h2 class="western">
+My other packages</h2>
+<ul>
+	<li><p style="margin-bottom: 0cm">ngx-event-handler: advance event
+	handling like click-outside with serval options: <a href="https://www.npmjs.com/package/ngx-event-handler">npm</a>
+	| <a href="https://github.com/Marcelh1983/angular-event-handler">github</a>
+	| <a href="https://stackblitz.com/edit/ngx-event-handler">demo</a> 
+	</p>
+	<li><p style="margin-bottom: 0.5cm">ngx-edit-inline: basic inline
+	edit component: <a href="https://www.npmjs.com/package/ngx-edit-inline">npm</a>
+	| <a href="https://github.com/Marcelh1983/angular-inline-edit">github</a>
+	| <a href="https://ngx-edit-inline.firebaseapp.com/">demo</a></p>
+</ul>
+<div id="readme" dir="ltr">
+	<ul><li><p> 
+		</p>
+	</ul>
+</div>
+<h2 class="western">Readme</h2>
+<p><a name="user-content-keywords"></a><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>Actuall I think it uses some<font color="#ff0000"><b> iframe</b></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm">Here you will get a
+sample doc</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font color="#1b259f"><font size="4" style="font-size: 14pt"><b><a href="https://view.officeapps.live.com/op/view.aspx?src=https://sample-videos.com/doc/Sample-doc-file-100kb.doc">https://view.officeapps.live.com/op/view.aspx?src=https://sample-videos.com/doc/Sample-doc-file-100kb.doc</a></b></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font color="#1b259f"><font size="4" style="font-size: 14pt"><b>Here
+the app should be less than 10mb cool...</b></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><font color="#1b259f"><font size="4" style="font-size: 14pt"><b>Sample
+ppt Tested using</b></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b><a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fscholar%2Eharvard%2Eedu%3A443%2Ffiles%2Ftorman%5Fpersonal%2Ffiles%2Fsamplepptx%2Epptx&amp;wdSlideId=256&amp;wdModeSwitchTime=1711896372659">https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fscholar%2Eharvard%2Eedu%3A443%2Ffiles%2Ftorman%5Fpersonal%2Ffiles%2Fsamplepptx%2Epptx&amp;wdSlideId=256&amp;wdModeSwitchTime=1711896372659</a></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b>document-viewer.html</b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b>&lt;ngx-doc-viewer</b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b>[url]=&quot;doc&quot;</b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f">  <font size="4" style="font-size: 14pt"><i><b>viewer=
+&quot;office&quot;</b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f">  <font size="4" style="font-size: 14pt"><i><b>style=&quot;width:100%;height:90vh;&quot;</b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b>&gt;&lt;/ngx-doc-viewer&gt;</b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b>document-viewer-component.ts</b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b><span style="background: transparent">import
+{ CommonModule } from '@angular/common';</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b><span style="background: transparent">import
+{ Component } from '@angular/core';</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b><span style="background: transparent">import
+{ NgxDocViewerModule } from 'ngx-doc-viewer';</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b><span style="background: transparent">@Component({</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent">  </span></font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent"> 
+<font size="4" style="font-size: 14pt"><i><b>selector:
+'app-documentviewer',</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent"> 
+<font size="4" style="font-size: 14pt"><i><b>standalone: true,</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent"> </span></font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent"> 
+<font size="4" style="font-size: 14pt"><i><b>imports: [</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent">   
+<font size="4" style="font-size: 14pt"><i><b>CommonModule,</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent">   
+<font size="4" style="font-size: 14pt"><i><b>NgxDocViewerModule</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent">  <font size="4" style="font-size: 14pt"><i><b>],</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent"> 
+<font size="4" style="font-size: 14pt"><i><b>templateUrl:
+'./documentviewer.component.html',</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent"> 
+<font size="4" style="font-size: 14pt"><i><b>styleUrl:
+'./documentviewer.component.css',</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b><span style="background: transparent">})</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b><span style="background: transparent">export
+class DocumentviewerComponent {</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent">  <font size="4" style="font-size: 14pt"><i><b>doc1:
+string = 'https://sample-videos.com/doc/Sample-doc-file-100kb.doc'; </span></b></i></font></font>
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><span style="background: transparent">  <font size="4" style="font-size: 14pt"><i><b>doc:
+ string =
+'https://scholar.harvard.edu/files/torman_personal/files/samplepptx.pptx';</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="4" style="font-size: 14pt"><i><b><span style="background: transparent">}</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"> <font size="5" style="font-size: 18pt"><i><b><span style="background: #cccccc">ng
+generate component documentviewer</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="5" style="font-size: 18pt"><i><b><span style="background: #cccccc">Some
+Youtube videos</span></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="5" style="font-size: 18pt"><i><b><a href="https://www.youtube.com/watch?v=1M8o1kKCjis"><span style="background: #cccccc">https://www.youtube.com/watch?v=1M8o1kKCjis</span></a></b></i></font></font></p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+</body>
+</html>

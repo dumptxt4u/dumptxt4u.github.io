@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
+	<meta name="created" content="2024-03-31T22:49:24.062113325"/>
+	<meta name="changed" content="2024-03-31T22:50:02.314112570"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
+		pre { background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-family: "Noto Sans Mono CJK SC", monospace; font-size: 10pt }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		h3 { margin-top: 0.25cm; margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Serif", serif; font-size: 14pt; font-weight: bold }
+		h3.cjk { font-family: "Noto Serif CJK SC"; font-size: 14pt; font-weight: bold }
+		h3.ctl { font-family: "Lohit Devanagari"; font-size: 14pt; font-weight: bold }
+		h2 { margin-top: 0.35cm; margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Liberation Serif", serif; font-size: 18pt; font-weight: bold }
+		h2.cjk { font-family: "Noto Serif CJK SC"; font-size: 18pt; font-weight: bold }
+		h2.ctl { font-family: "Lohit Devanagari"; font-size: 18pt; font-weight: bold }
+		a:link { color: #000080; text-decoration: underline }
+		code.western { font-family: "Liberation Mono", monospace }
+		code.cjk { font-family: "Noto Sans Mono CJK SC", monospace }
+		code.ctl { font-family: "Liberation Mono", monospace }
+	</style>
+</head>
+<body lang="en-IN" link="#000080" vlink="#800000" dir="ltr"><p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#1b259f"><font size="5" style="font-size: 18pt"><i><b><span style="background: #cccccc">LiberOnline</span></b></i></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><span style="background: transparent">
+<font size="5" style="font-size: 18pt"><a href="https://ralph.blog.imixs.com/2021/05/07/libreoffice-online-how-to-integrate/">https://ralph.blog.imixs.com/2021/05/07/libreoffice-online-how-to-integrate/</a></span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">Docker
+hub loged in </span></font></font>
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">Saved
+as</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">docker-compose.yaml</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<pre class="western" style="font-style: normal; font-weight: normal; text-decoration: none"><font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><code class="western">version: &quot;3.6&quot;</code></span></font></font>
+<code class="western">services:</code>
+<code class="western">  </code>
+<code class="western">  </code><code class="western">libreoffice-app:</code>
+<code class="western">    </code><code class="western">image: collabora/code:6.4.8.4</code>
+<code class="western">    </code><code class="western">container_name: libreoffice-app</code>
+<code class="western">    </code><code class="western">expose:</code>
+<code class="western">      </code><code class="western">- 9980</code>
+<code class="western">    </code><code class="western">ports:</code>
+<code class="western">      </code><code class="western">- &quot;9980:9980&quot;</code>
+<code class="western">    </code><code class="western">environment:</code>
+<code class="western">      </code><code class="western">- username=admin</code>
+<code class="western">      </code><code class="western">- password=adminadmin</code>
+<code class="western">    </code><code class="western">restart: always</code></pre><p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">ran
+</span></font></font>
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">sudo
+docker-compose up</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">Collabora</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><a href="https://github.com/CollaboraOnline/collabora-online-sdk-examples/tree/master">https://github.com/CollaboraOnline/collabora-online-sdk-examples/tree/master</a></span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">Youtube</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<h3 class="western" style="font-style: normal; font-weight: normal; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">Jax-rs
+Example Implementation</span></font></font></h3>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<pre class="western" style="font-style: normal; font-weight: normal; text-decoration: none"><font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><code class="western">Wopi protocol</code></span></font></font>
+</pre><p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">https://learn.microsoft.com/en-us/microsoft-365/cloud-storage-partner-program/online</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">Had
+some dive deep into</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><a href="https://viewerjs.org/">https://viewerjs.org/</a></span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><a href="https://gitbrent.github.io/PptxGenJS/">https://gitbrent.github.io/PptxGenJS/</a></span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><a href="https://webodf.org/">https://webodf.org/</a></span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><a href="https://viewerjs.org/examples/">https://viewerjs.org/examples/</a></span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">Youtube
+Reference that were  taken</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><a href="https://www.youtube.com/watch?v=xkKcdK1u95s&amp;t=97s">https://www.youtube.com/watch?v=xkKcdK1u95s&amp;t=97s</a></span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">WOPI
+Protocol</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><a href="https://www.youtube.com/watch?v=tjrRFUruM1w&amp;t=183s">https://www.youtube.com/watch?v=tjrRFUruM1w&amp;t=183s</a></span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">WOPI
+Host Integration</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><a href="https://www.youtube.com/watch?v=9lGonu0eoGA&amp;t=92s">https://www.youtube.com/watch?v=9lGonu0eoGA&amp;t=92s</a></span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">Integrating
+Libera Office Online via Wopi</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><a href="https://www.youtube.com/watch?v=oXHWwUqC_EU&amp;t=192s">https://www.youtube.com/watch?v=oXHWwUqC_EU&amp;t=192s</a></span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent">Installing
+Collabara Online on NextCloud Service</span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><font size="5" style="font-size: 18pt"><span style="background: transparent"><a href="https://www.youtube.com/watch?v=48WrX_Lf1nA&amp;t=1243s">https://www.youtube.com/watch?v=48WrX_Lf1nA&amp;t=1243s</a></span></font></font></p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<font color="#000000"><span style="background: transparent"> </span></font>
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<h2 class="western" style="font-style: normal; font-weight: normal; text-decoration: none">
+<font color="#000000"><font size="2" style="font-size: 10pt"><span style="background: transparent">Requirements</span></font></font></h2>
+<ul>
+	<li><p><a name="user-content-requirements"></a><font size="2" style="font-size: 10pt"><a href="https://httpd.apache.org/docs">Apache</a>
+	</font>
+	</p>
+</ul>
+<h2 class="western"><font size="2" style="font-size: 10pt">Configuration
+on Linux</font></h2>
+<p><a name="user-content-configuration-on-linux"></a><font size="2" style="font-size: 10pt">We
+assume that you have already the Apache web server installed on your
+machine and started, and that the PHP module for Apache has been
+installed too and loaded.</font></p>
+<ol>
+	<li><p style="margin-bottom: 0cm"><font size="2" style="font-size: 10pt">Edit
+	the </font><code class="western"><font size="2" style="font-size: 10pt">apache.conf</font></code><font size="2" style="font-size: 10pt">
+	file included in the example </font>
+	</p>
+	<ul>
+		<li><p style="margin-bottom: 0cm"><font size="2" style="font-size: 10pt">Modify
+		the line </font><code class="western"><font size="2" style="font-size: 10pt">Define
+		EXAMPLE_BASE_PATH &lt;path_to_example&gt;</font></code><font size="2" style="font-size: 10pt">
+		by replacing </font><code class="western"><font size="2" style="font-size: 10pt">&lt;path_to_example&gt;</font></code><font size="2" style="font-size: 10pt">
+		with the absolute path to the folder where you downloaded the
+		example for instance if you copied it into your home folder we have
+		</font><code class="western"><font size="2" style="font-size: 10pt">&lt;path_to_example&gt;
+		= /home/&lt;user_name&gt;</font></code><font size="2" style="font-size: 10pt">.
+		</font>
+		</p>
+	</ul>
+	<li><p style="margin-bottom: 0cm"><font size="2" style="font-size: 10pt">Edit
+	your system-wide Apache configuration file:
+	</font><code class="western"><font size="2" style="font-size: 10pt">/etc/apache2/default-server.conf</font></code><font size="2" style="font-size: 10pt">
+	or in case you have set up and use a virtual host the configuration
+	file for your virtual host. </font>
+	</p>
+	<ul>
+		<li><p style="margin-bottom: 0cm"><font size="2" style="font-size: 10pt">At
+		the end of the config file append the following line:
+		</font><code class="western"><font size="2" style="font-size: 10pt">IncludeOptional
+		&lt;path_to_example&gt;/php/apache.conf</font></code><font size="2" style="font-size: 10pt">.
+		</font>
+		</p>
+	</ul>
+	<li><p><font size="2" style="font-size: 10pt">Restart the Apache
+	server so that the new configuration is loaded. </font>
+	</p>
+</ol>
+<h2 class="western"><font size="2" style="font-size: 10pt">Run the
+example</font></h2>
+<ol>
+	<li><p><a name="user-content-run-the-example"></a><font size="2" style="font-size: 10pt">Start
+	your browser and make it point to the url </font><code class="western"><font size="2" style="font-size: 10pt">http://&lt;host&gt;/example_php</font></code></p>
+	<p><font size="2" style="font-size: 10pt">To make it reachable by
+	the Collabora Online server you need to use as </font><code class="western"><font size="2" style="font-size: 10pt">&lt;host&gt;</font></code><font size="2" style="font-size: 10pt">
+	the IP address of the machine where the Apache instance is running.
+	In case the Apache server can't be reached you could also need to
+	open the port for the http service on the firewall.</font></p>
+	<p><font size="2" style="font-size: 10pt">When both the Collabora
+	Online server and the Apache server belong to the same LAN </font><code class="western"><font size="2" style="font-size: 10pt">&lt;host&gt;</font></code><font size="2" style="font-size: 10pt">
+	should be a local IP address.</font></p>
+	<p><font size="2" style="font-size: 10pt">In case the Collabora
+	Online server is on a remote host on the internet, </font><code class="western"><font size="2" style="font-size: 10pt">&lt;host&gt;</font></code><font size="2" style="font-size: 10pt">
+	must be the public IP address of the machine where the Apache server
+	is running.</font></p>
+	<p><font size="2" style="font-size: 10pt">In case you enabled SSL
+	support for Apache, you should use </font><code class="western"><font size="2" style="font-size: 10pt">https</font></code><font size="2" style="font-size: 10pt">
+	in place of </font><code class="western"><font size="2" style="font-size: 10pt">http</font></code><font size="2" style="font-size: 10pt">.</font></p>
+	<li><p><font size="2" style="font-size: 10pt">In the form text field
+	enter the address for your Collabora Online server including the
+	protocol scheme, then click on the </font><code class="western"><font size="2" style="font-size: 10pt">Load
+	Collabora Online</font></code><font size="2" style="font-size: 10pt">
+	button.</font></p>
+	<li><p><font size="2" style="font-size: 10pt">An instance of
+	Collabora Online should appear into an iframe embedded in the same
+	page, showing a text document loaded with content a simple </font><code class="western"><font size="2" style="font-size: 10pt">Hello
+	world!</font></code><font size="2" style="font-size: 10pt"> text
+	line.</font></p>
+	<li><p><font size="2" style="font-size: 10pt">Try to type in some
+	more text ( e.g. </font><code class="western"><font size="2" style="font-size: 10pt">Hi!</font></code><font size="2" style="font-size: 10pt">)
+	and then perform a </font><code class="western"><font size="2" style="font-size: 10pt">Save</font></code><font size="2" style="font-size: 10pt">
+	action. Now check Apache error log file, you should see 2 log lines
+	as the following ones:</font></p>
+	<ul>
+		<li><p style="margin-bottom: 0cm"><code class="western"><font size="2" style="font-size: 10pt">wopiPutFile
+		invoked</font></code><font size="2" style="font-size: 10pt"> - the
+		PutFile wopi endpoint has been triggered </font>
+		</p>
+		<li><p><code class="western"><font size="2" style="font-size: 10pt">\xef\xbb\xbfHello
+		World! Hi!\n</font></code><font size="2" style="font-size: 10pt"> -
+		the updated file content has been successfully received </font>
+		</p>
+	</ul>
+</ol>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="font-style: normal; font-weight: normal; line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-bottom: 0cm; text-decoration: none">
+<br/>
+
+</p>
+</body>
+</html>
