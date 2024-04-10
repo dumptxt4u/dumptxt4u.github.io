@@ -12,15 +12,18 @@
 
 
 
+
+	  // Define an array of resource objects containing name and URL
 // Define an array of resource objects containing name and URL
 const resources = [
-  { name: "Raspberry Pi Operating Systems", url: "https://www.raspberrypi.com/software/operating-systems/" },
-  { name: "BusyBox Source Code", url: "https://elixir.bootlin.com/busybox/0.41/source" },
-  { name: "BusyBox 2", url: "https://github.com/mirror/busybox" },
-  { name: "How to use BusyBox", url: "https://opensource.com/article/21/8/what-busybox" },
-  { name: "BusyBox on Medium", url: "https://siddhivinayak-sk.medium.com/busybox-the-developers-swiss-army-knife-for-embedded-linux-98c312ac5843" },
-  { name: "BusyBox Official Site", url: "https://www.busybox.net/" }
-];
+  { name: "Syllabus", url: "file:///home/midhun/Downloads/ilide.info-ktu-s2-mtech-cse-syllabus-pr_87004f7faf0da3b7869ac19e6c0f22d0.pdf" },
+  { name: "Book 1", url: "http://www.doc-developpement-durable.org/file/Projets-informatiques/cours-&-manuels-informatiques/Linux/Linux%20Kernel%20Development,%203rd%20Edition.pdf" },
+  { name: "Book 2", url: "https://books.google.co.in/books/about/Advanced_Concepts_in_Operating_Systems.html?id=sLlQAAAAMAAJ&redir_esc=y" },
+  { name: "Book 3", url: "https://doc.lagout.org/operating%20system%20/linux/Understanding%20Linux%20Kernel.pdf" },
+  { name: "Book 4", url: "http://www.staroceans.org/kernel-and-driver/Wrox.Professional.Linux.Kernel.Architecture.Oct.2008.pdf" },
+  { name: "Book 5", url: "http://ommolketab.ir/aaf-lib/6wr2qq0bta79ul9nws0tx8ozgj7tgg.pdf" },
+  { name: "Book 6", url: "https://mis.alagappauniversity.ac.in/siteAdmin/dde-admin/uploads/5/__UG_B.Sc._Information%20Technology_129%2052_Operating%20Systems_CRC_3159.pdf" },
+]
 
 
 // Function to generate the resource list
@@ -53,7 +56,7 @@ window.onload = generateResourceList;
 <body>
 
 <div class="container mt-5">
-  <h1 class="mb-4">Source Of Operating Systems</h1>
+  <h1 class="mb-4">OS Good Books</h1>
   <ul id="resourceList" class="list-group">
     <!-- Resources will be dynamically generated here -->
   </ul>

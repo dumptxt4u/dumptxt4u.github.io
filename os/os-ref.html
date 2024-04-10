@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Syllabus Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet">
+  <script>
+
+// Define an array of resource objects containing name and URL
+const resources = [
+  { name: "Tutorial Points Operating System", url: "https://www.tutorialspoint.com/operating_system/os_overview.htm" },
+  { name: "Operating System 4th Edition", url: "https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Modern%20Operating%20Systems.pdf" },
+  { name: "Understanding Linux System Calls With Strace", url: "https://opensource.com/article/19/10/strace" },
+  { name: "Linux Kernel Docs", url: "https://docs.kernel.org/" },
+  { name: "Linux Kernel Documentation", url: "https://www.kernel.org/doc/html/v4.10/index.html" },
+  { name: "Linux Kernel Teaching", url: "https://linux-kernel-labs.github.io/refs/heads/master/" },
+  { name: "Linux Kernel Labs", url: "https://linux-kernel-labs.github.io/refs/heads/master/lectures/syscalls.html" },
+  { name: "Linux Source Code Explorer", url: "https://lxr.linux.no/+trees" },
+  { name: "Linux Source Code Dev Browser Codebrowser.dev", url: "https://codebrowser.dev/linux/linux/" },
+  { name: "Bootlin Linux Browser", url: "https://elixir.bootlin.com/linux/v5.10/source" },
+  { name: "Operating System Diagnoser Book", url: "https://os.ecci.ucr.ac.cr/slides/Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf" },
+  { name: "Operating System Diagnoser Book Link 2", url: "https://drive.uqu.edu.sa/_/mskhayat/files/MySubjects/2017SS%20Operating%20Systems/Abraham%20Silberschatz-Operating%20System%20Concepts%20(9th,2012_12).pdf" },
+  { name: "Operating System Book link 3", url: "http://web.uettaxila.edu.pk/CMS/AUT2011/seAOSbs/notes/Text%20-%20Silberschatz.Galvin%20-%20Operating.System.Concepts.7th.pdf" },
+  { name: "Multics", url: "https://www.cse.psu.edu/~trj1/cse443-s12/docs/ch3.pdf" },
+  { name: "Operating System 3rd Edition", url: "https://csc-knu.github.io/sys-prog/books/Andrew%20S.%20Tanenbaum%20-%20Operating%20Systems.%20Design%20and%20Implementation.pdf" },
+  { name: "Multics Emulator", url: "https://multicians.org/multics-source.html" },
+  { name: "Multics Operating System", url: "https://www.freelancinggig.com/blog/2017/10/16/multics-operating-system/" },
+  { name: "Amoeba Operating System", url: "https://en.wikipedia.org/wiki/Amoeba_(operating_system)" },
+  { name: "IEEE Paper On Amoeba Operating System", url: "https://sci-hub.se/https://ieeexplore.ieee.org/document/53354" },
+  { name: "Linux Operating System Books", url: "https://wiki.lib.sun.ac.za/images/c/ca/TLCL-13.07.pdf" },
+  { name: "How Linux Kernel Works", url: "https://www.kernel.org/doc/html/v4.10/process/howto.html" },
+  { name: "Linux Kernel", url: "http://www.doc-developpement-durable.org/file/Projets-informatiques/cours-&-manuels-informatiques/Linux/Linux%20Kernel%20Development,%203rd%20Edition.pdf" },
+  { name: "Many Books Like", url: "https://github.com/swadhinsekhar/books/tree/master" }
+];
+
+
+
+	  // Define an array of resource objects containing name and URL
+
+// Function to generate the resource list
+function generateResourceList() {
+  const list = document.getElementById("resourceList");
+  resources.forEach(resource => {
+    const listItem = document.createElement("li");
+    listItem.className = "list-group-item";
+    const link = document.createElement("a");
+    link.href = resource.url;
+    link.target = "_blank";
+    link.textContent = resource.name;
+    listItem.appendChild(link);
+    list.appendChild(listItem);
+  });
+}
+
+// Call the function to generate the resource list when the page loads
+window.onload = generateResourceList;
+
+
+
+
+  </script>
+
+
+
+
+</head>
+<body>
+
+<div class="container mt-5">
+  <h1 class="mb-4">OS Reference Materials</h1>
+  <ul id="resourceList" class="list-group">
+    <!-- Resources will be dynamically generated here -->
+  </ul>
+</div>
+
+<!-- Bootstrap JS and jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
+

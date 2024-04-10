@@ -1,52 +1,84 @@
-MIT Operating Systems
-
-https://www.youtube.com/watch?v=TMpjvAvQCWA&list=PLmYqzXhwU4QwbLv1a4W8pROZ5x1gGgSAH
-
-
-Davis Professor Operating System
-https://www.youtube.com/watch?v=pPzVV2kkGHc&list=PLrimOxkZOkBgqMw5mta6fVLeoUmhGlYFL
-
-Operating Systems Labs KTU malayalam
-https://www.youtube.com/watch?v=OK7Je3RaRN4&list=PL0j1SAXqn8ZsDICDCxGJAE14398Bp8_iD
-
-
-
-Real Time Operating Systems
-https://www.youtube.com/watch?v=dHsHP9RrXBw&list=PLJ5C_6qdAvBH-JNRIlupFb44miyx9M8JD
-
-Distributed Computer Systems
-https://www.youtube.com/watch?v=w8KFPWkK0bI&list=PLawkBQ15NDEkDJ5IyLIJUTZ1rRM9YQq6N
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Syllabus Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet">
+  <script>
 
 
 
-Malayalam Operating System
-https://www.youtube.com/@csclassroom2020/search?query=operating%20systems
 
-Edu Operating Systems
-https://www.youtube.com/watch?v=Zr_x6McF_VA&list=PLI74-7rtCb9DskNUdNn2oTM0MAlcuqd4t
-
-
-Devi Mam OS lab
-https://www.youtube.com/watch?v=pcTuOWB6nTI&list=PLojRVMfz8TPN-iKHmomlL3H035yc1dFMs
-
-Lab manual Pdf 
-https://www.vsbec.com/wp-content/uploads/2019/02/OS-LAB.pdf
-
-Malla Reddy Operating System Labs
-https://mrcet.com/pdf/Lab%20Manuals/CSE/OPERATING%20SYSTEMS%20LAB(R18).pdf
-
-
-Joel Boby Labs
-https://github.com/JoelBobyM/S4-OS-LAB-KTU
-
-
-Operating System Malayalam
-
-https://www.youtube.com/watch?v=-c6l-xZNkxY&list=PL4NTLObSmllVI4gTw9mglrMif2g1KwM5f
+	  // Define an array of resource objects containing name and URL
+// Define an array of resource objects containing name and URL
+const resources = [
+ {name:'Chapters Malayalam Operating System Videos',url:"https://www.youtube.com/watch?v=-c6l-xZNkxY&list=PL4NTLObSmllVI4gTw9mglrMif2g1KwM5f"},
+ {name :'Jenny Mams Operating System Videos',url:"https://www.youtube.com/watch?v=RozoeWzT7IM&list=PLdo5W4Nhv31a5ucW_S1K3-x6ztBRD-PNa"},
+  { name: "MIT Operating Systems", url: "https://www.youtube.com/watch?v=TMpjvAvQCWA&list=PLmYqzXhwU4QwbLv1a4W8pROZ5x1gGgSAH" },
+  { name: "Davis Professor Operating System", url: "https://www.youtube.com/watch?v=pPzVV2kkGHc&list=PLrimOxkZOkBgqMw5mta6fVLeoUmhGlYFL" },
+  { name: "Operating Systems Labs KTU Malayalam", url: "https://www.youtube.com/watch?v=OK7Je3RaRN4&list=PL0j1SAXqn8ZsDICDCxGJAE14398Bp8_iD" },
+  { name: "Real Time Operating Systems", url: "https://www.youtube.com/watch?v=dHsHP9RrXBw&list=PLJ5C_6qdAvBH-JNRIlupFb44miyx9M8JD" },
+  { name: "Distributed Computer Systems", url: "https://www.youtube.com/watch?v=w8KFPWkK0bI&list=PLawkBQ15NDEkDJ5IyLIJUTZ1rRM9YQq6N" },
+  { name: "Malayalam Operating System", url: "https://www.youtube.com/@csclassroom2020/search?query=operating%20systems" },
+  { name: "Edu Operating Systems", url: "https://www.youtube.com/watch?v=Zr_x6McF_VA&list=PLI74-7rtCb9DskNUdNn2oTM0MAlcuqd4t" },
+  { name: "Devi Mam OS lab", url: "https://www.youtube.com/watch?v=pcTuOWB6nTI&list=PLojRVMfz8TPN-iKHmomlL3H035yc1dFMs" },
+  { name: "Lab manual Pdf", url: "https://www.vsbec.com/wp-content/uploads/2019/02/OS-LAB.pdf" },
+  { name: "Malla Reddy Operating System Labs", url: "https://mrcet.com/pdf/Lab%20Manuals/CSE/OPERATING%20SYSTEMS%20LAB(R18).pdf" },
+  { name: "Joel Boby Labs", url: "https://github.com/JoelBobyM/S4-OS-LAB-KTU" },
+  { name: "Operating System Malayalam", url: "https://www.youtube.com/watch?v=-c6l-xZNkxY&list=PL4NTLObSmllVI4gTw9mglrMif2g1KwM5f" },
+  { name: "Ifocus Institue", url: "https://www.youtube.com/watch?v=taNzTCO-k3U&list=PLXfqKH_5mq-OQE1CpddCNObtEgr6i4NCP" }
+];
 
 
 
 
 
-Ifocus Institue
-https://www.youtube.com/watch?v=taNzTCO-k3U&list=PLXfqKH_5mq-OQE1CpddCNObtEgr6i4NCP
+// Function to generate the resource list
+function generateResourceList() {
+  const list = document.getElementById("resourceList");
+  resources.forEach(resource => {
+    const listItem = document.createElement("li");
+    listItem.className = "list-group-item";
+    const link = document.createElement("a");
+    link.href = resource.url;
+    link.target = "_blank";
+    link.textContent = resource.name;
+    listItem.appendChild(link);
+    list.appendChild(listItem);
+  });
+}
+
+// Call the function to generate the resource list when the page loads
+window.onload = generateResourceList;
+
+
+
+
+  </script>
+
+
+
+
+</head>
+<body>
+
+<div class="container mt-5">
+  <h1 class="mb-4">Videos On OS</h1>
+  <ul id="resourceList" class="list-group">
+    <!-- Resources will be dynamically generated here -->
+  </ul>
+</div>
+
+<!-- Bootstrap JS and jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
+
