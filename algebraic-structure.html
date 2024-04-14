@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
+	<meta name="created" content="2024-04-14T20:04:27.566696313"/>
+	<meta name="changed" content="2024-04-14T20:11:17.033307546"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
+		h1 { margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Serif", serif; font-size: 24pt; font-weight: bold }
+		h1.cjk { font-family: "Noto Serif CJK SC"; font-size: 24pt; font-weight: bold }
+		h1.ctl { font-family: "Lohit Devanagari"; font-size: 24pt; font-weight: bold }
+		h3 { margin-top: 0.25cm; margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Serif", serif; font-size: 14pt; font-weight: bold }
+		h3.cjk { font-family: "Noto Serif CJK SC"; font-size: 14pt; font-weight: bold }
+		h3.ctl { font-family: "Lohit Devanagari"; font-size: 14pt; font-weight: bold }
+		pre { background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-family: "Noto Sans Mono CJK SC", monospace; font-size: 10pt }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		h2 { margin-top: 0.35cm; margin-bottom: 0.21cm; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Liberation Serif", serif; font-size: 18pt; font-weight: bold }
+		h2.cjk { font-family: "Noto Serif CJK SC"; font-size: 18pt; font-weight: bold }
+		h2.ctl { font-family: "Lohit Devanagari"; font-size: 18pt; font-weight: bold }
+		blockquote { margin-left: 1cm; margin-right: 1cm; background: transparent }
+		td p { orphans: 0; widows: 0; background: transparent }
+		th p { font-weight: bold; text-align: center; orphans: 0; widows: 0; background: transparent }
+		strong { font-weight: bold }
+	body{
+
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 300px;
+	}
+
+
+	</style>
+</head>
+<body lang="en-IN" link="#000080" vlink="#800000" dir="ltr"><h1 class="western">
+Algebraic Structure</h1>
+<h3 class="western">Algebraic Structure</h3>
+<p>A non empty set S is called an algebraic structure w.r.t binary
+operation (*) if it follows the following axioms:&nbsp;</p>
+<p><strong>Closure:</strong>(a*b) belongs to S for all a,b ? S.&nbsp;</p>
+<p><br/>
+<br/>
+
+</p>
+<p><strong>Example:</strong>&nbsp;</p>
+<pre class="western">S = {1,-1} is algebraic structure under *&nbsp;
+As 1*1 = 1, 1*-1 = -1, -1*-1 = 1 all results belong to S.&nbsp;</pre><p>
+But the above is not an algebraic structure under + as 1+(-1) = 0 not
+belongs to S.&nbsp;</p>
+<p><br/>
+<br/>
+
+</p>
+<h2 class="western">Semi Group</h2>
+<p>A non-empty set S, (S,*) is called a semigroup if it follows the
+following axiom:&nbsp;</p>
+<ul>
+	<li><p style="margin-bottom: 0cm"><strong>Closure:</strong>(a*b)
+	belongs to S for all a, b ? S.&nbsp;&nbsp; 
+	</p>
+	<li><p><strong>Associativity:</strong> a*(b*c) = (a*b)*c ? a, b ,c
+	belongs to S. 
+	</p>
+</ul>
+<blockquote><strong>Note:</strong> A semi-group is always an
+algebraic structure.&nbsp;</blockquote>
+<blockquote><strong>Example:</strong> (Set of integers, +), and
+(Matrix ,*) are examples of semigroup.&nbsp;&nbsp;</blockquote>
+<h2 class="western">Monoid</h2>
+<p>A non-empty set S, (S,*) is called a monoid if it follows the
+following axiom:&nbsp;<br/>
+&nbsp;</p>
+<ul>
+	<li><p style="margin-bottom: 0cm"><strong>Closure:</strong>(a*b)
+	belongs to S for all a, b ? S.&nbsp; 
+	</p>
+	<li><p style="margin-bottom: 0cm"><strong>Associativity:</strong>
+	a*(b*c) = (a*b)*c ? a, b, c belongs to S. 
+	</p>
+	<li><p><strong>Identity Element: </strong>There exists e ? S such
+	that a*e = e*a = a ? a ? S 
+	</p>
+</ul>
+<blockquote><strong>Note:</strong> A monoid is always a semi-group
+and algebraic structure.&nbsp;</blockquote>
+<p><strong>Example:</strong></p>
+<p>(Set of integers,*) is Monoid as 1 is an integer which is also an
+identity element.&nbsp;<br/>
+(Set of natural numbers, +) is not
+Monoid as there doesn’t exist any identity element. But this is
+Semigroup.&nbsp;<br/>
+But (Set of whole numbers, +) is Monoid with 0
+as identity element.&nbsp;</p>
+<h3 class="western">Group</h3>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>A non-empty set G, (G,*) is called a group if it follows the
+following axiom:&nbsp;&nbsp;</p>
+<ul>
+	<li><p style="margin-bottom: 0cm"><strong>Closure:</strong>(a*b)
+	belongs to G for all a, b ? G. 
+	</p>
+	<li><p style="margin-bottom: 0cm"><strong>Associativity:</strong>
+	a*(b*c) = (a*b)*c ? a, b, c belongs to G. 
+	</p>
+	<li><p style="margin-bottom: 0cm"><strong>Identity Element: </strong>There
+	exists e ? G such that a*e = e*a = a ? a ? G 
+	</p>
+	<li><p><strong>Inverses:</strong>? a ? G there exists a<sup>-1</sup>
+	? G such that a*a<sup>-1</sup> = a<sup>-1</sup>*a = e 
+	</p>
+</ul>
+<blockquote><strong>Note:</strong></blockquote>
+<ul>
+	<li><blockquote style="margin-bottom: 0cm">A group is always a
+	monoid, semigroup, and algebraic structure. 
+	</blockquote>
+	<li><blockquote>(Z,+) and Matrix multiplication is example of group.
+		</blockquote>
+</ul>
+<h3 class="western">Abelian Group or Commutative group</h3>
+<p><br/>
+<br/>
+
+</p>
+<p>A non-empty set S, (S,*) is called a Abelian group if it follows
+the following axiom:&nbsp;&nbsp;</p>
+<ul>
+	<li><p style="margin-bottom: 0cm"><strong>Closure:</strong>(a*b)
+	belongs to S for all a, b ? S.&nbsp; 
+	</p>
+	<li><p style="margin-bottom: 0cm"><strong>Associativity:</strong>
+	a*(b*c) = (a*b)*c ? a ,b ,c belongs to S. 
+	</p>
+	<li><p style="margin-bottom: 0cm"><strong>Identity Element: </strong>There
+	exists e ? S such that a*e = e*a = a ? a ? S 
+	</p>
+	<li><p style="margin-bottom: 0cm"><strong>Inverses:</strong>? a ? S
+	there exists a<sup>-1</sup> ? S such that a*a<sup>-1</sup> = a<sup>-1</sup>*a
+	= e 
+	</p>
+	<li><p><strong>Commutative:</strong> a*b = b*a for all a, b ? S 
+	</p>
+</ul>
+<p>For finding a set that lies in which category one must always
+check axioms one by one starting from closure property and so on.&nbsp;</p>
+<p>Here are some important results-</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<table cellpadding="2" cellspacing="0">
+	<tr>
+		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p>
+			&nbsp;</p>
+		</td>
+		<td style="border: 1px solid #000000; padding: 0.05cm"><p>Must
+			Satisfy Properties</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p>
+			Algebraic Structure</p>
+		</td>
+		<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p>
+			Closure</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p>
+			Semi Group</p>
+		</td>
+		<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p>
+			Closure, Associative</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p>
+			Monoid</p>
+		</td>
+		<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p>
+			Closure, Associative, Identity</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p>
+			Group</p>
+		</td>
+		<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p>
+			Closure, Associative, Identity, Inverse</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p>
+			Abelian Group</p>
+		</td>
+		<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p>
+			Closure, Associative, Identity, Inverse, Commutative</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p>very abelian group is a group, monoid, semigroup, and algebraic
+structure.&nbsp;</p>
+<p>Here is a Table with different nonempty set and operation:</p>
+<pre class="western">N=Set of Natural Number
+Z=Set of Integer
+R=Set of Real Number
+E=Set of Even Number
+O=Set of Odd Number
+M=Set of Matrix
++,-,×,÷ are the operations.</pre>
+<table width="409" cellpadding="2" cellspacing="0">
+	<col width="102"/>
+
+	<col width="70"/>
+
+	<col width="48"/>
+
+	<col width="56"/>
+
+	<col width="48"/>
+
+	<col width="58"/>
+
+	<thead>
+		<tr>
+			<th width="102" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Set, Operation</p>
+			</th>
+			<th width="70" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center" style="margin-bottom: 0.5cm">
+				Algebraic</p>
+				<p align="center">Structure</p>
+			</th>
+			<th width="48" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center" style="margin-bottom: 0.5cm">
+				Semi</p>
+				<p align="center">Group</p>
+			</th>
+			<th width="56" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Monoid</p>
+			</th>
+			<th width="48" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.05cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Group</p>
+			</th>
+			<th width="58" style="border: 1px solid #000000; padding: 0.05cm"><p align="center" style="margin-bottom: 0.5cm">
+				Abelian</p>
+				<p align="center">Group</p>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				N,+</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				N,-</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				N,×</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				N,÷</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Z,+</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				Y</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Z,-</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Z,×</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Z,÷</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				R,+</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				Y</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				R,-</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				R,×</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				R,÷</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				E,+</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				Y</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				E,×</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				O,+</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				O,×</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				M,+</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				Y</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="102" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				M,×</p>
+			</td>
+			<td width="70" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="56" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				Y</p>
+			</td>
+			<td width="48" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0cm"><p align="center">
+				X</p>
+			</td>
+			<td width="58" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.05cm; padding-left: 0.05cm; padding-right: 0.05cm"><p align="center">
+				X</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+</body>
+</html>
