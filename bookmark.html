@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic Renderer</title>
+</head>
+<body>
+  <div id="topics-container">
+    <!-- Topics will be rendered here -->
+  </div>
+
+  <script>
+    // Define the renderTopics function
+    function renderTopics(topics) {
+      const container = document.getElementById("topics-container");
+
+      topics.forEach(item => {
+        if (item.heading) {
+          const heading = document.createElement("h2");
+          heading.textContent = item.heading;
+          container.appendChild(heading);
+        } else {
+          const topic = document.createElement("p");
+          topic.textContent = item.topic;
+          if (item.url) {
+            const link = document.createElement("a");
+            link.href = item.url;
+            link.textContent = " [Link]";
+            topic.appendChild(link).setAttribute('target', '_blank');;
+          }
+          container.appendChild(topic);
+        }
+      });
+    }
+
+    // Define your array of topics
+    const topics = [
+  { heading: "Operating System and Kernels" },
+  { topic: "Linux Kernel Docs", url: "https://docs.kernel.org/" },
+  { topic: "Multics", url: "https://web.mit.edu/multics-history/" },
+  { heading: "GNU Compiler Collections" },
+  { topic: "GNU Tool Chain", url: "hhttps://gcc.gnu.org/" },
+  { heading: "Containerisation" },
+  { topic: "Docker", url: "https://docs.docker.com/get-started/overview/" },
+  { topic: "Docker Swarm",url: "https://docs.docker.com/engine/swarm/" },
+  { topic: "Kubernetes", url: "https://kubernetes.io/docs/home/" },
+  { heading: "Virtualisation" },
+  { topic: "Hyper-V", url: "#" },
+  { topic: "KVM", url: "#" },
+  { topic: "VirtualBox", url: "#" },
+  { topic: "OpenShift", url: "#" },
+  { heading: "Networking" },
+  { topic: "GNS3 Docs", url: "https://docs.gns3.com/docs/" },
+  { heading: "Hacking" },
+  { topic: "OverTheWire", url: "https://overthewire.org/wargames/" },
+  { topic: "OWASP", url: "https://owasp.org/" },
+  { heading: "Mobile Development" },
+  { topic: "iOS" },
+  { topic: "SwiftUI" },
+  { topic: "Android" },
+  { topic: "Kotlin", url: "#" },
+  { topic: "Jetpack Compose", url: "#" },
+  { topic: "Windows" },
+  { topic: "BlackBerry" },
+  { topic: "Nokia" },
+  { topic: "Hybrid" },
+  { topic: "Ionic and Cordova" },
+  { topic: "React Native" },
+  { heading: "Cloud Systems" },
+  { topic: "OwnCloud" },
+  { topic: "Eucalyptus", url: "https://docs.eucalyptus.cloud/eucalyptus/5/" },
+  { topic: "Nextcloud" },
+  { topic: "Email" },
+  { topic: "Bind" },
+  { heading: "ChatGPT opensource once" },
+  { heading: "Blockchain" },
+  { topic: "Crypto" },
+  { heading: "Different Types of API Architecture" },
+  {topics:"API Architecture- GraphQl and Rest Api",url:"https://hackernoon.com/api-architecture-style-differences-between-rest-api-and-graphql"}
+  { topic: "Authentication and Authorization Techniques", url: "https://frontegg.com/guides/api-authentication-api-authorization" },
+  { heading: "Protocols" },
+  { topic: "Matrix Protocols", url: "https://matrix.org/docs/chat_basics/matrix-for-im/" },
+  { topic: "OpenSSH", url: "https://www.openssh.com/specs.html" },
+  { heading: "Apps" },
+  { topic: "Jitsi", url: "https://jitsi.github.io/handbook/docs/intro/" },
+  { heading: "Servers" },
+  { topic: "Turn Server", url: "https://webrtc.org/getting-started/turn-server" },
+  { topic: "Stun Server", url: "https://www.3cx.com/pbx/what-is-a-stun-server/" },
+  { heading: "Buzz Words" },
+  { topic: "Peer To Peer", url: "https://en.wikipedia.org/wiki/Peer-to-peer" },
+  { topic: "WebSocket", url: "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" },
+  { topic: "Polling", url: "https://www.pubnub.com/guides/long-polling/" },
+  { topic: "HTTP Polling and Long Polling", url: "https://medium.com/cache-me-out/http-polling-and-long-polling-bd3f662a14f" },
+  { heading: "Shell Scripting" },
+  { topic: "Bash Scripting" },
+  { topic: "PowerShell Scripting" },
+  { topic: "Zsh Scripting" },
+  { heading: "Image Processing Software" },
+  { topic: "Adobe" },
+  { topic: "GIMP" },
+  { heading: "Office" },
+  { topic: "Scribus" },
+  { heading: "Video Editing Software" },
+  { topic: "OpenShot" },
+  { heading: "Type Setting" },
+  { topic: "LaTeX" },
+  { heading: "Top 10 frameworks" },
+  { topic: "ReactJs" },
+  { topic: "Angular State management with Ngrx", url: "https://www.syncfusion.com/blogs/post/angular-state-management-ngrx" },
+  { topic: "Vue.js", url: "https://vuejs.org/" },
+  { topic: "Svelte", url: "https://svelte.dev/" },
+  { heading: "Progressive Web Apps" },
+  { topic: "Ruby on Rails" },
+  { topic: "Django" },
+  { topic: "Angular (Also known as Angular JS)" },
+  { topic: "ASP.NET" },
+  { topic: "METEOR" },
+  { topic: "Laravel", url: "https://laracasts.com/" },
+  { topic: "Express" },
+  { topic: "Spring" },
+  { topic: "PLAY" },
+  { topic: "CodeIgniter" },
+  { heading: "Bots" },
+  { topic: "Telegram Bots" },
+  { heading: "IEEE Projects and Ideas" },
+  { heading: "Programming Languages" },
+  { topic: "ANSI C" },
+  { topic: "OOPS" },
+  { topic: "Java" },
+  { topic: "Rust" },
+  { topic: "Julia" },
+  { heading: "Functional" },
+  { topic: "Erlang" }
+];
+
+    // Call renderTopics function on page load
+    document.addEventListener("DOMContentLoaded", function() {
+      renderTopics(topics);
+    });
+  </script>
+</body>
+</html>
+
