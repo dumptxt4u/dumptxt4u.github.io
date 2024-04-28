@@ -5,7 +5,7 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
 	<meta name="created" content="2024-04-28T09:51:04.875438742"/>
-	<meta name="changed" content="2024-04-28T10:15:46.247145074"/>
+	<meta name="changed" content="2024-04-28T10:22:25.604854212"/>
 	<style type="text/css">
 		@page { size: 21cm 29.7cm; margin: 2cm }
 		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
@@ -3845,7 +3845,35 @@ processes in Linux, you can use the <code class="western">ps</code>
 command with specific options to display the scheduling policy for
 each process. Here's a command you can use:</p>
 <pre class="western" style="margin-bottom: 0.5cm">bash
-<code class="western">ps -e -o pid,cmd,policy</code></pre><p>
+<code class="western">ps -e -o pid,cmd,policyCertainly! If you'd like to use the tail command to list the last 10 lines of the output from the ps command, you can use a combination of ps and tail to achieve this. Here's how you can do it:</code>
+bash
+<code class="western">ps aux | tail -n +2 | tail -n 10</code></pre><p>
+Explanation of the command:</p>
+<ul>
+	<li><p style="margin-bottom: 0cm"><code class="western">ps aux</code>:
+	This command lists all running processes along with detailed
+	information.</p>
+	<li><p style="margin-bottom: 0cm"><code class="western">| tail -n
+	+2</code>: The <code class="western">tail -n +2</code> command is
+	used to skip the header line (which contains column headers) from
+	the <code class="western">ps</code> output. It starts printing from
+	the second line onwards.</p>
+	<li><p><code class="western">| tail -n 10</code>: The final <code class="western">tail
+	-n 10</code> command is used to display the last 10 lines of the <code class="western">ps</code>
+	output after skipping the header line.</p>
+</ul>
+<p>This command pipeline effectively displays the last 10 processes
+in the system, excluding the header line that appears in the <code class="western">ps
+aux</code> output. You'll see detailed information about these
+processes, such as user, PID, CPU usage, memory usage, command name,
+etc.</p>
+<p>Feel free to adjust the <code class="western">ps</code> command
+options (<code class="western">ps aux</code> in this case) based on
+your specific requirements to gather different process information.
+The <code class="western">tail</code> command is used to filter and
+display the desired number of lines from the output of <code class="western">ps</code>
+command, providing a concise view of the most recent processes.</p>
+<pre class="western" style="margin-bottom: 0.5cm"></pre><p>
 Explanation of options used:</p>
 <ul>
 	<li><p style="margin-bottom: 0cm"><code class="western">-e</code>:
@@ -3952,7 +3980,35 @@ answers:</p>
 	<li><p><strong>Display processes with their process group IDs
 	(PGID):</strong></p>
 </ul>
-<pre class="western" style="margin-bottom: 0.5cm">bash</pre>
+<pre class="western" style="margin-bottom: 0.5cm">bashCertainly! If you'd like to use the <code class="western">tail</code> command to list the last 10 lines of the output from the <code class="western">ps</code> command, you can use a combination of <code class="western">ps</code> and <code class="western">tail</code> to achieve this. Here's how you can do it:
+bash
+<code class="western">ps aux | tail -n +2 | tail -n 10</code></pre><p>
+Explanation of the command:</p>
+<ul>
+	<li><p style="margin-bottom: 0cm"><code class="western">ps aux</code>:
+	This command lists all running processes along with detailed
+	information.</p>
+	<li><p style="margin-bottom: 0cm"><code class="western">| tail -n
+	+2</code>: The <code class="western">tail -n +2</code> command is
+	used to skip the header line (which contains column headers) from
+	the <code class="western">ps</code> output. It starts printing from
+	the second line onwards.</p>
+	<li><p><code class="western">| tail -n 10</code>: The final <code class="western">tail
+	-n 10</code> command is used to display the last 10 lines of the <code class="western">ps</code>
+	output after skipping the header line.</p>
+</ul>
+<p>This command pipeline effectively displays the last 10 processes
+in the system, excluding the header line that appears in the <code class="western">ps
+aux</code> output. You'll see detailed information about these
+processes, such as user, PID, CPU usage, memory usage, command name,
+etc.</p>
+<p>Feel free to adjust the <code class="western">ps</code> command
+options (<code class="western">ps aux</code> in this case) based on
+your specific requirements to gather different process information.
+The <code class="western">tail</code> command is used to filter and
+display the desired number of lines from the output of <code class="western">ps</code>
+command, providing a concise view of the most recent processes.</p>
+<pre class="western" style="margin-bottom: 0.5cm"></pre>
 <ul>
 	<li><pre class="western" style="margin-bottom: 0.5cm"><code class="western">ps -e -o pid,pgid,cmd</code></pre>
 </ul>
@@ -3987,6 +4043,131 @@ understanding process relationships, and analyzing performance
 metrics. Experiment with these commands to gain a deeper
 understanding of process-related information on the command line.</p>
 <p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">=============================================================<br/>
+<br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left">Certainly! If you'd like to use the <code class="western">tail</code>
+command to list the last 10 lines of the output from the <code class="western">ps</code>
+command, you can use a combination of <code class="western">ps</code>
+and <code class="western">tail</code> to achieve this. Here's how you
+can do it:</p>
+<pre class="western" style="margin-bottom: 0.5cm">bash
+<code class="western">ps aux | tail -n +2 | tail -n 10</code></pre><p>
+Explanation of the command:</p>
+<ul>
+	<li><p style="margin-bottom: 0cm"><code class="western">ps aux</code>:
+	This command lists all running processes along with detailed
+	information.</p>
+	<li><p style="margin-bottom: 0cm"><code class="western">| tail -n
+	+2</code>: The <code class="western">tail -n +2</code> command is
+	used to skip the header line (which contains column headers) from
+	the <code class="western">ps</code> output. It starts printing from
+	the second line onwards.</p>
+	<li><p><code class="western">| tail -n 10</code>: The final <code class="western">tail
+	-n 10</code> command is used to display the last 10 lines of the <code class="western">ps</code>
+	output after skipping the header line.</p>
+</ul>
+<p>This command pipeline effectively displays the last 10 processes
+in the system, excluding the header line that appears in the <code class="western">ps
+aux</code> output. You'll see detailed information about these
+processes, such as user, PID, CPU usage, memory usage, command name,
+etc.</p>
+<p>Feel free to adjust the <code class="western">ps</code> command
+options (<code class="western">ps aux</code> in this case) based on
+your specific requirements to gather different process information.
+The <code class="western">tail</code> command is used to filter and
+display the desired number of lines from the output of <code class="western">ps</code>
+command, providing a concise view of the most recent processes.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">===============================================================</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">head
+first 10</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left">To display the first 10 lines of the output from the
+<code class="western">ps</code> command, you can use <code class="western">ps</code>
+along with <code class="western">head</code> to achieve this. Here's
+how you can do it:</p>
+<pre class="western" style="margin-bottom: 0.5cm">bash
+<code class="western">ps aux | head</code></pre><p>
+Explanation of the command:</p>
+<ul>
+	<li><p style="margin-bottom: 0cm"><code class="western">ps aux</code>:
+	This command lists all running processes along with detailed
+	information.</p>
+	<li><p><code class="western">| head</code>: The <code class="western">head</code>
+	command is used to display the first 10 lines of the output from <code class="western">ps
+	aux</code>.</p>
+</ul>
+<p>When you run this command, it will show you the first 10 lines of
+the output generated by <code class="western">ps aux</code>. This
+typically includes header information and details about the initial
+processes listed by <code class="western">ps aux</code>.</p>
+<p>Feel free to adjust the <code class="western">ps</code> command
+options (<code class="western">ps aux</code> in this case) based on
+your specific requirements to gather different process information.
+The <code class="western">head</code> command is used to filter and
+display the desired number of lines from the output of <code class="western">ps</code>
+command, providing a concise view of the initial processes listed by
+<code class="western">ps aux</code>.</p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
+
+</p>
+<p>Process 
+</p>
+<p><a name="prompt-textarea"></a><a href="https://www.baeldung.com/linux/process-states">https://www.baeldung.com/linux/process-states</a></p>
+<p><br/>
+<br/>
+
+</p>
+<p><a href="https://www.redhat.com/sysadmin/manipulate-process-priority">https://www.redhat.com/sysadmin/manipulate-process-priority</a></p>
+<p><br/>
+<br/>
+
+</p>
+<p><br/>
+<br/>
 
 </p>
 </body>
