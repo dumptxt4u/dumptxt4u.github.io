@@ -1,0 +1,2804 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
+	<meta name="created" content="2024-04-28T09:51:04.875438742"/>
+	<meta name="changed" content="2024-04-28T10:00:34.198769402"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
+	</style>
+</head>
+<body lang="en-IN" link="#000080" vlink="#800000" dir="ltr"><p align="left" style="line-height: 100%; margin-bottom: 0cm">
+PS(1)                            User Commands                       
+   PS(1)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">NAME</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ps - report a snapshot of the current processes.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">SYNOPSIS</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ps [options]</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">DESCRIPTION</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ps displays information about a selection of the active processes. 
+If</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+you want a repetitive update of the selection and the displayed</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+information, use top instead.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+This version of ps accepts several kinds of options:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+1   UNIX options, which may be grouped and must be preceded by a
+dash.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+2   BSD options, which may be grouped and must not be used with a
+dash.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+3   GNU long options, which are preceded by two dashes.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Options of different types may be freely mixed, but conflicts can</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+appear.  There are some synonymous options, which are functionally</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+identical, due to the many standards and ps implementations that this</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ps is compatible with.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Note that ps -aux is distinct from ps aux.  The POSIX and UNIX</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+standards require that ps -aux print all processes owned by a user</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+named x, as well as printing all processes that would be selected by</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+the -a option.  If the user named x does not exist, this ps may</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+interpret the command as ps aux instead and print a warning.  This</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+behavior is intended to aid in transitioning old scripts and habits.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+It is fragile, subject to change, and thus should not be relied upon.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+By default, ps selects all processes with the same effective user ID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+(euid=EUID) as the current user and associated with the same terminal</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+as the invoker.  It displays the process ID (pid=PID), the terminal</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+associated with the process (tname=TTY), the cumulated CPU time in</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+[DD-]hh:mm:ss format (time=TIME), and the executable name (ucmd=CMD).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Output is unsorted by default.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+The use of BSD-style options will add process state (stat=STAT) to
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+default display and show the command args (args=COMMAND) instead of
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+executable name.  You can override this with the PS_FORMAT
+environment</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+variable.  The use of BSD-style options will also change the process</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+selection to include processes on other terminals (TTYs) that are
+owned</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+by you; alternately, this may be described as setting the selection
+to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+be the set of all processes filtered to exclude processes owned by</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+other users or not on a terminal.  These effects are not considered</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+when options are described as being &quot;identical&quot; below, so
+-M will be</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+considered identical to Z and so on.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Except as described below, process selection options are additive. 
+The</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+default selection is discarded, and then the selected processes are</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+added to the set of processes to be displayed.  A process will thus
+be</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+shown if it meets any of the given selection criteria.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">EXAMPLES</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+To see every process on the system using standard syntax:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -e</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -ef</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -eF</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -ely</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+To see every process on the system using BSD syntax:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps ax</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps axu</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+To print a process tree:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -ejH</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps axjf</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+To get info about threads:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -eLf</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps axms</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+To get security info:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -eo euser,ruser,suser,fuser,f,comm,label</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps axZ</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -eM</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+To see every process running as root (real &amp; effective ID) in
+user</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+format:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -U root -u root u</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+To see every process with a user-defined format:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -eo pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,wchan:14,comm</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps axo stat,euid,ruid,tty,tpgid,sess,pgrp,ppid,pid,pcpu,comm</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -Ao pid,tt,user,fname,tmout,f,wchan</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Print only the process IDs of syslogd:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -C syslogd -o pid=</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Print only the name of PID 42:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  ps -q 42 -o comm=</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">SIMPLE
+PROCESS SELECTION</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+a      Lift the BSD-style &quot;only yourself&quot; restriction,
+which is imposed</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      upon the set of all processes when some BSD-style (without &quot;-&quot;)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      options are used or when the ps personality setting is
+BSD-like.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      The set of processes selected in this manner is in addition to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      the set of processes selected by other means.  An alternate</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      description is that this option causes ps to list all processes</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      with a terminal (tty), or to list all processes when used</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      together with the x option.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-A     Select all processes.  Identical to -e.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-a     Select all processes except both session leaders (see
+getsid(2))</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      and processes not associated with a terminal.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-d     Select all processes except session leaders.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--deselect</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select all processes except those that fulfill the specified</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      conditions (negates the selection).  Identical to -N.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-e     Select all processes.  Identical to -A.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+g      Really all, even session leaders.  This flag is obsolete and
+may</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      be discontinued in a future release.  It is normally implied by</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      the a flag, and is only useful when operating in the sunos4</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      personality.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-N     Select all processes except those that fulfill the specified</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      conditions (negates the selection).  Identical to --deselect.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+T      Select all processes associated with this terminal.  Identical</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      to the t option without any argument.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+r      Restrict the selection to only running processes.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+x      Lift the BSD-style &quot;must have a tty&quot; restriction,
+which is</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      imposed upon the set of all processes when some BSD-style</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      (without &quot;-&quot;) options are used or when the ps
+personality</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      setting is BSD-like.  The set of processes selected in this</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      manner is in addition to the set of processes selected by other</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      means.  An alternate description is that this option causes ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      to list all processes owned by you (same EUID as ps), or to
+list</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      all processes when used together with the a option.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">PROCESS
+SELECTION BY LIST</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+These options accept a single argument in the form of a
+blank-separated</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+or comma-separated list.  They can be used multiple times.  For</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+example: ps -p &quot;1 2&quot; -p 3,4</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-123   Identical to --pid 123.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+123    Identical to --pid 123.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-C cmdlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by command name.  This selects the processes whose</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      executable name is given in cmdlist.  NOTE: The command name is</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      not the same as the command line. Previous versions of procps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      and the kernel truncated this command name to 15 characters.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      This limitation is no longer present in both. If you depended
+on</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      matching only 15 characters, you may no longer get a match.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-G grplist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by real group ID (RGID) or name.  This selects the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      processes whose real group name or ID is in the grplist list.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      The real group ID identifies the group of the user who created</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      the process, see getgid(2).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-g grplist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by session OR by effective group name.  Selection by</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      session is specified by many standards, but selection by</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      effective group is the logical behavior that several other</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      operating systems use.  This ps will select by session when the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      list is completely numeric (as sessions are).  Group ID numbers</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      will work only when some group names are also specified.  See</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      the -s and --group options.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--Group grplist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by real group ID (RGID) or name.  Identical to -G.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--group grplist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by effective group ID (EGID) or name.  This selects the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      processes whose effective group name or ID is in grplist.  The</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      effective group ID describes the group whose file access</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      permissions are used by the process (see getegid(2)).  The -g</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      option is often an alternative to --group.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+p pidlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by process ID.  Identical to -p and --pid.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-p pidlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by PID.  This selects the processes whose process ID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      numbers appear in pidlist.  Identical to p and --pid.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--pid pidlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by process ID.  Identical to -p and p.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--ppid pidlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by parent process ID.  This selects the processes with a</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      parent process ID in pidlist.  That is, it selects processes</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      that are children of those listed in pidlist.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+q pidlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by process ID (quick mode).  Identical to -q and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      --quick-pid.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-q pidlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by PID (quick mode).  This selects the processes whose</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      process ID numbers appear in pidlist.  With this option ps
+reads</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      the necessary info only for the pids listed in the pidlist and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      doesn't apply additional filtering rules.  The order of pids is</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      unsorted and preserved.  No additional selection options,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      sorting and forest type listings are allowed in this mode.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Identical to q and --quick-pid.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--quick-pid pidlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by process ID (quick mode).  Identical to -q and q.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-s sesslist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by session ID.  This selects the processes with a
+session</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      ID specified in sesslist.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--sid sesslist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by session ID.  Identical to -s.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+t ttylist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by tty.  Nearly identical to -t and --tty, but can also</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      be used with an empty ttylist to indicate the terminal</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      associated with ps.  Using the T option is considered cleaner</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      than using t with an empty ttylist.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-t ttylist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by tty.  This selects the processes associated with the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      terminals given in ttylist.  Terminals (ttys, or screens for</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      text output) can be specified in several forms: /dev/ttyS1,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      ttyS1, S1.  A plain &quot;-&quot; may be used to select
+processes not</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      attached to any terminal.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--tty ttylist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by terminal.  Identical to -t and t.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+U userlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by effective user ID (EUID) or name.  This selects the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      processes whose effective user name or ID is in userlist.  The</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      effective user ID describes the user whose file access</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      permissions are used by the process (see geteuid(2)). 
+Identical</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      to -u and --user.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-U userlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by real user ID (RUID) or name.  It selects the
+processes</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      whose real user name or ID is in the userlist list.  The real</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      user ID identifies the user who created the process, see</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      getuid(2).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-u userlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by effective user ID (EUID) or name.  This selects the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      processes whose effective user name or ID is in userlist.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      The effective user ID describes the user whose file access</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      permissions are used by the process (see geteuid(2)). 
+Identical</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      to U and --user.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--User userlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by real user ID (RUID) or name.  Identical to -U.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--user userlist</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Select by effective user ID (EUID) or name.  Identical to -u
+and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      U.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">OUTPUT
+FORMAT CONTROL</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+These options are used to choose the information displayed by ps. 
+The</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+output may differ by personality.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-c     Show different scheduler information for the -l option.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--context</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Display security context format (for SELinux).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-f     Do full-format listing.  This option can be combined with many</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      other UNIX-style options to add additional columns.  It also</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      causes the command arguments to be printed.  When used with -L,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      the NLWP (number of threads) and LWP (thread ID) columns will
+be</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      added.  See the c option, the format keyword args, and the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      format keyword comm.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-F     Extra full format.  See the -f option, which -F implies.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--format format</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      user-defined format.  Identical to -o and o.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+j      BSD job control format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-j     Jobs format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+l      Display BSD long format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-l     Long format.  The -y option is often useful with this.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-M     Add a column of security data.  Identical to Z (for SELinux).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+O format</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      is preloaded o (overloaded).  The BSD O option can act like -O</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      (user-defined output format with some common fields predefined)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      or can be used to specify sort order.  Heuristics are used to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      determine the behavior of this option.  To ensure that the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      desired behavior is obtained (sorting or formatting), specify</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      the option in some other way (e.g.  with -O or --sort).  When</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      used as a formatting option, it is identical to -O, with the
+BSD</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      personality.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-O format</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Like -o, but preloaded with some default columns.  Identical to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      -o pid,format,state,tname,time,command or -o pid,format,tname,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      time,cmd, see -o below.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+o format</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Specify user-defined format.  Identical to -o and --format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-o format</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      User-defined format.  format is a single argument in the form
+of</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      a blank-separated or comma-separated list, which offers a way
+to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      specify individual output columns.  The recognized keywords are</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      described in the STANDARD FORMAT SPECIFIERS section below.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Headers may be renamed (ps -o pid,ruser=RealUser -o</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      comm=Command) as desired.  If all column headers are empty (ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      -o pid= -o comm=) then the header line will not be output.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Column width will increase as needed for wide headers; this may</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      be used to widen up columns such as WCHAN (ps -o
+pid,wchan=WIDE-</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      WCHAN-COLUMN -o comm).  Explicit width control (ps opid,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      wchan:42,cmd) is offered too.  The behavior of ps -o pid=X,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      comm=Y varies with personality; output may be one column named</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      &quot;X,comm=Y&quot; or two columns named &quot;X&quot; and
+&quot;Y&quot;.  Use multiple -o</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      options when in doubt.  Use the PS_FORMAT environment variable</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      to specify a default as desired; DefSysV and DefBSD are macros</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      that may be used to choose the default UNIX or BSD columns.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+s      Display signal format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+u      Display user-oriented format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+v      Display virtual memory format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+X      Register format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-y     Do not show flags; show rss in place of addr.  This option can</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      only be used with -l.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Z      Add a column of security data.  Identical to -M (for SELinux).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">OUTPUT
+MODIFIERS</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+c      Show the true command name.  This is derived from the name of</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      the executable file, rather than from the argv value.  Command</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      arguments and any modifications to them are thus not shown.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      This option effectively turns the args format keyword into the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      comm format keyword; it is useful with the -f format option and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      with the various BSD-style format options, which all normally</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      display the command arguments.  See the -f option, the format</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      keyword args, and the format keyword comm.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--cols n</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Set screen width.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--columns n</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Set screen width.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--cumulative</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Include some dead child process data (as a sum with the
+parent).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+e      Show the environment after the command.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+f      ASCII art process hierarchy (forest).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--forest</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      ASCII art process tree.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+h      No header.  (or, one header per screen in the BSD
+personality).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      The h option is problematic.  Standard BSD ps uses this option</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      to print a header on each page of output, but older Linux ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      uses this option to totally disable the header.  This version
+of</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      ps follows the Linux usage of not printing the header unless
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      BSD personality has been selected, in which case it prints a</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      header on each page of output.  Regardless of the current</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      personality, you can use the long options --headers and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      --no-headers to enable printing headers each page or disable</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      headers entirely, respectively.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-H     Show process hierarchy (forest).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--headers</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Repeat header lines, one per page of output.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+k spec Specify sorting order.  Sorting syntax is</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      [+|-]key[,[+|-]key[,...]].  Choose a multi-letter key from the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      STANDARD FORMAT SPECIFIERS section.  The &quot;+&quot; is
+optional since</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      default direction is increasing numerical or lexicographic</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      order.  Identical to --sort.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+              Examples:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+              ps jaxkuid,-ppid,+pid</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+              ps axk comm o comm,args</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+              ps kstart_time -ef</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--lines n</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Set screen height.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+n      Numeric output for WCHAN and USER (including all types of UID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      and GID).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--no-headers</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Print no header line at all.  --no-heading is an alias for this</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      option.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+O order</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Sorting order (overloaded).  The BSD O option can act like -O</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      (user-defined output format with some common fields predefined)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      or can be used to specify sort order.  Heuristics are used to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      determine the behavior of this option.  To ensure that the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      desired behavior is obtained (sorting or formatting), specify</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      the option in some other way (e.g.  with -O or --sort).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      For sorting, obsolete BSD O option syntax is</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      O[+|-]k1[,[+|-]k2[,...]].  It orders the processes listing</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      according to the multilevel sort specified by the sequence of</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      one-letter short keys k1,k2, ... described in the OBSOLETE SORT</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      KEYS section below.  The &quot;+&quot; is currently optional,
+merely</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      re-iterating the default direction on a key, but may help to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      distinguish an O sort from an O format.  The &quot;-&quot;
+reverses</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      direction only on the key it precedes.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--rows n</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Set screen height.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+S      Sum up some information, such as CPU usage, from dead child</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      processes into their parent.  This is useful for examining a</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      system where a parent process repeatedly forks off short-lived</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      children to do work.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--sort spec</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Specify sorting order.  Sorting syntax is</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      [+|-]key[,[+|-]key[,...]].  Choose a multi-letter key from the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      STANDARD FORMAT SPECIFIERS section.  The &quot;+&quot; is
+optional since</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      default direction is increasing numerical or lexicographic</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      order.  Identical to k.  For example: ps jax --sort=uid,-ppid,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      +pid</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+w      Wide output.  Use this option twice for unlimited width.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-w     Wide output.  Use this option twice for unlimited width.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--width n</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Set screen width.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">THREAD
+DISPLAY</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+H      Show threads as if they were processes.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-L     Show threads, possibly with LWP and NLWP columns.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+m      Show threads after processes.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-m     Show threads after processes.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-T     Show threads, possibly with SPID column.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">OTHER
+INFORMATION</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--help section</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Print a help message.  The section argument can be one of</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      simple, list, output, threads, misc, or all.  The argument can</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      be shortened to one of the underlined letters as in:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      s|l|o|t|m|a.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--info Print debugging info.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+L      List all format specifiers.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+V      Print the procps-ng version.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+-V     Print the procps-ng version.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+--version</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+      Print the procps-ng version.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">NOTES</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+This ps works by reading the virtual files in /proc.  This ps does
+not</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+need to be setuid kmem or have any privileges to run.  Do not give
+this</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ps any special permissions.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+CPU usage is currently expressed as the percentage of time spent</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+running during the entire lifetime of a process.  This is not ideal,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+and it does not conform to the standards that ps otherwise conforms
+to.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+CPU usage is unlikely to add up to exactly 100%.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+The SIZE and RSS fields don't count some parts of a process including</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+the page tables, kernel stack, struct thread_info, and struct</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+task_struct.  This is usually at least 20 KiB of memory that is
+always</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+resident.  SIZE is the virtual size of the process (code+data+stack).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Processes marked &lt;defunct&gt; are dead processes (so-called
+&quot;zombies&quot;)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+that remain because their parent has not destroyed them properly.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+These processes will be destroyed by init(8) if the parent process</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+exits.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+If the length of the username is greater than the length of the
+display</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+column, the username will be truncated.  See the -o and -O formatting</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+options to customize length.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Commands options such as ps -aux are not recommended as it is a</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+confusion of two different standards.  According to the POSIX and
+UNIX</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+standards, the above command asks to display all processes with a TTY</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+(generally the commands users are running) plus all processes owned
+by</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+a user named x.  If that user doesn't exist, then ps will assume you</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+really meant ps aux.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">PROCESS
+FLAGS</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+The sum of these values is displayed in the &quot;F&quot; column,
+which is</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+provided by the flags output specifier:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       1    forked but didn't exec</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       4    used super-user privileges</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">PROCESS
+STATE CODES</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Here are the different values that the s, stat and state output</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+specifiers (header &quot;STAT&quot; or &quot;S&quot;) will display to
+describe the state of</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+a process:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       D    uninterruptible sleep (usually IO)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       I    Idle kernel thread</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       R    running or runnable (on run queue)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       S    interruptible sleep (waiting for an event to complete)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       T    stopped by job control signal</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       t    stopped by debugger during the tracing</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       W    paging (not valid since the 2.6.xx kernel)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       X    dead (should never be seen)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       Z    defunct (&quot;zombie&quot;) process, terminated but not
+reaped by</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+            its parent</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+For BSD formats and when the stat keyword is used, additional</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+characters may be displayed:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       &lt;    high-priority (not nice to other users)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       N    low-priority (nice to other users)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       L    has pages locked into memory (for real-time and custom
+IO)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       s    is a session leader</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       l    is multi-threaded (using CLONE_THREAD, like NPTL pthreads</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+            do)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+       +    is in the foreground process group</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">OBSOLETE
+SORT KEYS</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+These keys are used by the BSD O option (when it is used for
+sorting).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+The GNU --sort option doesn't use these keys, but the specifiers</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+described below in the STANDARD FORMAT SPECIFIERS section.  Note that</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+the values used in sorting are the internal values ps uses and not
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+&quot;cooked&quot; values used in some of the output format fields
+(e.g.  sorting</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+on tty will sort into device number, not according to the terminal
+name</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+displayed).  Pipe ps output into the sort(1) command if you want to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sort the cooked values.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+KEY   LONG         DESCRIPTION</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+c     cmd          simple name of executable</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+C     pcpu         cpu utilization</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+f     flags        flags as in long format F field</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+g     pgrp         process group ID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+G     tpgid        controlling tty process group ID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+j     cutime       cumulative user time</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+J     cstime       cumulative system time</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+k     utime        user time</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+m     min_flt      number of minor page faults</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+M     maj_flt      number of major page faults</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+n     cmin_flt     cumulative minor page faults</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+N     cmaj_flt     cumulative major page faults</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+o     session      session ID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+p     pid          process ID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+P     ppid         parent process ID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+r     rss          resident set size</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+R     resident     resident pages</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+s     size         memory size in kilobytes</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+S     share        amount of shared pages</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+t     tty          the device number of the controlling tty</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+T     start_time   time process was started</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+U     uid          user ID number</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+u     user         user name</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+v     vsize        total VM size in KiB</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+y     priority     kernel scheduling priority</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">AIX
+FORMAT DESCRIPTORS</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+This ps supports AIX format descriptors, which work somewhat like the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+formatting codes of printf(1) and printf(3).  For example, the normal</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+default output can be produced with this: ps -eo &quot;%p %y %x %c&quot;.
+ The</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+NORMAL codes are described in the next section.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+CODE   NORMAL   HEADER</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%C     pcpu     %CPU</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%G     group    GROUP</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%P     ppid     PPID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%U     user     USER</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%a     args     COMMAND</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%c     comm     COMMAND</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%g     rgroup   RGROUP</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%n     nice     NI</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%p     pid      PID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%r     pgid     PGID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%t     etime    ELAPSED</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%u     ruser    RUSER</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%x     time     TIME</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%y     tty      TTY</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%z     vsz      VSZ</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">STANDARD
+FORMAT SPECIFIERS</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Here are the different keywords that may be used to control the
+output</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+format (e.g., with option -o) or to sort the selected processes with</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+the GNU-style --sort option.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+For example: ps -eo pid,user,args --sort user</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+This version of ps tries to recognize most of the keywords used in</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+other implementations of ps.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+The following user-defined format specifiers may contain spaces:
+args,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+cmd, comm, command, fname, ucmd, ucomm, lstart, bsdstart, start.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Some keywords may not be available for sorting.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+CODE        HEADER    DESCRIPTION</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%cpu        %CPU      cpu utilization of the process in &quot;##.#&quot;
+format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     Currently, it is the CPU time used divided by
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     time the process has been running</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (cputime/realtime ratio), expressed as a</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     percentage.  It will not add up to 100% unless</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     you are lucky.  (alias pcpu).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+%mem        %MEM      ratio of the process's resident set size  to
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     physical memory on the machine, expressed as a</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     percentage.  (alias pmem).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+args        COMMAND   command with all its arguments as a string.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     Modifications to the arguments may be shown. 
+The</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     output in this column may contain spaces.  A</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process marked &lt;defunct&gt; is partly dead,
+waiting</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     to be fully destroyed by its parent.  Sometimes</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the process args will be unavailable; when this</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     happens, ps will instead print the executable</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     name in brackets.  (alias cmd, command).  See</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     also the comm format keyword, the -f option, and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the c option.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     When specified last, this column will extend to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the edge of the display.  If ps can not
+determine</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     display width, as when output is redirected</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (piped) into a file or another command, the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     output width is undefined (it may be 80,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     unlimited, determined by the TERM variable, and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     so on).  The COLUMNS environment variable or</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     --cols option may be used to exactly determine</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the width in this case.  The w or -w option may</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     be also be used to adjust width.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+blocked     BLOCKED   mask of the blocked signals, see signal(7).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     According to the width of the field, a 32 or</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     64-bit mask in hexadecimal format is displayed.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (alias sig_block, sigmask).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+bsdstart    START     time the command started.  If the process was</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     started less than 24 hours ago, the output
+format</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     is &quot; HH:MM&quot;, else it is &quot; Mmm:SS&quot;
+(where Mmm is</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the three letters of the month).  See also</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     lstart, start, start_time, and stime.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+bsdtime     TIME      accumulated cpu time, user + system.  The
+display</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     format is usually &quot;MMM:SS&quot;, but can be
+shifted to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the right if the process used more than 999</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     minutes of cpu time.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+c           C         processor utilization.  Currently, this is the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     integer value of the percent usage over the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     lifetime of the process.  (see %cpu).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+caught      CAUGHT    mask of the caught signals, see signal(7).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     According to the width of the field, a 32 or 64</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     bits mask in hexadecimal format is displayed.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (alias sig_catch, sigcatch).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+cgname      CGNAME    display name of control groups to which the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process belongs.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+cgroup      CGROUP    display control groups to which the process</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     belongs.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+class       CLS       scheduling class of the process.  (alias
+policy,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     cls).  Field's possible values are:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              -   not reported</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              TS  SCHED_OTHER</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              FF  SCHED_FIFO</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              RR  SCHED_RR</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              B   SCHED_BATCH</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              ISO SCHED_ISO</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              IDL SCHED_IDLE</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              DLN SCHED_DEADLINE</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              ?   unknown value</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+cls         CLS       scheduling class of the process.  (alias
+policy,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     cls).  Field's possible values are:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              -   not reported</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              TS  SCHED_OTHER</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              FF  SCHED_FIFO</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              RR  SCHED_RR</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              B   SCHED_BATCH</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              ISO SCHED_ISO</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              IDL SCHED_IDLE</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              DLN SCHED_DEADLINE</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              ?   unknown value</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+cmd         CMD       see args.  (alias args, command).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+comm        COMMAND   command name (only the executable name).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     Modifications to the command name will not be</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     shown.  A process marked &lt;defunct&gt; is
+partly</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     dead, waiting to be fully destroyed by its</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     parent.  The output in this column may contain</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     spaces.  (alias ucmd, ucomm).  See also the args</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     format keyword, the -f option, and the c option.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     When specified last, this column will extend to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the edge of the display.  If ps can not
+determine</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     display width, as when output is redirected</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (piped) into a file or another command, the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     output width is undefined (it may be 80,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     unlimited, determined by the TERM variable, and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     so on).  The COLUMNS environment variable or</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     --cols option may be used to exactly determine</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the width in this case.  The w or -w option may</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     be also be used to adjust width.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+command     COMMAND   See args.  (alias args, command).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+cp          CP        per-mill (tenths of a percent) CPU usage.  (see</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     %cpu).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+cputime     TIME      cumulative CPU time, &quot;[DD-]hh:mm:ss&quot;
+format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (alias time).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+cputimes    TIME      cumulative CPU time in seconds (alias times).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+drs         DRS       data resident set size, the amount of physical</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     memory devoted to other than executable code.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+egid        EGID      effective group ID number of the process as a</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     decimal integer.  (alias gid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+egroup      EGROUP    effective group ID of the process.  This will
+be</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the textual group ID, if it can be obtained and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the field width permits, or a decimal</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     representation otherwise.  (alias group).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+eip         EIP       instruction pointer.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+esp         ESP       stack pointer.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+etime       ELAPSED   elapsed time since the process was started, in</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the form [[DD-]hh:]mm:ss.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+etimes      ELAPSED   elapsed time since the process was started, in</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     seconds.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+euid        EUID      effective user ID (alias uid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+euser       EUSER     effective user name.  This will be the textual</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     user ID, if it can be obtained and the field</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     width permits, or a decimal representation</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     otherwise.  The n option can be used to force
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     decimal representation.  (alias uname, user).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+exe         EXE       path to the executable. Useful if path cannot
+be</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     printed via cmd, comm or args format options.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+f           F         flags associated with the process, see the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     PROCESS FLAGS section.  (alias flag, flags).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+fgid        FGID      filesystem access group ID.  (alias fsgid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+fgroup      FGROUP    filesystem access group ID.  This will be the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     textual group ID, if it can be obtained and the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     field width permits, or a decimal representation</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     otherwise.  (alias fsgroup).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+flag        F         see f.  (alias f, flags).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+flags       F         see f.  (alias f, flag).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+fname       COMMAND   first 8 bytes of the base name of the process's</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     executable file.  The output in this column may</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     contain spaces.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+fuid        FUID      filesystem access user ID.  (alias fsuid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+fuser       FUSER     filesystem access user ID.  This will be the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     textual user ID, if it can be obtained and the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     field width permits, or a decimal representation</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     otherwise.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+gid         GID       see egid.  (alias egid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+group       GROUP     see egroup.  (alias egroup).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ignored     IGNORED   mask of the ignored signals, see signal(7).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     According to the width of the field, a 32 or 64</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     bits mask in hexadecimal format is displayed.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (alias sig_ignore, sigignore).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ipcns       IPCNS     Unique inode number describing the namespace
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process belongs to.  See namespaces(7).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+label       LABEL     security label, most commonly used for SELinux</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     context data.  This is for the Mandatory Access</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     Control (&quot;MAC&quot;) found on high-security
+systems.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+lstart      STARTED   time the command started.  See also bsdstart,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     start, start_time, and stime.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+lsession    SESSION   displays the login session identifier of a</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process, if systemd support has been included.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+luid        LUID      displays Login ID associated with a process.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+lwp         LWP       light weight process (thread) ID of the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     dispatchable entity (alias spid, tid).  See tid</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     for additional information.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+lxc         LXC       The name of the lxc container within which a
+task</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     is running.  If a process is not running inside
+a</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     container, a dash ('-') will be shown.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+machine     MACHINE   displays the machine name for processes
+assigned</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     to VM or container, if systemd support has been</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     included.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+maj_flt     MAJFLT    The number of major page faults that have</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     occurred with this process.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+min_flt     MINFLT    The number of minor page faults that have</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     occurred with this process.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+mntns       MNTNS     Unique inode number describing the namespace
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process belongs to.  See namespaces(7).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+netns       NETNS     Unique inode number describing the namespace
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process belongs to.  See namespaces(7).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ni          NI        nice value.  This ranges from 19 (nicest) to
+-20</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (not nice to others), see nice(1).  (alias
+nice).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+nice        NI        see ni.(alias ni).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+nlwp        NLWP      number of lwps (threads) in the process. 
+(alias</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     thcount).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+numa        NUMA      The node associated with the most recently used</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     processor.  A -1 means that NUMA information is</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     unavailable.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+nwchan      WCHAN     address of the kernel function where the
+process</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     is sleeping (use wchan if you want the kernel</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     function name).  Running tasks will display a</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     dash ('-') in this column.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ouid        OWNER     displays the Unix user identifier of the owner
+of</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the session of a process, if systemd support has</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     been included.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+pcpu        %CPU      see %cpu.  (alias %cpu).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+pending     PENDING   mask of the pending signals.  See signal(7).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     Signals pending on the process are distinct from</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     signals pending on individual threads.  Use the
+m</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     option or the -m option to see both.  According</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     to the width of the field, a 32 or 64 bits mask</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     in hexadecimal format is displayed.  (alias
+sig).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+pgid        PGID      process group ID or, equivalently, the process
+ID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     of the process group leader.  (alias pgrp).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+pgrp        PGRP      see pgid.  (alias pgid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+pid         PID       a number representing the process ID (alias</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     tgid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+pidns       PIDNS     Unique inode number describing the namespace
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process belongs to.  See namespaces(7).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+pmem        %MEM      see %mem.  (alias %mem).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+policy      POL       scheduling class of the process.  (alias class,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     cls).  Possible values are:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              -   not reported</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              TS  SCHED_OTHER</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              FF  SCHED_FIFO</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              RR  SCHED_RR</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              B   SCHED_BATCH</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              ISO SCHED_ISO</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              IDL SCHED_IDLE</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              DLN SCHED_DEADLINE</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                              ?   unknown value</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ppid        PPID      parent process ID.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+pri         PRI       priority of the process.  Higher number means</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     lower priority.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+psr         PSR       processor that process is currently assigned
+to.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+rgid        RGID      real group ID.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+rgroup      RGROUP    real group name.  This will be the textual
+group</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     ID, if it can be obtained and the field width</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     permits, or a decimal representation otherwise.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+rss         RSS       resident set size, the non-swapped physical</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     memory that a task has used (in kilobytes).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (alias rssize, rsz).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+rssize      RSS       see rss.  (alias rss, rsz).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+rsz         RSZ       see rss.  (alias rss, rssize).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+rtprio      RTPRIO    realtime priority.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ruid        RUID      real user ID.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ruser       RUSER     real user ID.  This will be the textual user
+ID,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     if it can be obtained and the field width</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     permits, or a decimal representation otherwise.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+s           S         minimal state display (one character).  See</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     section PROCESS STATE CODES for the different</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     values.  See also stat if you want additional</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     information displayed.  (alias state).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sched       SCH       scheduling policy of the process.  The policies</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     SCHED_OTHER (SCHED_NORMAL), SCHED_FIFO,
+SCHED_RR,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     SCHED_BATCH, SCHED_ISO, SCHED_IDLE and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     SCHED_DEADLINE are respectively displayed as 0,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     1, 2, 3, 4, 5 and 6.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+seat        SEAT      displays the identifier associated with all</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     hardware devices assigned to a specific</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     workplace, if systemd support has been included.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sess        SESS      session ID or, equivalently, the process ID of</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the session leader.  (alias session, sid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sgi_p       P         processor that the process is currently
+executing</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     on.  Displays &quot;*&quot; if the process is
+not currently</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     running or runnable.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sgid        SGID      saved group ID.  (alias svgid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sgroup      SGROUP    saved group name.  This will be the textual
+group</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     ID, if it can be obtained and the field width</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     permits, or a decimal representation otherwise.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sid         SID       see sess.  (alias sess, session).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sig         PENDING   see pending.  (alias pending, sig_pend).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sigcatch    CAUGHT    see caught.  (alias caught, sig_catch).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sigignore   IGNORED   see ignored.  (alias ignored, sig_ignore).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sigmask     BLOCKED   see blocked.  (alias blocked, sig_block).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+size        SIZE      approximate amount of swap space that would be</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     required if the process were to dirty all</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     writable pages and then be swapped out.  This</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     number is very rough!</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+slice       SLICE     displays the slice unit which a process belongs</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     to, if systemd support has been included.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+spid        SPID      see lwp.  (alias lwp, tid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+stackp      STACKP    address of the bottom (start) of stack for the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+start       STARTED   time the command started.  If the process was</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     started less than 24 hours ago, the output
+format</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     is &quot;HH:MM:SS&quot;, else it is &quot;  Mmm
+dd&quot; (where Mmm</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     is a three-letter month name).  See also lstart,</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     bsdstart, start_time, and stime.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+start_time  START     starting time or date of the process.  Only the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     year will be displayed if the process was not</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     started the same year ps was invoked, or &quot;MmmDD&quot;</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     if it was not started the same day, or &quot;HH:MM&quot;</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     otherwise.  See also bsdstart, start, lstart,
+and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     stime.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+stat        STAT      multi-character process state.  See section</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     PROCESS STATE CODES for the different values</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     meaning.  See also s and state if you just want</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     the first character displayed.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+state       S         see s. (alias s).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+stime       STIME     see start_time. (alias start_time).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+suid        SUID      saved user ID.  (alias svuid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+supgid      SUPGID    group ids of supplementary groups, if any.  See</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     getgroups(2).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+supgrp      SUPGRP    group names of supplementary groups, if any. 
+See</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     getgroups(2).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+suser       SUSER     saved user name.  This will be the textual user</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     ID, if it can be obtained and the field width</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     permits, or a decimal representation otherwise.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (alias svuser).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+svgid       SVGID     see sgid.  (alias sgid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+svuid       SVUID     see suid.  (alias suid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sz          SZ        size in physical pages of the core image of the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process.  This includes text, data, and stack</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     space.  Device mappings are currently excluded;</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     this is subject to change.  See vsz and rss.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+tgid        TGID      a number representing the thread group to which
+a</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     task belongs (alias pid).  It is the process ID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     of the thread group leader.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+thcount     THCNT     see nlwp.  (alias nlwp).  number of kernel</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     threads owned by the process.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+tid         TID       the unique number representing a dispatchable</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     entity (alias lwp, spid).  This value may also</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     appear as: a process ID (pid); a process group
+ID</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (pgrp); a session ID for the session leader</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (sid); a thread group ID for the thread group</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     leader (tgid); and a tty process group ID for
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process group leader (tpgid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+time        TIME      cumulative CPU time, &quot;[DD-]HH:MM:SS&quot;
+format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (alias cputime).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+times       TIME      cumulative CPU time in seconds (alias
+cputimes).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+tname       TTY       controlling tty (terminal).  (alias tt, tty).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+tpgid       TPGID     ID of the foreground process group on the tty</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (terminal) that the process is connected to, or</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     -1 if the process is not connected to a tty.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+trs         TRS       text resident set size, the amount of physical</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     memory devoted to executable code.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+tt          TT        controlling tty (terminal).  (alias tname,
+tty).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+tty         TT        controlling tty (terminal).  (alias tname, tt).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ucmd        CMD       see comm.  (alias comm, ucomm).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ucomm       COMMAND   see comm.  (alias comm, ucmd).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+uid         UID       see euid.  (alias euid).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+uname       USER      see euser.  (alias euser, user).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+unit        UNIT      displays unit which a process belongs to, if</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     systemd support has been included.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+user        USER      see euser.  (alias euser, uname).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+userns      USERNS    Unique inode number describing the namespace
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process belongs to.  See namespaces(7).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+utsns       UTSNS     Unique inode number describing the namespace
+the</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     process belongs to.  See namespaces(7).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+uunit       UUNIT     displays user unit which a process belongs to,
+if</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     systemd support has been included.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+vsize       VSZ       see vsz.  (alias vsz).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+vsz         VSZ       virtual memory size of the process in KiB</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     (1024-byte units).  Device mappings are
+currently</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     excluded; this is subject to change.  (alias</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     vsize).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+wchan       WCHAN     name of the kernel function in which the
+process</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     is sleeping, a &quot;-&quot; if the process is
+running, or</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     a &quot;*&quot; if the process is multi-threaded
+and ps is</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+                     not displaying threads.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">ENVIRONMENT
+VARIABLES</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+The following environment variables could affect ps:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+COLUMNS</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  Override default display width.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+LINES</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  Override default display height.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+PS_PERSONALITY</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  Set to one of posix, old, linux, bsd, sun, digital... (see section</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  PERSONALITY below).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+CMD_ENV</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  Set to one of posix, old, linux, bsd, sun, digital... (see section</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  PERSONALITY below).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+I_WANT_A_BROKEN_PS</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  Force obsolete command line interpretation.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+LC_TIME</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  Date format.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+PS_COLORS</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  Not currently supported.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+PS_FORMAT</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  Default output format override.  You may set this to a format
+string</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  of the type used for the -o option.  The DefSysV and DefBSD values</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  are particularly useful.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+POSIXLY_CORRECT</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  Don't find excuses to ignore bad &quot;features&quot;.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+POSIX2</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  When set to &quot;on&quot;, acts as POSIXLY_CORRECT.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+UNIX95</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  Don't find excuses to ignore bad &quot;features&quot;.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+_XPG</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">       
+  Cancel CMD_ENV=irix non-standard behavior.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+In general, it is a bad idea to set these variables.  The one
+exception</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+is CMD_ENV or PS_PERSONALITY, which could be set to Linux for normal</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+systems.  Without that setting, ps follows the useless and bad parts
+of</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+the Unix98 standard.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">PERSONALITY</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+390        like the OS/390 OpenEdition ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+aix        like AIX ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+bsd        like FreeBSD ps (totally non-standard)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+compaq     like Digital Unix ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+debian     like the old Debian ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+digital    like Tru64 (was Digital Unix, was OSF/1) ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+gnu        like the old Debian ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+hp         like HP-UX ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+hpux       like HP-UX ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+irix       like Irix ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+linux      ***** recommended *****</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+old        like the original Linux ps (totally non-standard)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+os390      like OS/390 Open Edition ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+posix      standard</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+s390       like OS/390 Open Edition ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sco        like SCO ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sgi        like Irix ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+solaris2   like Solaris 2+ (SunOS 5) ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sunos4     like SunOS 4 (Solaris 1) ps (totally non-standard)</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+svr4       standard</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+sysv       standard</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+tru64      like Tru64 (was Digital Unix, was OSF/1) ps</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+unix       standard</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+unix95     standard</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+unix98     standard</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">SEE
+ALSO</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+pgrep(1), pstree(1), top(1), proc(5).</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">STANDARDS</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+This ps conforms to:</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+1   Version 2 of the Single Unix Specification</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+2   The Open Group Technical Standard Base Specifications, Issue 6</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+3   IEEE Std 1003.1, 2004 Edition</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+4   X/Open System Interfaces Extension [UP XSI]</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+5   ISO/IEC 9945:2003</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">AUTHOR</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+ps was originally written by Branko Lankester ⟨lankeste@fwi.uva.nl⟩.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Michael K. Johnson ⟨johnsonm@redhat.com⟩ re-wrote it
+significantly to</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+use the proc filesystem, changing a few things in the process. 
+Michael</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Shields ⟨mjshield@nyx.cs.du.edu⟩ added the pid-list feature. 
+Charles</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Blake ⟨cblake@bbn.com⟩ added multi-level sorting, the
+dirent-style li‐</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+brary, the device name-to-number mmaped database, the approximate bi‐</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+nary search directly on System.map, and many code and documentation</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+cleanups.  David Mossberger-Tang wrote the generic BFD support for</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+psupdate.  Albert Cahalan ⟨albert@users.sf.net⟩ rewrote ps for
+full</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Unix98 and BSD support, along with some ugly hacks for obsolete and</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+foreign syntax.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+Please send bug reports to ⟨procps@freelists.org⟩.  No
+subscription is</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">      
+required or suggested.</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="line-height: 100%; margin-bottom: 0cm">procps-ng
+                        2020-06-04                             PS(1)</p>
+</body>
+</html>
