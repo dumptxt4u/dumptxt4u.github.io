@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive 3x4 Grid Cards with Bootstrap</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  /* Additional custom styles can be added here if needed */
+</style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <!-- Cards will be dynamically generated here -->
+  </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js (Optional) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<script>
+ const data = [
+  {
+    "text": "Vector Calculus 2.O | Overview & its Basic Concept by GP Sir",
+    "url": "https://www.youtube.com/watch?v=GLs0nXZBUYk&list=PLU6SqdYcYsfIfW2FdmomPkWDJ3vPLW1SN"
+  },
+  {
+    "text": "Vector Calculus for Engineers (Promotional Video)",
+    "url": "https://www.youtube.com/watch?v=qUseabHb6Vk&list=PLkZjai-2JcxnYmkg6fpzz4WFumGVl7MOa"
+  },
+  {
+    "text": "Khan Academy Multivariable Calculus",
+    "url": "https://www.youtube.com/watch?v=TrcCbdWwCBc&list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7"
+  },
+  {
+    "text": "Bright Side of Maths - Multivariable Calculus",
+    "url": "https://www.youtube.com/watch?v=4QhZTagNq9Q&list=PLBh2i93oe2qv4G2AyarkbR3OKBml0hXEg"
+  },
+  {
+    "text": "Vector Calculus (Steve Brunton)",
+    "url": "https://www.youtube.com/watch?v=Jt5R-Tm8cV8&list=PLMrJAkhIeNNQromC4WswpU1krLOq5Ro6S"
+  },
+  {
+    "text": "MIT Calculus Revisited: Multivariable Calculus",
+    "url": "https://www.youtube.com/watch?v=wsOoClvZmic&list=PL1C22D4DED943EF7B"
+  },
+  {
+    "text": "MIT 18.02 Multivariable Calculus, Fall 2007",
+    "url": "https://www.youtube.com/playlist?list=PL4C4C8A7D06566F38"
+  },
+  {
+    "text": "Calculus Of Vector Functions (RVS Maths Academy)",
+    "url": "https://www.youtube.com/watch?v=4qvL6H_LpM4&list=PL7lBkW4pLsIJYAjp-I4n8EYrvDVQnz2UE"
+  },
+  {
+    "text": "Saraths Maths",
+    "url": "https://www.youtube.com/watch?v=3YRIP5S71t4&list=PLzKMdyrAHQYzamgj97k8ZV0ov_jmGjxGO"
+  },
+  {
+    "text": "Mathematica Software (Wolfram)",
+    "url": "https://www.wolfram.com/mathematica/pricing/home-hobby/"
+  }
+];
+
+
+  const container = document.querySelector('.row');
+
+  data.forEach(item => {
+    const cardCol = document.createElement('div');
+    cardCol.classList.add('col');
+
+    const card = document.createElement('div');
+    card.classList.add('card', 'h-100');
+
+    const link = document.createElement('a');
+    link.href = item.url;
+    link.target = "_blank";
+
+    const cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+
+    const text = document.createElement('p');
+    text.classList.add('card-text');
+    text.textContent = item.text;
+
+    cardBody.appendChild(text);
+    link.appendChild(cardBody);
+    card.appendChild(link);
+    cardCol.appendChild(card);
+    container.appendChild(cardCol);
+  });
+</script>
+
+</body>
+</html>
+
