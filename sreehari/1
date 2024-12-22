@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Explorer</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        ul { list-style-type: none; }
+        a { text-decoration: none; color: blue; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>File Explorer</h1>
+    <ul>
+        <li><a href="file1.txt" target="_blank">file1.txt</a></li>
+        <li><a href="file2.txt" target="_blank">file2.txt</a></li>
+        <li><b>subfolder/</b>
+            <ul>
+                <li><a href="subfolder/file3.txt" target="_blank">file3.txt</a></li>
+                <li><a href="subfolder/file4.txt" target="_blank">file4.txt</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+
