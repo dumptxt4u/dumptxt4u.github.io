@@ -1,7 +1,7 @@
 // Java code for stack implementation
 import java.util.Stack;
 
-class Main
+public class Stack
 {   
     // Pushing element on the top of the stack
     static void stack_push(Stack<Integer> stack)

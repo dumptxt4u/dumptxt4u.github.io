@@ -1,9 +1,9 @@
 // Java program to demonstrate the accessing
 // of the elements from the stack
-import java.util.*;
+import java.util.Stack;
 import java.io.*;
 
-public class StackDemo {
+public class Stack4 {
 
       // Main Method
     public static void main(String args[])
