@@ -1,0 +1,180 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\begin{document}
+	
+	
+	
+	\section*{Questions}
+	
+	
+	A retailer purchases a fan for ₹1500 from a wholesaler and sells it to a consumer at 10\% profit. If the sales are intra-state and the rate of GST is 12\%, then choose the correct answer from the given four options for questions 1 to 6:
+	
+	\begin{enumerate}[label=\textbf{\arabic*.}]
+		\item The selling price of the fan by the retailer (excluding tax) is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹1500
+			\item ₹1650
+			\item ₹1848
+			\item ₹1800
+		\end{enumerate}
+		
+		\item The selling price of the fan including tax (under GST) by the retailer is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹1650
+			\item ₹1800
+			\item ₹1848
+			\item ₹1830
+		\end{enumerate}
+		
+		\item The tax (under GST) paid by the wholesaler to the Central Government is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹90
+			\item ₹9
+			\item ₹99
+			\item ₹180
+		\end{enumerate}
+		
+		\item The tax (under GST) paid by the retailer to the State Government is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹99
+			\item ₹9
+			\item ₹18
+			\item ₹198
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	\begin{enumerate}[label=\textbf{\arabic*.}]
+		\item The tax (under GST) received by the Central Government is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 18
+			\item ₹ 198
+			\item ₹ 90
+			\item ₹ 99
+		\end{enumerate}
+		
+		\item The cost of the fan to the consumer inclusive of tax is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 1650
+			\item ₹ 1800
+			\item ₹ 1830
+			\item ₹ 1848
+		\end{enumerate}
+		
+	\end{enumerate}
+	
+	A shopkeeper bought a TV from a distributor at a discount of 25\% of the listed price of ₹ 32000. The shopkeeper sells the TV to a consumer at the listed price. If the sales are intra-state and the rate of GST is 18\%, then choose the correct answer from the given options for questions 7 to 11:
+	
+	\begin{enumerate}[label=\textbf{\arabic*.},resume]
+		\item The selling price of the TV including tax (under GST) by the distributor is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 32000
+			\item ₹ 24000
+			\item ₹ 28320
+			\item ₹ 26160
+		\end{enumerate}
+		
+		\item The tax (under GST) paid by the distributor to the State Government is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 4320
+			\item ₹ 2160
+			\item ₹ 2880
+			\item ₹ 720
+		\end{enumerate}
+		
+		\item The tax (under GST) paid by the shopkeeper to the Central Government is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 720
+			\item ₹ 1440
+			\item ₹ 2880
+			\item ₹ 2160
+		\end{enumerate}
+		
+		\item The tax (under GST) received by the State Government is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 5760
+			\item ₹ 4320
+			\item ₹ 1440
+			\item ₹ 2880
+		\end{enumerate}
+		
+		\item The price including tax (under GST) of the TV paid by the consumer is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 28320
+			\item ₹ 37760
+			\item ₹ 34880
+			\item ₹ 32000
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	
+	
+	\section*{Questions}
+	
+	\begin{enumerate}[label=\textbf{\arabic*.}]
+		\item The tax (under GST) received by the Central Government is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 18
+			\item ₹ 198
+			\item ₹ 90
+			\item ₹ 99
+		\end{enumerate}
+		
+		\item The cost of the fan to the consumer inclusive of tax is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 1650
+			\item ₹ 1800
+			\item ₹ 1830
+			\item ₹ 1848
+		\end{enumerate}
+		
+	\end{enumerate}
+	
+	A shopkeeper bought a TV from a distributor at a discount of 25\% of the listed price of ₹ 32000. The shopkeeper sells the TV to a consumer at the listed price. If the sales are intra-state and the rate of GST is 18\%, then choose the correct answer from the given options for questions 7 to 11:
+	
+	\begin{enumerate}[label=\textbf{\arabic*.},resume]
+		\item The selling price of the TV including tax (under GST) by the distributor is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 32000
+			\item ₹ 24000
+			\item ₹ 28320
+			\item ₹ 26160
+		\end{enumerate}
+		
+		\item The tax (under GST) paid by the distributor to the State Government is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 4320
+			\item ₹ 2160
+			\item ₹ 2880
+			\item ₹ 720
+		\end{enumerate}
+		
+		\item The tax (under GST) paid by the shopkeeper to the Central Government is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 720
+			\item ₹ 1440
+			\item ₹ 2880
+			\item ₹ 2160
+		\end{enumerate}
+		
+		\item The tax (under GST) received by the State Government is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 5760
+			\item ₹ 4320
+			\item ₹ 1440
+			\item ₹ 2880
+		\end{enumerate}
+		
+		\item The price including tax (under GST) of the TV paid by the consumer is
+		\begin{enumerate}[label=(\alph*)]
+			\item ₹ 28320
+			\item ₹ 37760
+			\item ₹ 34880
+			\item ₹ 32000
+		\end{enumerate}
+	\end{enumerate}
+	
+\end{document}

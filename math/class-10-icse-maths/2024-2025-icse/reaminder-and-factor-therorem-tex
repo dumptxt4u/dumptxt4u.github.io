@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage[a4paper, top=0.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm]{geometry} % Minimize page padding
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\renewcommand{\headrulewidth}{0pt} % Remove header rule
+\renewcommand{\footrulewidth}{0.4pt} % Add a rule to the footer
+\fancyfoot[C]{Trivandrum Maths and Computer Tuition - 9037030309, 04712723471}
+\begin{document}
+	\begin{multicols}{2}
+		\section*{Section A}
+	
+	
+	\section*{Section B}
+	
+	
+	1. Find the remainder when 2x^3 - 3x^2 + 4x + 7 is divided by
+	
+	(i) x - 2                                     (ii) x + 3  (iii) 2x + 1.
+	
+	2. When 2x^3 - 9x^2 + 10x - p is divided by (x + 1), the remainder is -24. Find the value of
+	p.
+	
+	3. If (2x - 3) is a factor of 6x^2 + x + a, find the value of a. With this value of a, factorise
+	the given expression.
+	
+	4. When 3x^2 - 5x + p is divided by (x - 2), the remainder is 3. Find the value of p. Also
+	factorise the polynomial 3x^2 - 5x + p - 3.
+	
+	5. Prove that (5x + 4) is a factor of 5x^3 + 4x^2 - 5x - 4. Hence, factorise the given polynomial
+	completely.
+	
+	6. Use factor theorem to factorise the following polynomials completely:
+	
+	(i) 4x^3 + 4x^2 - 9x - 9                                    (ii) x^3 - 19x - 30
+	
+	7. If x^3 - 2x^2 + px + q has a factor (x + 2) and leaves a remainder 9 when divided by
+	(x + 1), find the values of p and q. With these values of p and q, factorise the given
+	polynomial completely.
+	
+	8. If (x + 3) and (x - 4) are factors of x^3 + ax^2 - bx + 24, find the values of a and b. With
+	these values of a and b, factorise the given expression.
+	
+	9. If (2x + 1) is a factor of both the expressions 2x^2 - 5x + p and 2x^2 + 5x + q, find the
+	values of p and q. Hence, find the other factors of both the polynomials.
+	
+	10. If a polynomial f(x) = x^4 - 2x^3 + 3x^2 - ax - b leaves remainders 5 and 19 when divided
+	by (x - 1) and (x + 1) find the values of a and b. Hence, determine the
+	remainder when f(x) is divided by (x - 2).
+	
+	11. When a polynomial f(x) is divided by (x - 1), the remainder is 5 and when it is divided
+	by (x - 2), the remainder is 7. Find the remainder when it is divided by (x - 1)(x - 2)
+	\end{multicols}
+	
+	\center{******************}	
+	
+	
+\end{document}
