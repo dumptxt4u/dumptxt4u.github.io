@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube Video Gallery</title>
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --background-color: #f9f9fb;
+      --card-bg: #ffffff;
+      --text-color: #2c3e50;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background: var(--primary-color);
+      padding: 1.5rem;
+      text-align: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .thumbnail {
+      width: 100%;
+      display: block;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      background: #eee;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    📺 Physics Video Gallery
+  </header>
+
+  <div class="gallery" id="videoGallery"></div>
+
+  <footer>
+    &copy; 2025 Trivandrum Tuition | YouTube Video Resources
+  </footer>
+
+  <script>
+    const videos = [
+      { name: "Victers Plus one Physics", link: "https://www.youtube.com/watch?v=m1OuePGUeYM&list=PLeg2DLkpseDzVsSApDtn9PgpGckm1SwxE" },
+      { name: "Victers +2 Physics", link: "https://www.youtube.com/watch?v=ut1_05w1XHk&list=PLeg2DLkpseDyBX2bxtACCDHiWLC_UZ9NO" },
+      { name: "Khan Academy - Physics", link: "https://www.youtube.com/watch?v=p_I_8hl-Gok&list=PL2ub1_oKCn7q2I8BeVPzoOKzXZgupaCtl" },
+      { name: "Electromagnetism - Khan Academy", link: "https://www.youtube.com/watch?v=Sp1m6GYo5iw" },
+      { name: "Electric Field - Dave", link: "https://www.youtube.com/watch?v=VFbyDCG_j18" },
+      { name: "Organic Chemistry - Physics", link: "https://www.youtube.com/watch?v=b1t41Q3xRM8&list=PL0o_zxa4K1BU6wPPLDsoTj1_wEf0LSNeR" },
+      { name: "Static Electricity - Alakh Pandey", link: "https://www.youtube.com/watch?v=m5VbK66a254&list=PLF_7kfnwLFCHjzvhflQjAOG97MgutH3Z5" },
+      { name: "Electricity and Magnetism - Xylem", link: "https://www.youtube.com/watch?v=MRg5D9hfl-k&list=PLmNMkuCOhP2sGhvByEAq2LAS2QMFDPQM-" },
+      { name: "Electric Charges and Fields", link: "https://www.youtube.com/watch?v=FJpTezXR2jw" },
+      { name: "Physics Experiment (Short)", link: "https://www.youtube.com/shorts/ZmcEqS7MDA4" },
+      { name: "Moment of Inertia", link: "https://www.youtube.com/watch?v=IdAji34f7TE&list=PLF_7kfnwLFCFZ4OVmzjBSqMIAzDK_6b8f" },
+      { name: "MIT Power Electricity", link: "https://www.youtube.com/watch?v=d8-qs2U_LEQ&list=PL2kJeIXLWepDe_MNVF2pwN1rL_dq3Skue" },
+      { name: "MIT Electricity & Magnetism", link: "https://www.youtube.com/watch?v=rtlJoXxlSFE&list=PLyQSN7X0ro2314mKyUiOILaOC2hk6Pc3j" }
+    ];
+
+    const gallery = document.getElementById("videoGallery");
+
+    videos.forEach(video => {
+      // Extract YouTube video ID (assume it's after v=)
+      const url = new URL(video.link);
+      let videoID = url.searchParams.get("v");
+
+      if (!videoID && video.link.includes("shorts")) {
+        videoID = video.link.split("/shorts/")[1];
+      }
+
+      if (!videoID && video.link.includes("watch")) {
+        videoID = video.link.split("v=")[1].split("&")[0];
+      }
+
+      if (!videoID && video.link.includes("youtu.be")) {
+        videoID = video.link.split("youtu.be/")[1];
+      }
+
+      const card = document.createElement("a");
+      card.href = video.link;
+      card.target = "_blank";
+      card.className = "card";
+
+      card.innerHTML = `
+        <img class="thumbnail" src="https://img.youtube.com/vi/${videoID}/hqdefault.jpg" alt="${video.name}">
+        <div class="card-content">
+          <div class="card-title">${video.name}</div>
+        </div>
+      `;
+
+      gallery.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
+
