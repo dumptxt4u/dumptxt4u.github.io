@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube Video Gallery</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .card-title {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .card-link {
+      text-decoration: none;
+      color: #007bff;
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>YouTube Video Gallery</h1>
+  <div class="container" id="videoCards"></div>
+
+  <script>
+    var charList = [
+      { title: "Inverse Trig Functions Explained", url: "https://www.youtube.com/watch?v=SJi2xBxz8wM" },
+      { title: "Solving Trig Equations", url: "https://www.youtube.com/watch?v=bqVry7X73mA" },
+      { title: "Trig Identities Lecture", url: "https://www.youtube.com/watch?v=-JuanuDsc2A" },
+      { title: "Advanced Trig Concepts", url: "https://www.youtube.com/watch?v=Si9m0ZdcC8w&t=1500s" }
+    ];
+
+    const container = document.getElementById("videoCards");
+
+    charList.forEach(video => {
+      const videoId = new URL(video.url).searchParams.get("v");
+      const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <iframe src="${embedUrl}" allowfullscreen></iframe>
+        <div class="card-body">
+          <div class="card-title">${video.title}</div>
+          <a href="${video.url}" class="card-link" target="_blank">Watch on YouTube</a>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
+
