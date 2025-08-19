@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KITE VICTERS 10th Mathematics Class 01–100 (YouTube Links)</title>
+  <style>
+    :root {
+      --maxw: 1100px;
+      --radius: 16px;
+    }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      margin: 0;
+      background: #f6f7fb;
+      color: #111;
+      line-height: 1.5;
+    }
+    header {
+      max-width: var(--maxw);
+      margin: 24px auto 0;
+      padding: 24px;
+    }
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+    }
+    p.desc { margin: 0; color: #444; }
+
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 16px 24px 48px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform .12s ease, box-shadow .12s ease;
+      overflow: hidden;
+    }
+    .card:hover { 
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+    }
+
+    .card a {
+      display: block;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .title {
+      font-weight: 650;
+      letter-spacing: 0.2px;
+    }
+
+    .hint {
+      font-size: .85rem;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+      padding: 24px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KITE VICTERS 10th Mathematics – YouTube Links (01–100)</h1>
+    <p class="desc">Each link opens a YouTube search for the exact title
+      <em>“KITE VICTERS 10th Mathematics Class&nbsp;NN”</em> (where NN is the class number). Click any card to find the corresponding video.
+  
+   <h1> <a href="https://apluseducare.blogspot.com/2020/10/std-10-all-subjects-first-bell-notes.html">First Bell Notes</a></h1>
+
+    </p>
+  </header>
+  
+
+  <main class="container">
+    <div id="grid" class="grid" aria-live="polite"></div>
+  </main>
+
+  <footer>
+    Generated list • You can save this page and use it offline; links will still open YouTube searches.
+  </footer>
+
+  <script>
+    (function() {
+      const grid = document.getElementById('grid');
+
+      function pad(n) {
+        // Keep 100 as-is; otherwise 2-digit zero padding
+        return n === 140 ? '140' : String(n).padStart(2, '0');
+      }
+
+      for (let i = 1; i <= 140; i++) {
+        const num = pad(i);
+        const title = `KITE VICTERS 10th Mathematics Class ${num}`;
+        const q = encodeURIComponent(title);
+        const url = `https://www.youtube.com/results?search_query=${q}`;
+
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener';
+
+        const strong = document.createElement('div');
+        strong.className = 'title';
+        strong.textContent = title;
+
+        const hint = document.createElement('div');
+        hint.className = 'hint';
+        hint.textContent = 'Open YouTube search for this class';
+
+        a.appendChild(strong);
+        a.appendChild(hint);
+        card.appendChild(a);
+        grid.appendChild(card);
+      }
+    })();
+  </script>
+</body>
+</html>
