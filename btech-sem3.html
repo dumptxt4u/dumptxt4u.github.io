@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B.Tech Timetable – 3 Videos/Day (RKV Maths Academy)</title>
+  <style>
+    :root { --bg:#0b1020; --card:#121833; --muted:#9fb0ff; --text:#e8ecff; --accent:#6ea8fe; --ring:#3b5bfd; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;background:linear-gradient(120deg,#0b1020,#0f1633 40%,#131b3d);color:var(--text)}
+    header{position:sticky;top:0;background:rgba(10,14,30,.8);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);z-index:10}
+    .wrap{max-width:1100px;margin:auto;padding:18px}
+    h1{margin:0 0 6px;font-size:clamp(22px,3vw,32px);letter-spacing:.2px}
+    p.sub{margin:0;color:var(--muted)}
+    .grid{display:grid;gap:18px;grid-template-columns:1fr}
+    @media(min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .card h2{margin:0 0 12px;font-size:clamp(18px,2.1vw,22px)}
+    .pad{padding:18px}
+    label{font-size:13px;color:var(--muted)}
+    input,button{border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0e1430;color:var(--text);padding:10px 12px}
+    input:focus,button:focus{outline:2px solid var(--ring);outline-offset:2px}
+    button{cursor:pointer}
+    button.primary{background:linear-gradient(180deg,#4f77ff,#2e54ff);border-color:#2a4fff}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .row > *{flex:1 1 140px}
+    table{width:100%;border-collapse:separate;border-spacing:0 8px}
+    thead th{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);text-align:left;padding:0 12px}
+    tbody td{background:#0e1533;border:1px solid rgba(255,255,255,.07);padding:12px;border-radius:10px}
+    tbody tr td:first-child{font-weight:600}
+    .badge{display:inline-block;padding:4px 8px;border:1px solid rgba(255,255,255,.12);border-radius:999px;font-size:12px;color:var(--muted)}
+    .actions a{display:inline-block;margin-right:8px;padding:8px 10px;border-radius:10px;background:#0c1330;border:1px solid rgba(255,255,255,.12);text-decoration:none;color:var(--text)}
+    .actions a:hover{border-color:var(--accent)}
+    footer{color:#aeb7ff77;text-align:center;padding:24px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>RKV Maths Academy – 3 Videos/Day Timetable</h1>
+      <p class="sub">Auto‑generated schedule starting on your chosen date. Each day links to the next 3 videos in the playlist.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="grid">
+      <!-- Playlist A -->
+      <section class="card">
+        <div class="pad">
+          <h2>Playlist A: Complex Variable Integration (KTU)</h2>
+          <div class="row" style="margin-bottom:12px">
+            <div>
+              <label for="startA">Start date</label>
+              <input id="startA" type="date" />
+            </div>
+            <div>
+              <label for="countA">Total videos (approx)</label>
+              <input id="countA" type="number" min="1" step="1" value="60" />
+            </div>
+            <div>
+              <label for="perDayA">Per day</label>
+              <input id="perDayA" type="number" min="1" step="1" value="3" />
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button id="makeA" class="primary">Generate</button>
+            </div>
+          </div>
+          <div class="badge">Playlist ID: <code id="pidA">PL7lBkW4pLsIIVXUh7Xsa1GqRJzAIlYAsu</code></div>
+        </div>
+        <div class="pad" style="padding-top:0">
+          <div style="overflow:auto">
+            <table>
+              <thead>
+                <tr><th>Day / Date</th><th>Watch</th></tr>
+              </thead>
+              <tbody id="tableA"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Playlist B -->
+      <section class="card">
+        <div class="pad">
+          <h2>Playlist B: Complex Variables – Differentiation (KTU)</h2>
+          <div class="row" style="margin-bottom:12px">
+            <div>
+              <label for="startB">Start date</label>
+              <input id="startB" type="date" />
+            </div>
+            <div>
+              <label for="countB">Total videos (approx)</label>
+              <input id="countB" type="number" min="1" step="1" value="60" />
+            </div>
+            <div>
+              <label for="perDayB">Per day</label>
+              <input id="perDayB" type="number" min="1" step="1" value="3" />
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button id="makeB" class="primary">Generate</button>
+            </div>
+          </div>
+          <div class="badge">Playlist ID: <code id="pidB">PL7lBkW4pLsIKF9WDWjXwNvk7ko3fHsp9u</code></div>
+        </div>
+        <div class="pad" style="padding-top:0">
+          <div style="overflow:auto">
+            <table>
+              <thead>
+                <tr><th>Day / Date</th><th>Watch</th></tr>
+              </thead>
+              <tbody id="tableB"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <p class="sub" style="margin-top:18px">Tip: Change the <em>Total videos</em> if the playlist has more/less items. Links open at the correct starting point (index) inside YouTube.</p>
+  </main>
+
+  <footer>
+    Made for your B.Tech plan • 3 videos/day • RKV Maths Academy
+  </footer>
+
+  <script>
+    // Default start dates to today in Asia/Kolkata assumed by your system
+    const today = new Date();
+    const toYYYYMMDD = d => d.toISOString().split('T')[0];
+    document.getElementById('startA').value = toYYYYMMDD(today);
+    document.getElementById('startB').value = toYYYYMMDD(today);
+
+    function buildTable({tbody, playlistId, startDate, total, perDay}){
+      tbody.innerHTML = '';
+      const days = Math.ceil(total/perDay);
+      let startIndex = 1; // YouTube playlist index is 1-based
+      for(let day=1; day<=days; day++){
+        const date = new Date(startDate);
+        date.setDate(date.getDate() + (day-1));
+        const dateStr = date.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric',weekday:'short'});
+        const cells = [];
+        const endIndex = Math.min(startIndex + perDay - 1, total);
+        for(let idx=startIndex; idx<=endIndex; idx++){
+          // Use the embed/videoseries URL which accepts list + index (no video id required)
+          const url = `https://www.youtube.com/embed/videoseries?list=${playlistId}&index=${idx}`;
+          cells.push(`<a href="${url}" target="_blank" rel="noopener">Video ${idx}</a>`);
+        }
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>Day ${day}</strong><br><span class="sub">${dateStr}</span></td>
+          <td class="actions">${cells.join(' ')}</td>
+        `;
+        tbody.appendChild(tr);
+        startIndex += perDay;
+      }
+    }
+
+    document.getElementById('makeA').addEventListener('click', ()=>{
+      buildTable({
+        tbody: document.getElementById('tableA'),
+        playlistId: document.getElementById('pidA').textContent.trim(),
+        startDate: new Date(document.getElementById('startA').value),
+        total: parseInt(document.getElementById('countA').value||'0',10),
+        perDay: parseInt(document.getElementById('perDayA').value||'3',10)
+      });
+    });
+
+    document.getElementById('makeB').addEventListener('click', ()=>{
+      buildTable({
+        tbody: document.getElementById('tableB'),
+        playlistId: document.getElementById('pidB').textContent.trim(),
+        startDate: new Date(document.getElementById('startB').value),
+        total: parseInt(document.getElementById('countB').value||'0',10),
+        perDay: parseInt(document.getElementById('perDayB').value||'3',10)
+      });
+    });
+
+    // Auto‑generate on load with defaults
+    window.addEventListener('DOMContentLoaded', ()=>{
+      document.getElementById('makeA').click();
+      document.getElementById('makeB').click();
+    });
+  </script>
+</body>
+</html>
+
