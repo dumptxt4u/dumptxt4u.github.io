@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Shorts Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2e2e3f);
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 2.5rem;
+      font-weight: bold;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 177.78%; /* 9:16 vertical ratio */
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .video-wrapper:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>🎨 Artistic YouTube Shorts Gallery</header>
+
+  <section class="gallery">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/UwCT8DOYV64" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/3cEAbTAvQvE" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/_6kQsHX1mXs" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/bkpteds4_Wg" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/APQjI6CFkfE" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/K-uhPQ59x7A" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/QvD3F8W8C18" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/2vsWbEijYko" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/Rci6ZREvmhk" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/Mj2VC44Ans8" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/dwQ2RCJFQwM" allowfullscreen></iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/S1NM9dVwgQM" allowfullscreen></iframe>
+    </div>
+  </section>
+</body>
+</html>
