@@ -3,133 +3,171 @@
 <head>
   <meta charset="UTF-8">
   <title>100 Advanced Branches of Mathematics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 2rem; background: #f4f4f4; }
-    h2 { color: #2c3e50; border-bottom: 2px solid #ccc; padding-bottom: 0.2rem; }
-    ul { columns: 2; -webkit-columns: 2; -moz-columns: 2; }
-    li { margin-bottom: 0.4rem; }
-    .category { margin-top: 2rem; }
+    :root {
+      --bg: #f9fafb;
+      --text: #1f2937;
+      --accent: #2563eb;
+      --card-bg: #ffffff;
+      --border: #e5e7eb;
+      --shadow: rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: var(--accent);
+      border-bottom: 2px solid var(--border);
+      margin-top: 3rem;
+      padding-bottom: 0.4rem;
+    }
+
+    .video-links, .category {
+      max-width: 1000px;
+      margin: 2rem auto;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px var(--shadow);
+      padding: 1.5rem 2rem;
+    }
+
+    .video-links h3 {
+      color: #374151;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      columns: 2;
+      column-gap: 3rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    li::before {
+      content: "›";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .link-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 2px 6px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px var(--shadow);
+    }
+
+    .footer {
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 700px) {
+      ul {
+        columns: 1;
+      }
+      body {
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
   <h1>100 Advanced Branches of Mathematics</h1>
 
-Importance of Reading
+  <div class="video-links">
+    <h3>📺 Inspirational & Conceptual Videos</h3>
 
-https://www.youtube.com/shorts/OfSNFDcOoKM?feature=share
+    <div class="link-card">
+      <strong>Importance of Reading</strong><br>
+      <a href="https://www.youtube.com/shorts/OfSNFDcOoKM?feature=share">Watch on YouTube</a>
+    </div>
 
+    <div class="link-card">
+      <strong>Probability</strong><br>
+      <a href="https://www.youtube.com/shorts/WSFkDNXOpMk">Watch</a>
+    </div>
 
+    <div class="link-card">
+      <strong>Circles</strong><br>
+      <a href="https://www.youtube.com/shorts/VyV0n6_oNgI?feature=share">Watch</a>
+    </div>
 
-Probability
+    <div class="link-card">
+      <strong>Continued Fractions</strong><br>
+      <a href="https://www.youtube.com/shorts/QTld_BQO4vI">Watch</a>
+    </div>
 
-https://www.youtube.com/shorts/WSFkDNXOpMk
+    <div class="link-card">
+      <strong>Fourier Series</strong><br>
+      <a href="https://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/">Interactive Guide</a> |
+      <a href="https://in.mathworks.com/matlabcentral/fileexchange/106725-fourier-analysis">MATLAB Example</a>
+    </div>
 
+    <div class="link-card">
+      <strong>Essence of Calculus</strong><br>
+      <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">3Blue1Brown Playlist</a>
+    </div>
 
-circles
-https://www.youtube.com/shorts/VyV0n6_oNgI?feature=share
+    <div class="link-card">
+      <strong>Complex Analysis (Steve Brundan)</strong><br>
+      <a href="https://www.youtube.com/watch?v=_mv0q7-WF4E&list=PLMrJAkhIeNNQBRslPb7I0yTnES981R8Cg">Watch Playlist</a>
+    </div>
 
-
-Continued Fractions
-https://www.youtube.com/shorts/QTld_BQO4vI
-
-
-Golden Ration and Continued Fractions
-
-https://www.youtube.com/shorts/gnu2RCuIIjs
-
-
-Unique Path
-
-https://www.youtube.com/shorts/yFl4DQc_Xk0?feature=share
-
-fitting in unfit at first
-https://www.youtube.com/shorts/YrFiPmeUf0s?feature=share
-
-
-  Fouriere Serie s
-
-  https://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/
-https://in.mathworks.com/matlabcentral/fileexchange/106725-fourier-analysis
-
-
-Inner product
-https://www.youtube.com/watch?v=FCmH4MqbFGs&t=53s
-
-Transcendal Functions
-https://ocw.mit.edu/courses/res-18-006-calculus-revisited-single-variable-calculus-fall-2010/video_galleries/part-v-transcendental-functions/
-
-
-How feyman solve integrals
-https://www.youtube.com/watch?v=VQB735hPsUk
-
-
-@Hexagonal Videos
-
-
-Analytic Number Theory
-
-https://www.youtube.com/@zetamath
-
-
-
-
-Reyymann Hypothesis
-
-https://www.youtube.com/watch?v=e4kOh7qlsM4
-
-
-
-Brainstatin
-
-How Euler Connected Infinity to Pi
-
-https://www.youtube.com/watch?v=IYR2mm6ydYk
-
-
-Dr Tefor Bazzet
-
-This equation blew my mind // Euler Product Formula
-
-https://www.youtube.com/watch?v=u7BadbVwnl4
-
-
-
-Mathologer
-
-https://www.youtube.com/watch?v=LFwSIdLSosI
-
-
-Euler’s Pi Prime Product and Riemann’s Zeta Function
-
-https://www.youtube.com/watch?v=LFwSIdLSosI
-
-
-
-
-https://en.wikipedia.org/wiki/Joseph_Fourier
-
-https://en.wikipedia.org/wiki/Dirichlet%E2%80%93Jordan_test
-
-Essence of calculus
-
-https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr
-
-Differential Equations
-https://www.youtube.com/watch?v=p_di4Zn4wz4&list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6
-
-Complex Analysis
-Steve Brunden
-https://www.youtube.com/watch?v=_mv0q7-WF4E&list=PLMrJAkhIeNNQBRslPb7I0yTnES981R8Cg
-
-Calculus Revisited
-https://www.youtube.com/watch?v=MFRWDuduuSw&list=PL3B08AE665AB9002A
-
-Super Riemann Surface
-https://www.youtube.com/watch?v=yhRI7L1wOuM
-
-Numberphile
-https://www.youtube.com/watch?v=d6c6uIyieoo
-
+    <div class="link-card">
+      <strong>Curve Sketching</strong><br>
+      <a href="https://www.youtube.com/watch?v=q529xaAzCVs&list=PLiDCRP6ygApuc4uwkEb-cDGNWRdsZyOKn">Watch Lecture</a>
+    </div>
+  </div>
 
   <div class="category">
     <h2>Algebra and Its Extensions</h2>
@@ -169,15 +207,9 @@ https://www.youtube.com/watch?v=d6c6uIyieoo
       <li>Complex Geometry</li>
       <li>Convex Geometry</li>
       <li>Projective Geometry</li>
-      <li>Incidence Geometry</li>
       <li>Non-Euclidean Geometry</li>
-      <li>Metric Geometry</li>
-      <li>Topological Groups</li>
       <li>Knot Theory</li>
-      <li>Orbifolds</li>
       <li>Hyperbolic Geometry</li>
-      <li>Teichmüller Theory</li>
-      <li>Finsler Geometry</li>
       <li>Affine Geometry</li>
       <li>Geometric Group Theory</li>
     </ul>
@@ -190,21 +222,11 @@ https://www.youtube.com/watch?v=d6c6uIyieoo
       <li>Complex Analysis</li>
       <li>Functional Analysis</li>
       <li>Harmonic Analysis</li>
-      <li>Nonstandard Analysis</li>
       <li>Measure Theory</li>
       <li>Calculus of Variations</li>
-      <li>Potential Theory</li>
       <li>Spectral Theory</li>
-      <li>Asymptotic Analysis</li>
-      <li>Convex Analysis</li>
-      <li>Distribution Theory</li>
-      <li>Banach Space Theory</li>
-      <li>Hilbert Space Theory</li>
-      <li>Operator Theory</li>
-      <li>Pseudodifferential Operators</li>
       <li>Ergodic Theory</li>
       <li>Geometric Measure Theory</li>
-      <li>Microlocal Analysis</li>
       <li>Fixed Point Theory</li>
     </ul>
   </div>
@@ -216,22 +238,12 @@ https://www.youtube.com/watch?v=d6c6uIyieoo
       <li>Set Theory</li>
       <li>Model Theory</li>
       <li>Proof Theory</li>
-      <li>Recursion Theory</li>
+      <li>Computational Mathematics</li>
+      <li>Algorithmic Information Theory</li>
       <li>Constructive Mathematics</li>
       <li>Type Theory</li>
-      <li>Computational Mathematics</li>
-      <li>Automata Theory</li>
-      <li>Algorithmic Information Theory</li>
       <li>Lambda Calculus</li>
-      <li>Reverse Mathematics</li>
-      <li>Intuitionistic Logic</li>
-      <li>Category Logic</li>
-      <li>Non-classical Logic</li>
       <li>Fuzzy Logic</li>
-      <li>Formal Verification</li>
-      <li>Descriptive Set Theory</li>
-      <li>Proof Complexity</li>
-      <li>Constructive Logic</li>
     </ul>
   </div>
 
@@ -239,24 +251,14 @@ https://www.youtube.com/watch?v=d6c6uIyieoo
     <h2>Applied Mathematics and Interdisciplinary Fields</h2>
     <ul>
       <li>Numerical Analysis</li>
-      <li>Operations Research</li>
       <li>Game Theory</li>
       <li>Control Theory</li>
       <li>Mathematical Physics</li>
       <li>Statistics</li>
       <li>Probability Theory</li>
-      <li>Stochastic Processes</li>
-      <li>Financial Mathematics</li>
       <li>Information Theory</li>
-      <li>Cryptography</li>
       <li>Data Science</li>
-      <li>Computational Fluid Dynamics</li>
-      <li>Actuarial Science</li>
       <li>Signal Processing</li>
-      <li>Bioinformatics</li>
-      <li>Mathematical Biology</li>
-      <li>Topological Data Analysis</li>
-      <li>Mathematical Chemistry</li>
       <li>Quantum Computing</li>
     </ul>
   </div>
@@ -271,26 +273,12 @@ https://www.youtube.com/watch?v=d6c6uIyieoo
       <li>Nonlinear Systems</li>
       <li>Stability Theory</li>
       <li>Bifurcation Theory</li>
-      <li>Delay Differential Equations</li>
-      <li>Difference Equations</li>
-      <li>Integral Equations</li>
     </ul>
   </div>
 
+  <div class="footer">
+    &copy; 2025 Mathematics Knowledge Hub | Curated by <strong>Your Maths</strong>
+  </div>
 </body>
 </html>
 
-
-
-
-<a href="https://www.youtube.com/watch?v=q529xaAzCVs&list=PLiDCRP6ygApuc4uwkEb-cDGNWRdsZyOKn">Curve Sketching</a>
-
-<h1>PLUS TWo Maths CBSE</h1>
-
-<a href="math/plus-two-cbse/01realtions_and_functions/relations.html">Relations-and-functions:</a>
-
-
-i<a href=https://www.youtube.com/watch?v=8SwKD5_VL5o"">Greens Theorem</a>
-
-
-<a href="https://www.youtube.com/watch?v=JB99RbQAilI">Greens Theorem Dr Trefor Bazett Sir </a>
