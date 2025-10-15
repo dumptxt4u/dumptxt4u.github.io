@@ -1,0 +1,22 @@
+These suggestions highlight popular voices and playlists in the math education community:
+
+3Blue1Brown (Welch Labs): Known for its visual, intuitive approach—great for building conceptual understanding.
+
+Michael Penn: Offers step‑by‑step tutorials with a strong theoretical and practice-based focus.
+
+Mathemaniac: Especially praised for contour integration intuition.
+
+What to Choose, Based on Your Needs
+Your Goal	Best Pick
+Quick understanding of how to compute a contour integral	The YouTube video above
+Structured, thorough learning (exam prep, theory + examples)	Gajendra Purohit’s playlist
+Deeper theoretical insight and advanced topics	Steve Brunton’s lecture series
+Conceptual and visual clarity	3Blue1Brown / Welch Labs
+Balanced tutorial-style teaching with practice focus	Michael Penn’s lessons
+Next Steps?
+
+If you’d like direct links to any of the playlists or lectures mentioned, let me know.
+
+Want help practicing specific contour integrals or understanding proofs like Cauchy’s theorem? Just say the word—happy to walk you through them step by step.
+
+Hope this helps you explore complex integration with clarity and confidence!
