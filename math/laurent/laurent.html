@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laurent Series</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    pre {
+      background: #ecf0f1;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .example {
+      background: #dff0d8;
+      padding: 1rem;
+      border-left: 5px solid #3c763d;
+      margin: 1rem 0;
+    }
+    .formula {
+      background: #f0f4f8;
+      padding: 1rem;
+      border-left: 5px solid #3498db;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Laurent Series</h1>
+
+  <p>The <strong>Laurent series</strong> is a generalization of the Taylor series that allows for negative powers of <em>(z - a)</em>.</p>
+
+  <h2>Definition</h2>
+  <p>If <code>f(z)</code> is analytic in an annulus <code>R₁ &lt; |z - a| &lt; R₂</code>, then it can be expanded as:</p>
+  <div class="formula">
+    <pre>f(z) = Σ<sub>n=-∞</sub><sup>∞</sup> c<sub>n</sub> (z - a)<sup>n</sup></pre>
+    <p>where</p>
+    <pre>c<sub>n</sub> = (1 / 2πi) ∮ (f(z) / (z - a)<sup>n+1</sup>) dz</pre>
+    <p>and <code>C</code> is a positively oriented contour within the annulus.</p>
+  </div>
+
+  <h2>Structure</h2>
+  <p>The Laurent series has two parts:</p>
+  <ul>
+    <li><strong>Regular (analytic) part:</strong> Σ<sub>n=0</sub><sup>∞</sup> c<sub>n</sub> (z - a)<sup>n</sup></li>
+    <li><strong>Principal (singular) part:</strong> Σ<sub>n=1</sub><sup>∞</sup> c<sub>-n</sub> (z - a)<sup>-n</sup></li>
+  </ul>
+
+  <h2>Why it is useful</h2>
+  <ul>
+    <li>Describes functions with singularities (poles, essential singularities).</li>
+    <li>Essential in <strong>residue theory</strong> for evaluating complex integrals.</li>
+    <li>The <code>c<sub>-1</sub></code> coefficient is called the <strong>residue</strong> of <code>f(z)</code> at <code>z = a</code>.</li>
+  </ul>
+
+  <h2>Example</h2>
+  <div class="example">
+    <p>Expand <code>f(z) = 1 / (z(z - 1))</code> around <code>z = 0</code> for <code>|z| &lt; 1</code>:</p>
+    <pre>
+f(z) = 1 / (z(1 - z)) = (1 / z) * (1 / (1 - z))
+      = (1 / z) * (1 + z + z² + z³ + …)
+      = 1/z + 1 + z + z² + z³ + …
+    </pre>
+    <p>The <code>1/z</code> term is the principal (singular) part, and the rest is the regular part.</p>
+  </div>
+
+</body>
+</html>
+

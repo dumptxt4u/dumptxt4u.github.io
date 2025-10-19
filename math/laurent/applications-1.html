@@ -1,0 +1,106 @@
+  <title>Laurent Series Applications</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+    .accordion {
+      background-color: #f0f8ff;
+      border-radius: 5px;
+      margin: 1rem 0;
+      padding: 0;
+      border-left: 5px solid #3498db;
+      overflow: hidden;
+    }
+    .accordion-header {
+      cursor: pointer;
+      padding: 1rem;
+      font-weight: bold;
+      background-color: #dceefc;
+      border-bottom: 1px solid #b3d4fc;
+      transition: background 0.3s;
+    }
+    .accordion-header:hover {
+      background-color: #c1e0fc;
+    }
+    .accordion-content {
+      display: none;
+      padding: 1rem;
+      background-color: #eaf2f8;
+      max-height: 800px;
+      overflow-y: auto;
+    }
+    .sub-application {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border-left: 3px solid #2980b9;
+      border-radius: 3px;
+      background-color: #f5f9fc;
+    }
+    .important {
+      font-weight: bold;
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Applications of Laurent Series (10 Domains × 15 Sub-Applications Each)</h1>
+<p>Click on each domain to expand its detailed sub-applications.</p>
+
+<!-- Sample Domain Accordion -->
+<div class="accordion">
+  <div class="accordion-header">1. Complex Analysis</div>
+  <div class="accordion-content">
+    <div class="sub-application"><span class="important">1.</span> Classification of singularities: removable singularities, poles, essential singularities.</div>
+    <div class="sub-application"><span class="important">2.</span> Residue calculation for contour integrals.</div>
+    <div class="sub-application"><span class="important">3.</span> Laurent expansions near isolated singular points.</div>
+    <div class="sub-application"><span class="important">4.</span> Evaluation of integrals using the Residue Theorem.</div>
+    <div class="sub-application"><span class="important">5.</span> Analytic continuation of functions across singularities.</div>
+    <div class="sub-application"><span class="important">6.</span> Determining principal parts of meromorphic functions.</div>
+    <div class="sub-application"><span class="important">7.</span> Studying convergence in annular regions.</div>
+    <div class="sub-application"><span class="important">8.</span> Expansion of functions not expressible by Taylor series.</div>
+    <div class="sub-application"><span class="important">9.</span> Identifying poles of rational functions.</div>
+    <div class="sub-application"><span class="important">10.</span> Laurent coefficients estimation using contour integration.</div>
+    <div class="sub-application"><span class="important">11.</span> Understanding essential singularity behavior via principal parts.</div>
+    <div class="sub-application"><span class="important">12.</span> Decomposition of meromorphic functions into simpler components.</div>
+    <div class="sub-application"><span class="important">13.</span> Multipole expansion in complex plane problems.</div>
+    <div class="sub-application"><span class="important">14.</span> Studying poles and residues in mapping functions.</div>
+    <div class="sub-application"><span class="important">15.</span> Application in proving Cauchy's Integral Formula for complex functions.</div>
+  </div>
+</div>
+
+<!-- Placeholder Accordions for other 9 domains -->
+<div class="accordion">
+  <div class="accordion-header">2. Differential Equations</div>
+  <div class="accordion-content">
+    <p>15 sub-applications can be added here, e.g., Frobenius method, series solutions near singularities, analytic continuation, etc.</p>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">3. Signal Processing</div>
+  <div class="accordion-content">
+    <p>15 sub-applications can be added here, e.g., Fourier-Laurent connection, filter design, Z-transform analysis, etc.</p>
+  </div>
+</div>
+
+<!-- Add similarly for domains 4 to 10 -->
+
+<script>
+  const headers = document.querySelectorAll('.accordion-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+</script>
+

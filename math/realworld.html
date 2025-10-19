@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applications of Laurent Series</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    ul {
+      list-style: inside disc;
+    }
+    .application {
+      background: #f0f8ff;
+      padding: 1rem;
+      border-left: 5px solid #3498db;
+      margin: 1rem 0;
+      border-radius: 5px;
+    }
+    .important {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Applications of Laurent Series</h1>
+
+  <p>The Laurent series is widely used in <strong>complex analysis</strong> and has several important applications:</p>
+
+  <div class="application">
+    <h2>1. Analysis of Singularities</h2>
+    <p>Laurent series helps classify singular points of complex functions:</p>
+    <ul>
+      <li><span class="important">Removable singularity:</span> Principal part has no terms (all c<sub>-n</sub> = 0).</li>
+      <li><span class="important">Pole:</span> Finite number of negative-power terms.</li>
+      <li><span class="important">Essential singularity:</span> Infinite negative-power terms exist.</li>
+    </ul>
+  </div>
+
+  <div class="application">
+    <h2>2. Residue Calculation</h2>
+    <p>The coefficient of <code>(z-a)<sup>-1</sup></code> in the Laurent series is called the <strong>residue</strong>, used in evaluating complex integrals via the <strong>Residue Theorem</strong>.</p>
+  </div>
+
+  <div class="application">
+    <h2>3. Evaluation of Complex Integrals</h2>
+    <p>Laurent series allow computation of integrals around singularities efficiently using residues, avoiding complicated contour integration directly.</p>
+  </div>
+
+  <div class="application">
+    <h2>4. Expansion of Functions Near Singularities</h2>
+    <p>Laurent series provides an expansion of functions even when a Taylor series does not exist, particularly near points where the function has poles.</p>
+  </div>
+
+  <div class="application">
+    <h2>5. Solution of Differential Equations</h2>
+    <p>Laurent series is useful in solving linear differential equations with singular points (Frobenius method) in complex analysis.</p>
+  </div>
+
+  <div class="application">
+    <h2>6. Signal Processing and Physics</h2>
+    <p>Used in areas like <strong>Fourier analysis</strong>, <strong>quantum mechanics</strong>, and <strong>electrical engineering</strong> for handling functions with singular behavior.</p>
+  </div>
+
+</body>
+</html>
+
