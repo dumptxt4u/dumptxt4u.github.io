@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Transactions: 50 Multiple Choice Questions</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        .question { margin-bottom: 20px; }
+        .question h3 { margin-bottom: 10px; }
+        .options { list-style-type: none; padding: 0; }
+        .options li { margin-bottom: 5px; }
+        .answer { display: none; color: green; font-weight: bold; }
+        button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Database Transactions: 50 Multiple Choice Questions</h1>
+    <p>This quiz is based on the concepts of database transactions, including ACID properties. Select the correct option for each question. Click "Show Answer" to reveal the correct choice.</p>
+
+    <div class="question">
+        <h3>1. What is a transaction in the context of databases?</h3>
+        <ul class="options">
+            <li>A. A unit of program execution that accesses and possibly updates various data items.</li>
+            <li>B. A single SQL query.</li>
+            <li>C. A database backup process.</li>
+            <li>D. A user login session.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>2. How is a transaction usually initiated?</h3>
+        <ul class="options">
+            <li>A. By a user program written in a high-level data-manipulation language like SQL.</li>
+            <li>B. By restarting the database server.</li>
+            <li>C. Automatically by the operating system.</li>
+            <li>D. Through hardware interrupts.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>3. In which programming languages might database accesses be embedded for transactions?</h3>
+        <ul class="options">
+            <li>A. C++ or Java, with JDBC or ODBC.</li>
+            <li>B. Assembly or Machine code.</li>
+            <li>C. HTML or CSS.</li>
+            <li>D. Shell scripts only.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>4. How is a transaction delimited?</h3>
+        <ul class="options">
+            <li>A. By statements or function calls like begin transaction and end transaction.</li>
+            <li>B. By opening and closing database connections.</li>
+            <li>C. By power cycles of the server.</li>
+            <li>D. By user input prompts.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>5. What does a transaction consist of?</h3>
+        <ul class="options">
+            <li>A. All operations executed between begin transaction and end transaction.</li>
+            <li>B. Only read operations.</li>
+            <li>C. Only write operations.</li>
+            <li>D. System logs.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>6. How must a transaction appear to the user?</h3>
+        <ul class="options">
+            <li>A. As a single, indivisible unit.</li>
+            <li>B. As multiple separate units.</li>
+            <li>C. As optional executions.</li>
+            <li>D. As background processes.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>7. What happens if a transaction fails for any reason?</h3>
+        <ul class="options">
+            <li>A. Any changes made must be undone.</li>
+            <li>B. Changes are partially committed.</li>
+            <li>C. The database is deleted.</li>
+            <li>D. No action is taken.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>8. What are examples of reasons a transaction might fail?</h3>
+        <ul class="options">
+            <li>A. Division by zero, operating system crash, or computer failure.</li>
+            <li>B. Successful completion.</li>
+            <li>C. User logout.</li>
+            <li>D. Database optimization.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>9. What property refers to the 'all-or-none' nature of transactions?</h3>
+        <ul class="options">
+            <li>A. Atomicity.</li>
+            <li>B. Consistency.</li>
+            <li>C. Isolation.</li>
+            <li>D. Durability.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>10. Why is ensuring atomicity difficult?</h3>
+        <ul class="options">
+            <li>A. Some changes may be in main-memory variables, others on disk.</li>
+            <li>B. It requires no storage.</li>
+            <li>C. Transactions are always simple.</li>
+            <li>D. Databases don't support undo.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>11. What property ensures transactions do not interfere with each other?</h3>
+        <ul class="options">
+            <li>A. Isolation.</li>
+            <li>B. Atomicity.</li>
+            <li>C. Consistency.</li>
+            <li>D. Durability.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>12. Even a single SQL statement involves how many database accesses?</h3>
+        <ul class="options">
+            <li>A. Many separate accesses.</li>
+            <li>B. Exactly one.</li>
+            <li>C. None.</li>
+            <li>D. Infinite.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>13. What must the database system do to ensure isolation?</h3>
+        <ul class="options">
+            <li>A. Take special actions to prevent interference from concurrent statements.</li>
+            <li>B. Allow all interferences.</li>
+            <li>C. Shut down during transactions.</li>
+            <li>D. Ignore concurrency.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>14. What happens if the system crashes after a transaction completes?</h3>
+        <ul class="options">
+            <li>A. The transaction's actions must persist.</li>
+            <li>B. All changes are lost.</li>
+            <li>C. Database is reset to default.</li>
+            <li>D. Transaction is restarted.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>15. What property refers to changes persisting across crashes?</h3>
+        <ul class="options">
+            <li>A. Durability.</li>
+            <li>B. Atomicity.</li>
+            <li>C. Isolation.</li>
+            <li>D. Consistency.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>16. Why are transactions ideal for structuring database interactions?</h3>
+        <ul class="options">
+            <li>A. Because of atomicity, consistency, isolation, and durability.</li>
+            <li>B. They are fast but unreliable.</li>
+            <li>C. They avoid data access.</li>
+            <li>D. They require no programming.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>17. What requirement is imposed on transactions themselves?</h3>
+        <ul class="options">
+            <li>A. They must preserve database consistency.</li>
+            <li>B. They must violate integrity constraints.</li>
+            <li>C. They are optional.</li>
+            <li>D. They ignore application logic.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>18. What does consistency go beyond?</h3>
+        <ul class="options">
+            <li>A. Data integrity constraints like primary keys and referential integrity.</li>
+            <li>B. Only basic constraints.</li>
+            <li>C. No constraints at all.</li>
+            <li>D. Hardware limits.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>19. Who is responsible for ensuring application-dependent consistency?</h3>
+        <ul class="options">
+            <li>A. The programmer who codes the transaction.</li>
+            <li>B. The database administrator only.</li>
+            <li>C. The end user.</li>
+            <li>D. The operating system.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>20. What property is referred to as consistency?</h3>
+        <ul class="options">
+            <li>A. Preservation of database consistency after transaction execution.</li>
+            <li>B. Allowing inconsistencies.</li>
+            <li>C. Ignoring changes.</li>
+            <li>D. Temporary states.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>21. What does atomicity ensure?</h3>
+        <ul class="options">
+            <li>A. All operations are reflected or none are.</li>
+            <li>B. Partial operations are allowed.</li>
+            <li>C. No operations are performed.</li>
+            <li>D. Only read operations.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>22. What does consistency ensure?</h3>
+        <ul class="options">
+            <li>A. Execution in isolation preserves consistency.</li>
+            <li>B. Concurrent execution preserves consistency.</li>
+            <li>C. No consistency is needed.</li>
+            <li>D. Inconsistencies are introduced.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>23. What does isolation guarantee?</h3>
+        <ul class="options">
+            <li>A. Transactions appear to execute serially, unaware of concurrency.</li>
+            <li>B. All transactions interfere.</li>
+            <li>C. Only one transaction at a time.</li>
+            <li>D. No guarantees on order.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>24. For every pair of transactions Ti and Tj, what appears to Ti?</h3>
+        <ul class="options">
+            <li>A. Tj finished before Ti started or started after Ti finished.</li>
+            <li>B. They overlap completely.</li>
+            <li>C. Tj always starts first.</li>
+            <li>D. No relation.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>25. What does durability ensure?</h3>
+        <ul class="options">
+            <li>A. Changes persist even after system failures.</li>
+            <li>B. Changes are lost on failure.</li>
+            <li>C. No changes are made.</li>
+            <li>D. Temporary persistence.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>26. What are the ACID properties?</h3>
+        <ul class="options">
+            <li>A. Atomicity, Consistency, Isolation, Durability.</li>
+            <li>B. Access, Control, Integrity, Data.</li>
+            <li>C. Add, Commit, Insert, Delete.</li>
+            <li>D. All, Complete, Independent, Durable.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>27. Where does the acronym ACID come from?</h3>
+        <ul class="options">
+            <li>A. First letter of each property: Atomicity, Consistency, Isolation, Durability.</li>
+            <li>B. A chemical term.</li>
+            <li>C. Random letters.</li>
+            <li>D. Database vendor name.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>28. What might ensuring isolation adversely affect?</h3>
+        <ul class="options">
+            <li>A. System performance.</li>
+            <li>B. Data size.</li>
+            <li>C. User count.</li>
+            <li>D. Hardware requirements.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>29. Why do some applications compromise on isolation?</h3>
+        <ul class="options">
+            <li>A. To improve performance.</li>
+            <li>B. To reduce durability.</li>
+            <li>C. To ignore atomicity.</li>
+            <li>D. To violate consistency.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>30. What is the chapter number mentioned in the text?</h3>
+        <ul class="options">
+            <li>A. 14.</li>
+            <li>B. 15.</li>
+            <li>C. 13.</li>
+            <li>D. 16.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>31. What section discusses the transaction concept?</h3>
+        <ul class="options">
+            <li>A. 14.1.</li>
+            <li>B. 14.2.</li>
+            <li>C. 15.1.</li>
+            <li>D. 13.1.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>32. What is mentioned as a simple transaction model?</h3>
+        <ul class="options">
+            <li>A. Section 14.2.</li>
+            <li>B. The entire chapter.</li>
+            <li>C. Not mentioned.</li>
+            <li>D. Appendix.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>33. Transactions may consist of several what?</h3>
+        <ul class="options">
+            <li>A. SQL statements.</li>
+            <li>B. Hardware commands.</li>
+            <li>C. Network packets.</li>
+            <li>D. User interfaces.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>34. What must be undone if a transaction fails?</h3>
+        <ul class="options">
+            <li>A. Any changes to the database.</li>
+            <li>B. Only memory changes.</li>
+            <li>C. Nothing.</li>
+            <li>D. All data.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>35. What is the user-level impression of transactions?</h3>
+        <ul class="options">
+            <li>A. They execute as indivisible units without separation by other operations.</li>
+            <li>B. They are interrupted frequently.</li>
+            <li>C. They are visible to others.</li>
+            <li>D. They don't affect data.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>36. Ensuring correct execution serves little purpose if what happens?</h3>
+        <ul class="options">
+            <li>A. The system crashes and forgets the transaction.</li>
+            <li>B. The transaction succeeds.</li>
+            <li>C. Users log out.</li>
+            <li>D. Data is backed up.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>37. Transactions must start from what state?</h3>
+        <ul class="options">
+            <li>A. A consistent database.</li>
+            <li>B. An inconsistent database.</li>
+            <li>C. Empty database.</li>
+            <li>D. Backup state.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>38. After a transaction, the database must be in what state?</h3>
+        <ul class="options">
+            <li>A. Consistent.</li>
+            <li>B. Inconsistent.</li>
+            <li>C. Deleted.</li>
+            <li>D. Archived.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>39. What constraints are too complex for SQL constructs?</h3>
+        <ul class="options">
+            <li>A. Application-dependent consistency constraints.</li>
+            <li>B. Basic key constraints.</li>
+            <li>C. No constraints.</li>
+            <li>D. Hardware constraints.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>40. The database system must maintain what properties?</h3>
+        <ul class="options">
+            <li>A. ACID properties.</li>
+            <li>B. BASE properties.</li>
+            <li>C. CRUD properties.</li>
+            <li>D. REST properties.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>41. Isolation means each transaction is unaware of what?</h3>
+        <ul class="options">
+            <li>A. Other transactions executing concurrently.</li>
+            <li>B. Its own operations.</li>
+            <li>C. Database structure.</li>
+            <li>D. User inputs.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>42. Consistency is preserved when a transaction runs in what?</h3>
+        <ul class="options">
+            <li>A. Isolation.</li>
+            <li>B. Concurrency.</li>
+            <li>C. Failure mode.</li>
+            <li>D. Backup.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>43. Atomicity applies regardless of what?</h3>
+        <ul class="options">
+            <li>A. The reason for failure.</li>
+            <li>B. Success only.</li>
+            <li>C. Partial execution.</li>
+            <li>D. No failures.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>44. What is the page number where the text starts?</h3>
+        <ul class="options">
+            <li>A. 627.</li>
+            <li>B. 628.</li>
+            <li>C. 629.</li>
+            <li>D. 630.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>45. Transactions are executed atomically in what?</h3>
+        <ul class="options">
+            <li>A. Isolation.</li>
+            <li>B. Groups.</li>
+            <li>C. Batches.</li>
+            <li>D. Sequences.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>46. Durability ensures persistence across what?</h3>
+        <ul class="options">
+            <li>A. System failures.</li>
+            <li>B. Successful runs only.</li>
+            <li>C. User sessions.</li>
+            <li>D. Backups.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>47. What is the last property listed in ACID?</h3>
+        <ul class="options">
+            <li>A. Durability.</li>
+            <li>B. Atomicity.</li>
+            <li>C. Consistency.</li>
+            <li>D. Isolation.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>48. The text is from which chapter?</h3>
+        <ul class="options">
+            <li>A. Chapter 14 Transactions.</li>
+            <li>B. Chapter 15.</li>
+            <li>C. Introduction.</li>
+            <li>D. Appendix.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>49. What might some applications compromise on?</h3>
+        <ul class="options">
+            <li>A. The isolation property.</li>
+            <li>B. Atomicity.</li>
+            <li>C. Durability.</li>
+            <li>D. Consistency.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+    <div class="question">
+        <h3>50. The properties are often called what?</h3>
+        <ul class="options">
+            <li>A. ACID properties.</li>
+            <li>B. Basic properties.</li>
+            <li>C. Advanced properties.</li>
+            <li>D. Optional properties.</li>
+        </ul>
+        <p class="answer">Correct: A</p>
+        <button onclick="this.previousElementSibling.style.display='block';">Show Answer</button>
+    </div>
+
+</body>
+</html>

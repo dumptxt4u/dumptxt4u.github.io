@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14: Transactions - 50-Slide Presentation</title>
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/theme/moon.min.css" id="theme">
+    <!-- Optional: Syntax highlighting for code -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/plugin/highlight/monokai.min.css">
+    <style>
+        .reveal section {
+            font-size: 28px;
+            text-align: left;
+        }
+        .reveal h1, .reveal h2, .reveal h3 {
+            text-align: center;
+        }
+        .reveal pre {
+            width: 100%;
+            box-shadow: none;
+            margin: 20px auto;
+        }
+        .reveal ul {
+            margin-left: 20px;
+        }
+        .reveal .fragment {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .reveal .fragment.visible {
+            opacity: 1;
+            visibility: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide 1: Title -->
+            <section>
+                <h1>Database Systems</h1>
+                <h2>Chapter 14: Transactions</h2>
+                <p><small>50-Slide Presentation based on Textbook Excerpt</small></p>
+            </section>
+
+            <!-- Slide 2: Section 14.1 -->
+            <section>
+                <h2>14.1 Transaction Concept</h2>
+            </section>
+
+            <!-- Slide 3: Definition of Transaction -->
+            <section>
+                <h3>What is a Transaction?</h3>
+                <ul>
+                    <li class="fragment">A unit of program execution</li>
+                    <li class="fragment">Accesses and possibly updates various data items</li>
+                </ul>
+            </section>
+
+            <!-- Slide 4: Initiation -->
+            <section>
+                <h3>Initiation of a Transaction</h3>
+                <ul>
+                    <li class="fragment">Initiated by a user program</li>
+                    <li class="fragment">Written in high-level language (e.g., SQL)</li>
+                    <li class="fragment">Or programming language (C++, Java) with JDBC/ODBC</li>
+                </ul>
+            </section>
+
+            <!-- Slide 5: Delimitation -->
+            <section>
+                <h3>Delimiting a Transaction</h3>
+                <ul>
+                    <li class="fragment">begin transaction</li>
+                    <li class="fragment">end transaction</li>
+                </ul>
+            </section>
+
+            <!-- Slide 6: Operations -->
+            <section>
+                <h3>Operations in a Transaction</h3>
+                <p>All operations executed between begin and end transaction</p>
+            </section>
+
+            <!-- Slide 7: Indivisible Unit -->
+            <section>
+                <h3>Appears as Indivisible Unit</h3>
+                <p>Must appear to the user as a single, indivisible unit</p>
+            </section>
+
+            <!-- Slide 8: All or None -->
+            <section>
+                <h3>All or None Execution</h3>
+                <ul>
+                    <li class="fragment">Executes in entirety</li>
+                    <li class="fragment">Or not at all</li>
+                </ul>
+            </section>
+
+            <!-- Slide 9: Failure Handling -->
+            <section>
+                <h3>If Transaction Fails</h3>
+                <p>Any changes must be undone</p>
+            </section>
+
+            <!-- Slide 10: Failure Reasons -->
+            <section>
+                <h3>Reasons for Failure</h3>
+                <ul>
+                    <li class="fragment">Transaction error (e.g., divide by zero)</li>
+                    <li class="fragment">OS crash</li>
+                    <li class="fragment">Hardware failure</li>
+                </ul>
+            </section>
+
+            <!-- Slide 11: Atomicity Challenge -->
+            <section>
+                <h3>Challenge in Ensuring Atomicity</h3>
+                <p>Changes in memory vs. on disk</p>
+            </section>
+
+            <!-- Slide 12: Atomicity Property -->
+            <section>
+                <h3>Atomicity</h3>
+                <p>“All-or-none” property</p>
+            </section>
+
+            <!-- Slide 13: Isolation Intro -->
+            <section>
+                <h3>Isolation Introduction</h3>
+                <p>Actions not separated by other operations</p>
+            </section>
+
+            <!-- Slide 14: Reality vs. Impression -->
+            <section>
+                <h3>User Impression vs. Reality</h3>
+                <p>Single SQL involves many accesses</p>
+            </section>
+
+            <!-- Slide 15: System Actions -->
+            <section>
+                <h3>Database System Actions</h3>
+                <p>Ensure no interference from concurrent statements</p>
+            </section>
+
+            <!-- Slide 16: Isolation Property -->
+            <section>
+                <h3>Isolation</h3>
+                <p>Transactions operate properly without interference</p>
+            </section>
+
+            <!-- Slide 17: Durability Intro -->
+            <section>
+                <h3>Durability Introduction</h3>
+                <p>Actions persist across crashes</p>
+            </section>
+
+            <!-- Slide 18: Durability Property -->
+            <section>
+                <h3>Durability</h3>
+                <p>Changes persist even if system crashes</p>
+            </section>
+
+            <!-- Slide 19: Ideal Structuring -->
+            <section>
+                <h3>Transactions as Ideal Structure</h3>
+                <p>Due to atomicity, isolation, durability</p>
+            </section>
+
+            <!-- Slide 20: Consistency Requirement -->
+            <section>
+                <h3>Consistency Requirement</h3>
+                <p>Preserve database consistency</p>
+            </section>
+
+            <!-- Slide 21: Beyond Integrity Constraints -->
+            <section>
+                <h3>Beyond Basic Constraints</h3>
+                <p>Primary keys, referential integrity, etc.</p>
+            </section>
+
+            <!-- Slide 22: Application-Dependent Constraints -->
+            <section>
+                <h3>Complex Constraints</h3>
+                <p>Responsibility of the programmer</p>
+            </section>
+
+            <!-- Slide 23: Consistency Property -->
+            <section>
+                <h3>Consistency</h3>
+                <p>Isolation preserves consistency</p>
+            </section>
+
+            <!-- Slide 24: Atomicity Restated -->
+            <section>
+                <h3>Atomicity Restated</h3>
+                <p>All operations reflected or none</p>
+            </section>
+
+            <!-- Slide 25: Consistency Restated -->
+            <section>
+                <h3>Consistency Restated</h3>
+                <p>Execution in isolation preserves consistency</p>
+            </section>
+
+            <!-- Slide 26: Isolation Restated -->
+            <section>
+                <h3>Isolation Restated</h3>
+                <p>Appears serial to each transaction</p>
+            </section>
+
+            <!-- Slide 27: Durability Restated -->
+            <section>
+                <h3>Durability Restated</h3>
+                <p>Changes persist after success</p>
+            </section>
+
+            <!-- Slide 28: ACID Acronym -->
+            <section>
+                <h3>ACID Properties</h3>
+                <p>Derived from first letters</p>
+            </section>
+
+            <!-- Slide 29: Isolation and Performance -->
+            <section>
+                <h3>Isolation Impact</h3>
+                <p>Adverse effect on performance</p>
+            </section>
+
+            <!-- Slide 30: Compromises -->
+            <section>
+                <h3>Compromises on Isolation</h3>
+                <p>Some applications compromise</p>
+            </section>
+
+            <!-- Slide 31: Section 14.2 -->
+            <section>
+                <h2>14.2 A Simple Transaction Model</h2>
+            </section>
+
+            <!-- Slide 32: Why Simple Model -->
+            <section>
+                <h3>Why a Simple Model?</h3>
+                <p>SQL is complex; focus on data movement</p>
+            </section>
+
+            <!-- Slide 33: Ignored Operations -->
+            <section>
+                <h3>Ignored Operations</h3>
+                <p>Insert and delete (deferred to 15.8)</p>
+            </section>
+
+            <!-- Slide 34: Restricted Operations -->
+            <section>
+                <h3>Restricted to Arithmetic</h3>
+                <p>Only arithmetic operations</p>
+            </section>
+
+            <!-- Slide 35: Data Items -->
+            <section>
+                <h3>Data Items</h3>
+                <p>Single value, identified by name (A, B, etc.)</p>
+            </section>
+
+            <!-- Slide 36: Bank Application -->
+            <section>
+                <h3>Bank Application Example</h3>
+                <p>Accounts and updating transactions</p>
+            </section>
+
+            <!-- Slide 37: read(X) -->
+            <section>
+                <h3>read(X) Operation</h3>
+                <p>Transfers from DB to main memory variable</p>
+            </section>
+
+            <!-- Slide 38: write(X) -->
+            <section>
+                <h3>write(X) Operation</h3>
+                <p>Transfers from memory to DB</p>
+            </section>
+
+            <!-- Slide 39: Change Visibility -->
+            <section>
+                <h3>Change Visibility</h3>
+                <p>Memory vs. disk</p>
+            </section>
+
+            <!-- Slide 40: Write Assumption -->
+            <section>
+                <h3>Assumption on Write</h3>
+                <p>Immediate update (for now)</p>
+            </section>
+
+            <!-- Slide 41: Transaction Ti -->
+            <section>
+                <h3>Transaction Ti Example</h3>
+                <pre><code data-trim>
+Ti: read(A);
+A := A − 50;
+write(A);
+read(B);
+B := B + 50;
+write(B).
+                </code></pre>
+            </section>
+
+            <!-- Slide 42: Consistency in Example -->
+            <section>
+                <h3>Consistency in Ti</h3>
+                <p>Sum of A and B unchanged</p>
+            </section>
+
+            <!-- Slide 43: Programmer Responsibility -->
+            <section>
+                <h3>Ensuring Consistency</h3>
+                <p>Application programmer's task</p>
+            </section>
+
+            <!-- Slide 44: Atomicity Failure Example -->
+            <section>
+                <h3>Atomicity: Failure Scenario</h3>
+                <p>Failure after write(A), before write(B)</p>
+            </section>
+
+            <!-- Slide 45: Inconsistent State -->
+            <section>
+                <h3>Inconsistent State</h3>
+                <p>Money lost; sum not preserved</p>
+            </section>
+
+            <!-- Slide 46: Ensuring Atomicity -->
+            <section>
+                <h3>Log for Atomicity</h3>
+                <p>Track old values on disk</p>
+            </section>
+
+            <!-- Slide 47: Recovery System -->
+            <section>
+                <h3>Recovery System</h3>
+                <p>Handles atomicity (Chapter 16)</p>
+            </section>
+
+            <!-- Slide 48: Durability Guarantee -->
+            <section>
+                <h3>Durability</h3>
+                <p>No loss after successful completion</p>
+            </section>
+
+            <!-- Slide 49: Ensuring Durability -->
+            <section>
+                <h3>Ways to Ensure Durability</h3>
+                <ul>
+                    <li class="fragment">Write to disk before complete</li>
+                    <li class="fragment">Log info to reconstruct</li>
+                </ul>
+            </section>
+
+            <!-- Slide 50: Isolation in Concurrency -->
+            <section>
+                <h3>Isolation with Concurrency</h3>
+                <p>Equivalent to serial execution</p>
+            </section>
+        </div>
+    </div>
+
+    <!-- Reveal.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [ RevealHighlight ],
+            transition: 'slide',
+            slideNumber: 'c/t',
+            width: 1280,
+            height: 720,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 2.0
+        });
+    </script>
+</body>
+</html>
