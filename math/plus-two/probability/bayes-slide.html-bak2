@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayes' Theorem Examples - Probability Problems</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #000;
+            color: #fff;
+        }
+        .slider {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        .content {
+            max-width: 900px;
+            background: rgba(0,0,0,0.4);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            line-height: 1.6;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            color: #00ffca;
+        }
+        p {
+            font-size: 1.4em;
+        }
+        .nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        button {
+            padding: 12px 24px;
+            margin: 0 10px;
+            font-size: 1.1em;
+            background: #00ffca;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #00b894;
+            transform: scale(1.1);
+        }
+        .title-slide {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            text-align: center;
+        }
+        .title-slide h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        .title-slide p {
+            font-size: 1.8em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider">
+
+    <!-- Title Slide -->
+    <div class="slide active title-slide">
+        <div class="content">
+            <h1>Bayes' Theorem</h1>
+            <p>Classic Probability Problems<br>(Examples 16–21)</p>
+            <p style="margin-top: 50px; font-size:1.5em;">Use ← → arrow keys or buttons to navigate</p>
+        </div>
+    </div>
+
+    <!-- Example 16 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 16</h2>
+            <p>Bag I contains 3 red and 4 black balls.<br>
+            Bag II contains 5 red and 6 black balls.<br><br>
+            One ball is drawn at random from one of the bags (equal probability of choosing either bag) and it is found to be red.<br><br>
+            Find the probability that it was drawn from Bag II.</p>
+        </div>
+    </div>
+
+    <!-- Example 17 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 17</h2>
+            <p>Three identical boxes:<br>
+            • Box I: two gold coins<br>
+            • Box II: two silver coins<br>
+            • Box III: one gold and one silver coin<br><br>
+            A box is chosen at random and a coin is taken out. The coin is gold.<br><br>
+            What is the probability that the other coin in the same box is also gold?</p>
+        </div>
+    </div>
+
+    <!-- Example 18 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 18 (HIV Test)</h2>
+            <p>Of people with HIV: 90% test positive, 10% test negative.<br>
+            Of people without HIV: 99% test negative, 1% test positive.<br>
+            Only 0.1% of the population has HIV.<br><br>
+            A person is tested and the result is HIV-positive.<br><br>
+            What is the probability that the person actually has HIV?</p>
+        </div>
+    </div>
+
+    <!-- Example 19 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 19</h2>
+            <p>Machines A, B, C produce 25%, 35%, 40% of bolts respectively.<br>
+            Defective rates: A → 5%, B → 4%, C → 2%.<br><br>
+            A bolt is drawn at random and found defective.<br><br>
+            What is the probability it was manufactured by machine B?</p>
+        </div>
+    </div>
+
+    <!-- Example 20 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 20</h2>
+            <p>Doctor's transport probabilities:<br>
+            Train: 3/10, Bus: 1/5, Scooter: 1/10, Other: 2/5<br><br>
+            Probability of being late:<br>
+            Train: 1/4, Bus: 1/3, Scooter: 1/12, Other: 0<br><br>
+            The doctor arrives late.<br><br>
+            What is the probability he came by train?</p>
+        </div>
+    </div>
+
+    <!-- Example 21 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 21</h2>
+            <p>A man speaks the truth 3 out of 4 times.<br><br>
+            He throws a fair die and reports that it is a six.<br><br>
+            Find the probability that it is actually a six.</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="nav">
+    <button id="prev">← Previous</button>
+    <button id="next">Next →</button>
+</div>
+
+<script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[n].classList.add('active');
+    }
+
+    document.getElementById('next').addEventListener('click', () => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') document.getElementById('next').click();
+        if (e.key === 'ArrowLeft') document.getElementById('prev').click();
+    });
+</script>
+
+</body>
+</html>
