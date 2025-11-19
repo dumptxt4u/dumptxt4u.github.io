@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayes' Theorem - Classic Problems (Solved with Solutions)</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #000;
+            color: #fff;
+        }
+        .slider {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        .content {
+            max-width: 1000px;
+            background: rgba(0,0,0,0.5);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            line-height: 1.7;
+        }
+        h1 {
+            font-size: 4em;
+            text-align: center;
+            color: #00ffca;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.4em;
+            color: #00ffca;
+        }
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            background: rgba(0,255,202,0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .solution {
+            font-size: 1.45em;
+            background: rgba(0,255,202,0.05);
+            padding: 25px;
+            border-left: 5px solid #00ffca;
+            margin-top: 20px;
+        }
+        .nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        button {
+            padding: 12px 28px;
+            margin: 0 15px;
+            font-size: 1.2em;
+            background: #00ffca;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #00d4aa;
+            transform: scale(1.1);
+        }
+        .title-slide {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            text-align: center;
+        }
+        .title-slide p {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        .final-answer {
+            font-size: 1.6em;
+            color: #00ffca;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider">
+
+    <!-- Title Slide -->
+    <div class="slide active title-slide">
+        <div class="content">
+            <h1>Bayes' Theorem</h1>
+            <p>Classic Probability Problems<br>Solved Step-by-Step (Examples hi Examples 16–21)</p>
+            <p style="margin-top: 80px; font-size:1.6em;">Use ← → arrow keys or buttons to navigate</p>
+        </div>
+        </div>
+
+    <!-- Example 16 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 16</h2>
+            <div class="question">
+              Bag I contains 3 red and 4 black balls while another Bag II contains 5 red
+and 6 black balls. One ball is drawn at random from one of the bags and it is found to
+be red. Find the probability that it was drawn from Bag II.
+            </div>
+          
+        </div>
+    </div>
+
+    <!-- Example 17 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 17 (Three Boxes)</h2>
+            <div class="question">
+               7 Given three identical boxes I, II and III, each containing two coins. In
+box I, both coins are gold coins, in box II, both are silver coins and in the box III, there
+is one gold and one silver coin. A person chooses a box at random and takes out a coin.
+If the coin is of gold, what is the probability that the other coin in the box is also of gold?
+            </div>
+           
+        </div>
+    </div>
+
+    <!-- Example 18 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 18 (HIV Test)</h2>
+            <div class="question">
+                Suppose that the reliability of a HIV test is specified as follows:
+Of people having HIV, 90% of the test detect the disease but 10% go undetected. Of
+people free of HIV, 99% of the test are judged HIV–ive but 1% are diagnosed as
+showing HIV+ive. From a large population of which only 0.1% have HIV, one person
+is selected at random, given the HIV test, and the pathologist reports him/her as
+HIV+ive. What is the probability that the person actually has HIV?
+            </div>
+           
+        </div>
+    </div>
+
+    <!-- Example 19 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 19 (Defective Bolts)</h2>
+            <div class="question">
+                In a factory which manufactures bolts, machines A, B and C manufacture
+respectively 25%, 35% and 40% of the bolts. Of their outputs, 5, 4 and 2 percent are
+respectively defective bolts. A bolt is drawn at random from the product and is found
+to be defective. What is the probability that it is manufactured by the machine B?
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Example 20 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 20 (Doctor's Transport)</h2>
+            <div class="question">
+            A doctor is to visit a patient. From past experience, the probabilities that he will come by train, bus, scooter, or by other means of transport are respectively 
+            <fraction>3/10</fraction>, <fraction>1/5</fraction>, <fraction>1/10</fraction>, and <fraction>2/5</fraction>.<br><br>
+            The probabilities that he will be late are <fraction>1/4</fraction>, <fraction>1/3</fraction>, <fraction>1/12</fraction>, and 0 respectively (he is never late if he uses other means).<br><br>
+            When he arrives, he is late. What is the probability that he came by train?
+        </div>
+           
+        </div>
+    </div>
+
+    <!-- Example 21 -->
+    <div class="slide">
+        <div class="content">
+            <h2>Example 21 (Liar's Die)</h2>
+            <div class="question">
+ A man is known to speak truth 3 out of 4 times. He throws a die and
+reports that it is a six. Find the probability that it is actually a six.
+            </div>
+           
+        </div>
+    </div>
+
+</div>
+
+<div class="nav">
+    <button id="prev">← Previous</button>
+    <button id="next">Next →</button>
+</div>
+
+<script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[n].classList.add('active');
+    }
+
+    document.getElementById('next').addEventListener('click', () => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') document.getElementById('next').click();
+        if (e.key === 'ArrowLeft') document.getElementById('prev').click();
+    });
+</script>
+
+</body>
+</html>
