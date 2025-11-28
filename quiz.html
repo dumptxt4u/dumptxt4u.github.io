@@ -441,7 +441,14 @@ document.getElementById("reload").addEventListener("click", () => {
         const card = document.createElement('div');
         card.className = 'card math';
         card.innerHTML = 
-        `
+        ` 
+  card.querySelector('.reload-card').addEventListener('click', () => {
+    if (window.MathJax) {
+      MathJax.typesetClear([card]);
+      MathJax.typesetPromise([card]);
+    }
+  });
+      '
           <div class="q-meta">Question ${i + 1}</div>
           <div class="question">${q.q_latex}</div>
           
