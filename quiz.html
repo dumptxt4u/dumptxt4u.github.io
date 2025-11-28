@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MathML JSON Quiz</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:24px;background:#f6f8fa}
+    .card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(20,20,30,0.06);max-width:880px;margin:12px auto}
+    .q-meta{color:#666;font-size:14px;margin-bottom:8px}
+    .question{font-size:20px;margin:12px 0}
+    .options{list-style:none;padding:0}
+    .options li{margin:8px 0}
+    button{padding:8px 12px;border-radius:8px;border:0;background:#0b79ff;color:#fff;cursor:pointer}
+    button.secondary{background:#6b7280}
+    .score{font-weight:700}
+    .controls{display:flex;gap:8px;margin-top:14px}
+    #scroll-container .card{border-left:5px solid #0b79ff}
+  </style>
+
+  <!-- MathJax v3 -->
+  <script>
+    window.MathJax = {
+      loader: {load: ['input/mml','input/tex','output/chtml']},
+      tex: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      options: {skipHtmlTags: ['script','noscript','style','textarea','pre']}
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
+</head>
+<body>
+
+<button class="btn" id="loadAllBtn">Load All MCQs</button>
+<div id="scroll-container"></div>
+
+<div class="card" id="app">
+  <div class="q-meta" id="meta">Question <span id="index">1</span> / <span id="total">0</span></div>
+  <div class="question" id="question">Loading...</div>
+
+  <ul class="options" id="options"></ul>
+
+  <div class="controls">
+    <button id="prev" class="secondary">◀ Prev</button>
+    <button id="next" class="secondary">Next ▶</button>
+    <button id="submit">Submit Answer</button>
+    <div style="margin-left:auto">Score: <span class="score" id="score">0</span></div>
+  </div>
+
+  <div style="margin-top:12px;color:#444" id="feedback"></div>
+</div>
+
+
+<script>
+/* --------------------------------------
+   MCQ ARRAY (your data)
+-------------------------------------- */
+const mcq_array = [
+  {
+    "q_latex": "Let $R$ be a relation on the set $N$ given by $R=\\{(a, b): a=b-2, b>6\\}$.",
+    "options": [
+      { "label": "(a)", "text": "$(2,4) \\in R$", "correct": false },
+      { "label": "(b)", "text": "$(3,8) \\in R$", "correct": true },
+      { "label": "(c)", "text": "$(6,8) \\in R$", "correct": false },
+      { "label": "(d)", "text": "$(8,7) \\in R$", "correct": false }
+    ]
+  },
+
+  {
+    "q_latex": "Which of the following is NOT an equivalence relation on $Z$?",
+    "options": [
+      { "label": "(a)", "text": "$aRb \\iff a+b$ is even", "correct": false },
+      { "label": "(b)", "text": "$aRb \\iff a-b$ is even", "correct": false },
+      { "label": "(c)", "text": "$aRb \\iff a<b$", "correct": true },
+      { "label": "(d)", "text": "$aRb \\iff a=b$", "correct": false }
+    ]
+  }
+
+  /* --------------  
+     Add rest MCQs here (omitted for shortness)
+  ---------------- */
+];
+
+
+/* --------------------------------------
+   QUIZ ENGINE
+-------------------------------------- */
+let current = 0;
+let score = 0;
+
+document.getElementById("total").textContent = mcq_array.length;
+
+function loadQuestion(i) {
+  const q = mcq_array[i];
+  document.getElementById("index").textContent = i + 1;
+  document.getElementById("question").innerHTML = q.q_latex;
+
+  const opt = document.getElementById("options");
+  opt.innerHTML = "";
+
+  q.options.forEach((o, idx) => {
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <label>
+        <input type="radio" name="opt" value="${idx}">
+        ${o.label} ${o.text}
+      </label>
+    `;
+    opt.appendChild(li);
+  });
+
+  MathJax.typeset();
+}
+loadQuestion(0);
+
+/* Navigation */
+document.getElementById("next").onclick = () => {
+  if (current < mcq_array.length - 1) {
+    current++;
+    loadQuestion(current);
+  }
+};
+
+document.getElementById("prev").onclick = () => {
+  if (current > 0) {
+    current--;
+    loadQuestion(current);
+  }
+};
+
+/* Submit */
+document.getElementById("submit").onclick = () => {
+  let ans = document.querySelector("input[name='opt']:checked");
+  if (!ans) return;
+
+  const correctIndex = mcq_array[current].options.findIndex(o => o.correct);
+
+  if (Number(ans.value) === correctIndex) {
+    score++;
+    document.getElementById("feedback").textContent = "✔ Correct!";
+  } else {
+    document.getElementById("feedback").textContent = "✘ Wrong!";
+  }
+
+  document.getElementById("score").textContent = score;
+};
+
+
+/* --------------------------------------
+   LOAD ALL MCQs LIST VIEW
+-------------------------------------- */
+document.getElementById("loadAllBtn").onclick = loadAllMCQs;
+
+function loadAllMCQs() {
+  const container = document.getElementById("scroll-container");
+  container.innerHTML = "";
+
+  mcq_array.forEach((q, i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <div class="q-meta">Question ${i + 1}</div>
+      <div class="question">${q.q_latex}</div>
+      <ul class="options">
+        ${q.options.map(o => `<li>${o.label} ${o.text}</li>`).join("")}
+      </ul>
+    `;
+
+    container.appendChild(card);
+  });
+
+  MathJax.typeset();
+}
+
+</script>
+
+</body>
+</html>
+
