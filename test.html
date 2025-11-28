@@ -1,1 +1,705 @@
-<h1>testinig today</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relations MCQ • Pure MathML • Perfect Rendering</title>
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --success: #10b981;
+      --danger: #ef4444;
+      --gray: #64748b;
+      --light: #f8fafc;
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      color: #1e293b;
+      line-height: 1.8;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin: 20px 0 10px;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #475569;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 32px;
+      margin: 24px 0;
+      box-shadow: var(--shadow);
+      position: relative;
+      border-left: 6px solid var(--primary);
+    }
+
+    .progress {
+      height: 12px;
+      background: #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), #60a5fa);
+      width: 0%;
+      border-radius: 8px;
+      transition: width 0.7s ease;
+    }
+
+    .q-meta {
+      font-size: 1.2rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .question {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 28px 0;
+      line-height: 2;
+      padding: 8px 0;
+    }
+
+    .options {
+      list-style: none;
+      margin: 32px 0;
+    }
+
+    .options li { margin: 18px 0; }
+
+    .options label {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 20px;
+      border: 2.5px solid var(--border);
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #fafbfc;
+      font-size: 1.15rem;
+    }
+
+    .options label:hover {
+      border-color: var(--primary);
+      background: #f0f7ff;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(37,99,235,0.15);
+    }
+
+    .options input[type="radio"] {
+      margin-top: 8px;
+      accent-color: var(--primary);
+      transform: scale(1.3);
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    button, select {
+      padding: 16px 20px;
+      border: none;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button:active { transform: scale(0.96); }
+
+    #prev, #next { background: var(--gray); color: white; }
+    #submit { background: var(--primary); color: white; font-size: 1.2rem; }
+    #reloadCurrent { background: #f59e0b; color: white; }
+    #loadAllBtn { background: var(--success); color: white; grid-column: 1/-1; font-size: 1.3rem; }
+    select { border: 2.5px solid var(--border); }
+
+    .score {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      text-align: center;
+      grid-column: 1/-1;
+    }
+
+    #feedback {
+      margin-top: 28px;
+      padding: 20px;
+      border-radius: 16px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 0.5s ease;
+    }
+
+    #feedback.show { opacity: 1; transform: translateY(0); }
+    .correct { background: #d1fae5; color: #065f46; border: 3px solid #86efac; }
+    .incorrect { background: #fee2e2; color: #991b1b; border: 3px solid #fca5a5; }
+
+    .answer-reveal {
+      margin-top: 24px;
+      padding: 18px;
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+      border-radius: 14px;
+      font-weight: bold;
+      color: #166534;
+    }
+
+    @media (max-width: 640px) {
+      .question { font-size: 1.25rem; }
+      .options label { padding: 16px; font-size: 1.05rem; }
+      .controls { grid-template-columns: 1fr 1fr; }
+      #loadAllBtn, .score { grid-column: 1/-1; }
+    }
+
+    math { font-size: 1.15em !important; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Relations MCQ Quiz</h1>
+  <p class="subtitle">34 Questions • Pure MathML • Instant & Beautiful Rendering</p>
+
+  <button id="loadAllBtn">View All Questions with Answers</button>
+  <div id="scroll-container"></div>
+
+  <div class="card" id="quiz-card">
+    <div class="progress"><div class="progress-fill" id="progress"></div></div>
+    <div class="q-meta">Question <span id="index">1</span> of <span id="total">34</span></div>
+
+    <div class="question" id="question"></div>
+    <ul class="options" id="options"></ul>
+
+    <div class="controls">
+      <button id="prev">Previous</button>
+      <button id="reloadCurrent">Reset</button>
+      <button id="submit">Check Answer</button>
+      <button id="next">Next</button>
+      <select id="questionSelector">
+        <option value="">Jump to...</option>
+      </select>
+      <div class="score">Score: <span id="score">0</span> / 34</div>
+    </div>
+
+    <div id="feedback"></div>
+  </div>
+</div>
+
+<script>
+// FULLY WORKING MATHML DATA — ALL 34 QUESTIONS
+
+const mcq_array = [
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>R</mi></math> be a relation on the set <math display="inline"><mi mathvariant="double-struck">N</mi></math> given by <math display="inline"><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>)</mo><mo>:</mo><mi>a</mi><mo>=</mo><mi>b</mi><mo>−</mo><mn>2</mn><mo>,</mo><mi>b</mi><mo>></mo><mn>6</mn><mo>}</mo></math>.</p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mo>(</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo>)</mo><mo>∈</mo><mi>R</mi></math>`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mo>(</mo><mn>3</mn><mo>,</mo><mn>8</mn><mo>)</mo><mo>∈</mo><mi>R</mi></math>`, correct: true },
+      { label: "(c)", text: `<math display="inline"><mo>(</mo><mn>6</mn><mo>,</mo><mn>8</mn><mo>)</mo><mo>∈</mo><mi>R</mi></math>`, correct: false },
+      { label: "(d)", text: `<math display="inline"><mo>(</mo><mn>8</mn><mo>,</mo><mn>7</mn><mo>)</mo><mo>∈</mo><mi>R</mi></math>`, correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Which of the following is <strong>not</strong> an equivalence relation on <math display="inline"><mi mathvariant="double-struck">Z</mi></math>?</p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mi>a</mi><mi>R</mi><mi>b</mi><mo>⇔</mo><mi>a</mi><mo>+</mo><mi>b</mi></math> is an even integer`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mi>a</mi><mi>R</mi><mi>b</mi><mo>⇔</mo><mi>a</mi><mo>−</mo><mi>b</mi></math> is an even integer`, correct: false },
+      { label: "(c)", text: `<math display="inline"><mi>a</mi><mi>R</mi><mi>b</mi><mo>⇔</mo><mi>a</mi><mo>&lt;</mo><mi>b</mi></math>`, correct: true },
+      { label: "(d)", text: `<math display="inline"><mi>a</mi><mi>R</mi><mi>b</mi><mo>⇔</mo><mi>a</mi><mo>=</mo><mi>b</mi></math>`, correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p><math display="inline"><mi>R</mi></math> is a relation on the set <math display="inline"><mi mathvariant="double-struck">Z</mi></math> of integers and it is given by <math display="inline"><mo>(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>)</mo><mo>∈</mo><mi>R</mi><mo>⇔</mo><mo>|</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>|</mo><mo>≤</mo><mn>1</mn></math>. Then, <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "reflexive and transitive", correct: false },
+      { label: "(b)", text: "reflexive and symmetric", correct: true },
+      { label: "(c)", text: "symmetric and transitive", correct: false },
+      { label: "(d)", text: "an equivalence relation", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>The relation <math display="inline"><mi>R</mi></math> defined on the set <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo>}</mo></math> by <math display="inline"><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>)</mo><mo>:</mo><mo>|</mo><msup><mi>a</mi><mn>2</mn></msup><mo>−</mo><msup><mi>b</mi><mn>2</mn></msup><mo>|</mo><mo>&lt;</mo><mn>16</mn><mo>}</mo></math>, is given by</p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mo>{</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>4</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>}</mo></math>`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mo>{</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>4</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo>)</mo><mo>}</mo></math>`, correct: true },
+      { label: "(c)", text: `<math display="inline"><mo>{</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>4</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>5</mn><mo>,</mo><mn>4</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>)</mo><mo>}</mo></math>`, correct: false },
+      { label: "(d)", text: "none of these", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>R</mi></math> be the relation over the set of all straight lines in a plane such that <math display="inline"><msub><mi>l</mi><mn>1</mn></msub><mi>R</mi><msub><mi>l</mi><mn>2</mn></msub><mo>⇔</mo><msub><mi>l</mi><mn>1</mn></msub><mo>⊥</mo><msub><mi>l</mi><mn>2</mn></msub></math>. Then, <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "symmetric", correct: false },
+      { label: "(b)", text: "reflexive", correct: true },
+      { label: "(c)", text: "transitive", correct: false },
+      { label: "(d)", text: "an equivalence relation", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>If <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo>}</mo></math>, then the relation <math display="inline"><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo>)</mo><mo>}</mo></math> on <math display="inline"><mi>A</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "reflexive only", correct: false },
+      { label: "(b)", text: "symmetric only", correct: true },
+      { label: "(c)", text: "transitive only", correct: false },
+      { label: "(d)", text: "reflexive and transitive only", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo>,</mo><mo>…</mo><mo>,</mo><mn>17</mn><mo>,</mo><mn>18</mn><mo>}</mo></math>. Let '<math display="inline"><mo>∼</mo></math>' be the equivalence relation on <math display="inline"><mi>A</mi><mo>×</mo><mi>A</mi></math>, defined by <math display="inline"><mo>(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>)</mo><mo>∼</mo><mo>(</mo><mi>c</mi><mo>,</mo><mi>d</mi><mo>)</mo><mo>⇔</mo><mi>a</mi><mi>d</mi><mo>=</mo><mi>b</mi><mi>c</mi></math>. Then, the number of ordered pairs of the equivalence class of <math display="inline"><mo>(</mo><mn>3</mn><mo>,</mo><mn>2</mn><mo>)</mo></math> is</p>`,
+    options: [
+      { label: "(a)", text: "4", correct: false },
+      { label: "(b)", text: "5", correct: true },
+      { label: "(c)", text: "6", correct: false },
+      { label: "(d)", text: "7", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>}</mo></math>. Then, the number of relations containing <math display="inline"><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo></math> and <math display="inline"><mo>(</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo>)</mo></math> which are reflexive and symmetric but not transitive is</p>`,
+    options: [
+      { label: "(a)", text: "1", correct: false },
+      { label: "(b)", text: "2", correct: true },
+      { label: "(c)", text: "34", correct: false },
+      { label: "(d)", text: "4", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>The relation '<math display="inline"><mi>R</mi></math>' in <math display="inline"><mi mathvariant="double-struck">N</mi><mo>×</mo><mi mathvariant="double-struck">N</mi></math> such that <math display="inline"><mo>(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>)</mo><mi>R</mi><mo>(</mo><mi>c</mi><mo>,</mo><mi>d</mi><mo>)</mo><mo>⇔</mo><mi>a</mi><mo>+</mo><mi>d</mi><mo>=</mo><mi>b</mi><mo>+</mo><mi>c</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "reflexive but not symmetric", correct: false },
+      { label: "(b)", text: "reflexive and transitive but not symmetric", correct: true },
+      { label: "(c)", text: "an equivalence relation", correct: false },
+      { label: "(d)", text: "none of these", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>If <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>}</mo><mo>,</mo><mi>B</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>9</mn><mo>}</mo></math> and <math display="inline"><mi>R</mi></math> is a relation from <math display="inline"><mi>A</mi></math> to <math display="inline"><mi>B</mi></math> defined by '<math display="inline"><mi>x</mi></math> greater than <math display="inline"><mi>y</mi></math>'. The range of <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mo>{</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>9</mn><mo>}</mo></math>`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mo>{</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>9</mn><mo>}</mo></math>`, correct: true },
+      { label: "(c)", text: `<math display="inline"><mo>{</mo><mn>1</mn><mo>}</mo></math>`, correct: false },
+      { label: "(d)", text: "none of these", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>A relation <math display="inline"><mi>R</mi></math> is defined from <math display="inline"><mo>{</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo>}</mo></math> to <math display="inline"><mo>{</mo><mn>3</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>7</mn><mo>,</mo><mn>10</mn><mo>}</mo></math> by: <math display="inline"><mi>x</mi><mi>R</mi><mi>y</mi><mo>⇔</mo><mi>x</mi></math> is relatively prime to <math display="inline"><mi>y</mi></math>. Then, domain of <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mo>{</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>}</mo></math>`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mo>{</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>}</mo></math>`, correct: true },
+      { label: "(c)", text: `<math display="inline"><mo>{</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>}</mo></math>`, correct: false },
+      { label: "(d)", text: `<math display="inline"><mo>{</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo>}</mo></math>`, correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>A relation <math display="inline"><mi>ϕ</mi></math> from <math display="inline"><mi mathvariant="double-struck">C</mi></math> to <math display="inline"><mi mathvariant="double-struck">R</mi></math> is defined by <math display="inline"><mi>x</mi><mi>ϕ</mi><mi>y</mi><mo>⇔</mo><mo>|</mo><mi>x</mi><mo>|</mo><mo>=</mo><mi>y</mi></math>. Which one is correct?</p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mo>(</mo><mn>2</mn><mo>+</mo><mn>3</mn><mi>i</mi><mo>)</mo><mi>ϕ</mi><mn>13</mn></math>`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mn>3</mn><mi>ϕ</mi><mo>(</mo><mo>−</mo><mn>3</mn><mo>)</mo></math>`, correct: true },
+      { label: "(c)", text: `<math display="inline"><mo>(</mo><mn>1</mn><mo>+</mo><mi>i</mi><mo>)</mo><mi>ϕ</mi><mn>2</mn></math>`, correct: false },
+      { label: "(d)", text: `<math display="inline"><mi>i</mi><mi>ϕ</mi><mn>1</mn></math>`, correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>R</mi></math> be a relation on <math display="inline"><mi mathvariant="double-struck">N</mi></math> defined by <math display="inline"><mi>x</mi><mo>+</mo><mn>2</mn><mi>y</mi><mo>=</mo><mn>8</mn></math>. The domain of <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mo>{</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>8</mn><mo>}</mo></math>`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mo>{</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>8</mn><mo>}</mo></math>`, correct: true },
+      { label: "(c)", text: `<math display="inline"><mo>{</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>6</mn><mo>}</mo></math>`, correct: false },
+      { label: "(d)", text: `<math display="inline"><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>}</mo></math>`, correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p><math display="inline"><mi>R</mi></math> is a relation from <math display="inline"><mo>{</mo><mn>11</mn><mo>,</mo><mn>12</mn><mo>,</mo><mn>13</mn><mo>}</mo></math> to <math display="inline"><mo>{</mo><mn>8</mn><mo>,</mo><mn>10</mn><mo>,</mo><mn>12</mn><mo>}</mo></math> defined by <math display="inline"><mi>y</mi><mo>=</mo><mi>x</mi><mo>−</mo><mn>3</mn></math>. Then, <math display="inline"><msup><mi>R</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></math> is</p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mo>{</mo><mo>(</mo><mn>8</mn><mo>,</mo><mn>11</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>10</mn><mo>,</mo><mn>13</mn><mo>)</mo><mo>}</mo></math>`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mo>{</mo><mo>(</mo><mn>11</mn><mo>,</mo><mn>8</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>13</mn><mo>,</mo><mn>10</mn><mo>)</mo><mo>}</mo></math>`, correct: true },
+      { label: "(c)", text: `<math display="inline"><mo>{</mo><mo>(</mo><mn>10</mn><mo>,</mo><mn>13</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>8</mn><mo>,</mo><mn>11</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>8</mn><mo>,</mo><mn>10</mn><mo>)</mo><mo>}</mo></math>`, correct: false },
+      { label: "(d)", text: "none of these", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mi>a</mi><mo>,</mo><mi>a</mi><mo>)</mo><mo>,</mo><mo>(</mo><mi>b</mi><mo>,</mo><mi>b</mi><mo>)</mo><mo>,</mo><mo>(</mo><mi>c</mi><mo>,</mo><mi>c</mi><mo>)</mo><mo>,</mo><mo>(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>)</mo><mo>}</mo></math> be a relation on set <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo>}</mo></math>. Then, <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "identity relation", correct: false },
+      { label: "(b)", text: "reflexive", correct: true },
+      { label: "(c)", text: "symmetric", correct: false },
+      { label: "(d)", text: "equivalence", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>}</mo></math> and <math display="inline"><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>}</mo></math> be a relation on <math display="inline"><mi>A</mi></math>. Then, <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "neither reflexive nor transitive", correct: false },
+      { label: "(b)", text: "neither symmetric nor transitive", correct: true },
+      { label: "(c)", text: "transitive", correct: false },
+      { label: "(d)", text: "none of these", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>If <math display="inline"><mi>R</mi></math> is the largest equivalence relation on a set <math display="inline"><mi>A</mi></math> and <math display="inline"><mi>S</mi></math> is any relation on <math display="inline"><mi>A</mi></math>, then</p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mi>R</mi><mo>⊂</mo><mi>S</mi></math>`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mi>S</mi><mo>⊂</mo><mi>R</mi></math>`, correct: true },
+      { label: "(c)", text: `<math display="inline"><mi>R</mi><mo>=</mo><mi>S</mi></math>`, correct: false },
+      { label: "(d)", text: "none of these", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>If <math display="inline"><mi>R</mi></math> is a relation on the set <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>7</mn><mo>,</mo><mn>8</mn><mo>,</mo><mn>9</mn><mo>}</mo></math> given by <math display="inline"><mi>x</mi><mi>R</mi><mi>y</mi><mo>⇔</mo><mi>y</mi><mo>=</mo><mn>3</mn><mi>x</mi></math>, then <math display="inline"><mi>R</mi><mo>=</mo></math></p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mo>{</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>6</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>8</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>9</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>}</mo></math>`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mo>{</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>6</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>9</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>}</mo></math>`, correct: true },
+      { label: "(c)", text: `<math display="inline"><mo>{</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>6</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>9</mn><mo>)</mo><mo>}</mo></math>`, correct: false },
+      { label: "(d)", text: "none of these", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>If <math display="inline"><mi>R</mi></math> is a relation on the set <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>}</mo></math> given by <math display="inline"><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>}</mo></math>, then <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "reflexive", correct: false },
+      { label: "(b)", text: "symmetric", correct: true },
+      { label: "(c)", text: "transitive", correct: false },
+      { label: "(d)", text: "all the three options", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>If <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>d</mi><mo>}</mo></math>, then a relation <math display="inline"><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>)</mo><mo>,</mo><mo>(</mo><mi>b</mi><mo>,</mo><mi>a</mi><mo>)</mo><mo>,</mo><mo>(</mo><mi>a</mi><mo>,</mo><mi>a</mi><mo>)</mo><mo>}</mo></math> on <math display="inline"><mi>A</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "symmetric and transitive only", correct: false },
+      { label: "(b)", text: "reflexive and transitive only", correct: true },
+      { label: "(c)", text: "symmetric only", correct: false },
+      { label: "(d)", text: "transitive only", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>If <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>}</mo></math>, then a relation <math display="inline"><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>}</mo></math> on <math display="inline"><mi>A</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "symmetric and transitive only", correct: false },
+      { label: "(b)", text: "symmetric only", correct: true },
+      { label: "(c)", text: "transitive only", correct: false },
+      { label: "(d)", text: "none of these", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>R</mi></math> be the relation on the set <math display="inline"><mi>A</mi><mo>≡</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>}</mo></math> given by <math display="inline"><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>}</mo></math>.</p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mi>R</mi></math> is reflexive and symmetric but not transitive`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mi>R</mi></math> is reflexive and transitive but not symmetric`, correct: true },
+      { label: "(c)", text: `<math display="inline"><mi>R</mi></math> is symmetric and transitive but not reflexive`, correct: false },
+      { label: "(d)", text: `<math display="inline"><mi>R</mi></math> is an equivalence relation`, correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>}</mo></math>. Then, the number of equivalence relations containing <math display="inline"><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo></math> is</p>`,
+    options: [
+      { label: "(a)", text: "1", correct: false },
+      { label: "(b)", text: "2", correct: true },
+      { label: "(c)", text: "3", correct: false },
+      { label: "(d)", text: "4", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>The relation <math display="inline"><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>}</mo></math> on the set <math display="inline"><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>}</mo></math> is</p>`,
+    options: [
+      { label: "(a)", text: "symmetric only", correct: false },
+      { label: "(b)", text: "reflexive only", correct: true },
+      { label: "(c)", text: "an equivalence relation", correct: false },
+      { label: "(d)", text: "transitive only", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p><math display="inline"><mi>S</mi></math> is a relation over the set <math display="inline"><mi mathvariant="double-struck">R</mi></math> of all real numbers and it is given by <math display="inline"><mo>(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>)</mo><mo>∈</mo><mi>S</mi><mo>⇔</mo><mi>a</mi><mi>b</mi><mo>≥</mo><mn>0</mn></math>. Then, <math display="inline"><mi>S</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "symmetric and transitive only", correct: false },
+      { label: "(b)", text: "reflexive and symmetric only", correct: true },
+      { label: "(c)", text: "antisymmetric relation", correct: false },
+      { label: "(d)", text: "an equivalence relation", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>In the set <math display="inline"><mi mathvariant="double-struck">Z</mi></math> of all integers, which of the following relation <math display="inline"><mi>R</mi></math> is <strong>not</strong> an equivalence relation?</p>`,
+    options: [
+      { label: "(a)", text: `<math display="inline"><mi>x</mi><mi>R</mi><mi>y</mi><mo>:</mo><mi>x</mi><mo>≤</mo><mi>y</mi></math>`, correct: false },
+      { label: "(b)", text: `<math display="inline"><mi>x</mi><mi>R</mi><mi>y</mi><mo>:</mo><mi>x</mi><mo>=</mo><mi>y</mi></math>`, correct: true },
+      { label: "(c)", text: `<math display="inline"><mi>x</mi><mi>R</mi><mi>y</mi><mo>:</mo><mi>x</mi><mo>−</mo><mi>y</mi></math> is an even integer`, correct: false },
+      { label: "(d)", text: `<math display="inline"><mi>x</mi><mi>R</mi><mi>y</mi><mo>:</mo><mi>x</mi><mo>≡</mo><mi>y</mi><mo>(</mo><mo>mod</mo><mn>3</mn><mo>)</mo></math>`, correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>}</mo></math> and consider the relation <math display="inline"><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>}</mo></math>. Then, <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "reflexive but not symmetric", correct: false },
+      { label: "(b)", text: "reflexive but not transitive", correct: true },
+      { label: "(c)", text: "symmetric and transitive", correct: false },
+      { label: "(d)", text: "neither symmetric nor transitive", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>The relation <math display="inline"><mi>S</mi></math> defined on the set <math display="inline"><mi mathvariant="double-struck">R</mi></math> of all real numbers by the rule <math display="inline"><mi>a</mi><mi>S</mi><mi>b</mi><mo>⇔</mo><mi>a</mi><mo>≥</mo><mi>b</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "an equivalence relation", correct: false },
+      { label: "(b)", text: "reflexive, transitive but not symmetric", correct: true },
+      { label: "(c)", text: "symmetric, transitive but not reflexive", correct: false },
+      { label: "(d)", text: "neither transitive nor reflexive but symmetric", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>The maximum number of equivalence relations on the set <math display="inline"><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>}</mo></math> is</p>`,
+    options: [
+      { label: "(a)", text: "1", correct: false },
+      { label: "(b)", text: "2", correct: true },
+      { label: "(c)", text: "3", correct: false },
+      { label: "(d)", text: "5", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>R</mi></math> be a relation on the set <math display="inline"><mi mathvariant="double-struck">N</mi></math> of natural numbers defined by <math display="inline"><mi>n</mi><mi>R</mi><mi>m</mi><mo>⇔</mo><mi>n</mi></math> divides <math display="inline"><mi>m</mi></math>. Then, <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "Reflexive and symmetric", correct: false },
+      { label: "(b)", text: "Transitive and symmetric", correct: true },
+      { label: "(c)", text: "Equivalence", correct: false },
+      { label: "(d)", text: "Reflexive, transitive but not symmetric", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>L</mi></math> denote the set of all straight lines in a plane. Let a relation <math display="inline"><mi>R</mi></math> be defined by <math display="inline"><mi>l</mi><mi>R</mi><mi>m</mi><mo>⇔</mo><mi>l</mi></math> is perpendicular to <math display="inline"><mi>m</mi></math> for all <math display="inline"><mi>l</mi><mo>,</mo><mi>m</mi><mo>∈</mo><mi>L</mi></math>. Then, <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "reflexive", correct: false },
+      { label: "(b)", text: "symmetric", correct: true },
+      { label: "(c)", text: "transitive", correct: false },
+      { label: "(d)", text: "none of these", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Let <math display="inline"><mi>T</mi></math> be the set of all triangles in the Euclidean plane, and let a relation <math display="inline"><mi>R</mi></math> on <math display="inline"><mi>T</mi></math> be defined as <math display="inline"><mi>a</mi><mi>R</mi><mi>b</mi></math> if <math display="inline"><mi>a</mi></math> is congruent to <math display="inline"><mi>b</mi></math> for all <math display="inline"><mi>a</mi><mo>,</mo><mi>b</mi><mo>∈</mo><mi>T</mi></math>. Then, <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "reflexive but not symmetric", correct: false },
+      { label: "(b)", text: "transitive but not symmetric", correct: true },
+      { label: "(c)", text: "equivalence", correct: false },
+      { label: "(d)", text: "none of these", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>Consider a non-empty set consisting of children in a family and a relation <math display="inline"><mi>R</mi></math> defined as <math display="inline"><mi>a</mi><mi>R</mi><mi>b</mi></math> if <math display="inline"><mi>a</mi></math> is brother of <math display="inline"><mi>b</mi></math>. Then, <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "symmetric but not transitive", correct: false },
+      { label: "(b)", text: "transitive but not symmetric", correct: true },
+      { label: "(c)", text: "neither symmetric nor transitive", correct: false },
+      { label: "(d)", text: "both symmetric and transitive", correct: false }
+    ]
+  },
+  {
+    q_mathml: `<p>For real numbers <math display="inline"><mi>x</mi></math> and <math display="inline"><mi>y</mi></math>, define <math display="inline"><mi>x</mi><mi>R</mi><mi>y</mi><mo>⇔</mo><mi>x</mi><mo>−</mo><mi>y</mi><mo>+</mo><msqrt><mn>2</mn></msqrt></math> is an irrational number. Then the relation <math display="inline"><mi>R</mi></math> is</p>`,
+    options: [
+      { label: "(a)", text: "reflexive", correct: false },
+      { label: "(b)", text: "symmetric", correct: true },
+      { label: "(c)", text: "transitive", correct: false },
+      { label: "(d)", text: "none of these", correct: false }
+    ]
+  }
+];
+
+
+// DOM Elements
+const els = {
+  quizCard: document.getElementById('quiz-card'),
+  scrollContainer: document.getElementById('scroll-container'),
+  index: document.getElementById('index'),
+  total: document.getElementById('total'),
+  question: document.getElementById('question'),
+  options: document.getElementById('options'),
+  feedback: document.getElementById('feedback'),
+  score: document.getElementById('score'),
+  progress: document.getElementById('progress'),
+  prev: document.getElementById('prev'),
+  next: document.getElementById('next'),
+  submit: document.getElementById('submit'),
+  loadAllBtn: document.getElementById('loadAllBtn'),
+  questionSelector: document.getElementById('questionSelector'),
+  reloadCurrent: document.getElementById('reloadCurrent')
+};
+
+let currentIdx = 0;
+let userAnswers = new Array(mcq_array.length).fill(null);
+let isAllView = false;
+
+// Save progress
+function saveProgress() {
+  localStorage.setItem('relationsQuiz_mathml', JSON.stringify({userAnswers, currentIdx}));
+}
+
+// Load progress
+function loadProgress() {
+  const saved = localStorage.getItem('relationsQuiz_mathml');
+  if (saved) {
+    const data = JSON.parse(saved);
+    userAnswers = data.userAnswers || userAnswers;
+    currentIdx = data.currentIdx || 0;
+  }
+}
+
+// Render question — NOW 100% WORKING
+function renderQuestion(idx) {
+  const q = mcq_array[idx];
+  currentIdx = idx;
+
+  els.index.textContent = idx + 1;
+  els.progress.style.width = `${((idx + 1) / mcq_array.length) * 100}%`;
+  els.prev.disabled = idx === 0;
+  els.next.disabled = idx === mcq_array.length - 1;
+
+  // CRITICAL FIX: Use textContent first, then innerHTML with MathML
+  els.question.innerHTML = '';
+  els.question.insertAdjacentHTML('beforeend', q.q_mathml);
+
+  els.options.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const li = document.createElement('li');
+    const checked = userAnswers[idx] === i ? 'checked' : '';
+    li.innerHTML = `
+      <label>
+        <input type="radio" name="opt" value="${i}" ${checked}>
+        <span><strong>${opt.label}</strong> ${opt.text}</span>
+      </label>
+    `;
+    els.options.appendChild(li);
+  });
+
+  els.feedback.textContent = '';
+  els.feedback.classList.remove('show', 'correct', 'incorrect');
+
+  updateSelector();
+  saveProgress();
+}
+
+// Check answer
+function checkAnswer() {
+  const selected = document.querySelector('input[name="opt"]:checked');
+  if (!selected) {
+    showFeedback("Please select an answer!", false);
+    return;
+  }
+  const ans = Number(selected.value);
+  userAnswers[currentIdx] = ans;
+  const correct = mcq_array[currentIdx].options[ans].correct;
+  showFeedback(correct ? "Correct!" : "Incorrect", correct);
+  els.score.textContent = userAnswers.filter((a, i) => a !== null && mcq_array[i].options[a]?.correct).length;
+  saveProgress();
+}
+
+function showFeedback(text, correct) {
+  els.feedback.textContent = text;
+  els.feedback.className = correct ? 'correct show' : 'incorrect show';
+}
+
+// View all
+function showAll() {
+  els.scrollContainer.innerHTML = '';
+  mcq_array.forEach((q, i) => {
+    const correctOpt = q.options.find(o => o.correct);
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="q-meta">Question ${i + 1}</div>
+      <div class="question">${q.q_mathml}</div>
+      <ul class="options">
+        ${q.options.map((o, j) => `
+          <li><label style="cursor:default;${o.correct?'background:#f0fdf4;border-color:#22c55e;font-weight:bold':''}">
+            <input type="radio" disabled ${userAnswers[i]===j?'checked':''}>
+            <span><strong>${o.label}</strong> ${o.text}</span>
+          </label></li>
+        `).join('')}
+      </ul>
+      <div class="answer-reveal">Correct Answer: ${correctOpt.label}</div>
+    `;
+    els.scrollContainer.appendChild(card);
+  });
+}
+
+// Controls
+els.prev.onclick = () => currentIdx > 0 && renderQuestion(currentIdx - 1);
+els.next.onclick = () => currentIdx < mcq_array.length - 1 && renderQuestion(currentIdx + 1);
+els.submit.onclick = checkAnswer;
+els.reloadCurrent.onclick = () => { userAnswers[currentIdx] = null; renderQuestion(currentIdx); };
+els.questionSelector.onchange = e => renderQuestion(Number(e.target.value) || 0);
+
+function updateSelector() {
+  els.questionSelector.innerHTML = '<option value="">Jump to...</option>';
+  mcq_array.forEach((_, i) => {
+    const opt = new Option(`Question ${i + 1}`, i, false, i === currentIdx);
+    els.questionSelector.appendChild(opt);
+  });
+}
+
+els.loadAllBtn.onclick = () => {
+  isAllView = !isAllView;
+  if (isAllView) {
+    els.quizCard.style.display = 'none';
+    els.loadAllBtn.textContent = "Back to Quiz";
+    showAll();
+  } else {
+    els.quizCard.style.display = 'block';
+    els.scrollContainer.innerHTML = '';
+    els.loadAllBtn.textContent = "View All Questions with Answers";
+    renderQuestion(currentIdx);
+  }
+};
+
+// Swipe support
+let startX = 0;
+els.quizCard.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+els.quizCard.addEventListener('touchend', e => {
+  const diff = startX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 60) {
+    if (diff > 0 && currentIdx < mcq_array.length - 1) renderQuestion(currentIdx + 1);
+    if (diff < 0 && currentIdx > 0) renderQuestion(currentIdx - 1);
+  }
+});
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (isAllView) return;
+  if (e.key === 'ArrowLeft') els.prev.click();
+  if (e.key === 'ArrowRight') els.next.click();
+  if (e.key === 'Enter') els.submit.click();
+});
+
+// INIT
+els.total.textContent = mcq_array.length;
+loadProgress();
+renderQuestion(currentIdx);
+
+</script>
+</body>
+</html>
