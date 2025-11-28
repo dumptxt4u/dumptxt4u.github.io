@@ -1,1061 +1,471 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MathML JSON Quiz</title>
-  <style>
-    body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:24px;background:#f6f8fa}
-    .card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(20,20,30,0.06);max-width:880px;margin:12px auto}
-    .q-meta{color:#666;font-size:14px;margin-bottom:8px}
-    .question{font-size:20px;margin:12px 0}
-    .options{list-style:none;padding:0}
-    .options li{margin:8px 0}
-    button{padding:8px 12px;border-radius:8px;border:0;background:#0b79ff;color:#fff;cursor:pointer}
-    button.secondary{background:#6b7280}
-    .score{font-weight:700}
-    .controls{display:flex;gap:8px;margin-top:14px}
-  </style>
-  <!-- MathJax v3 with both TeX and MathML support -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Relations MCQ Quiz</title>
+
+  <!-- MathJax v3 – optimized for performance & mobile -->
   <script>
     window.MathJax = {
-      loader: {load: ['input/mml','input/tex','output/chtml']},
-      tex: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      options: {skipHtmlTags: ['script','noscript','style','textarea','pre']}
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      chtml: {
+        scale: 1,
+        displayAlign: 'center',
+        matchFontHeight: false
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+        processHtmlClass: 'math|question|option-text'
+      }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
-</head>
-<body>
-<button class="btn" id="loadAllBtn">Load All MCQs</button>
-<div id="scroll-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
-  <div class="card" id="app">
-    <div class="q-meta" id="meta">Question <span id="index">1</span> / <span id="total">0</span></div>
-    <div class="question" id="question">Loading...</div>
-
-    <ul class="options" id="options"></ul>
-
-    <div class="controls">
-      <button id="prev" class="secondary">◀ Prev</button>
-      <button id="next" class="secondary">Next ▶</button>
-      <button id="submit">Submit Answer</button>
-      <div style="margin-left:auto">Score: <span class="score" id="score">0</span></div>
-    </div>
-
-    <div style="margin-top:12px;color:#444" id="feedback"></div>
-  </div>
-
-  <script>
-    // Sample JSON. Replace or load this object from an external file as required.
- const mcq_array =[
- 
-{
-    "q_latex": "Let $R$ be a relation on the set $N$ given by $R=\\\\{(a, b): a=b-2, b>6\\\\}$.",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $(2,4) \\\\in R$",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $(3,8) \\\\in R$",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $(6,8) \\\\in R$",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) $(8,7) \\\\in R$",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Which of the following is not an equivalence relation on $Z$ ?",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $a R b \\\\Leftrightarrow a+b$ is an even integer",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $a R b \\\\Leftrightarrow a-b$ is an even integer",
-        "correct": false
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $a R b \\\\Leftrightarrow a<b$",
-        "correct": true
-      },
-      {
-        "label": "(d)",
-        "text": "(d) $a R b \\\\Leftrightarrow a=b$",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "$R$ is a relation on the set $Z$ of integers and it is given by $(x, y) \\\\in R \\\\Leftrightarrow|x-y| \\\\leq 1$. Then, $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) reflexive and transitive",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) reflexive and symmetric",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) symmetric and transitive",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) an equivalence relation",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "The relation $R$ defined on the set $A=\\\\{1,2,3,4,5\\\\}$ by $R=\\\\left\\\\{(a, b):\\\\left|a^{2}-b^{2}\\\\right|<16\\\\right\\\\}$, is given by",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $\\\\{(1,1),(2,1),(3,1),(4,1),(2,3)\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $\\\\{(2,2),(3,2),(4,2),(2,4)\\\\}$",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $\\\\{(3,3),(4,3),(5,4),(3,4)\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) none of these",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $R$ be the relation over the set of all straight lines in a plane such that $l_{1} R l_{2} \\\\Leftrightarrow l_{1} \\\\perp l_{2}$. Then, $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) symmetric",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) reflexive",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) transitive",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) an equivalence relation",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "If $A=\\\\{a, b, c\\\\}$, then the relation $R=\\\\{(b, c)\\\\}$ on $A$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) reflexive only",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) symmetric only",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) transitive only",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) reflexive and transitive only",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $\\\\mathrm{A}=\\\\{2,3,4,5, \\\\ldots, 17,18\\\\}$. Let ' $\\\\sim$ ' be the equivalence relation on $A \\\\times A$, cartesian product of $A$ with itself, defined by $(a, b) \\\\simeq(c, d)$ iff $a d=b c$. Then, the number of ordered pairs of the equivalence class of $(3,2)$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) 4",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) 5",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) 6",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) 7",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $A=\\\\{1,2,3\\\\}$. Then, the number of relations containing $(1,2)$ and $(1,3)$ which are reflexive and symmetric but not transitive is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) 1",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) 2",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) 34",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) 4",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "The relation ' $R$ ' in $N \\\\times N$ such that $(a, b) R(c, d) \\\\Leftrightarrow a+d=b+c$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) reflexive but not symmetric",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) reflexive and transitive but not symmetric",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) an equivalence relation",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) none of these",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "If $A=\\\\{1,2,3\\\\}, B=\\\\{1,4,6,9\\\\}$ and $R$ is a relation from $A$ to $B$ defined by ' $x$ ' greater than $y^{\\\\prime}$. The range of $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $\\\\{1,4,6,9\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $\\\\{4,6,9\\\\}$",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $\\\\{1\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) none of these",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "A relation $R$ is defined from $\\\\{2,3,4,5\\\\}$ to $\\\\{3,6,7,10\\\\}$ by : $x R y \\\\Leftrightarrow x$ is relatively prime to $y$. Then, domain of $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $\\\\{2,3,5\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $\\\\{3,5\\\\}$",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $\\\\{2,3,4\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) $\\\\{2,3,4,5\\\\}$",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "A relation $\\\\phi$ from $C$ to $R$ is defined by $x \\\\phi y \\\\Leftrightarrow|x|=y$. Which one is correct?",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $(2+3 i) \\\\phi 13$",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $3 \\\\phi(-3)$",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $(1+i) \\\\phi 2$",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) $i \\\\phi 1$",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $R$ be a relation on $N$ defined by $x+2 y=8$. The domain of $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $\\\\{2,4,8\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $\\\\{2,4,6,8\\\\}$",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $\\\\{2,4,6\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) $\\\\{1,2,3,4\\\\}$",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "$R$ is a relation from $\\\\{11,12,13\\\\}$ to $\\\\{8,10,12\\\\}$ defined by $y=x-3$. Then, $R^{-1}$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $\\\\{(8,11),(10,13)\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $\\\\{(11,8),(13,10)\\\\}$",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $\\\\{(10,13),(8,11),(8,10)\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) none of these",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $R=\\\\{(a, a),(b, b),(c, c),(a, b)\\\\}$ be a relation on set $A=\\\\{a, b, c\\\\}$. Then, $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) identity relation",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) reflexive",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) symmetric",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) equivalence",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $A=\\\\{1,2,3\\\\}$ and $R=\\\\{(1,2),(2,3),(1,3)\\\\}$ be a relation on $A$. Then, $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) neither reflexive nor transitive",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) neither symmetric nor transitive",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) transitive",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) none of these",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "If $R$-is the largest equivalence relation on a set $A$ and $S$ is any relation on $A$, then",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $R \\\\subset S$",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $S \\\\subset R$",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $R=S$",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) none of these",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "If $R$ is a relation on the set $A=\\\\{1,2,3,4,5,6,7,8,9\\\\}$ given by $x R y \\\\Leftrightarrow y=3 x$, then $R=$",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $\\\\{(3,1),(6,2),(8,2),(9,3)\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $\\\\{(3,1),(6,2),(9,3)\\\\}$",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $\\\\{(3,1),(2,6),(3,9)\\\\}$",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) none of these",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "If $R$ is a relation on the set $A=\\\\{1,2,3\\\\}$ given by $R=(1,1),(2,2),(3,3)$, then $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) reflexive",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) symmetric",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) transitive",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) all the three options",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "If $A=\\\\{a, b, c, d\\\\}$, then a relation $R=\\\\{(a, b),(b, a),(a, a)\\\\}$ on $A$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) symmetric and transitive only",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) reflexive and transitive only",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) symmetric only",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) transitive only",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "If $A=\\\\{1,2,3\\\\}$, then a relation $R=\\\\{(2,3)\\\\}$ on $A$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) symmetric and transitive only",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) symmetric only",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) transitive only",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) none of these",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $R$ be the relation on the set $A \\\\equiv\\\\{1,2,3,4\\\\}$ given by $R=\\\\{(1,2),(2,2),(1,1),(4,4),(1,3),(3,3),(3,2)\\\\}$.",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $R$ is reflexive and symmetric but not transitive",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $R$ is reflexive and transitive but not symmetric",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $R$ is symmetric and transitive but not reflexive",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) $R$ is an equivalence relation",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $A=\\\\{1,2,3\\\\}$. Then, the number of equivalence relations containing ( 1,2 ) is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) 1",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) 2",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) 3",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) 4",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "The relation $R=\\\\{(1,1),(2,2),(3,3)\\\\}$ on the set $\\\\{1,2,3\\\\}$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) symmetric only",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) reflexive only",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) an equivalence relation",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) transitive only",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "$S$ is a relation over the set $R$ of all real numbers and it is given by $(a, b) \\\\in S \\\\Leftrightarrow a b \\\\geq 0$. Then, $S$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) symmetric and transitive only",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) reflexive and symmetric only",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) antisymumetric relation",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) an equivalence relation",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "In the set $Z$ of all integers, which of the following relation $R$ is not an equivalence relation?",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) $x R y:$ if $x \\\\leq y$",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) $x R y$ : if $x=y$",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) $x R y:$ if $x-y$ is an even integer",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) $x R y:$ if $x \\\\equiv y(\\\\bmod 3)$",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $A=\\\\{1,2,3\\\\}$ and consider the relation $R=\\\\{(1,1),(2,2),(3,3),(1,2),(2,3),(1,3)\\\\}$. Then, $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) reflexive but not symmetric",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) reflexive but not transitive",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) symmetric and transitive",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) neither symmetric nor transitive",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "The relation $S$ defined on the set $R$ of all real number by the rule $a S b$ iff $a \\\\geq b$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) an equivalence relation",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) reflexive, transitive but not symmetric",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) symmetric, transitive but not reflexive",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) neither transitive nor reflexive but symmetric",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "The maximum number of equivalence relations on the set $A=\\\\{1,2,3\\\\}$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) 1",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) 2",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) 3",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) 5",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $R$ be a relation on the set $N$ of natural numbers defined by $n R m$ iff $n$ divides $m$. Then, $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) Reflexive and symmetric",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) Transitive and symmetric",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) Equivalence",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) Reflexive, transitive but not symmetric",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $L$ denote the set of all straight lines in a plane. Let a relation $R$ be defined by $l R m$ iff $l$ is perpendicular to $m$ for all $l, m \\\\in L$. Then, $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) reflexive",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) symmetric",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) transitive",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) none of these",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Let $T$ be the set of all triangles in the Euclidean plane, and let a relation $R$ on $T$ be defined as $a R b$ if $a$ is congruent to $b$ for all $a, b \\\\in T$. Then, $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) reflexive but not symmetric",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) transitive but not symmetric",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) equivalence",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) none of these",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "Consider a non-empty set consisting of children in a family and a relation $R$ defined as $a R b$ if $a$ is brother of $b$. Then, $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) symmetric but not transitive",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) transitive but not symmetric",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) neither symmetric nor transitive",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) both symmetric and transitive",
-        "correct": false
-      }
-    ]
-  },
-  {
-    "q_latex": "For real numbers $x$ and $y$, define $x R y$ iff $x-y+\\\\sqrt{2}$ is an irrational number. Then the relation $R$ is",
-    "q_mathml": "",
-    "options": [
-      {
-        "label": "(a)",
-        "text": "(a) reflexive",
-        "correct": false
-      },
-      {
-        "label": "(b)",
-        "text": "(b) symmetric",
-        "correct": true
-      },
-      {
-        "label": "(c)",
-        "text": "(c) transitive",
-        "correct": false
-      },
-      {
-        "label": "(d)",
-        "text": "(d) none of these",
-        "correct": false
-      }
-    ]
-  }
-];
-
-
-    // State
-    let idx = 0;
-    const total = mcq_array.length;
-    const userAnswers = Array(total).fill(null);
-    let score = 0;
-
-    document.getElementById('total').textContent = total;
-    document.getElementById('score').textContent = score;
-
-    function renderQuestion(i){
-      const q = mcq_array[i];
-      document.getElementById('index').textContent = i+1;
-
-      // prefer MathML if present, otherwise show LaTeX (rendered by MathJax)
-      const qContainer = document.getElementById('question');
-      if(q.q_mathml && q.q_mathml.trim()){
-        qContainer.innerHTML = q.q_mathml;
-      } else if(q.q_latex){
-        qContainer.innerHTML = q.q_latex;
-      } else {
-        qContainer.textContent = 'No question text provided.';
-      }
-
-      const opts = document.getElementById('options');
-      opts.innerHTML = '';
-      q.options.forEach((opt, k)=>{
-        const li = document.createElement('li');
-        const id = `opt-${i}-${k}`;
-        const input = document.createElement('input');
-        input.type = 'radio'; input.name = 'option'; input.id = id; input.value = k;
-        if(userAnswers[i]===k) input.checked = true;
-        const label = document.createElement('label');
-        label.htmlFor = id;
-
-        // option text may be mathml, latex, or plain text
-        if(opt.text_mathml){
-          label.innerHTML = `${opt.label} ` + opt.text_mathml;
-        } else if(opt.text_latex){
-          label.innerHTML = `${opt.label} $${opt.text_latex}$`;
-        } else {
-          label.textContent = `${opt.label} ${opt.text}`;
-        }
-
-        li.appendChild(input); li.appendChild(label);
-        opts.appendChild(li);
-      });
-
-      // typeset math in newly inserted content
-      if(window.MathJax && MathJax.typesetPromise){
-        MathJax.typesetClear();
-        MathJax.typesetPromise();
-      }
-
-      document.getElementById('feedback').textContent = '';
+  <style>
+    :root {
+      --primary: #0b79ff;
+      --gray: #6b7280;
+      --light: #f6f8fa;
+      --border: #e2e8f0;
     }
-
-    function submitAnswer(){
-      const selected = document.querySelector('input[name="option"]:checked');
-      if(!selected){
-        document.getElementById('feedback').textContent = 'Please select an option.';
-        return;
-      }
-      const ans = parseInt(selected.value,10);
-      userAnswers[idx] = ans;
-      const correctness = !!mcq_array[idx].options[ans].correct;
-      document.getElementById('feedback').textContent = correctness ? 'Correct ✅' : 'Incorrect ❌';
-
-      // update score: count correct answers
-      score = userAnswers.reduce((acc, v, i) => acc + (v !== null && mcq_array[i].options[v].correct ? 1 : 0), 0);
-      document.getElementById('score').textContent = score;
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 12px;
+      background: var(--light);
+      line-height: 1.5;
+      touch-action: manipulation;
     }
-
-    document.getElementById('next').addEventListener('click', ()=>{
-      if(idx < total-1){ idx++; renderQuestion(idx); }
-    });
-    document.getElementById('prev').addEventListener('click', ()=>{
-      if(idx > 0){ idx--; renderQuestion(idx); }
-    });
-    document.getElementById('submit').addEventListener('click', submitAnswer);
-
-    // initialize
-    renderQuestion(idx);
-
-    // Optional: expose functions for external use (load JSON dynamically)
-    window.loadQuizFromJSON = function(json){
-      if(!Array.isArray(json)) throw new Error('Expected an array');
-      mcq_array.length = 0; mcq_array.push(...json);
-      idx = 0; score = 0; userAnswers.length = mcq_array.length; userAnswers.fill(null);
-      document.getElementById('total').textContent = mcq_array.length;
-      renderQuestion(0);
-    };
- 
-  /* --------------------------------------
-   LOAD ALL MCQs LIST VIEW
--------------------------------------- */
-document.getElementById("loadAllBtn").onclick = loadAllMCQs;
-
-function loadAllMCQs() {
-  const container = document.getElementById("scroll-container");
-  container.innerHTML = "";
-
-  mcq_array.forEach((q, i) => {
-    const card = document.createElement("div");
-    card.className = "card";
-
-    card.innerHTML = `
-      <div class="q-meta">Question ${i + 1}</div>
-      <div class="question">${q.q_latex}</div>
-      <ul class="options">
-        ${q.options.map(o => `<li>${o.label} ${o.text}</li>`).join("")}
-      </ul>
-    `;
-
-    container.appendChild(card);
-  });
-
-  MathJax.typeset();
+    .container { max-width: 900px; margin: 0 auto; }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 16px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .card:active { transform: scale(0.98); }
+    .progress {
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+    .q-meta {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    .question {
+      font-size: 21px;
+      font-weight: 500;
+      margin: 16px 0;
+      min-height: 50px;
+    }
+    .options { list-style: none; padding: 0; margin: 20px 0; }
+    .options li { margin: 12px 0; position: relative; }
+    .options label {
+      display: block;
+      padding: 14px 16px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #fafbfc;
+    }
+    .options input:checked + span {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .options label:hover { border-color: var(--primary); }
+    .options input { position: absolute; opacity: 0; cursor: pointer; }
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      flex: 1;
+      min-width: 100px;
+    }
+    button:active { transform: scale(0.96); }
+    #prev, #next { background: var(--gray); color: white; }
+    #submit { background: var(--primary); color: white; flex: 2; }
+    .score {
+      margin-left: auto;
+      font-weight: bold;
+      font-size: 18px;
+      color: var(--primary);
+    }
+    #feedback {
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-align: center;
+      font-size: 18px;
+    }
+    .correct { background: #d4edda; color: #155724; }
+    .incorrect { background: #f8d7da; color: #721c24; }
+    #loadAllBtn {
+      background: #10b981;
+      color: white;
+      width: 100%;
+      padding: 16px;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .swipe-hint {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+      margin: 10px 0;
+    }
+    @media (max-width: 640px) {
+      .question { font-size: 19px; }
+      button { padding: 14px; font-size: 17px; }
+      .controls { flex-direction: column; }
+      #submit { order: -1; margin-bottom: 12px; }
+    }
+    * === ENHANCED VIEW ALL CARDS STYLING === */
+.all-question-card {
+  margin-bottom: 24px;
+  border-left: 5px solid var(--primary);
+  position: relative;
+  overflow: hidden;
 }
 
+.q-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f0f7ff;
+  padding: 12px 16px;
+  border-radius: 12px 12px 0 0;
+  margin: -20px -20px 16px -20px;
+  font-weight: 600;
+}
+
+.q-number {
+  color: var(--primary);
+  font-size: 16px;
+}
+
+.correct-badge {
+  background: #10b981;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.options-list {
+  padding-left: 20px;
+  margin: 20px 0;
+}
+
+.option-item {
+  margin: 14px 0;
+  padding: 12px;
+  border-radius: 10px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.option-item.correct-option {
+  background: #d4edda;
+  border: 2px solid #28a745;
+  font-weight: 600;
+}
+
+.option-item.wrong-option {
+  opacity: 0.7;
+  color: #666;
+}
+
+.option-label {
+  font-weight: bold;
+  min-width: 30px;
+  color: var(--primary);
+}
+
+.check {
+  margin-left: auto;
+  background: #28a745;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .q-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  .option-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .check {
+    margin-left: 0;
+  }
+}
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <button id="loadAllBtn">View All Questions</button>
+  <div id="scroll-container">     </div>
+  <div class="card" id="quiz-card" style="display:none">
+    <div class="progress"><div class="progress-fill" id="progress"></div></div>
+    <div class="q-meta">Question <span id="index">1</span> of <span id="total">0</span></div>
+    <div class="question math" id="question">Loading...</div>
+    <ul class="options" id="options"></ul>
+    <div class="swipe-hint">← Swipe to navigate →</div>
+    <div class="controls">
+      <button id="prev">◀ Prev</button>
+      <button id="reload">⟲ Reload</button>
+      <button id="submit">Check Answer</button>
+      <button id="next">Next ▶</button>
+      
+      <div class="score">Score: <span id="score">0</span></div>
+    </div>
+    <div id="feedback"></div>
+  </div>
+</div>
+
+<script>
+document.getElementById("reload").addEventListener("click", () => {
+  location.reload();
+});
+  const mcq_array = [
+    { "q_latex": "Let $R$ be a relation on the set $N$ given by $R=\\\\{(a, b): a=b-2, b>6\\\\}$.", "options": [{ "label": "(a)", "text": "(a) $(2,4) \\\\in R$", "correct": false }, { "label": "(b)", "text": "(b) $(3,8) \\\\in R$", "correct": true }, { "label": "(c)", "text": "(c) $(6,8) \\\\in R$", "correct": false }, { "label": "(d)", "text": "(d) $(8,7) \\\\in R$", "correct": false }] },
+    { "q_latex": "Which of the following is not an equivalence relation on $Z$ ?", "options": [{ "label": "(a)", "text": "(a) $a R b \\\\Leftrightarrow a+b$ is an even integer", "correct": false }, { "label": "(b)", "text": "(b) $a R b \\\\Leftrightarrow a-b$ is an even integer", "correct": false }, { "label": "(c)", "text": "(c) $a R b \\\\Leftrightarrow a<b$", "correct": true }, { "label": "(d)", "text": "(d) $a R b \\\\Leftrightarrow a=b$", "correct": false }] },
+    { "q_latex": "$R$ is a relation on the set $Z$ of integers and it is given by $(x, y) \\\\in R \\\\Leftrightarrow|x-y| \\\\leq 1$. Then, $R$ is", "options": [{ "label": "(a)", "text": "(a) reflexive and transitive", "correct": false }, { "label": "(b)", "text": "(b) reflexive and symmetric", "correct": true }, { "label": "(c)", "text": "(c) symmetric and transitive", "correct": false }, { "label": "(d)", "text": "(d) an equivalence relation", "correct": false }] },
+    { "q_latex": "The relation $R$ defined on the set $A=\\\\{1,2,3,4,5\\\\}$ by $R=\\\\left\\\\{(a, b):\\\\left|a^{2}-b^{2}\\\\right|<16\\\\right\\\\}$, is given by", "options": [{ "label": "(a)", "text": "(a) $\\\\{(1,1),(2,1),(3,1),(4,1),(2,3)\\\\}$", "correct": false }, { "label": "(b)", "text": "(b) $\\\\{(2,2),(3,2),(4,2),(2,4)\\\\}$", "correct": true }, { "label": "(c)", "text": "(c) $\\\\{(3,3),(4,3),(5,4),(3,4)\\\\}$", "correct": false }, { "label": "(d)", "text": "(d) none of these", "correct": false }] },
+    { "q_latex": "Let $R$ be the relation over the set of all straight lines in a plane such that $l_{1} R l_{2} \\\\Leftrightarrow l_{1} \\\\perp l_{2}$. Then, $R$ is", "options": [{ "label": "(a)", "text": "(a) symmetric", "correct": false }, { "label": "(b)", "text": "(b) reflexive", "correct": true }, { "label": "(c)", "text": "(c) transitive", "correct": false }, { "label": "(d)", "text": "(d) an equivalence relation", "correct": false }] },
+    { "q_latex": "If $A=\\\\{a, b, c\\\\}$, then the relation $R=\\\\{(b, c)\\\\}$ on $A$ is", "options": [{ "label": "(a)", "text": "(a) reflexive only", "correct": false }, { "label": "(b)", "text": "(b) symmetric only", "correct": true }, { "label": "(c)", "text": "(c) transitive only", "correct": false }, { "label": "(d)", "text": "(d) reflexive and transitive only", "correct": false }] },
+    { "q_latex": "Let $\\\\mathrm{A}=\\\\{2,3,4,5, \\\\ldots, 17,18\\\\}$. Let ' $\\\\sim$ ' be the equivalence relation on $A \\\\times A$, cartesian product of $A$ with itself, defined by $(a, b) \\\\simeq(c, d)$ iff $a d=b c$. Then, the number of ordered pairs of the equivalence class of $(3,2)$ is", "options": [{ "label": "(a)", "text": "(a) 4", "correct": false }, { "label": "(b)", "text": "(b) 5", "correct": true }, { "label": "(c)", "text": "(c) 6", "correct": false }, { "label": "(d)", "text": "(d) 7", "correct": false }] },
+    { "q_latex": "Let $A=\\\\{1,2,3\\\\}$. Then, the number of relations containing $(1,2)$ and $(1,3)$ which are reflexive and symmetric but not transitive is", "options": [{ "label": "(a)", "text": "(a) 1", "correct": false }, { "label": "(b)", "text": "(b) 2", "correct": true }, { "label": "(c)", "text": "(c) 34", "correct": false }, { "label": "(d)", "text": "(d) 4", "correct": false }] },
+    { "q_latex": "The relation ' $R$ ' in $N \\\\times N$ such that $(a, b) R(c, d) \\\\Leftrightarrow a+d=b+c$ is", "options": [{ "label": "(a)", "text": "(a) reflexive but not symmetric", "correct": false }, { "label": "(b)", "text": "(b) reflexive and transitive but not symmetric", "correct": true }, { "label": "(c)", "text": "(c) an equivalence relation", "correct": false }, { "label": "(d)", "text": "(d) none of these", "correct": false }] },
+    { "q_latex": "If $A=\\\\{1,2,3\\\\}, B=\\\\{1,4,6,9\\\\}$ and $R$ is a relation from $A$ to $B$ defined by ' $x$ ' greater than $y^{\\\\prime}$. The range of $R$ is", "options": [{ "label": "(a)", "text": "(a) $\\\\{1,4,6,9\\\\}$", "correct": false }, { "label": "(b)", "text": "(b) $\\\\{4,6,9\\\\}$", "correct": true }, { "label": "(c)", "text": "(c) $\\\\{1\\\\}$", "correct": false }, { "label": "(d)", "text": "(d) none of these", "correct": false }] },
+    { "q_latex": "A relation $R$ is defined from $\\\\{2,3,4,5\\\\}$ to $\\\\{3,6,7,10\\\\}$ by : $x R y \\\\Leftrightarrow x$ is relatively prime to $y$. Then, domain of $R$ is", "options": [{ "label": "(a)", "text": "(a) $\\\\{2,3,5\\\\}$", "correct": false }, { "label": "(b)", "text": "(b) $\\\\{3,5\\\\}$", "correct": true }, { "label": "(c)", "text": "(c) $\\\\{2,3,4\\\\}$", "correct": false }, { "label": "(d)", "text": "(d) $\\\\{2,3,4,5\\\\}$", "correct": false }] },
+    { "q_latex": "A relation $\\\\phi$ from $C$ to $R$ is defined by $x \\\\phi y \\\\Leftrightarrow|x|=y$. Which one is correct?", "options": [{ "label": "(a)", "text": "(a) $(2+3 i) \\\\phi 13$", "correct": false }, { "label": "(b)", "text": "(b) $3 \\\\phi(-3)$", "correct": true }, { "label": "(c)", "text": "(c) $(1+i) \\\\phi 2$", "correct": false }, { "label": "(d)", "text": "(d) $i \\\\phi 1$", "correct": false }] },
+    { "q_latex": "Let $R$ be a relation on $N$ defined by $x+2 y=8$. The domain of $R$ is", "options": [{ "label": "(a)", "text": "(a) $\\\\{2,4,8\\\\}$", "correct": false }, { "label": "(b)", "text": "(b) $\\\\{2,4,6,8\\\\}$", "correct": true }, { "label": "(c)", "text": "(c) $\\\\{2,4,6\\\\}$", "correct": false }, { "label": "(d)", "text": "(d) $\\\\{1,2,3,4\\\\}$", "correct": false }] },
+    { "q_latex": "$R$ is a relation from $\\\\{11,12,13\\\\}$ to $\\\\{8,10,12\\\\}$ defined by $y=x-3$. Then, $R^{-1}$ is", "options": [{ "label": "(a)", "text": "(a) $\\\\{(8,11),(10,13)\\\\}$", "correct": false }, { "label": "(b)", "text": "(b) $\\\\{(11,8),(13,10)\\\\}$", "correct": true }, { "label": "(c)", "text": "(c) $\\\\{(10,13),(8,11),(8,10)\\\\}$", "correct": false }, { "label": "(d)", "text": "(d) none of these", "correct": false }] },
+    { "q_latex": "Let $R=\\\\{(a, a),(b, b),(c, c),(a, b)\\\\}$ be a relation on set $A=\\\\{a, b, c\\\\}$. Then, $R$ is", "options": [{ "label": "(a)", "text": "(a) identity relation", "correct": false }, { "label": "(b)", "text": "(b) reflexive", "correct": true }, { "label": "(c)", "text": "(c) symmetric", "correct": false }, { "label": "(d)", "text": "(d) equivalence", "correct": false }] },
+    { "q_latex": "Let $A=\\\\{1,2,3\\\\}$ and $R=\\\\{(1,2),(2,3),(1,3)\\\\}$ be a relation on $A$. Then, $R$ is", "options": [{ "label": "(a)", "text": "(a) neither reflexive nor transitive", "correct": false }, { "label": "(b)", "text": "(b) neither symmetric nor transitive", "correct": true }, { "label": "(c)", "text": "(c) transitive", "correct": false }, { "label": "(d)", "text": "(d) none of these", "correct": false }] },
+    { "q_latex": "If $R$-is the largest equivalence relation on a set $A$ and $S$ is any relation on $A$, then", "options": [{ "label": "(a)", "text": "(a) $R \\\\subset S$", "correct": false }, { "label": "(b)", "text": "(b) $S \\\\subset R$", "correct": true }, { "label": "(c)", "text": "(c) $R=S$", "correct": false }, { "label": "(d)", "text": "(d) none of these", "correct": false }] },
+    { "q_latex": "If $R$ is a relation on the set $A=\\\\{1,2,3,4,5,6,7,8,9\\\\}$ given by $x R y \\\\Leftrightarrow y=3 x$, then $R=$", "options": [{ "label": "(a)", "text": "(a) $\\\\{(3,1),(6,2),(8,2),(9,3)\\\\}$", "correct": false }, { "label": "(b)", "text": "(b) $\\\\{(3,1),(6,2),(9,3)\\\\}$", "correct": true }, { "label": "(c)", "text": "(c) $\\\\{(3,1),(2,6),(3,9)\\\\}$", "correct": false }, { "label": "(d)", "text": "(d) none of these", "correct": false }] },
+    { "q_latex": "If $R$ is a relation on the set $A=\\\\{1,2,3\\\\}$ given by $R=(1,1),(2,2),(3,3)$, then $R$ is", "options": [{ "label": "(a)", "text": "(a) reflexive", "correct": false }, { "label": "(b)", "text": "(b) symmetric", "correct": true }, { "label": "(c)", "text": "(c) transitive", "correct": false }, { "label": "(d)", "text": "(d) all the three options", "correct": false }] },
+    { "q_latex": "If $A=\\\\{a, b, c, d\\\\}$, then a relation $R=\\\\{(a, b),(b, a),(a, a)\\\\}$ on $A$ is", "options": [{ "label": "(a)", "text": "(a) symmetric and transitive only", "correct": false }, { "label": "(b)", "text": "(b) reflexive and transitive only", "correct": true }, { "label": "(c)", "text": "(c) symmetric only", "correct": false }, { "label": "(d)", "text": "(d) transitive only", "correct": false }] },
+    { "q_latex": "If $A=\\\\{1,2,3\\\\}$, then a relation $R=\\\\{(2,3)\\\\}$ on $A$ is", "options": [{ "label": "(a)", "text": "(a) symmetric and transitive only", "correct": false }, { "label": "(b)", "text": "(b) symmetric only", "correct": true }, { "label": "(c)", "text": "(c) transitive only", "correct": false }, { "label": "(d)", "text": "(d) none of these", "correct": false }] },
+    { "q_latex": "Let $R$ be the relation on the set $A \\\\equiv\\\\{1,2,3,4\\\\}$ given by $R=\\\\{(1,2),(2,2),(1,1),(4,4),(1,3),(3,3),(3,2)\\\\}$.", "options": [{ "label": "(a)", "text": "(a) $R$ is reflexive and symmetric but not transitive", "correct": false }, { "label": "(b)", "text": "(b) $R$ is reflexive and transitive but not symmetric", "correct": true }, { "label": "(c)", "text": "(c) $R$ is symmetric and transitive but not reflexive", "correct": false }, { "label": "(d)", "text": "(d) $R$ is an equivalence relation", "correct": false }] },
+    { "q_latex": "Let $A=\\\\{1,2,3\\\\}$. Then, the number of equivalence relations containing ( 1,2 ) is", "options": [{ "label": "(a)", "text": "(a) 1", "correct": false }, { "label": "(b)", "text": "(b) 2", "correct": true }, { "label": "(c)", "text": "(c) 3", "correct": false }, { "label": "(d)", "text": "(d) 4", "correct": false }] },
+    { "q_latex": "The relation $R=\\\\{(1,1),(2,2),(3,3)\\\\}$ on the set $\\\\{1,2,3\\\\}$ is", "options": [{ "label": "(a)", "text": "(a) symmetric only", "correct": false }, { "label": "(b)", "text": "(b) reflexive only", "correct": true }, { "label": "(c)", "text": "(c) an equivalence relation", "correct": false }, { "label": "(d)", "text": "(d) transitive only", "correct": false }] },
+    { "q_latex": "$S$ is a relation over the set $R$ of all real numbers and it is given by $(a, b) \\\\in S \\\\Leftrightarrow a b \\\\geq 0$. Then, $S$ is", "options": [{ "label": "(a)", "text": "(a) symmetric and transitive only", "correct": false }, { "label": "(b)", "text": "(b) reflexive and symmetric only", "correct": true }, { "label": "(c)", "text": "(c) antisymmetric relation", "correct": false }, { "label": "(d)", "text": "(d) an equivalence relation", "correct": false }] },
+    { "q_latex": "In the set $Z$ of all integers, which of the following relation $R$ is not an equivalence relation?", "options": [{ "label": "(a)", "text": "(a) $x R y:$ if $x \\\\leq y$", "correct": false }, { "label": "(b)", "text": "(b) $x R y$ : if $x=y$", "correct": true }, { "label": "(c)", "text": "(c) $x R y:$ if $x-y$ is an even integer", "correct": false }, { "label": "(d)", "text": "(d) $x R y:$ if $x \\\\equiv y(\\\\bmod 3)$", "correct": false }] },
+    { "q_latex": "Let $A=\\\\{1,2,3\\\\}$ and consider the relation $R=\\\\{(1,1),(2,2),(3,3),(1,2),(2,3),(1,3)\\\\}$. Then, $R$ is", "options": [{ "label": "(a)", "text": "(a) reflexive but not symmetric", "correct": false }, { "label": "(b)", "text": "(b) reflexive but not transitive", "correct": true }, { "label": "(c)", "text": "(c) symmetric and transitive", "correct": false }, { "label": "(d)", "text": "(d) neither symmetric nor transitive", "correct": false }] },
+    { "q_latex": "The relation $S$ defined on the set $R$ of all real number by the rule $a S b$ iff $a \\\\geq b$ is", "options": [{ "label": "(a)", "text": "(a) an equivalence relation", "correct": false }, { "label": "(b)", "text": "(b) reflexive, transitive but not symmetric", "correct": true }, { "label": "(c)", "text": "(c) symmetric, transitive but not reflexive", "correct": false }, { "label": "(d)", "text": "(d) neither transitive nor reflexive but symmetric", "correct": false }] },
+    { "q_latex": "The maximum number of equivalence relations on the set $A=\\\\{1,2,3\\\\}$ is", "options": [{ "label": "(a)", "text": "(a) 1", "correct": false }, { "label": "(b)", "text": "(b) 2", "correct": true }, { "label": "(c)", "text": "(c) 3", "correct": false }, { "label": "(d)", "text": "(d) 5", "correct": false }] },
+    { "q_latex": "Let $R$ be a relation on the set $N$ of natural numbers defined by $n R m$ iff $n$ divides $m$. Then, $R$ is", "options": [{ "label": "(a)", "text": "(a) Reflexive and symmetric", "correct": false }, { "label": "(b)", "text": "(b) Transitive and symmetric", "correct": true }, { "label": "(c)", "text": "(c) Equivalence", "correct": false }, { "label": "(d)", "text": "(d) Reflexive, transitive but not symmetric", "correct": false }] },
+    { "q_latex": "Let $L$ denote the set of all straight lines in a plane. Let a relation $R$ be defined by $l R m$ iff $l$ is perpendicular to $m$ for all $l, m \\\\in L$. Then, $R$ is", "options": [{ "label": "(a)", "text": "(a) reflexive", "correct": false }, { "label": "(b)", "text": "(b) symmetric", "correct": true }, { "label": "(c)", "text": "(c) transitive", "correct": false }, { "label": "(d)", "text": "(d) none of these", "correct": false }] },
+    { "q_latex": "Let $T$ be the set of all triangles in the Euclidean plane, and let a relation $R$ on $T$ be defined as $a R b$ if $a$ is congruent to $b$ for all $a, b \\\\in T$. Then, $R$ is", "options": [{ "label": "(a)", "text": "(a) reflexive but not symmetric", "correct": false }, { "label": "(b)", "text": "(b) transitive but not symmetric", "correct": true }, { "label": "(c)", "text": "(c) equivalence", "correct": false }, { "label": "(d)", "text": "(d) none of these", "correct": false }] },
+    { "q_latex": "Consider a non-empty set consisting of children in a family and a relation $R$ defined as $a R b$ if $a$ is brother of $b$. Then, $R$ is", "options": [{ "label": "(a)", "text": "(a) symmetric but not transitive", "correct": false }, { "label": "(b)", "text": "(b) transitive but not symmetric", "correct": true }, { "label": "(c)", "text": "(c) neither symmetric nor transitive", "correct": false }, { "label": "(d)", "text": "(d) both symmetric and transitive", "correct": false }] },
+    { "q_latex": "For real numbers $x$ and $y$, define $x R y$ iff $x-y+\\\\sqrt{2}$ is an irrational number. Then the relation $R$ is", "options": [{ "label": "(a)", "text": "(a) reflexive", "correct": false }, { "label": "(b)", "text": "(b) symmetric", "correct": true }, { "label": "(c)", "text": "(c) transitive", "correct": false }, { "label": "(d)", "text": "(d) none of these", "correct": false }] }
+  ];
+
+  // === STATE ===
+  let currentIdx = 0;
+  let userAnswers = [];
+  let score = 0;
+  let isAllView = false;
+
+  const els = {
+    quizCard: document.getElementById('quiz-card'),
+    index: document.getElementById('index'),
+    total: document.getElementById('total'),
+    question: document.getElementById('question'),
+    options: document.getElementById('options'),
+    feedback: document.getElementById('feedback'),
+    scoreEl: document.getElementById('score'),
+    progress: document.getElementById('progress'),
+    prev: document.getElementById('prev'),
+    next: document.getElementById('next'),
+    submit: document.getElementById('submit'),
+    loadAllBtn: document.getElementById('loadAllBtn'),
+    scrollContainer: document.getElementById('scroll-container')
+  };
+
+  // Fixed typo: ells → els
+  els.total.textContent = mcq_array.length;
+  userAnswers = new Array(mcq_array.length).fill(null);
+
+  // === MATHJAX RENDERING ===
+  const renderMathInElement = (el) => {
+    if (!window.MathJax) return;
+    MathJax.typesetClear([el]);
+    MathJax.typesetPromise([el]).catch(err => console.error(err));
+  };
+
+  const mathObserver = new MutationObserver((mutations) => {
+    mutations.forEach(m => {
+      m.addedNodes.forEach(node => {
+        if (node.nodeType === 1 && (node.matches?.('.math') || node.querySelector?.('.math'))) {
+          renderMathInElement(node);
+        }
+      });
+    });
+  });
+  mathObserver.observe(document.body, { childList: true, subtree: true });
+
+  // === RENDER QUESTION ===
+  function renderQuestion(idx) {
+    const q = mcq_array[idx];
+    currentIdx = idx;
+    els.index.textContent = idx + 1;
+    els.progress.style.width = `${((idx + 1) / mcq_array.length) * 100}%`;
+
+    els.question.innerHTML = q.q_latex || 'No question text';
+    els.question.classList.add('math');
+
+    els.options.innerHTML = '';
+    q.options.forEach((opt, k) => {
+      const li = document.createElement('li');
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'opt';
+      input.id = `opt-${idx}-${k}`;
+      input.value = k;
+      if (userAnswers[idx] === k) input.checked = true;
+
+      const label = document.createElement('label');
+      label.htmlFor = input.id;
+
+      const span = document.createElement('span');
+      span.className = 'option-text math';
+      span.innerHTML = `${opt.label} ${opt.text}`;
+
+      label.appendChild(input);
+      label.appendChild(span);
+      li.appendChild(label);
+      els.options.appendChild(li);
+    });
+
+    els.feedback.textContent = '';
+    els.feedback.className = '';
+
+    els.prev.disabled = idx === 0;
+    els.next.disabled = idx === mcq_array.length - 1;
+
+    renderMathInElement(els.quizCard);
+  }
+
+  // === CHECK ANSWER ===
+  function checkAnswer() {
+    const selected = document.querySelector('input[name="opt"]:checked');
+    if (!selected) {
+      els.feedback.textContent = 'Please select an answer!';
+      els.feedback.className = 'incorrect';
+      return;
+    }
+    const ans = parseInt(selected.value, 10);
+    userAnswers[currentIdx] = ans;
+    const isCorrect = mcq_array[currentIdx].options[ans].correct;
+
+    els.feedback.textContent = isCorrect ? 'Correct! ✅' : 'Incorrect ❌';
+    els.feedback.className = isCorrect ? 'correct' : 'incorrect';
+
+    score = userAnswers.reduce((sum, a, i) => sum + (a !== null && mcq_array[i].options[a]?.correct ? 1 : 0), 0);
+    els.scoreEl.textContent = score;
+  }
+
+  // === NAVIGATION ===
+  els.prev.onclick = () => { if (currentIdx > 0) renderQuestion(currentIdx - 1); };
+  els.next.onclick = () => { if (currentIdx < mcq_array.length - 1) renderQuestion(currentIdx + 1); };
+  els.submit.onclick = checkAnswer;
+
+  // Swipe support
+  let touchStartX = 0;
+  els.quizCard.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  els.quizCard.addEventListener('touchend', e => {
+    if (!touchStartX) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && currentIdx < mcq_array.length - 1) renderQuestion(currentIdx + 1);
+      else if (diff < 0 && currentIdx > 0) renderQuestion(currentIdx - 1);
+    }
+    touchStartX = 0;
+  });
+
+  // Keyboard navigation (fixed condition)
+  document.addEventListener('keydown', e => {
+    if (els.quizCard.style.display === 'none') return;
+    if (e.key === 'ArrowLeft') els.prev.click();
+    if (e.key === 'ArrowRight') els.next.click();
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); els.submit.click(); }
+  });
+
+  // === VIEW ALL MODE ===
+  els.loadAllBtn.onclick = () => {
+    isAllView = !isAllView;
+    if (isAllView) {
+      els.quizCard.style.display = 'none';
+      els.scrollContainer.innerHTML = '';
+      mcq_array.forEach((q, i) => {
+        const card = document.createElement('div');
+        card.className = 'card math';
+        card.innerHTML = 
+        `
+          <div class="q-meta">Question ${i + 1}</div>
+          <div class="question">${q.q_latex}</div>
+          
+          <ul class="options">
+            ${q.options.map(o => `<li><strong>${o.label}</strong> ${o.text}</li>`).join('')}
+          </ul>
+          <p><strong>Correct Answer:</strong> ${q.options.find(o => o.correct).label}</p>
+        `;
+        els.scrollContainer.appendChild(card);
+      });
+      els.loadAllBtn.textContent = '← Back to Quiz Mode';
+      renderMathInElement(els.scrollContainer);
+    } else {
+      els.quizCard.style.display = 'block';
+      els.scrollContainer.innerHTML = '';
+      els.loadAllBtn.textContent = 'View All Questions';
+      renderQuestion(currentIdx);
+    }
+    window.scrollTo(0, 0);
+  };
+
+  // === INIT ===
+  els.quizCard.style.display = 'block';
+  renderQuestion(0);
 </script>
 </body>
 </html>
