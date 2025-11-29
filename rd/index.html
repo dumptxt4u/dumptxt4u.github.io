@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RD Sharma MCQs - Relations & Functions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: linear-gradient(to right, #ffffff, #a8edea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      flex: 1;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .card:hover::before {
+      opacity: 1;
+    }
+    .card-content {
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .desc {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 40px;
+      background: linear-gradient(45deg, #ff6b6b, #feca57);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+    }
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.8rem; }
+      .container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>RD Sharma MCQs</h1>
+    <p class="subtitle">Master Relations & Functions with 100+ High-Quality Questions</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Chapter 1 Card -->
+    <a href="rdch1.html" class="card">
+      <div class="card-content">
+        <div class="icon">
+          <i class="fas fa-link"></i>
+        </div>
+        <h2>Chapter 1</h2>
+        <p class="desc">
+          Relations, Types of Relations, Equivalence Relations, Functions, Domain & Range, Injective, Surjective, Bijective
+        </p>
+        <span class="btn">Start Chapter 1 →</span>
+      </div>
+    </a>
+
+    <!-- Chapter 2 Card -->
+    <a href="rdch2.html" class="card">
+      <div class="card-content">
+        <div class="icon">
+          <i class="fas fa-project-diagram"></i>
+        </div>
+        <h2>Chapter 2</h2>
+        <p class="desc">
+          Types of Functions, Composition, Invertible Functions, Binary Operations, Identity & Inverse Functions
+        </p>
+        <span class="btn">Start Chapter 2 →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <footer>
+    Made with <i class="fas fa-heart" style="color:#ff6b6b"></i> for JEE & Class 12 Aspirants<br>
+    © 2025 RD Sharma MCQ Practice Portal
+  </footer>
+
+</body>
+</html>
