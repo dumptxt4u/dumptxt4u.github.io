@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Math Questions Slide Show</title>
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 90%;
+      max-width: 900px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      padding: 40px;
+      margin: 20px 0;
+      min-height: 200px; /* Reduced height to fit content better */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center content horizontally */
+      justify-content: center; /* Center content vertically */
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-5px); }
+
+    .qno {
+      background: #667eea;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    .question {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      color: #333;
+      text-align: center;
+      width: 100%;
+    }
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    button, select {
+      padding: 12px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button {
+      background: #667eea;
+      color: white;
+    }
+    button:hover { background: #5a6fd8; }
+    button:disabled { background: #aaa; cursor: not-allowed; }
+    select {
+      background: #f8f9fa;
+      border: 2px solid #ddd;
+    }
+    .footer {
+      text-align: center;
+      color: white;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      startup: {
+        // This function runs when MathJax is loaded and the page is ready
+        pageReady: () => {
+          return MathJax.startup.defaultPageReady().then(() => {
+            console.log("MathJax is initialized.");
+            // Render the first question now that MathJax is ready
+            renderQuestion(0);
+          });
+        }
+      }
+    };
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="card" id="card">
+    <div style="color: #888;">Loading Questions...</div>
+  </div>
+
+  <div class="controls">
+    <button id="prev" disabled>Previous</button>
+
+    <select id="dropdown"></select>
+
+    <button id="next">Next</button>
+  </div>
+  
+  <div class="footer">Question <span id="counter">1</span></div>
+</div>
+
+<script>
+// =============== JSON DATA ===============
+// I have cleaned up the MathML content so it renders actual math instead of "..."
+const questions = [
+  {
+    "qno":"11",
+    "marks":1,
+    "mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>x</mi><mo>=</mo><mfrac><mn>5</mn><mn>4</mn></mfrac></math>"
+  },
+  {
+    "qno":"12",
+    "marks":1,
+    "mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mfenced open='[' close=']'><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mn>2</mn></mtd></mtr><mtr><mtd><mn>3</mn></mtd><mtd><mn>4</mn></mtd></mtr></mtable></mfenced></math>"
+  },
+  {
+    "qno":"13",
+    "marks":1,
+    "mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi><mfenced><mi>x</mi></mfenced><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi></math>"
+  },
+  {
+    "qno":"14",
+    "marks":1,
+    "mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>x</mi><mo>-</mo><mn>7</mn><mo>=</mo><mn>0</mn></math>"
+  },
+  {
+    "qno":"14 OR",
+    "marks":1,
+    "mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>y</mi><mo>=</mo><mn>5</mn><mi>x</mi><mo>-</mo><mn>2</mn><msup><mi>x</mi><mn>3</mn></msup></math>"
+  },
+  {
+    "qno":"15",
+    "marks":1,
+    "mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'><mover><mi>a</mi><mo>&#x2192;</mo></mover><mo>=</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>-</mo><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mover><mi>k</mi><mo>^</mo></mover></math>"
+  },
+  {
+    "qno":"15 OR",
+    "marks":1,
+    "mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>Opposite to </mtext><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>-</mo><mn>6</mn><mover><mi>k</mi><mo>^</mo></mover></math>"
+  }
+];
+
+// =========================================
+
+let current = 0;
+
+const card = document.getElementById('card');
+const dropdown = document.getElementById('dropdown');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const counter = document.getElementById('counter');
+
+// Populate dropdown immediately
+questions.forEach((q, i) => {
+  const opt = document.createElement('option');
+  opt.value = i;
+  opt.textContent = `Q${q.qno}`;
+  dropdown.appendChild(opt);
+});
+
+// The Main Render Function
+function renderQuestion(idx) {
+  // 1. Update Data
+  current = idx;
+  const q = questions[idx];
+  
+  // 2. Inject HTML
+  card.innerHTML = `
+    <div class="qno">Q${q.qno} (${q.marks} Mark)</div>
+    <div class="question">${q.mathml}</div>
+  `;
+
+  // 3. Update UI Controls
+  counter.textContent = `${idx + 1} of ${questions.length}`;
+  dropdown.value = idx;
+  prevBtn.disabled = (idx === 0);
+  nextBtn.disabled = (idx === questions.length - 1);
+
+  // 4. Tell MathJax to typeset the new content
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise([card])
+      .catch(err => console.log('MathJax error:', err));
+  }
+}
+
+// Event Listeners
+prevBtn.addEventListener('click', () => {
+  if (current > 0) {
+    renderQuestion(current - 1);
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  if (current < questions.length - 1) {
+    renderQuestion(current + 1);
+  }
+});
+
+dropdown.addEventListener('change', (e) => {
+  renderQuestion(parseInt(e.target.value));
+});
+
+</script>
+</body>
+</html>

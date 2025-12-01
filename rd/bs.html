@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive MathML Slides</title>
+
+  <!-- Bootstrap 5 (CSS) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* page */
+    html,body { height:100%; }
+    body { display:flex; align-items:center; justify-content:center; padding:1rem; background:#f8f9fa; }
+
+    /* container card */
+    .slide-card {
+      width:100%;
+      max-width:980px;
+      min-height:420px;
+      box-shadow:0 6px 22px rgba(0,0,0,0.08);
+      border-radius:12px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      background:#fff;
+    }
+
+    /* header */
+    .slide-header { padding:0.6rem 1rem; border-bottom:1px solid #e9ecef; display:flex; align-items:center; gap:12px; }
+    .slide-title { font-weight:600; font-size:0.95rem; }
+
+    /* content area */
+    .slide-body {
+      padding:1rem;
+      flex:1 1 auto;
+      display:flex;
+      gap:1rem;
+      align-items:stretch;
+      min-height:0; /* allow flex children to shrink */
+    }
+
+    /* question area */
+    .qbox {
+      flex: 1.2 1 0%;
+      padding:0.75rem;
+      border-radius:10px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid #eef3ff;
+      overflow:auto;
+      /* make text small but readable */
+      font-size: clamp(0.70rem, 0.9vw, 0.95rem);
+      line-height:1.25;
+      word-break:break-word;
+      hyphens:auto;
+    }
+
+    /* options area */
+    .opts {
+      flex: 0.9 1 0%;
+      display:flex;
+      flex-direction:column;
+      gap:0.6rem;
+      min-width:220px;
+    }
+
+    .opt-card {
+      padding:0.55rem 0.7rem;
+      border-radius:8px;
+      border:1px solid #e6eefc;
+      background:#fff;
+      cursor:pointer;
+      user-select:none;
+      font-size: clamp(0.68rem, 0.9vw, 0.92rem);
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+      min-height:46px;
+      word-break:break-word;
+    }
+
+    .opt-card small.label {
+      width:26px;
+      height:26px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:6px;
+      border:1px solid #dfe9ff;
+      font-weight:700;
+      background:#f4f8ff;
+      font-size:0.75rem;
+    }
+
+    .opt-card.correct { border-color:#19875433; background:#eaf8ef; }
+    .opt-card.wrong { border-color:#dc354533; background:#fdecea; }
+
+    /* footer / controls */
+    .slide-footer { padding:0.6rem 1rem; border-top:1px solid #e9ecef; display:flex; align-items:center; gap:12px; justify-content:space-between; }
+
+    .small-note { font-size:0.78rem; color:#6c757d; }
+
+    /* responsive tweaks */
+    @media (max-width: 720px) {
+      .slide-body { flex-direction:column; }
+      .opts { flex-direction:row; flex-wrap:wrap; gap:0.5rem; }
+      .opt-card { flex: 1 1 45%; min-width:0; }
+    }
+
+    /* ensure MathML inherits font-size and wraps */
+    math { font-size: inherit; line-height:1.1; display:inline-block; max-width:100%; }
+    .math-wrap { word-break:break-word; display:block; }
+
+    /* progress bar */
+    .progress { height:8px; border-radius:8px; overflow:hidden; }
+    .progress-bar { transition: width .25s linear; }
+  </style>
+
+  <!-- MathJax (v3) to render MathML reliably across browsers -->
+  <script>
+    window.MathJax = {
+      loader: {load: ['input/mml','output/chtml']},
+      startup: { typeset: false }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
+</head>
+<body>
+  <div class="slide-card">
+    <!-- header -->
+    <div class="slide-header">
+      <div class="slide-title">Math Quiz Slides</div>
+      <div class="ms-auto d-flex align-items-center gap-3">
+        <div style="min-width:160px;">
+          <div class="progress" aria-hidden="true" style="width:160px;">
+            <div id="prog" class="progress-bar bg-primary" role="progressbar" style="width:0%"></div>
+          </div>
+        </div>
+        <div class="small-note" id="slideCounter">1 / 1</div>
+      </div>
+    </div>
+
+    <!-- body -->
+    <div class="slide-body">
+      <div class="qbox" id="qbox" aria-live="polite">
+        <!-- Question will be injected here -->
+      </div>
+
+      <div class="opts" id="opts">
+        <!-- Options injected here -->
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="slide-footer">
+      <div class="d-flex gap-2">
+        <button id="prevBtn" class="btn btn-outline-secondary btn-sm" type="button" title="Previous (←)">Prev</button>
+        <button id="nextBtn" class="btn btn-outline-secondary btn-sm" type="button" title="Next (→)">Next</button>
+        <button id="showAnswer" class="btn btn-outline-info btn-sm" type="button">Show Answer</button>
+        <button id="shuffleBtn" class="btn btn-outline-warning btn-sm" type="button">Shuffle</button>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <div class="small-note me-2">Auto-fit text • Bootstrap</div>
+        <div class="small-note text-end" id="qid">ID: -</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JSON data (you provided) -->
+  <script>
+    const data = {
+      "questions": [
+        {"id":1,"q":"<math><mrow><mtext>If </mtext><mi>A</mi><mtext> is any square matrix of order </mtext><mn>3</mn><mo>×</mo><mn>3</mn><mtext> such that </mtext><mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mn>3</mn><mo>,</mo><mtext> then </mtext><mo>|</mo><mi>adj</mi><mi>A</mi><mo>|</mo><mtext> is ?</mtext></mrow></math>","o":["<math><mn>3</mn></math>","<math><mfrac><mn>1</mn><mn>3</mn></mfrac></math>","<math><mn>9</mn></math>","<math><mn>27</mn></math>"],"a":"c"},
+        {"id":2,"q":"<math><mrow><mtext>Suppose P and Q are two different matrices of order </mtext><mn>3</mn><mo>×</mo><mi>n</mi><mtext> and </mtext><mi>n</mi><mo>×</mo><mi>p</mi><mo>,</mo><mtext> then order of </mtext><mi>P</mi><mo>×</mo><mi>Q</mi><mtext> is?</mtext></mrow></math>","o":["<math><mn>3</mn><mo>×</mo><mi>p</mi></math>","<math><mi>p</mi><mo>×</mo><mn>3</mn></math>","<math><mi>n</mi><mo>×</mo><mi>n</mi></math>","<math><mn>3</mn><mo>×</mo><mn>3</mn></math>"],"a":"a"},
+        {"id":3,"q":"<math><mrow><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>6</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>27</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>×</mo><mo>(</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mi>p</mi><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mi>q</mi><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>=</mo><mover><mn>0</mn><mo>→</mo></mover><mo>,</mo><mtext> then p and q are</mtext></mrow></math>","o":["<math><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>","<math><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>","<math><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>","<math><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>"],"a":"b"},
+        {"id":4,"q":"<math><mrow><mtext>P(A)=0.2, P(B)=0.4, P(A∪B)=0.5, then P(A/B)=</mtext></mrow></math>","o":["<math><mn>0.1</mn></math>","<math><mn>0.25</mn></math>","<math><mn>0.5</mn></math>","<math><mn>0.08</mn></math>"],"a":"b"},
+        {"id":5,"q":"<math><mrow><mtext>Point not in 2x+3y−12≤0</mtext></mrow></math>","o":["<math><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>","<math><mo>(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo>)</mo></math>","<math><mo>(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></math>","<math><mo>(</mo><mo>−</mo><mn>3</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>"],"a":"c"}
+      ]
+    };
+  </script>
+
+  <!-- App logic -->
+  <script>
+    // small utilities
+    const qs = (sel, root=document) => root.querySelector(sel);
+    const qsa = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    let idx = 0;
+    let questions = data.questions.slice(); // copy
+
+    const qbox = qs('#qbox');
+    const opts = qs('#opts');
+    const prog = qs('#prog');
+    const counter = qs('#slideCounter');
+    const qid = qs('#qid');
+
+    function renderSlide(i) {
+      if (i < 0) i = 0;
+      if (i >= questions.length) i = questions.length - 1;
+      idx = i;
+
+      const item = questions[idx];
+      // inject question (wrap into a block to help MathJax)
+      qbox.innerHTML = `<div class="math-wrap">${item.q}</div>`;
+
+      // options
+      opts.innerHTML = '';
+      const letters = ['a','b','c','d','e','f','g'];
+      item.o.forEach((optHtml, j) => {
+        const letter = letters[j] || String.fromCharCode(65+j);
+        const el = document.createElement('div');
+        el.className = 'opt-card';
+        el.dataset.letter = letter;
+        el.dataset.index = j;
+        el.innerHTML = `<small class="label">${letter.toUpperCase()}</small>
+                        <div class="opt-body" style="flex:1">${optHtml}</div>`;
+        el.addEventListener('click', () => selectOption(el, item));
+        opts.appendChild(el);
+      });
+
+      // progress
+      const pct = Math.round(((idx+1)/questions.length)*100);
+      prog.style.width = pct + '%';
+
+      // counter and id
+      counter.textContent = `${idx+1} / ${questions.length}`;
+      qid.textContent = `ID: ${item.id}`;
+
+      // typeset MathJax for injected MathML
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetClear(); // clear previous if needed
+        MathJax.typesetPromise([qbox, opts]).catch((err)=>console.warn(err));
+      }
+    }
+
+    function selectOption(el, item) {
+      // clear previous marks
+      qsa('.opt-card').forEach(c => c.classList.remove('correct','wrong','selected'));
+      el.classList.add('selected');
+
+      // mark correct/wrong instantly optional? We'll just mark selection state only.
+    }
+
+    // navigation
+    qs('#prevBtn').addEventListener('click', () => renderSlide(idx-1));
+    qs('#nextBtn').addEventListener('click', () => renderSlide(idx+1));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') renderSlide(idx-1);
+      if (e.key === 'ArrowRight') renderSlide(idx+1);
+      if (e.key === 'Enter') renderSlide(idx+1);
+    });
+
+    // Show answer toggle
+    let showing = false;
+    qs('#showAnswer').addEventListener('click', () => {
+      const item = questions[idx];
+      qsa('.opt-card').forEach((c, j) => {
+        c.classList.remove('correct','wrong');
+        const letter = ['a','b','c','d','e','f','g'][j];
+        if (letter === item.a) {
+          c.classList.add('correct');
+        } else {
+          c.classList.add('wrong');
+        }
+      });
+      showing = !showing;
+      qs('#showAnswer').textContent = showing ? 'Hide Answer' : 'Show Answer';
+      if (!showing) qsa('.opt-card').forEach(c => c.classList.remove('correct','wrong'));
+    });
+
+    // Shuffle questions
+    qs('#shuffleBtn').addEventListener('click', () => {
+      for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+      }
+      idx = 0;
+      renderSlide(0);
+    });
+
+    // touch support: swipe left/right
+    let touchStartX = null;
+    qbox.addEventListener('touchstart', (e)=> {
+      touchStartX = e.touches[0].clientX;
+    }, {passive:true});
+    qbox.addEventListener('touchend', (e)=> {
+      if (touchStartX === null) return;
+      const dx = (e.changedTouches[0].clientX - touchStartX);
+      if (Math.abs(dx) > 50) {
+        if (dx < 0) renderSlide(idx+1); else renderSlide(idx-1);
+      }
+      touchStartX = null;
+    });
+
+    // initial render
+    renderSlide(0);
+
+    // small accessibility improvement: focus first option on page load
+    window.addEventListener('load', () => {
+      const firstOpt = qs('.opt-card');
+      if (firstOpt) firstOpt.setAttribute('tabindex', '0');
+    });
+  </script>
+
+  <!-- Bootstrap JS (optional for any components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

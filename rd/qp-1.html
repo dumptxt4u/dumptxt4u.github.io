@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Quiz - Beautiful & Responsive</title>
+
+  <!-- MathJax for perfect MathML rendering -->
+  <script>
+    MathJax = { chtml: { scale: 1.1 } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" async></script>
+
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --glass: rgba(15, 23, 42, 0.55);
+      --text: #e2e8f0;
+      --accent: #10b981;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 1.8rem;
+      font-size: 2rem;
+      font-weight: 300;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+    }
+    .slides {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+    .slide {
+      background: white;
+      color: #1e293b;
+      border-radius: 24px;
+      padding: 3.5rem 4rem;
+      max-width: 960px;
+      width: 100%;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+      position: relative;
+    }
+    .qno {
+      position: absolute;
+      top: -22px; left: 40px;
+      background: #4285f4;
+      color: white;
+      width: 76px; height: 76px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.9rem;
+      font-weight: bold;
+      box-shadow: 0 10px 25px rgba(66,133,244,0.5);
+    }
+    .question {
+      font-size: 1.7rem;
+      line-height: 1.7;
+      margin: 2rem 0;
+    }
+    .options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+    .opt {
+      padding: 1.4rem 1.8rem;
+      background: #f8fafc;
+      border-radius: 14px;
+      border-left: 5px solid #e2e8f0;
+      font-size: 1.4rem;
+      transition: all 0.3s ease;
+    }
+    .opt:hover { background: #e0f2fe; transform: translateX(8px); }
+    .opt.correct {
+      background: #d4edda !important;
+      border-left-color: #34a853 !important;
+      font-weight: bold;
+      color: #166534;
+    }
+    .answer {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #ecfdf5;
+      border: 2px solid #34a853;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.5rem;
+      display: none;
+    }
+    .answer.show { display: block; animation: fade 0.6s; }
+    @keyframes fade { from {opacity:0; transform:translateY(15px);} to {opacity:1; transform:none;} }
+
+    /* BEAUTIFUL BOTTOM NAVIGATION BAR */
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.8rem;
+      padding: 0.9rem 2.2rem;
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+      z-index: 1000;
+    }
+    @media (max-width: 640px) {
+      .nav { bottom: 12px; padding: 0.7rem 1.8rem; gap: 2rem; }
+    }
+    .nav button {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 2.1rem;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav button::before {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%; transform: scale(0);
+      transition: transform 0.4s ease;
+    }
+    .nav button:hover::before { transform: scale(1); }
+    .nav button:hover { color: white; transform: scale(1.18); }
+    .nav button:disabled { opacity: 0.25; cursor: not-allowed; transform: none !important; }
+
+    .counter {
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      min-width: 110px;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+    #reveal {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(16,185,129,0.4);
+      transition: all 0.3s ease;
+    }
+    #reveal:hover {
+      background: linear-gradient(135deg, #059669, #047857);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(16,185,129,0.5);
+    }
+  </style>
+</head>
+<body>
+
+<header>Mathematics Practice Quiz</header>
+<div class="slides" id="container"></div>
+
+<div class="nav">
+  <button id="prev">Left Arrow</button>
+  <span class="counter"><span id="cur">1</span> / 18</span>
+  <button id="reveal">Reveal Answer</button>
+  <button id="next">Right Arrow</button>
+</div>
+
+<script id="data" type="application/json">
+{
+  "questions": [
+    {"id":1,"q":"<math><mrow><mtext>If </mtext><mi>A</mi><mtext> is any square matrix of order </mtext><mn>3</mn><mo>×</mo><mn>3</mn><mtext> such that </mtext><mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mn>3</mn><mo>,</mo><mtext> then </mtext><mo>|</mo><mi>adj</mi><mi>A</mi><mo>|</mo><mtext> is ?</mtext></mrow></math>","o":["<math><mn>3</mn></math>","<math><mfrac><mn>1</mn><mn>3</mn></mfrac></math>","<math><mn>9</mn></math>","<math><mn>27</mn></math>"],"a":"c"},
+    {"id":2,"q":"<math><mrow><mtext>Suppose P and Q are two different matrices of order </mtext><mn>3</mn><mo>×</mo><mi>n</mi><mtext> and </mtext><mi>n</mi><mo>×</mo><mi>p</mi><mo>,</mo><mtext> then order of </mtext><mi>P</mi><mo>×</mo><mi>Q</mi><mtext> is?</mtext></mrow></math>","o":["<math><mn>3</mn><mo>×</mo><mi>p</mi></math>","<math><mi>p</mi><mo>×</mo><mn>3</mn></math>","<math><mi>n</mi><mo>×</mo><mi>n</mi></math>","<math><mn>3</mn><mo>×</mo><mn>3</mn></math>"],"a":"a"},
+    {"id":3,"q":"<math><mrow><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>6</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>27</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>×</mo><mo>(</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mi>p</mi><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mi>q</mi><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>=</mo><mover><mn>0</mn><mo>→</mo></mover><mo>,</mo><mtext> then p and q are</mtext></mrow></math>","o":["<math><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>","<math><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>","<math><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>","<math><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>"],"a":"b"},
+    {"id":4,"q":"<math><mrow><mtext>If A and B are events with P(A)=0.2, P(B)=0.4, P(A∪B)=0.5, then P(A/B)=</mtext></mrow></math>","o":["<math><mn>0.1</mn></math>","<math><mn>0.25</mn></math>","<math><mn>0.5</mn></math>","<math><mn>0.08</mn></math>"],"a":"b"},
+    {"id":5,"q":"<math><mrow><mtext>Point not in half-plane </mtext><mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn><mi>y</mi><mo>−</mo><mn>12</mn><mo>≤</mo><mn>0</mn></mrow></math>","o":["<math><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>","<math><mo>(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo>)</mo></math>","<math><mo>(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></math>","<math><mo>(</mo><mo>−</mo><mn>3</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>"],"a":"c"},
+    {"id":6,"q":"<math><mrow><msup><mi>sin</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>sin</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>y</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac><mo>,</mo><mtext> then </mtext><msup><mi>cos</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>cos</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>y</mi><mtext> =</mtext></mrow></math>","o":["<math><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac></math>","<math><mfrac><mi>π</mi><mn>3</mn></mfrac></math>","<math><mfrac><mi>π</mi><mn>2</mn></mfrac></math>","<math><mi>π</mi></math>"],"a":"b"},
+    {"id":7,"q":"<math><mrow><mtext>Urn: 6 balls (2 red, 4 black). P(different colors) =</mtext></mrow></math>","o":["<math><mfrac><mn>2</mn><mn>5</mn></mfrac></math>","<math><mfrac><mn>1</mn><mn>15</mn></mfrac></math>","<math><mfrac><mn>8</mn><mn>15</mn></mfrac></math>","<math><mfrac><mn>4</mn><mn>15</mn></mfrac></math>"],"a":"c"},
+    {"id":8,"q":"<math><mrow><msubsup><mo>∫</mo><mrow></mrow><mrow></mrow></msubsup><mfrac><mi>dx</mi><msqrt><mrow><mn>9</mn><mo>−</mo><mn>25</mn><msup><mi>x</mi><mn>2</mn></msup></mrow></msqrt></mfrac></mrow></math>","o":["<math><msup><mi>sin</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mrow><mo>(</mo><mfrac><mrow><mn>5</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>)</mo></mrow><mo>+</mo><mi>c</mi></math>","<math><mfrac><mn>1</mn><mn>5</mn></mfrac><msup><mi>sin</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mrow><mo>(</mo><mfrac><mrow><mn>5</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>)</mo></mrow><mo>+</mo><mi>c</mi></math>","<math><mfrac><mn>1</mn><mn>6</mn></mfrac><mi>log</mi><mo>|</mo><mfrac><mrow><mn>3</mn><mo>+</mo><mn>5</mn><mi>x</mi></mrow><mrow><mn>3</mn><mo>−</mo><mn>5</mn><mi>x</mi></mrow></mfrac><mo>|</mo><mo>+</mo><mi>c</mi></math>","<math><mfrac><mn>1</mn><mn>30</mn></mfrac><mi>log</mi><mo>|</mo><mfrac><mrow><mn>3</mn><mo>+</mo><mn>5</mn><mi>x</mi></mrow><mrow><mn>3</mn><mo>−</mo><mn>5</mn><mi>x</mi></mrow></mfrac><mo>|</mo><mo>+</mo><mi>c</mi></math>"],"a":"b"},
+    {"id":9,"q":"<math><mrow><mtext>Distance between planes </mtext><mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn><mi>y</mi><mo>+</mo><mn>7</mn><mi>z</mi><mo>=</mo><mn>3</mn><mtext> and </mtext><mn>9</mn><mi>x</mi><mo>+</mo><mn>15</mn><mi>y</mi><mo>+</mo><mn>21</mn><mi>z</mi><mo>=</mo><mn>9</mn></mrow></math>","o":["<math><mn>0</mn></math>","<math><mn>3</mn></math>","<math><mfrac><mn>6</mn><msqrt><mn>83</mn></msqrt></mfrac></math>","<math><mn>6</mn></math>"],"a":"a"},
+    {"id":10,"q":"<math><mrow><mtext>Line through </mtext><mo>(</mo><mo>−</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>)</mo><mtext> parallel to </mtext><mfrac><mrow><mi>x</mi><mo>−</mo><mn>3</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mi>y</mi><mo>−</mo><mn>4</mn></mrow><mn>3</mn></mfrac><mo>,</mo><mi>z</mi><mo>=</mo><mn>2</mn></mrow></math>","o":["<math><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mo>−</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo></math>","<math><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mo>−</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>)</mo></math>","<math><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>−</mo><mn>2</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mo>−</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo></math>","<math><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mo>−</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo></math>"],"a":"a"}
+  ]
+}
+</script>
+
+<script>
+  const {questions} = JSON.parse(document.getElementById('data').textContent);
+  const container = document.getElementById('container');
+  let idx = 0;
+
+  function render() {
+    const q = questions[idx];
+    let html = `<div class="slide"><div class="qno">Q${q.id}</div><div class="question">${q.q}</div>`;
+
+    if (q.o) {
+      html += '<div class="options">';
+      q.o.forEach((opt, i) => {
+        const letter = 'abcd'[i];
+        html += `<div class="opt" data-letter="${letter}">${opt}</div>`;
+      });
+      html += '</div>';
+    }
+
+    html += `<div class="answer" id="ans"></div></div>`;
+    container.innerHTML = html;
+    MathJax.typesetPromise();
+  }
+
+  document.getElementById('reveal').onclick = () => {
+    const ansDiv = document.getElementById('ans');
+    if (ansDiv.classList.contains('show')) {
+      ansDiv.classList.remove('show');
+      document.querySelectorAll('.opt').forEach(o => o.classList.remove('correct'));
+      return;
+    }
+    ansDiv.classList.add('show');
+    if (questions[idx].o) {
+      const correct = questions[idx].a;
+      document.querySelectorAll('.opt').forEach(opt => {
+        if (opt.dataset.letter === correct) opt.classList.add('correct');
+      });
+    }
+  };
+
+  document.getElementById('prev').onclick = () => { idx = (idx - 1 + questions.length) % questions.length; render(); document.getElementById('cur').textContent = idx + 1; };
+  document.getElementById('next').onclick = () => { idx = (idx + 1) % questions.length; render(); document.getElementById('cur').textContent = idx + 1; };
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') document.getElementById('next').click();
+    if (e.key === 'ArrowLeft') document.getElementById('prev').click();
+  });
+
+  render();
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Responsive Auto-Fit Quiz Slider</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+<style>
+body {
+  background:#f5f7fa;
+  padding:20px;
+}
+
+/* Card */
+.quiz-card {
+  background:white;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Question */
+.question-box {
+  font-size:clamp(16px, 2.5vw, 22px);
+  text-align:center;
+  margin-bottom:20px;
+}
+
+/* Options */
+.option-btn {
+  width:100%;
+  padding:12px;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  margin:10px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+
+  /* Auto-fit long MathML */
+  font-size:clamp(14px, 2vw, 20px);
+  line-height:1.2;
+  word-break:break-word;
+  overflow-wrap:break-word;
+
+  min-height:60px;
+  transition:0.2s;
+}
+
+.option-btn:hover {
+  background:#e7f1ff;
+  border-color:#0d6efd;
+  transform:scale(1.02);
+}
+
+/* Navigation buttons */
+.nav-btn {
+  font-size:18px;
+  padding:8px 20px;
+}
+</style>
+</head>
+<body>
+
+
+<div class="container">
+
+  <div id="quizCard" class="quiz-card">
+
+    <div id="questionBox" class="question-box"></div>
+
+    <div id="optionsBox"></div>
+
+    <div class="d-flex justify-content-between mt-3">
+      <button class="btn btn-secondary nav-btn" onclick="prevQ()">Prev</button>
+      <button class="btn btn-primary nav-btn" onclick="nextQ()">Next</button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+const data = {
+  "questions": [
+    {"id":1,"q":"<math><mrow><mtext>If </mtext><mi>A</mi><mtext> is any square matrix of order </mtext><mn>3</mn><mo>×</mo><mn>3</mn><mtext> such that </mtext><mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mn>3</mn><mo>,</mo><mtext> then </mtext><mo>|</mo><mi>adj</mi><mi>A</mi><mo>|</mo><mtext> is ?</mtext></mrow></math>",
+      "o":["<math><mn>3</mn></math>","<math><mfrac><mn>1</mn><mn>3</mn></mfrac></math>","<math><mn>9</mn></math>","<math><mn>27</mn></math>"],"a":"c"},
+
+    {"id":2,"q":"<math><mrow><mtext>Suppose P and Q are two different matrices of order </mtext><mn>3</mn><mo>×</mo><mi>n</mi><mtext> and </mtext><mi>n</mi><mo>×</mo><mi>p</mi><mo>,</mo><mtext> then order of </mtext><mi>P</mi><mo>×</mo><mi>Q</mi><mtext> is?</mtext></mrow></math>",
+      "o":["<math><mn>3</mn><mo>×</mo><mi>p</mi></math>","<math><mi>p</mi><mo>×</mo><mn>3</mn></math>","<math><mi>n</mi><mo>×</mo><mi>n</mi></math>","<math><mn>3</mn><mo>×</mo><mn>3</mn></math>"],"a":"a"},
+
+    {"id":3,"q":"<math><mrow><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>6</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>27</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>×</mo><mo>(</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mi>p</mi><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mi>q</mi><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>=</mo><mover><mn>0</mn><mo>→</mo></mover><mo>,</mo><mtext> then p and q are</mtext></mrow></math>",
+      "o":["<math><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>",
+            "<math><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>",
+            "<math><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>",
+            "<math><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>"],
+      "a":"b"}
+  ]
+};
+
+let idx = 0;
+
+function loadQ() {
+  const q = data.questions[idx];
+  document.getElementById("questionBox").innerHTML = q.q;
+
+  const optBox = document.getElementById("optionsBox");
+  optBox.innerHTML = "";
+
+  q.o.forEach((opt, i) => {
+    const btn = document.createElement("div");
+    btn.className = "option-btn";
+    btn.innerHTML = opt;
+    optBox.appendChild(btn);
+  });
+}
+
+function nextQ() {
+  if (idx < data.questions.length - 1) idx++;
+  loadQ();
+}
+
+function prevQ() {
+  if (idx > 0) idx--;
+  loadQ();
+}
+
+loadQ();
+</script>
+
+</body>
+</html>
+

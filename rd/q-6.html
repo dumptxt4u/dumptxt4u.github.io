@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math MCQ Quiz</title>
+
+  <!-- MathJax for perfect MathML rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7f8;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+      width: 90vw;
+    }
+.container > * {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #f8f9fa;
+      border-bottom: 1px solid #eee;
+    }
+
+    select {
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    .nav-buttons button {
+      padding: 10px 20px;
+      margin: 0 5px;
+      border: none;
+      border-radius: 8px;
+      background: #667eea;
+      color: white;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.3s;
+    }
+
+    .nav-buttons button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .nav-buttons button:hover:not(:disabled) {
+      background: #5469d4;
+    }
+
+    .question-container {
+      padding: 20px;
+      min-height: 800px;
+    }
+
+    #question {
+      font-size: 1.6em;
+      text-align: center;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      background: #f0f2ff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    #options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #fafafa;
+    }
+
+    .option:hover {
+      border-color: #667eea;
+      background: #f0f2ff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .option.selected {
+      border-color: #667eea;
+      background: #e6e9ff;
+      font-weight: bold;
+    }
+
+    .option.correct {
+      border-color: #28a745;
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .option.wrong {
+      border-color: #dc3545;
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .option-number {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-right: 15px;
+      min-width: 50px;
+      text-align: center;
+      color: #667eea;
+    }
+
+    .option-text {
+      font-size: 1.4em;
+      flex: 1;
+    }
+
+    .reveal-btn {
+      display: block;
+      margin: 40px auto;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255,107,107,0.3);
+      transition: all 0.3s;
+    }
+
+    .reveal-btn:hover {
+      background: #ff5252;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      #options {
+        grid-template-columns: 1fr;
+      .nav-bar {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .question-container {
+        padding: 20px;
+      }
+    }
+    
+    /* Main container that takes almost full height */
+.slide-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  min-height: 0;                     /* Important for flex */
+}
+
+/* The actual card – fills ~90% of viewport height & width */
+.slide {
+  width: min(96%, 1000px);           /* Max 1000px wide, never touches edges */
+  height: 90vh;                      /* Exactly 90% of viewport height */
+  max-height: 900px;                 /* Optional cap for very tall screens */
+  background: var(--card-bg);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 6vw, 4.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.8rem, 4vw, 3rem);
+  overflow: hidden;
+  position: relative;
+  animation: fadeIn 0.6s ease outwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Question number badge – stays on top */
+.qno {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 10px 30px rgba(99,102,241,0.35);
+  z-index: 10;
+}
+
+/* Responsive question text – always fits beautifully */
+.question {
+  font-size: clamp(1.6rem, 4.8vw, 2.6rem);
+  line-height: 1.4;
+  text-align: center;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+/* Options grid – perfect spacing & responsiveness */
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 3vw, 1.8rem);
+  width: 100%;
+  max-width: 900px;
+}
+
+.option {
+  padding: clamp(1.2rem, 3.5vw, 2rem);
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  font-size: clamp(1.25rem, 3.8vw, 1.7rem);
+  text-align: center;
+  transition: all 0.3s ease;
+  word-wrap: break-word;
+}
+
+.option:hover {
+  border-color: var(--primary);
+  background: rgba(99,102,241,0.08);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* Tiny, elegant navigation stays at bottom */
+.nav {
+  padding: 1rem;
+  gap: 2rem;
+  background: rgba(15,23,42,0.45);
+  backdrop-filter: blur(12px);
+}
+
+.nav button {
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+}
+
+/* Mobile perfection */
+@media (max-width: 640px) {
+  .slide {
+    height: 92vh;
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+  }
+  .options { grid-template-columns: 1fr; }
+  .qno { width: 50px; height: 50px; font-size: 1.3rem; }
+}
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Mathematics MCQ Practice</h1>
+  </div>
+
+  <div class="nav-bar">
+    <select id="questionSelectTop"></select>
+
+    <div class="nav-buttons">
+      <button id="prevBtn">← Previous</button>
+      <button id="nextBtn">Next →</button>
+    </div>
+
+    <select id="questionSelectBottom"></select>
+  </div>
+
+  <div class="question-container">
+    <div id="question"></div>
+
+    <div id="options"></div>
+
+    <button id="reveal" class="reveal-btn">Reveal Answer</button>
+  </div>
+</div>
+
+<script>
+// Your data - now options support MathML too!
+/*const mcq_array = [
+  {
+    "q_mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mn>3</mn></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>3</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mn>3</mn><mn>2</mn></msup><mo>=</mo><mn>9</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mn>3</mn><mn>3</mn></msup><mo>=</mo><mn>27</mn></math>"
+    ],
+    "answer": "C"
+  },
+  // Add more questions here...
+];
+*/
+
+
+const mcq_array = 
+
+[
+  {
+    "q_mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mn>3</mn></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>3</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mn>3</mn><mn>2</mn></msup><mo>=</mo><mn>9</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mn>3</mn><mn>3</mn></msup><mo>=</mo><mn>27</mn></math>"
+    ],
+    "answer": "C"
+  },
+  {
+    "q_mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>Suppose P and Q are two different matrices of order </mtext><mn>3</mn><mo>×</mo><mi>n</mi><mtext> and </mtext><mi>n</mi><mo>×</mo><mi>p</mi><mtext>, then the order of the matrix </mtext><mi>P</mi><mo>×</mo><mi>Q</mi><mtext> is?</mtext></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mo>×</mo><mi>p</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>p</mi><mo>×</mo><mn>3</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>n</mi><mo>×</mo><mi>n</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mo>×</mo><mn>3</mn></math>"
+    ],
+    "answer": "A"
+  },
+  {
+    "q_mathml": "<math xmlns='http://www.w3.org/ 1998/Math/MathML'><mtext>If </mtext><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>6</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>27</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>×</mo><mo>(</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mi>p</mi><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mi>q</mi><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>=</mo><mn>0</mn><mtext>, then the values of p and q are?</mtext></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>"
+    ],
+    "answer": "B"
+  },
+  {
+    "q_mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>If </mtext><mi>A</mi><mtext> and </mtext><mi>B</mi><mtext> are two events such that </mtext><mi>P</mi><mo>(</mo><mi>A</mi><mo>)</mo><mo>=</mo><mn>0.2</mn><mo>,</mo><mi>P</mi><mo>(</mo><mi>B</mi><mo>)</mo><mo>=</mo><mn>0.4</mn><mtext> and </mtext><mi>P</mi><mo>(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo>)</mo><mo>=</mo><mn>0.5</mn><mtext>, then value of </mtext><mi>P</mi><mo>(</mo><mi>A</mi><mo>/</mo><mi>B</mi><mo>)</mo><mtext> is?</mtext></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>0.1</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>0.25</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>0.5</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>0.08</mn></math>"
+    ],
+    "answer": "B"
+  },
+  {
+    "q_mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>The point which does not lie in the half plane </mtext><mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn><mi>y</mi><mo>-</mo><mn>12</mn><mo>≤</mo><mn>0</mn><mtext> is</mtext></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mn>3</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>"
+    ],
+    "answer": "C"
+  },
+  {
+    "q_mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>If </mtext><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>y</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac><mtext>, then the value of </mtext><msup><mi>cos</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>cos</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>y</mi><mtext> is</mtext></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mi>π</mi><mn>3</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mi>π</mi><mn>2</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>π</mi></math>"
+    ],
+    "answer": "B"
+  },
+  {
+    "q_mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>An urn contains 6 balls of which two are red and four are black. Two balls are drawn at random. Probability that they are of different colours is</mtext></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>2</mn><mn>5</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>15</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>8</mn><mn>15</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>4</mn><mn>15</mn></mfrac></math>"
+    ],
+    "answer": "C"
+  },
+  {
+    "q_mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><msqrt><mn>9</mn><mo>-</mo><mn>25</mn><msup><mi>x</mi><mn>2</mn></msup></msqrt></mfrac></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mrow><mo>(</mo><mfrac><mrow><mn>5</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>)</mo></mrow><mo>+</mo><mi>c</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>5</mn></mfrac><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mrow><mo>(</mo><mfrac><mrow><mn>5</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>)</mo></mrow><mo>+</mo><mi>c</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>6</mn></mfrac><mi>log</mi><mo>|</mo><mfrac><mrow><mn>3</mn><mo>+</mo><mn>5</mn><mi>x</mi></mrow><mrow><mn>3</mn><mo>-</mo><mn>5</mn><mi>x</mi></mrow></mfrac><mo>|</mo><mo>+</mo><mi>c</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>30</mn></mfrac><mi>log</mi><mo>|</mo><mfrac><mrow><mn>3</mn><mo>+</mo><mn>5</mn><mi>x</mi></mrow><mrow><mn>3</mn><mo>-</mo><mn>5</mn><mi>x</mi></mrow></mfrac><mo>|</mo><mo>+</mo><mi>c</mi></math>"
+    ],
+    "answer": "B"
+  },
+  {
+    "q_mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>What is the distance (in units) between the two planes </mtext><mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn><mi>y</mi><mo>+</mo><mn>7</mn><mi>z</mi><mo>=</mo><mn>3</mn><mtext> and </mtext><mn>9</mn><mi>x</mi><mo>+</mo><mn>15</mn><mi>y</mi><mo>+</mo><mn>21</mn><mi>z</mi><mo>=</mo><mn>9</mn><mtext>?</mtext></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>0</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>6</mn><msqrt><mn>83</mn></msqrt></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>6</mn></math>"
+    ],
+    "answer": "A"
+  },
+  {
+    "q_mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>The equation of the line in vector form passing through the point </mtext><mo>(</mo><mo>-</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>)</mo><mtext> and parallel to line </mtext><mfrac><mrow><mi>x</mi><mo>-</mo><mn>3</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mi>y</mi><mo>-</mo><mn>4</mn></mrow><mn>3</mn></mfrac><mo>,</mo><mi>z</mi><mo>=</mo><mn>2</mn><mtext> is</mtext></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mover><mi>r</mi><mo stretchy='true'>→</mo></mover><mo>=</mo><mo>(</mo><mo>-</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mover><mi>r</mi><mo stretchy='true'>→</mo></mover><mo>=</mo><mo>(</mo><mo>-</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mover><mi>r</mi><mo stretchy='true'>→</mo></mover><mo>=</mo><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>-</mo><mn>2</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mo>-</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mover><mi>r</mi><mo stretchy='true'>→</mo></mover><mo>=</mo><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mo>-</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo></math>"
+    ],
+    "answer": "A"
+  }
+]
+const letters = ["A", "B", "C", "D"];
+let current = 0;
+let selectedOption = null;
+
+const topDD = document.getElementById("questionSelectTop");
+const bottomDD = document.getElementById("questionSelectBottom");
+
+function populateDropdowns() {
+  mcq_array.forEach((q, i) => {
+    const op1 = document.createElement("option");
+    op1.value = i;
+    op1.textContent = `Question ${i + 1}`;
+    topDD.appendChild(op1);
+
+    const op2 = op1.cloneNode(true);
+    bottomDD.appendChild(op2);
+  });
+}
+
+function loadQuestion(i) {
+  current = i;
+  selectedOption = null;
+
+  const q = mcq_array[i];
+  document.getElementById("question").innerHTML = q.q_mathml;
+
+  const optBox = document.getElementById("options");
+  optBox.innerHTML = "";
+
+  q.options.forEach((opt, idx) => {
+    const div = document.createElement("div");
+    div.className = "option";
+    div.dataset.index = idx;
+
+    div.innerHTML = `
+      <div class="option-number">${letters[idx]}.</div>
+      <div class="option-text">${opt}</div>
+    `;
+
+    div.onclick = () => {
+      selectedOption = idx;
+      updateOptionStyles();
+    };
+
+    optBox.appendChild(div);
+  });
+
+  topDD.value = i;
+  bottomDD.value = i;
+  updateNavButtons();
+
+  // Re-process MathJax after content changes
+  MathJax.typesetPromise();
+}
+
+function updateOptionStyles() {
+  document.querySelectorAll(".option").forEach((opt, idx) => {
+    opt.classList.remove("selected", "correct", "wrong");
+    if (idx === selectedOption) opt.classList.add("selected");
+  });
+}
+
+document.getElementById("reveal").onclick = () => {
+  const correctIndex = letters.indexOf(mcq_array[current].answer);
+  document.querySelectorAll(".option").forEach((opt, idx) => {
+    opt.classList.remove("selected");
+    if (idx === correctIndex) {
+      opt.classList.add("correct");
+    } else if (selectedOption === idx) {
+      opt.classList.add("wrong");
+    } else {
+      opt.classList.add("wrong");
+    }
+  });
+};
+
+document.getElementById("nextBtn").onclick = () => {
+  if (current < mcq_array.length - 1) loadQuestion(current + 1);
+};
+
+document.getElementById("prevBtn").onclick = () => {
+  if (current > 0) loadQuestion(current - 1);
+};
+
+function updateNavButtons() {
+  document.getElementById("prevBtn").disabled = current === 0;
+  document.getElementById("nextBtn").disabled = current === mcq_array.length - 1;
+}
+
+topDD.addEventListener("change", () => loadQuestion(parseInt(topDD.value)));
+bottomDD.addEventListener("change", () => loadQuestion(parseInt(bottomDD.value)));
+
+// Keyboard navigation
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") document.getElementById("nextBtn").click();
+  if (e.key === "ArrowLeft") document.getElementById("prevBtn").click();
+});
+
+// Initialize
+populateDropdowns();
+loadQuestion(0);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probability Presentation - CBSE Class 12</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .slide {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            width: 80%;
+            max-width: 1200px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .slide.active {
+            display: block;
+            opacity: 1;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide h1, .slide h2 {
+            color: #007bff;
+            animation: slideInLeft 0.8s ease-in-out;
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .slide p, .slide ul, .slide ol {
+            animation: fadeInText 1.2s ease-in-out;
+        }
+        @keyframes fadeInText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .slide img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            animation: zoomIn 1s ease-in-out;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .navigator {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0,0,0,0.1);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .prev, .next {
+            cursor: pointer;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 3px;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .prev {
+            border-radius: 3px 0 0 3px;
+        }
+        .next {
+            border-radius: 0 3px 3px 0;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .slide-selector {
+            margin: 0 auto;
+        }
+        @media screen and (max-width: 600px) {
+            .slide {
+                width: 95%;
+                padding: 10px;
+            }
+            .slide h1 {
+                font-size: 1.5em;
+            }
+            .slide h2 {
+                font-size: 1.2em;
+            }
+            .navigator {
+                flex-direction: column;
+            }
+            .prev, .next {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide" id="slide-1">
+            <h1>Probability</h1>
+            <h2>For CBSE Class 12 (Plus Two), India</h2>
+            <p>Topic: Probability - History, Famous Persons, and Key Concepts</p>
+        </div>
+
+        <div class="slide" id="slide-2">
+            <h2>History of Probability</h2>
+            <p>The history of probability dates back to the 17th century. It began with games of chance and insurance problems.</p>
+            <p>Key milestone: In 1654, Blaise Pascal and Pierre de Fermat corresponded on probability problems related to gambling, laying the foundation for modern probability theory.</p>
+            <p>Further developments occurred in the 18th and 19th centuries, with contributions from mathematicians like Jacob Bernoulli and Pierre-Simon Laplace.</p>
+            <p>In the 20th century, Andrey Kolmogorov formalized probability with axioms in 1933.</p>
+        </div>
+
+        <div class="slide" id="slide-3">
+            <h2>Famous Persons in Probability</h2>
+            <ul>
+                <li>Blaise Pascal (1623-1662): Co-founder of probability theory through correspondence on gambling problems.</li>
+                <li>Pierre de Fermat (1607-1665): Collaborated with Pascal on early probability concepts.</li>
+                <li>Thomas Bayes (1702-1761): Known for Bayes' theorem.</li>
+                <li>Andrey Kolmogorov (1903-1987): Axiomatized modern probability theory.</li>
+                <li>Carl Friedrich Gauss (1777-1855): Contributed to probability in statistics and normal distribution.</li>
+                <li>Jacob Bernoulli (1654-1705): Law of large numbers.</li>
+                <li>Pierre-Simon Laplace (1749-1827): Bayesian interpretation and central limit theorem.</li>
+                <li>Augustus De Morgan (1806-1871): Worked on probability rules.</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide-4">
+            <h2>Introduction to Probability</h2>
+            <p>Probability is a branch of mathematics that deals with the occurrence of a random event. It quantifies the likelihood of events happening.</p>
+            <p>In CBSE Class 12, probability is studied as the measure of uncertainty in random experiments, with values between 0 and 1.</p>
+            <p>Key terms: Experiment, Outcomes, Sample Space, Events.</p>
+        </div>
+
+        <div class="slide" id="slide-5">
+            <h2>Sample Space</h2>
+            <p>The sample space (S) is the set of all possible outcomes of a random experiment.</p>
+            <p>Example: For tossing a coin, S = {Heads, Tails}.</p>
+            <p>For rolling a die, S = {1, 2, 3, 4, 5, 6}.</p>
+        </div>
+
+        <div class="slide" id="slide-6">
+            <h2>Trial</h2>
+            <p>A trial is a single performance of a random experiment.</p>
+            <p>Example: Tossing a coin once is a trial.</p>
+        </div>
+
+        <div class="slide" id="slide-7">
+            <h2>Simple Event</h2>
+            <p>A simple event (or elementary event) is an event that consists of a single outcome from the sample space.</p>
+            <p>Example: Getting a '3' on a die roll.</p>
+        </div>
+
+        <div class="slide" id="slide-8">
+            <h2>Compound Event</h2>
+            <p>A compound event is an event that consists of two or more outcomes from the sample space.</p>
+            <p>Example: Getting an even number on a die roll: {2, 4, 6}.</p>
+        </div>
+
+        <div class="slide" id="slide-9">
+            <h2>Deterministic Experiment</h2>
+            <p>A deterministic experiment is one where the outcome is predictable and certain under given conditions.</p>
+            <p>Example: Dropping a ball from a height; it will fall due to gravity.</p>
+        </div>
+
+        <div class="slide" id="slide-10">
+            <h2>Random Experiment</h2>
+            <p>A random experiment is one where the outcome cannot be predicted with certainty, though all possible outcomes are known.</p>
+            <p>Example: Tossing a coin or rolling a die.</p>
+        </div>
+
+        <div class="slide" id="slide-11">
+            <h2>Event</h2>
+            <p>An event is a subset of the sample space associated with a random experiment.</p>
+            <p>Events can be simple or compound.</p>
+        </div>
+
+        <div class="slide" id="slide-12">
+            <h2>Random Variable</h2>
+            <p>A random variable is a function that assigns a real number to each outcome in the sample space.</p>
+            <p>Example: In coin toss, let X = 1 for heads, 0 for tails.</p>
+            <p>It can be discrete or continuous.</p>
+        </div>
+
+        <div class="slide" id="slide-13">
+            <h2>Algebraic Property 1: Union of Two Events</h2>
+            <p>The union of events A and B (A ∪ B) is the event that A or B or both occur.</p>
+            <img src="https://openbooks.macewan.ca/introstats/wp-content/uploads/sites/8/2022/04/venn_diagram.png" alt="Venn Diagram for Union">
+        </div>
+
+        <div class="slide" id="slide-14">
+            <h2>Algebraic Property 2: Intersection of Two Events</h2>
+            <p>The intersection (A ∩ B) is the event that both A and B occur.</p>
+            <img src="https://study.com/cimages/multimages/16/capture7475934785581829347.png" alt="Venn Diagram for Intersection">
+        </div>
+
+        <div class="slide" id="slide-15">
+            <h2>Algebraic Property 3: Complement of an Event</h2>
+            <p>The complement (A') is the event that A does not occur.</p>
+            <img src="https://ecampusontario.pressbooks.pub/app/uploads/sites/2831/2016/04/Venn-diagram-of-the-complement.png" alt="Venn Diagram for Complement">
+        </div>
+
+        <div class="slide" id="slide-16">
+            <h2>Algebraic Property 4: Disjoint Events</h2>
+            <p>Disjoint events have no outcomes in common (A ∩ B = ∅).</p>
+            <img src="https://www.statology.org/wp-content/uploads/2021/02/disjoint1.png" alt="Venn Diagram for Disjoint Events">
+        </div>
+
+        <div class="slide" id="slide-17">
+            <h2>Algebraic Property 5: Subset Event</h2>
+            <p>A is a subset of B if every element of A is in B.</p>
+            <img src="https://openbooks.macewan.ca/introstats/wp-content/uploads/sites/8/2022/04/venn_diagram.png" alt="Venn Diagram for Subset">
+        </div>
+
+        <div class="slide" id="slide-18">
+            <h2>Algebraic Property 6: Commutative Property (Union)</h2>
+            <p>A ∪ B = B ∪ A</p>
+            <img src="https://dr282zn36sxxg.cloudfront.net/datastreams/f-d%3A89c9c1c2a0a02617890f8ce8f7c90a38974e4e8810f74a3111fb7229%2BIMAGE_THUMB_POSTCARD_TINY%2BIMAGE_THUMB_POSTCARD_TINY.1" alt="Venn Diagram for Commutative Union">
+        </div>
+
+        <div class="slide" id="slide-19">
+            <h2>Algebraic Property 7: Associative Property (Union)</h2>
+            <p>(A ∪ B) ∪ C = A ∪ (B ∪ C)</p>
+            <img src="https://www.onlinemath4all.com/images/propertiesofsetoperations5.png" alt="Venn Diagram for Associative Union">
+        </div>
+
+        <div class="slide" id="slide-20">
+            <h2>Algebraic Property 8: Distributive Property</h2>
+            <p>A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</p>
+            <img src="https://i.ytimg.com/vi/w6bj4-1aiEE/maxresdefault.jpg" alt="Venn Diagram for Distributive Property">
+        </div>
+
+        <div class="slide" id="slide-21">
+            <h2>Algebraic Property 9: De Morgan's Law</h2>
+            <p>(A ∪ B)' = A' ∩ B'</p>
+            <img src="https://i.ytimg.com/vi/VwgVgVGPJAw/maxresdefault.jpg" alt="Venn Diagram for De Morgan's Law">
+        </div>
+
+        <div class="slide" id="slide-22">
+            <h2>Algebraic Property 10: Complement Laws</h2>
+            <p>A ∪ A' = S, A ∩ A' = ∅</p>
+            <img src="https://mathmonks.com/wp-content/uploads/2024/06/Complement-of-Two-Sets.jpg" alt="Venn Diagram for Complement Laws">
+        </div>
+
+        <div class="slide" id="slide-23">
+            <h2>Algebraic Property 11: Idempotent Law</h2>
+            <p>A ∪ A = A, A ∩ A = A</p>
+            <img src="https://i.ytimg.com/vi/nazMHu1p4xQ/maxresdefault.jpg" alt="Venn Diagram for Idempotent Law">
+        </div>
+
+        <div class="slide" id="slide-24">
+            <h2>Algebraic Property 12: Absorption Law</h2>
+            <p>A ∪ (A ∩ B) = A</p>
+            <img src="https://i.sstatic.net/CnWVO.png" alt="Venn Diagram for Absorption Law">
+        </div>
+
+        <div class="slide" id="slide-25">
+            <h2>Algebraic Property 13: Identity Law</h2>
+            <p>A ∪ ∅ = A, A ∩ S = A</p>
+            <img src="https://calcworkshop.com/wp-content/uploads/prove-venn-diagrams-example.png" alt="Venn Diagram for Identity Law">
+        </div>
+
+        <div class="slide" id="slide-26">
+            <h2>Algebraic Property 14: Difference of Sets</h2>
+            <p>A - B = A ∩ B'</p>
+            <img src="https://d138zd1ktt9iqe.cloudfront.net/media/seo_landing_files/difference-of-sets-venn-diagram-1624874339.png" alt="Venn Diagram for Difference">
+        </div>
+
+        <div class="slide" id="slide-27">
+            <h2>Algebraic Property 15: Symmetric Difference</h2>
+            <p>A Δ B = (A - B) ∪ (B - A)</p>
+            <img src="https://i.ytimg.com/vi/PxffSUQRkG4/maxresdefault.jpg" alt="Venn Diagram for Symmetric Difference">
+        </div>
+
+        <div class="slide" id="slide-28">
+            <h2>Conditional Probability</h2>
+            <p>Conditional probability of A given B is P(A|B) = P(A ∩ B) / P(B), where P(B) > 0.</p>
+            <p>It measures the probability of A occurring given that B has occurred.</p>
+            <p>Example: In a standard deck of 52 cards, let A be drawing an Ace, B be drawing a Spade. P(A|B) = P(Ace and Spade) / P(Spade) = (1/52) / (13/52) = 1/13.</p>
+            <p>Another example: Probability it rains given cloudy sky. If P(rain and cloudy)=0.4, P(cloudy)=0.5, then P(rain|cloudy)=0.4/0.5=0.8.</p>
+        </div>
+
+        <div class="slide" id="slide-29">
+            <h2>Properties of Conditional Probability</h2>
+            <ul>
+                <li>0 ≤ P(A|B) ≤ 1</li>
+                <li>P(S|B) = 1, where S is sample space</li>
+                <li>P(A' | B) = 1 - P(A|B)</li>
+                <li>If A and C are disjoint, P(A ∪ C | B) = P(A|B) + P(C|B)</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide-30">
+            <h2>Multiplication Theorem of Probability</h2>
+            <p>P(A ∩ B) = P(A) * P(B|A) = P(B) * P(A|B)</p>
+            <p>For independent events, P(A ∩ B) = P(A) * P(B)</p>
+        </div>
+
+        <div class="slide" id="slide-31">
+            <h2>Mutually Exclusive Events</h2>
+            <p>Events that cannot occur at the same time. P(A ∩ B) = 0.</p>
+            <p>P(A ∪ B) = P(A) + P(B)</p>
+        </div>
+
+        <div class="slide" id="slide-32">
+            <h2>Mutually Independent Events</h2>
+            <p>Events where the occurrence of one does not affect the other. P(A ∩ B) = P(A) * P(B).</p>
+        </div>
+
+        <div class="slide" id="slide-33">
+            <h2>A Priori Probability</h2>
+            <p>A priori (classical) probability is based on logical analysis assuming equally likely outcomes.</p>
+            <p>P(E) = Number of favorable outcomes / Total outcomes.</p>
+            <p>Example: Probability of heads in coin toss = 1/2.</p>
+        </div>
+
+        <div class="slide" id="slide-34">
+            <h2>Examples of Mutually Exclusive Events</h2>
+            <ol>
+                <li>Tossing a coin: Heads and Tails (cannot both happen).</li>
+                <li>Rolling a die: Getting 1 and getting 2 (in one roll).</li>
+                <li>Drawing a card: Ace of spades and King of hearts.</li>
+            </ol>
+            <p>Differentiation: They have no common outcomes.</p>
+        </div>
+
+        <div class="slide" id="slide-35">
+            <h2>Examples of Mutually Independent Events</h2>
+            <ol>
+                <li>Tossing two coins: Outcome of first doesn't affect second.</li>
+                <li>Rolling a die and tossing a coin.</li>
+                <li>Drawing two cards with replacement.</li>
+            </ol>
+            <p>Differentiation: Probability of joint occurrence is product of individual probabilities.</p>
+        </div>
+
+        <div class="slide" id="slide-36">
+            <h2>Relation Between Mutually Independent and Mutually Exclusive Events</h2>
+            <p>Mutually exclusive events are events that cannot happen simultaneously, so P(A ∩ B) = 0.</p>
+            <p>Mutually independent events satisfy P(A ∩ B) = P(A) * P(B).</p>
+            <p>Detailed Explanation: If two events A and B are mutually exclusive and both have positive probabilities (P(A) > 0 and P(B) > 0), they cannot be independent. This is because for independence, P(A ∩ B) should equal P(A)P(B) > 0, but for mutual exclusivity, P(A ∩ B) = 0, leading to a contradiction (0 ≠ positive number).</p>
+            <p>However, if one event has probability 0 (impossible event) or 1 (certain event), it can be both exclusive and independent in trivial cases, but generally, non-trivial mutually exclusive events are dependent.</p>
+            <p>In summary, mutual exclusivity implies dependence unless one event is impossible.</p>
+        </div>
+
+        <div class="slide" id="slide-37">
+            <h2>Bayes' Theorem</h2>
+            <p>Bayes' Theorem: P(A|B) = [P(B|A) * P(A)] / P(B)</p>
+            <p>It updates probabilities based on new evidence.</p>
+        </div>
+
+        <div class="slide" id="slide-38">
+            <h2>Proof of Bayes' Theorem</h2>
+            <p>From definition: P(A|B) = P(A ∩ B) / P(B)</p>
+            <p>And P(B|A) = P(A ∩ B) / P(A)</p>
+            <p>So, P(A ∩ B) = P(B|A) * P(A)</p>
+            <p>Substitute: P(A|B) = [P(B|A) * P(A)] / P(B)</p>
+            <p>For partitions, P(B) = Σ P(B|A_i) * P(A_i)</p>
+        </div>
+
+    </div>
+
+    <div class="navigator">
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <select class="slide-selector" onchange="goToSlide(this.value)">
+            <option value="1">Slide 1: Title</option>
+            <option value="2">Slide 2: History</option>
+            <option value="3">Slide 3: Famous Persons</option>
+            <option value="4">Slide 4: Introduction</option>
+            <option value="5">Slide 5: Sample Space</option>
+            <option value="6">Slide 6: Trial</option>
+            <option value="7">Slide 7: Simple Event</option>
+            <option value="8">Slide 8: Compound Event</option>
+            <option value="9">Slide 9: Deterministic Experiment</option>
+            <option value="10">Slide 10: Random Experiment</option>
+            <option value="11">Slide 11: Event</option>
+            <option value="12">Slide 12: Random Variable</option>
+            <option value="13">Slide 13: Property 1 - Union</option>
+            <option value="14">Slide 14: Property 2 - Intersection</option>
+            <option value="15">Slide 15: Property 3 - Complement</option>
+            <option value="16">Slide 16: Property 4 - Disjoint</option>
+            <option value="17">Slide 17: Property 5 - Subset</option>
+            <option value="18">Slide 18: Property 6 - Commutative</option>
+            <option value="19">Slide 19: Property 7 - Associative</option>
+            <option value="20">Slide 20: Property 8 - Distributive</option>
+            <option value="21">Slide 21: Property 9 - De Morgan's</option>
+            <option value="22">Slide 22: Property 10 - Complement Laws</option>
+            <option value="23">Slide 23: Property 11 - Idempotent</option>
+            <option value="24">Slide 24: Property 12 - Absorption</option>
+            <option value="25">Slide 25: Property 13 - Identity</option>
+            <option value="26">Slide 26: Property 14 - Difference</option>
+            <option value="27">Slide 27: Property 15 - Symmetric Difference</option>
+            <option value="28">Slide 28: Conditional Probability</option>
+            <option value="29">Slide 29: Properties of Conditional</option>
+            <option value="30">Slide 30: Multiplication Theorem</option>
+            <option value="31">Slide 31: Mutually Exclusive</option>
+            <option value="32">Slide 32: Mutually Independent</option>
+            <option value="33">Slide 33: A Priori Probability</option>
+            <option value="34">Slide 34: Examples Exclusive</option>
+            <option value="35">Slide 35: Examples Independent</option>
+            <option value="36">Slide 36: Relation Exclusive & Independent</option>
+            <option value="37">Slide 37: Bayes' Theorem</option>
+            <option value="38">Slide 38: Proof of Bayes</option>
+        </select>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlide(slideIndex);
+
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        function goToSlide(n) {
+            showSlide(slideIndex = parseInt(n));
+        }
+
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            slides[slideIndex - 1].classList.add("active");
+            document.querySelector('.slide-selector').value = slideIndex;
+        }
+    </script>
+</body>
+</html>

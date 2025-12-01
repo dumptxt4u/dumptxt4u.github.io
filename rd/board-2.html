@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Math Questions Slide Show</title>
+  
+  <!-- MathJax v3 with proper startup (this fixes the "not defined" error) -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      chtml: { scale: 1.1 },
+      startup: {
+        ready() {
+          // This runs only after MathJax is fully loaded
+          MathJax.startup.defaultReady();
+          MathJax.startup.promise.then(() => {
+            console.log("MathJax is loaded and ready!");
+            // Render the first question only after MathJax is ready
+            if (typeof renderQuestion === "function") renderQuestion(0);
+          });
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" 
+          id="MathJax-script" async></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 90%;
+      max-width: 900px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      padding: 40px;
+      margin: 20px 0;
+      min-height: 400px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-5px); }
+
+    .qno {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .question {
+      font-size: 1.35rem;
+      line-height: 1.6;
+      color: #333;
+    }
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    button, select {
+      padding: 12px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button {
+      background: #667eea;
+      color: white;
+    }
+    button:hover { background: #5a6fd8; }
+    button:disabled { background: #aaa; cursor: not-allowed; }
+    select {
+      background: #f8f9fa;
+      border: 2px solid #ddd;
+    }
+    .footer {
+      text-align: center;
+      color: white;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="card" id="card">
+    <!-- Question will be injected here -->
+  </div>
+
+  <div class="controls">
+    <button id="prev">Previous</button>
+
+    <select id="dropdown"></select>
+
+    <button id="next">Next</button>
+  </div>
+</div>
+
+<div class="footer">Question <span id="counter"></span></div>
+
+<script>
+// =============== YOUR JSON DATA (paste the array you got earlier) ===============
+const questions = [
+  {"qno":"11","marks":1,"mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'>...<mfrac><mn>5</mn><mn>4</mn></mfrac>...</math>"},
+  {"qno":"12","marks":1,"mathml":"<math xmlns='http://www.w3.org/1998/Math/Math/MathML'>...<mtable>...</mtable>...</math>"},
+  {"qno":"13","marks":1,"mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'>...<mfenced>...</mfenced>...</math>"},
+  {"qno":"14","marks":1,"mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'>...y²+3x-7=0...</math>"},
+  {"qno":"14 OR","marks":1,"mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'>...y=5x-2x³...</math>"},
+  {"qno":"15","marks":1,"mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'>...(2î-ĵ+k)...</math>"},
+  {"qno":"15 OR","marks":1,"mathml":"<math xmlns='http://www.w3.org/1998/Math/MathML'>...opposite to 2î+3ĵ-6k̂...</math>"}
+  // Paste your full array here (the one from the previous message)
+];
+
+// ==============================================================================
+
+let current = 0;
+
+const card = document.getElementById('card');
+const dropdown = document.getElementById('dropdown');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const counter = document.getElementById('counter');
+
+function renderQuestion(idx) {
+  const q = questions[idx];
+  card.innerHTML = `
+    <div class="qno">Q${q.qno}</div>
+    <div class="question">${q.mathml}</div>
+  `;
+
+  // Re-render MathJax after injecting new MathML
+  MathJax.typesetPromise([card]).catch(err => console.log(err));
+
+  counter.textContent = `${idx + 1} of ${questions.length}`;
+  dropdown.value = idx;
+
+  prevBtn.disabled = (idx === 0);
+  nextBtn.disabled = (idx === questions.length - 1);
+}
+
+
+
+
+
+
+// Populate dropdown
+questions.forEach((q, i) => {
+  const opt = document.createElement('option');
+  opt.value = i;
+  opt.textContent = `Q${q.qno}`;
+  dropdown.appendChild(opt);
+});
+
+prevBtn.onclick = () => {
+  if (current > 0) {
+    current--;
+    renderQuestion(current);
+  }
+};
+
+nextBtn.onclick = () => {
+  if (current < questions.length - 1) {
+    current++;
+    renderQuestion(current);
+  }
+};
+
+dropdown.onchange = (e) => {
+  current = parseInt(e.target.value);
+  renderQuestion(current);
+};
+function renderQuestion(idx) {
+  const q = questions[idx];
+  card.innerHTML = `
+    <div class="qno">Q${q.qno}</div>
+    <div class="question">${q.mathml}</div>
+  `;
+
+  counter.textContent = `${idx + 1} of ${questions.length}`;
+  dropdown.value = idx;
+  prevBtn.disabled = (idx === 0);
+  nextBtn.disabled = (idx === questions.length - 1);
+
+  // This will work now because MathJax is guaranteed to be ready
+  MathJax.typesetPromise([card]);
+}
+
+// Populate dropdown
+questions.forEach((q, i) => {
+  const opt = document.createElement('option');
+  opt.value = i;
+  opt.textContent = `Q${q.qno}`;
+  dropdown.appendChild(opt);
+});
+
+prevBtn.onclick = () => { if (current > 0) { current--; renderQuestion(current); } };
+nextBtn.onclick = () => { if (current < questions.length - 1) { current++; renderQuestion(current); } };
+dropdown.onchange = (e) => { current = parseInt(e.target.value); renderQuestion(current); };
+
+// First render happens only after MathJax is ready (see startup.ready above)
+// If MathJax is already loaded (rare), render immediately
+if (MathJax.startup && MathJax.startup.promise && MathJax.startup.promise.then) {
+  // Wait for MathJax promise
+} else {
+  renderQuestion(0);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MathML Quiz</title>
+
+<!-- MathJax -->
+<script>
+  MathJax = { chtml:{scale:1.1}, };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" async></script>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #eef1f7;
+    font-family: system-ui, Arial;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .question {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+
+  .options {
+    margin-top: 20px;
+  }
+
+  .option {
+    background: #f2f4f7;
+    padding: 14px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-left: 5px solid #d0d4d9;
+    transition: .2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .option:hover {
+    background: #e8f3fe;
+    transform: translateX(6px);
+  }
+
+  .option.correct {
+    background: #d4edda !important;
+    border-left: 5px solid #2e8b57 !important;
+    font-weight: bold;
+  }
+
+  .answer-box {
+    display: none;
+    margin-top: 20px;
+    background: #d1fae5;
+    padding: 15px;
+    border-left: 6px solid #10b981;
+    font-size: 1.2rem;
+    border-radius: 10px;
+  }
+
+  .answer-box.show {
+    display: block;
+  }
+
+  .nav-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button {
+    padding: 10px 18px;
+    font-size: 1rem;
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #1d4ed8;
+  }
+
+  #reveal {
+    background: #059669;
+  }
+
+  #reveal:hover {
+    background: #047857;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>MathML MCQ Quiz</h1>
+
+  <!-- TOP DROPDOWN -->
+  <select id="topSelect"></select>
+
+  <div id="quizArea"></div>
+
+  <!-- BOTTOM DROPDOWN -->
+  <select id="bottomSelect"></select>
+
+  <div class="nav-buttons">
+    <button id="prevBtn">⟵ Prev</button>
+    <button id="reveal">Reveal Answer</button>
+    <button id="nextBtn">Next ⟶</button>
+  </div>
+
+</div>
+
+<!-- JSON QUESTIONS -->
+<script id="data" type="application/json">
+{
+  "questions":[
+    {
+      "id":1,
+      "q":"<math><mrow><mtext>If </mtext><mi>A</mi><mtext> is any square matrix of order </mtext><mn>3</mn><mo>×</mo><mn>3</mn><mtext> such that </mtext><mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mn>3</mn><mo>,</mo><mtext> then </mtext><mo>|</mo><mi>adj</mi><mi>A</mi><mo>|</mo><mtext> is ?</mtext></mrow></math>",
+      "o":[
+        "<math><mn>3</mn></math>",
+        "<math><mfrac><mn>1</mn><mn>3</mn></mfrac></math>",
+        "<math><mn>9</mn></math>",
+        "<math><mn>27</mn></math>"
+      ],
+      "a":"c"
+    }
+    /* Add more questions here */
+  ]
+}
+</script>
+
+<script>
+const data = JSON.parse(document.getElementById("data").textContent);
+const questions = data.questions;
+
+let index = 0;
+
+const quizArea = document.getElementById("quizArea");
+const topSelect = document.getElementById("topSelect");
+const bottomSelect = document.getElementById("bottomSelect");
+
+/* Populate dropdowns */
+function fillDropdowns() {
+  questions.forEach((q,i) => {
+    const opt1 = document.createElement("option");
+    const opt2 = document.createElement("option");
+    opt1.value = i; opt2.value = i;
+    opt1.textContent = "Question " + (i+1);
+    opt2.textContent = "Question " + (i+1);
+    topSelect.appendChild(opt1);
+    bottomSelect.appendChild(opt2);
+  });
+}
+fillDropdowns();
+
+function loadQuestion() {
+  const q = questions[index];
+
+  topSelect.value = index;
+  bottomSelect.value = index;
+
+  quizArea.innerHTML = `
+    <div class="question">${q.q}</div>
+
+    <div class="options">
+      <div class="option" data-id="a"><b>A.</b> ${q.o[0]}</div>
+      <div class="option" data-id="b"><b>B.</b> ${q.o[1]}</div>
+      <div class="option" data-id="c"><b>C.</b> ${q.o[2]}</div>
+      <div class="option" data-id="d"><b>D.</b> ${q.o[3]}</div>
+    </div>
+
+    <div id="answerBox" class="answer-box">
+      Correct Answer: <b>${q.a.toUpperCase()}</b>
+    </div>
+  `;
+
+  document.querySelectorAll(".option").forEach(opt=>{
+    opt.onclick = ()=> reveal();
+  });
+
+  MathJax.typesetPromise();
+}
+
+function reveal(){
+  const correct = questions[index].a;
+  const option = document.querySelector(`.option[data-id="${correct}"]`);
+  option.classList.add("correct");
+  document.getElementById("answerBox").classList.add("show");
+}
+
+document.getElementById("nextBtn").onclick = ()=>{
+  if(index < questions.length-1) index++;
+  loadQuestion();
+};
+
+document.getElementById("prevBtn").onclick = ()=>{
+  if(index > 0) index--;
+  loadQuestion();
+};
+
+topSelect.onchange = bottomSelect.onchange = function(){
+  index = Number(this.value);
+  loadQuestion();
+};
+
+/* Keyboard navigation */
+document.addEventListener("keydown", e=>{
+  if(e.key === "ArrowRight") {
+    if(index < questions.length-1) index++;
+    loadQuestion();
+  }
+  if(e.key === "ArrowLeft") {
+    if(index > 0) index--;
+    loadQuestion();
+  }
+  if(e.key === "Enter") reveal();
+});
+
+loadQuestion();
+</script>
+
+</body>
+</html>
+

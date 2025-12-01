@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Math Quiz • Pure MathML Edition</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --border: #e2e8f0;
+      --shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    body.dark { 
+      --bg: #0f172a; --card-bg: #1e293b; --text: #e2e8f0; 
+      --primary: #a78bfa; --border: #334155;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100vh; display: flex; flex-direction: column;
+      transition: var(--transition);
+    }
+    header {
+      text-align:center; padding:2.5rem 1rem; font-size:2.4rem; font-weight:800;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color:white; text-shadow:0 4px 15px rgba(0,0,0,0.3);
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    }
+    .controls {
+      display:flex; justify-content:center; align-items:center; gap:1.5rem;
+      padding:1.5rem; background:var(--card-bg); border-bottom:1px solid var(--border);
+      flex-wrap:wrap;
+    }
+    select#jumpSelect {
+      padding:0.8rem 1.2rem; font-size:1.1rem; border:2px solid var(--border);
+      border-radius:12px; background:var(--card-bg); color:var(--text);
+      min-width:220px; cursor:pointer; transition:var(--transition);
+    }
+    select#jumpSelect:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 4px rgba(99,102,241,.2); }
+    .theme-toggle {
+      background:none; border:2px solid var(--border); padding:0.8rem;
+      border-radius:50%; cursor:pointer; font-size:1.5rem; transition:var(--transition);
+    }
+    .theme-toggle:hover { background:var(--primary); color:white; border-color:var(--primary); }
+
+    .slide-container { flex:1; display:flex; justify-content:center; align-items:center; padding:2rem; }
+    .slide {
+      display:none; max-width:960px; width:100%; background:var(--card-bg);
+      border-radius:24px; padding:4rem 3rem; box-shadow:var(--shadow);
+      border:1px solid var(--border); position:relative;
+      opacity:0; transform:translateY(40px); transition:all 0.6s ease;
+    }
+    .slide.active { display:block; opacity:1; transform:translateY(0); animation:slideIn 0.7s ease forwards; }
+    @keyframes slideIn { from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);} }
+
+    .qno {
+      position:absolute; top:-20px; left:40px; background:var(--primary); color:white;
+      width:60px; height:60px; border-radius:50%; display:flex; align-items:center;
+      justify-content:center; font-size:1.5rem; font-weight:bold;
+      box-shadow:0 10px 25px rgba(99,102,241,0.4);
+    }
+    .question {
+      font-size:2rem; text-align:center; margin-bottom:3rem; font-weight:500;
+    }
+    .options {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      gap:1.5rem; margin-top:2rem;
+    }
+    .option {
+      padding:1.8rem 2rem; background:var(--bg); border:2px solid var(--border);
+      border-radius:18px; font-size:1.5rem; text-align:center; cursor:pointer;
+      transition:var(--transition);
+    }
+    .option:hover {
+      border-color:var(--primary); background:rgba(99,102,241,0.08);
+      transform:translateY(-6px); box-shadow:0 12px 25px rgba(0,0,0,0.1);
+    }
+    .nav {
+      display:flex; justify-content:center; align-items:center; gap:2.5rem;
+      padding:2rem; background:var(--card-bg); border-top:1px solid var(--border);
+    }
+    .nav button {
+      background:var(--primary); color:white; border:none; width:70px; height:70px;
+      border-radius:50%; font-size:2rem; cursor:pointer; transition:var(--transition);
+      box-shadow:0 10px 25px rgba(99,102,241,0.35);
+    }
+    .nav button:hover:not(:disabled) { background:#4f46e5; transform:scale(1.12); }
+    .nav button:disabled { background:#94a3b8; cursor:not-allowed; }
+    .counter { font-size:1.5rem; font-weight:600; min-width:140px; text-align:center; }
+
+    @media (max-width:768px) {
+      header {font-size:1.9rem; padding:1.8rem;}
+      .question {font-size:1.6rem;}
+      .option {font-size:1.3rem; padding:1.4rem;}
+      .options {grid-template-columns:1fr;}
+      .slide {padding:3rem 2rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>Advanced Mathematics Practice • Pure MathML</header>
+
+  <div class="controls">
+    <select id="jumpSelect"></select>
+    <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">Moon</button>
+  </div>
+
+  <div class="slide-container" id="slideContainer"></div>
+
+  <div class="nav">
+    <button id="prevBtn">Left Arrow</button>
+    <span class="counter"><span id="current">1</span> / <span id="total">12</span></span>
+    <button id="nextBtn">Right Arrow</button>
+  </div>
+
+  <!-- QUESTIONS IN PURE MATHML -->
+  <script id="questionsData" type="application/json">
+  {
+    "questions": [
+      {
+        "id": 1,
+        "type": "mcq",
+        "question": "<math display='block'><mrow><mi>A</mi><mo>=</mo><mfenced open='[' close=']'><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mn>2</mn></mtd></mtr><mtr><mtd><mn>3</mn></mtd><mtd><mn>4</mn></mtd></mtr></mtable></mfenced><mtext>, find </mtext><mi>det</mi><mo stretchy='false'>(</mo><mi>A</mi><mo stretchy='false'>)</mo></mrow></math>",
+        "options": [
+          "<math><mo>-</mo><mn>2</mn></math>",
+          "<math><mn>0</mn></math>",
+          "<math><mn>2</mn></math>",
+          "<math><mn>10</mn></math>"
+        ]
+      },
+      {
+        "id": 2,
+        "type": "mcq",
+        "question": "<math display='block'><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>-</mo><mn>5</mn><mi>x</mi><mo>+</mo><mn>6</mn><mo>=</mo><mn>0</mn></mrow></math>",
+        "options": [
+          "<math><mi>x</mi><mo>=</mo><mn>2</mn><mo>,</mo><mn>3</mn></math>",
+          "<math><mi>x</mi><mo>=</mo><mo>-</mo><mn>2</mn><mo>,</mo><mo>-</mo><mn>3</mn></math>",
+          "<math><mi>x</mi><mo>=</mo><mn>1</mn><mo>,</mo><mn>6</mn></math>",
+          "<math><mi>x</mi><mo>=</mo><mo>-</mo><mn>1</mn><mo>,</mo><mo>-</mo><mn>6</mn></math>"
+        ]
+      },
+      {
+        "id": 3,
+        "type": "mcq",
+        "question": "<math display='block'><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><msup><mi>x</mi><mn>2</mn></msup><mi>d</mi><mi>x</mi><mo>=</mo><mtext> ?</mtext></mrow></math>",
+        "options": [
+          "<math><mfrac><mn>1</mn><mn>3</mn></mfrac></math>",
+          "<math><mfrac><mn>1</mn><mn>2</mn></mfrac></math>",
+          "<math><mn>1</mn></math>",
+          "<math><mn>0</mn></math>"
+        ]
+      },
+      {
+        "id": 4,
+        "type": "mcq",
+        "question": "<math display='block'><mrow><mfrac><mi>d</mi><mi>d</mi><mi>x</mi></mfrac><mo stretchy='false'>(</mo><mi>sin</mi><mo stretchy='false'>(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy='false'>)</mo><mo stretchy='false'>)</mo><mo>=</mo><mtext> ?</mtext></mrow></math>",
+        "options": [
+          "<math><mn>2</mn><mi>x</mi><mo>·</mo><mi>cos</mi><mo stretchy='false'>(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy='false'>)</mo></math>",
+          "<math><mi>cos</mi><mo stretchy='false'>(</mo><mn>2</mn><mi>x</mi><mo stretchy='false'>)</mo></math>",
+          "<math><mn>2</mn><mi>x</mi><mo>·</mo><mi>sin</mi><mo stretchy='false'>(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy='false'>)</mo></math>",
+          "<math><mi>x</mi><mo>·</mo><mi>cos</mi><mo stretchy='false'>(</mo><msup><mi>x</mi><mn>2</mn></msup><mo stretchy='false'>)</mo></math>"
+        ]
+      },
+      {
+        "id": 5,
+        "type": "mcq",
+        "question": "<math display='block'><mrow><mo>lim</mo><munder><mrow><mi>x</mi><mo>→</mo><mn>0</mn></mrow><mo> </mo></munder><mfrac><mrow><mi>sin</mi><mo stretchy='false'>(</mo><mn>3</mn><mi>x</mi><mo stretchy='false'>)</mo></mrow><mi>x</mi></mfrac><mo>=</mo><mtext> ?</mtext></mrow></math>",
+        "options": [
+          "<math><mn>3</mn></math>",
+          "<math><mn>1</mn></math>",
+          "<math><mn>0</mn></math>",
+          "<math><mi>∞</mi></math>"
+        ]
+      },
+      {
+        "id": 6,
+        "type": "mcq",
+        "question": "<math display='block'><mrow><msup><mi>e</mi><mrow><mi>i</mi><mi>π</mi></mrow></msup><mo>+</mo><mn>1</mn><mo>=</mo><mtext> ?</mtext></mrow></math>",
+        "options": [
+          "<math><mn>0</mn></math>",
+          "<math><mn>1</mn></math>",
+          "<math><mo>-</mo><mn>1</mn></math>",
+          "<math><mi>i</mi></math>"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    const data = JSON.parse(document.getElementById("questionsData").textContent);
+    const questions = data.questions;
+    const slideContainer = document.getElementById("slideContainer");
+    const totalSpan = document.getElementById("total");
+    const currentSpan = document.getElementById("current");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const jumpSelect = document.getElementById("jumpSelect");
+    const themeToggle = document.getElementById("themeToggle");
+    let currentSlide = 0;
+
+    totalSpan.textContent = questions.length;
+
+    // Theme Toggle
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      themeToggle.textContent = document.body.classList.contains("dark") ? "Sun" : "Moon";
+    });
+
+    // Build Dropdown
+    function loadDropdown() {
+      questions.forEach((q, i) => {
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.textContent = `Question ${i + 1}`;
+        jumpSelect.appendChild(opt);
+      });
+      jumpSelect.addEventListener("change", () => {
+        currentSlide = parseInt(jumpSelect.value);
+        renderCurrentSlide();
+      });
+    }
+
+    // Create Slide with raw MathML (no escaping needed)
+    function createSlide(q, index) {
+      const isActive = index === currentSlide;
+      const optionsHTML = q.type === "mcq" ? 
+        `<div class="options">${q.options.map(op => `<div class="option">${op}</div>`).join("")}</div>` : "";
+
+      return `
+        <div class="slide ${isActive ? "active" : ""}">
+          <div class="qno">${index + 1}</div>
+          <div class="question">${q.question}</div>
+          ${optionsHTML}
+        </div>
+      `;
+    }
+
+    function renderCurrentSlide() {
+      slideContainer.innerHTML = questions.map((q, i) => createSlide(q, i)).join("");
+      updateNavigation();
+      // Re-typeset MathML/MathJax
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    }
+
+    function updateNavigation() {
+      currentSpan.textContent = currentSlide + 1;
+      jumpSelect.value = currentSlide;
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === questions.length - 1;
+    }
+
+    prevBtn.onclick = () => { if (currentSlide > 0) { currentSlide--; renderCurrentSlide(); } };
+    nextBtn.onclick = () => { if (currentSlide < questions.length - 1) { currentSlide++; renderCurrentSlide(); } };
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft") prevBtn.click();
+      if (e.key === "ArrowRight") nextBtn.click();
+    });
+
+    // Initialize
+    renderCurrentSlide();
+    loadDropdown();
+  </script>
+</body>
+</html>

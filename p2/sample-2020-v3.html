@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Section A - Mathematics Quiz</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.7;
+    }
+    .quiz-container {
+      max-width: 1000px;
+      margin: 20px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .section {
+      margin: 30px 0;
+      padding: 20px;
+      border: 2px solid #3498db;
+      border-radius: 12px;
+      background: #f8fdff;
+    }
+    .question {
+      margin: 25px 0;
+      padding: 18px;
+      background: #ffffff;
+      border-radius: 10px;
+      border-left: 6px solid #3498db;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .qnum {
+      font-weight: bold;
+      color: #2980b9;
+      font-size: 1.2em;
+    }
+    .options {
+      margin-top: 15px;
+      display: grid;
+      gap: 10px;
+    }
+    .option {
+      padding: 12px 16px;
+      background: #f5f5f5;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .option:hover { background: #e8f4fc; border-color: #3498db; }
+    .option.selected { background: #bbdefb; border-color: #1976d2; font-weight: bold; }
+    .option.correct { background: #c8e6c9 !important; border-color: #4caf50 !important; }
+    .option.incorrect { background: #ffcdd2 !important; border-color: #e53935 !important; }
+    .fill-blank {
+      display: inline-block;
+      width: 200px;
+      padding: 8px;
+      border: none;
+      border-bottom: 2px solid #3498db;
+      font-size: 1.1em;
+      text-align: center;
+    }
+    .answer-reveal {
+      margin-top: 12px;
+      padding: 10px;
+      background: #e8f5e8;
+      border-radius: 8px;
+      font-weight: bold;
+      display: none;
+    }
+    .answer-reveal.show { display: block; }
+    .show-answers-btn {
+      display: block;
+      margin: 40px auto;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .or-text { font-style: italic; color: #7f8c8d; margin: 15px 0; text-align: center; }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>SECTION A</h1>
+  <p style="text-align:center;font-weight:bold;color:#e74c3c;">
+    Q1 - Q10 are multiple choice type questions. Select the correct option.
+  </p>
+
+  <div id="quiz"></div>
+
+  <button class="show-answers-btn" id="showAnswers">Show All Correct Answers</button>
+</div>
+
+<script>
+  // Quiz Data Structure - Clean JavaScript Objects
+  const quizData = [
+    // Q1 to Q10: Multiple Choice
+    { type: "mcq", q: "If A is any square matrix of order 3×3 such that |A| = 3, then the value of |adj A| is?", 
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math> is any square matrix of order <mn>3</mn><mo>×</mo><mn>3</mn> such that <mo stretchy="false">|</mo><mi>A</mi><mo stretchy="false">|</mo><mo>=</mo><mn>3</mn>, then the value of <mo stretchy="false">|</mo><mi>adj</mi><mo>⁡</mo><mi>A</mi><mo stretchy="false">|</mo> is?`,
+      options: ["3", "1/3", "9", "27"], correct: 2 },
+
+    { type: "mcq", q: "Suppose P and Q are two different matrices of order 3×n and n×p, then the order of the matrix P × Q is?", 
+      mathml: `Suppose <mi>P</mi> and <mi>Q</mi> are two different matrices of order <mn>3</mn><mo>×</mo><mi>n</mi> and <mi>n</mi><mo>×</mo><mi>p</mi>, then the order of the matrix <mi>P</mi><mo>×</mo><mi>Q</mi> is?`,
+      options: ["3 × p", "p × 3", "n × n", "3 × 3"], correct: 0 },
+
+    { type: "mcq", q: "If (2î + 6ĵ + 27k̂) × (î + pĵ + qk̂) = 0, then the values of p and q are?", 
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mo stretchy="false">(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>6</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>27</mn><mover><mi>k</mi><mo>^</mo></mover><mo stretchy="false">)</mo>
+        <mo>×</mo>
+        <mo stretchy="false">(</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mi>p</mi><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mi>q</mi><mover><mi>k</mi><mo>^</mo></mover><mo stretchy="false">)</mo>
+        <mo>=</mo><mn>0</mn>
+      </math>, then the values of <mi>p</mi> and <mi>q</mi> are?`,
+      options: ["p=6, q=27", "p=3, q=27/2", "p=6, q=27/2", "p=3, q=27"], correct: 2 },
+
+    { type: "mcq", q: "If A and B are two events such that P(A)=0.2, P(B)=0.4 and P(A∪B)=0.5, then P(A/B) is?", 
+      options: ["0.1", "0.25", "0.5", "0.08"], correct: 0 },
+
+    { type: "mcq", q: "The point which does not lie in the half plane 2x + 3y − 12 ≤ 0 is", 
+      mathml: `The point which does not lie in the half plane <mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn><mi>y</mi><mo>−</mo><mn>12</mn><mo>≤</mo><mn>0</mn> is`,
+      options: ["(1,2)", "(2,1)", "(2,3)", "(-3,2)"], correct: 2 },
+
+    { type: "mcq", q: "If sin⁻¹x + sin⁻¹y = 2π/3, then the value of cos⁻¹x + cos⁻¹y is", 
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML">
+        <msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>y</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac>
+      </math>, then the value of <msup><mi>cos</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>cos</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>y</mi> is`,
+      options: ["2π/3", "π/3", "π/2", "π"], correct: 1 },
+
+    { type: "mcq", q: "An urn contains 6 balls of which two are red and four are black. Two balls are drawn at random. Probability that they are of different colours is", 
+      options: ["2/5", "1/15", "8/15", "4/15"], correct: 2 },
+
+    { type: "mcq", q: "∫ dx / √(9 − 25x²)", 
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><msqrt><mn>9</mn><mo>−</mo><mn>25</mn><msup><mi>x</mi><mn>2</mn></msup></msqrt></mfrac>
+      </math>`,
+      options: [
+        "sin⁻¹(5x/3) + c",
+        "(1/5) sin⁻¹(5x/3) + c",
+        "(1/6) log |(3+5x)/(3−5x)| + c",
+        "(1/30) log |(3+5x)/(3−5x)| + c"
+      ], correct: 1 },
+
+    { type: "mcq", q: "Distance between planes 3x+5y+7z=3 and 9x+15y+21z=9 is", 
+      options: ["0", "3", "6/√83", "6"], correct: 0 },
+
+    { type: "mcq", q: "Equation of line passing through (-1,3,5) and parallel to (x-3)/2 = (y-4)/3, z=2", 
+      mathml: `passing through <mo stretchy="false">(</mo><mn>-1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo stretchy="false">)</mo> and parallel to <mfrac><mrow><mi>x</mi><mo>−</mo><mn>3</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mi>y</mi><mo>−</mo><mn>4</mn></mrow><mn>3</mn></mfrac><mo>,</mo><mi>z</mi><mo>=</mo><mn>2</mn>`,
+      options: [
+        "r = (−î + 3ĵ + 5k̂) + λ(2î + 3ĵ + k̂)",
+        "r = (−î + 3ĵ + 5k̂) + λ(2î + 3ĵ)",
+        "r = (2î + 3ĵ − 2k̂) + λ(−î + 3ĵ + 5k̂)",
+        "r = (2î + 3ĵ) + λ(−î + 3ĵ + 5k̂)"
+      ], correct: 0 },
+
+    // Q11 to Q15: Fill in the blanks
+    { type: "fill", q: "If f(x) = [x] (greatest integer) and g(x) = |x|, then g(f(−5/4)) is", answer: "1" },
+    { type: "fill", q: "For f(x) = (x²−1)/(x−1) when x≠1, and f(1)=k to be continuous at x=1, value of k is", answer: "2" },
+    { type: "fill", q: "If [1 2; 2 1][x; y] = [5; 4], then y =", answer: "1" },
+    { type: "fill", q: "Tangent to y² + 3x − 7 = 0 at (h,k) is parallel to x − y = 4, then k =", answer: "4", or: "For y = 5x − 2x³, dx/dt = 2, at x=3, dy/dt rate is", orAnswer: "-30" },
+    { type: "fill", q: "Magnitude of projection of (2î − ĵ + k̂) on (î − 2ĵ + 2k̂) is", answer: "√3", or: "Vector of magnitude 5 opposite to 2î + 3ĵ − 6k̂ is", orAnswer: "-5/7 (2î + 3ĵ − 6k̂)" },
+
+    // Q16 to Q20: Short Answer
+    { type: "short", q: "Check whether (l+m+n) is a factor of det |1+m m+n n+l; n 1 m; 2 2 2|", answer: "Yes, because substituting l+m+n=0 makes row1 = row3 → det=0" },
+    { type: "short", q: "Evaluate ∫ from -2 to 2 (x³ + 1) dx", answer: "4" },
+    { type: "short", q: "Find ∫ (3 + 3cos x)/(x + sin x) dx", answer: "3 ln|x + sin x| + C", or: "Find ∫ (cos²2x − sin²2x) dx", orAnswer: "sin 4x / 4 + C" },
+    { type: "short", q: "Find ∫ x e^(1+x²) dx", answer: "(1/2) e^(1+x²) + C" },
+    { type: "short", q: "General solution of dy/dx = e^(x+y)", answer: "e^(-y) = e^(-x) + C  or  y = −ln(e^(-x) + C)" }
+  ];
+
+  const quizDiv = document.getElementById("quiz");
+  quizData.forEach((item, idx) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "question";
+    qDiv.innerHTML = `<div class="qnum">Question ${idx + 1}</div>`;
+
+    if (item.mathml) {
+      qDiv.innerHTML += `<div style="font-size:1.15em;margin:15px 0;">${item.mathml}</div>`;
+    } else {
+      qDiv.innerHTML += `<div style="font-size:1.15em;margin:15px 0;">${item.q}</div>`;
+    }
+
+    if (item.type === "mcq") {
+      qDiv.innerHTML += '<div class="options" id="opts-' + idx + '"></div>';
+      item.options.forEach((opt, i) => {
+        const optDiv = document.createElement("div");
+        optDiv.className = "option";
+        optDiv.innerHTML = `<strong>(${String.fromCharCode(97+i)})</strong> ` + opt;
+        optDiv.onclick = () => {
+          document.querySelectorAll(`#opts-${idx} .option`).forEach(el => el.classList.remove("selected"));
+          optDiv.classList.add("selected");
+        };
+        document.getElementById("opts-" + idx).appendChild(optDiv);
+      });
+    } else if (item.type === "fill") {
+      qDiv.innerHTML += `<input type="text" class="fill-blank" placeholder="Your answer">`;
+      if (item.or) {
+        qDiv.innerHTML += `<div class="or-text">OR</div><div>${item.or}</div><input type="text" class="fill-blank" placeholder="Your answer">`;
+      }
+    } else if (item.type === "short") {
+      qDiv.innerHTML += `<textarea rows="3" style="width:100%;padding:10px;margin-top:10px;border:1px solid #ccc;border-radius:8px;" placeholder="Write your answer here..."></textarea>`;
+      if (item.or) qDiv.innerHTML += `<div class="or-text">OR</div><div>${item.or}</div><textarea rows="3" style="width:100%;padding:10px;margin-top:10px;border:1px solid #ccc;border-radius:8px;"></textarea>`;
+    }
+
+    qDiv.innerHTML += `<div class="answer-reveal" id="ans-${idx}">Correct Answer: <strong>${item.answer || item.orAnswer}</strong></div>`;
+    quizDiv.appendChild(qDiv);
+  });
+
+  document.getElementById("showAnswers").addEventListener("click", () => {
+    quizData.forEach((item, i) => {
+      if (item.type === "mcq") {
+        const opts = document.querySelectorAll(`#opts-${i} .option`);
+        opts.forEach((opt, j) => {
+          if (j === item.correct) opt.classList.add("correct");
+          else if (opt.classList.contains("selected")) opt.classList.add("incorrect");
+        });
+      }
+      document.getElementById(`ans-${i}`).classList.add("show");
+    });
+    document.getElementById("showAnswers").textContent = "Answers Revealed!";
+    document.getElementById("showAnswers").disabled = true;
+  });
+</script>
+</body>
+</html>

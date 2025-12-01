@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Quiz - Full MathML + Reveal Answer</title>
+
+  <!-- MathJax with full MathML support -->
+  <script>
+    MathJax = {
+      loader: {load: ['[tex]/color']},
+      tex: {packages: {'[+]': ['color']}},
+      chtml: {scale: 1.1}
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js" async></script>
+
+  <style>
+    :root { --pri: #4285f4; --suc: #34a853; --dan: #ea4335; --bg: #f8f9fa; }
+    body { 
+      margin:0; height:100vh; font-family:'Segoe UI',sans-serif; 
+      background: linear-gradient(135deg, #667eea, #764ba2); color:#333;
+      display:flex; flex-direction:column; overflow:hidden;
+    }
+    header { background:rgba(0,0,0,0.5); padding:1.5rem; text-align:center; font-size:2rem; color:white; }
+    .slides { flex:1; display:flex; align-items:center; justify-content:center; padding:2rem; }
+    .slide { 
+      background:white; border-radius:20px; padding:4rem; max-width:1000px; width:100%;
+      box-shadow:0 30px 60px rgba(0,0,0,0.4); position:relative; min-height:500px;
+    }
+    .qno { 
+      position:absolute; top:-25px; left:40px; background:var(--pri); color:white;
+      width:80px; height:80px; border-radius:50%; display:flex; align-items:center;
+      justify-content:center; font-size:2rem; font-weight:bold;
+    }
+    .question { font-size:1.7rem; line-height:1.7; margin:2rem 0; }
+    .options { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1rem; margin:2rem 0; }
+    .opt { 
+      padding:1.3rem; background:#f1f3f5; border-radius:12px; border-left:5px solid #ddd;
+      font-size:1.4rem; transition:0.3s;
+    }
+    .opt:hover { background:#e3f2fd; transform:translateX(8px); }
+    .opt.correct { background:#d4edda !important; border-left-color:var(--suc) !important; font-weight:bold; color:var(--suc); }
+    .answer { 
+      margin-top:2rem; padding:1.5rem; background:#e8f5e9; border-radius:12px;
+      text-align:center; font-size:1.5rem; display:none; border:2px solid var(--suc);
+    }
+    .answer.show { display:block; animation:fade 0.6s; }
+    @keyframes fade { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:none;} }
+
+  /* ───── CARD & CONTENT – NEVER OVERFLOW ───── */
+.slide {
+  max-width: 960px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 3.5rem 2.5rem 3rem;
+  background: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;                  /* Prevent any overflow */
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.question {
+  font-size: clamp(1.5rem, 4.5vw, 2.1rem);   /* Auto-scales perfectly */
+  text-align: center;
+  line-height: 1.45;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.1rem;
+}
+
+.option {
+  padding: clamp(1rem, 3vw, 1.6rem) clamp(1rem, 4vw, 2rem);
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  font-size: clamp(1.15rem, 3.8vw, 1.45rem);   /* Responsive text */
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.option:hover {
+  border-color: var(--primary);
+  background: rgba(99,102,241,0.07);
+  transform: translateY(-4px);
+}
+
+/* ───── SMALLER & ELEGANT NEXT/PREV BUTTONS ───── */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+  padding: 1rem;
+  background: rgba(15,23,42,0.4);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.nav button {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: none;
+  width: 48px;           /* Smaller */
+  height: 48px;          /* Smaller */
+  border-radius: 50%;
+  font-size: 1.6rem;     /* Reduced from 3rem */
+  cursor: pointer;
+  transition: all 0.28s ease;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.nav button:hover:not(:disabled) {
+  background: var(--primary);
+  transform: scale(1.18);
+  box-shadow: 0 8px 25px rgba(99,102,241,0.4);
+}
+
+.nav button:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.counter {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  min-width: 90px;
+  text-align: center;
+}
+
+/* Mobile Fine-tuning */
+@media (max-width: 640px) {
+  .slide { padding: 2.5rem 1.8rem; margin: 1rem; border-radius: 20px; }
+  .options { grid-template-columns: 1fr; gap: 1rem; }
+  .nav button { width: 44px; height: 44px; font-size: 1.4rem; }
+}
+/* Extra elegance on dark mode */
+body.dark .nav { background: rgba(30, 41, 59, 0.6); }
+  </style>
+</head>
+<body>
+
+<header>Mathematics Practice Test – Full MathML</header>
+<div class="slides" id="container"></div>
+
+<div class="nav">
+  <button id="prev">←</button>
+  <span class="counter"><span id="cur">1</span> / 18</span>
+  <button id="reveal">Reveal Answer</button>
+  <button id="next">→</button>
+</div>
+
+<script id="data" type="application/json">
+{
+  "questions": [
+    {"id":1,"q":"<math><mrow><mtext>If </mtext><mi>A</mi><mtext> is any square matrix of order </mtext><mn>3</mn><mo>×</mo><mn>3</mn><mtext> such that </mtext><mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mn>3</mn><mo>,</mo><mtext> then </mtext><mo>|</mo><mi>adj</mi><mi>A</mi><mo>|</mo><mtext> is ?</mtext></mrow></math>","o":["<math><mn>3</mn></math>","<math><mfrac><mn>1</mn><mn>3</mn></mfrac></math>","<math><mn>9</mn></math>","<math><mn>27</mn></math>"],"a":"c"},
+    {"id":2,"q":"<math><mrow><mtext>Suppose P and Q are two different matrices of order </mtext><mn>3</mn><mo>×</mo><mi>n</mi><mtext> and </mtext><mi>n</mi><mo>×</mo><mi>p</mi><mo>,</mo><mtext> then order of </mtext><mi>P</mi><mo>×</mo><mi>Q</mi><mtext> is?</mtext></mrow></math>","o":["<math><mn>3</mn><mo>×</mo><mi>p</mi></math>","<math><mi>p</mi><mo>×</mo><mn>3</mn></math>","<math><mi>n</mi><mo>×</mo><mi>n</mi></math>","<math><mn>3</mn><mo>×</mo><mn>3</mn></math>"],"a":"a"},
+    {"id":3,"q":"<math><mrow><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>6</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>27</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>×</mo><mo>(</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mi>p</mi><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mi>q</mi><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>=</mo><mover><mn>0</mn><mo>→</mo></mover><mo>,</mo><mtext> then p and q are</mtext></mrow></math>","o":["<math><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>","<math><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>","<math><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>","<math><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>"],"a":"b"},
+    {"id":4,"q":"<math><mrow><mtext>If </mtext><mi>P</mi><mo>(</mo><mi>A</mi><mo>)</mo><mo>=</mo><mn>0.2</mn><mo>,</mo><mi>P</mi><mo>(</mo><mi>B</mi><mo>)</mo><mo>=</mo><mn>0.4</mn><mtext> and </mtext><mi>P</mi><mo>(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo>)</mo><mo>=</mo><mn>0.5</mn><mo>,</mo><mtext> then </mtext><mi>P</mi><mo>(</mo><mi>A</mi><mo>/</mo><mi>B</mi><mo>)</mo><mtext> is</mtext></mrow></math>","o":["<math><mn>0.1</mn></math>","<math><mn>0.25</mn></math>","<math><mn>0.5</mn></math>","<math><mn>0.08</mn></math>"],"a":"b"},
+    {"id":5,"q":"<math><mrow><mtext>The point not in </mtext><mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn><mi>y</mi><mo>−</mo><mn>12</mn><mo>≤</mo><mn>0</mn></mrow></math>","o":["<math><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>","<math><mo>(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo>)</mo></math>","<math><mo>(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></math>","<math><mo>(</mo><mo>−</mo><mn>3</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>"],"a":"c"},
+    {"id":6,"q":"<math><mrow><msup><mi>sin</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>sin</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>y</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac><mo>,</mo><mtext> then </mtext><msup><mi>cos</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>cos</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mi>y</mi><mtext> is</mtext></mrow></math>","o":["<math><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac></math>","<math><mfrac><mi>π</mi><mn>3</mn></mfrac></math>","<math><mfrac><mi>π</mi><mn>2</mn></mfrac></math>","<math><mi>π</mi></math>"],"a":"b"},
+    {"id":7,"q":"<math><mrow><mtext>Urn: 6 balls (2 red, 4 black). Two drawn at random. P(different colours) =</mtext></mrow></math>","o":["<math><mfrac><mn>2</mn><mn>5</mn></mfrac></math>","<math><mfrac><mn>1</mn><mn>15</mn></mfrac></math>","<math><mfrac><mn>8</mn><mn>15</mn></mfrac></math>","<math><mfrac><mn>4</mn><mn>15</mn></mfrac></math>"],"a":"c"},
+    {"id":8,"q":"<math><mrow><msubsup><mo>∫</mo><mrow></mrow><mrow></mrow></msubsup><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><msqrt><mrow><mn>9</mn><mo>−</mo><mn>25</mn><msup><mi>x</mi><mn>2</mn></msup></mrow></msqrt></mfrac></mrow></math>","o":["<math><msup><mi>sin</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mrow><mo>(</mo><mfrac><mrow><mn>5</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>)</mo></mrow><mo>+</mo><mi>c</mi></math>","<math><mfrac><mn>1</mn><mn>5</mn></mfrac><msup><mi>sin</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mrow><mo>(</mo><mfrac><mrow><mn>5</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>)</mo></mrow><mo>+</mo><mi>c</mi></math>","<math><mfrac><mn>1</mn><mn>6</mn></mfrac><mi>log</mi><mo>|</mo><mfrac><mrow><mn>3</mn><mo>+</mo><mn>5</mn><mi>x</mi></mrow><mrow><mn>3</mn><mo>−</mo><mn>5</mn><mi>x</mi></mrow></mfrac><mo>|</mo><mo>+</mo><mi>c</mi></math>","<math><mfrac><mn>1</mn><mn>30</mn></mfrac><mi>log</mi><mo>|</mo><mfrac><mrow><mn>3</mn><mo>+</mo><mn>5</mn><mi>x</mi></mrow><mrow><mn>3</mn><mo>−</mo><mn>5</mn><mi>x</mi></mrow></mfrac><mo>|</mo><mo>+</mo><mi>c</mi></math>"],"a":"b"},
+    {"id":9,"q":"<math><mrow><mtext>Distance between planes </mtext><mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn><mi>y</mi><mo>+</mo><mn>7</mn><mi>z</mi><mo>=</mo><mn>3</mn><mtext> and </mtext><mn>9</mn><mi>x</mi><mo>+</mo><mn>15</mn><mi>y</mi><mo>+</mo><mn>21</mn><mi>z</mi><mo>=</mo><mn>9</mn></mrow></math>","o":["<math><mn>0</mn></math>","<math><mn>3</mn></math>","<math><mfrac><mn>6</mn><msqrt><mn>83</mn></msqrt></mfrac></math>","<math><mn>6</mn></math>"],"a":"a"},
+    {"id":10,"q":"<math><mrow><mtext>Line through </mtext><mo>(</mo><mo>−</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>)</mo><mtext> parallel to </mtext><mfrac><mrow><mi>x</mi><mo>−</mo><mn>3</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mi>y</mi><mo>−</mo><mn>4</mn></mrow><mn>3</mn></mfrac><mo>,</mo><mi>z</mi><mo>=</mo><mn>2</mn></mrow></math>","o":["<math><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mo>−</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo></math>","<math><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mo>−</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>)</mo></math>","<math><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>−</mo><mn>2</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mo>−</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo></math>","<math><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mo>−</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo></math>"],"a":"a"},
+    {"id":11,"q":"<math><mrow><mtext>If </mtext><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mo>[</mo><mi>x</mi><mo>]</mo><mtext>, </mtext><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mo>|</mo><mi>x</mi><mo>|</mo><mo>,</mo><mtext> then </mtext><mi>g</mi><mo>(</mo><mi>f</mi><mo>(</mo><mo>−</mo><mfrac><mn>5</mn><mn>4</mn></mfrac><mo>)</mo><mo>)</mo><mtext> is</mtext></mrow></math>","type":"fill","a":"1"},
+    {"id":12,"q":"<math><mrow><mtext>f(x) = </mtext><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mtext> (x≠1), k at x=1 for continuity, then k=</mtext></mrow></math>","type":"fill","a":"2"},
+    {"id":13,"q":"<math><mrow><mo>[</mo><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mn>2</mn></mtd></mtr><mtr><mtd><mn>2</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable><mo>]</mo><mo>[</mo><mtable columnalign=\"center\"><mtr><mtd><mi>x</mi></mtd></mtr><mtr><mtd><mi>y</mi></mtd></mtr></mtable><mo>]</mo><mo>=</mo><mo>[</mo><mtable columnalign=\"center\"><mtr><mtd><mn>5</mn></mtd></mtr><mtr><mtd><mn>4</mn></mtd></mtr></mtable><mo>]</mo><mo>,</mo><mtext> y =</mtext></mrow></math>","type":"fill","a":"1"},
+    {"id":14,"q":"<math><mrow><mtext>Tangent to </mtext><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>x</mi><mo>−</mo><mn>7</mn><mo>=</mo><mn>0</mn><mtext> at (h,k) parallel to x−y=4, then k=</mtext></mrow></math>","type":"fill","a":"<math><mo>±</mo><mn>2</mn><msqrt><mn>3</mn></msqrt></math>"},
+    {"id":15,"q":"<math><mrow><mtext>Magnitude of projection of </mtext><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>−</mo><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mtext> on </mtext><mo>(</mo><mover><mi>i</mi><mo>^</mo></mover><mo>−</mo><mn>2</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>2</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo></mrow></math>","type":"fill","a":"<math><mfrac><mn>2</mn><msqrt><mn>6</mn></msqrt></mfrac></math>"},
+    {"id":16,"q":"<math><mrow><mtext>Is (l+m+n) a factor of </mtext><mo>|</mo><mtable><mtr><mtd><mn>1</mn><mo>+</mo><mi>m</mi></mtd><mtd><mi>m</mi><mo>+</mo><mi>n</mi></mtd><mtd><mi>n</mi><mo>+</mo><mn>1</mn></mtd></mtr><mtr><mtd><mi>n</mi></mtd><mtd><mn>1</mn></mtd><mtd><mi>m</mi></mtd></mtr><mtr><mtd><mn>2</mn></mtd><mtd><mn>2</mn></mtd><mtd><mn>2</mn></mtd></mtr></mtable><mo>|</mo><mo>?</mo></mrow></math>","type":"short","a":"No (determinant = 4 ≠ 0 when l+m+n=0)"},
+    {"id":17,"q":"<math><mrow><msubsup><mo>∫</mo><mrow><mo>−</mo><mn>2</mn></mrow><mn>2</mn></msubsup><mo>(</mo><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>1</mn><mo>)</mo><mi>dx</mi></mrow></math>","type":"short","a":"4"},
+    {"id":18,"q":"<math><mrow><msubsup><mo>∫</mo><mrow></mrow><mrow></mrow></msubsup><mfrac><mrow><mn>3</mn><mo>+</mo><mn>3</mn><mi>cos</mi><mi>x</mi></mrow><mrow><mi>x</mi><mo>+</mo><mi>sin</mi><mi>x</mi></mrow></mfrac><mi>dx</mi></mrow></math>","type":"short","a":"<math><mn>3</mn><mi>log</mi><mo>|</mo><mi>x</mi><mo>+</mo><mi>sin</mi><mi>x</mi><mo>|</mo><mo>+</mo><mi>C</mi></math>"}
+  ]
+}
+</script>
+
+<script>
+  const raw = document.getElementById('data').textContent;
+  const {questions} = JSON.parse(raw);
+  const container = document.getElementById('container');
+  let idx = 0;
+
+  function render() {
+    const q = questions[idx];
+    let html = `<div class="slide"><div class="qno">Q${q.id}</div><div class="question">${q.q}</div>`;
+
+    if (q.o) {
+      html += '<div class="options">';
+      q.o.forEach((opt,i) => {
+        const letter = String.fromCharCode(97+i);
+        html += `<div class="opt" data-ans="${letter}">${opt}</div>`;
+      });
+      html += '</div>';
+    } else if (q.type === "fill" || q.type === "short") {
+      html += '<div style="text-align:center; padding:2rem; font-size:1.6rem; background:#fff8e1; border-radius:12px; margin:2rem 0;">_________</div>';
+    }
+
+    html += `<div class="answer" id="ans">${typeof q.a === "object" ? q.a.outerHTML || q.a : q.a}</div></div>`;
+    container.innerHTML = html;
+
+    MathJax.typesetPromise();
+  }
+
+  document.getElementById('reveal').onclick = () => {
+    const ans = document.getElementById('ans');
+    ans.classList.toggle('show');
+    if (questions[idx].o) {
+      const correctLetter = questions[idx].a;
+      document.querySelectorAll('.opt').forEach(opt => {
+        if (opt.dataset.ans === correctLetter) opt.classList.add('correct');
+      });
+    }
+  };
+
+  document.getElementById('prev').onclick = () => { idx = (idx-1+questions.length)%questions.length; render(); document.getElementById('cur').textContent=idx+1; };
+  document.getElementById('next').onclick = () => { idx = (idx+1)%questions.length; render(); document.getElementById('cur').textContent=idx+1; };
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') document.getElementById('next').click();
+    if (e.key === 'ArrowLeft') document.getElementById('prev').click();
+  });
+
+  render();
+</script>
+</body>
+</html>

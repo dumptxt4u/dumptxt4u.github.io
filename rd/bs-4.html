@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz Next/Prev + Dropdown</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { background:#f5f7fa; padding:20px; }
+.quiz-card {
+  background:white; border-radius:15px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+.question-box {
+  font-size:clamp(16px,2.5vw,22px); text-align:center; margin-bottom:20px;
+}
+.option-btn {
+  width:100%; padding:12px; background:#fff; border:1px solid #ddd; border-radius:12px;
+  margin:10px 0; display:flex; justify-content:center; align-items:center;
+  text-align:center; font-size:clamp(14px,2vw,20px); line-height:1.2;
+  word-break:break-word; overflow-wrap:break-word; min-height:60px; transition:0.2s;
+  cursor:pointer;
+}
+.option-btn:hover { background:#e7f1ff; border-color:#0d6efd; transform:scale(1.02); }
+.option-btn.correct { border-color:#198754; background:#d1e7dd; }
+
+
+
+
+<style>
+/* Container and question styling */
+.question-box {
+  font-size: clamp(16px, 2.5vw, 22px);
+  text-align: center;
+  margin-bottom: 20px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Option buttons */
+.option-btn {
+  width: 100%;
+  min-height: 60px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  margin: 8px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: clamp(14px, 2vw, 18px); /* Auto-scale */
+  line-height: 1.2;
+  word-break: break-word;          /* Break long words */
+  overflow-wrap: break-word;       /* Break long words */
+  white-space: normal;             /* Wrap text */
+}
+
+/* Correct answer highlight */
+.option-btn.correct { border-color: #198754; background: #d1e7dd; }
+
+/* Master hack: adjust font size if Math overflows */
+.option-btn span.mathml-container {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.question-box {
+  width: 100%;
+  max-width: 100%;
+  padding: 15px 20px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+  box-sizing: border-box;
+
+  font-size: clamp(16px, 2.5vw, 22px);
+  line-height: 1.3;
+
+  /* FORCE BREAK TEXT */
+  overflow-wrap: break-word;  /* Wrap words at boundaries */
+  word-break: break-all;      /* Force break anywhere if needed */
+  white-space: normal;        /* Allow wrapping */
+}
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+</style>
+
+<script>
+window.MathJax = { loader: {load: ['input/mml','output/chtml']}, startup: { typeset: false } };
+// Wrap MathML inside span for scaling
+document.querySelectorAll('.option-btn').forEach(btn=>{
+    const math = btn.querySelector('math');
+    if(math){
+        const wrapper = document.createElement('span');
+        wrapper.className = 'mathml-container';
+        math.parentNode.insertBefore(wrapper, math);
+        wrapper.appendChild(math);
+    }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="quiz-card">
+
+    <!-- Dropdown -->
+    <div class="mb-3">
+      <label for="questionSelect" class="form-label">Select Question</label>
+      <select id="questionSelect" class="form-select"></select>
+    </div>
+
+    <div id="questionBox" class="question-box"></div>
+    <div id="optionsBox"></div>
+
+    <div class="d-flex justify-content-between mt-3">
+      <button class="btn btn-secondary" id="prevBtn">Previous</button>
+      <button class="btn btn-info" id="showAnswerBtn">Show Answer</button>
+      <button class="btn btn-primary" id="nextBtn">Next</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const data = {
+  "questions": [
+    {"id":1,"q":"<math><mrow><mtext>If </mtext><mi>A</mi><mtext> is any square matrix of order </mtext><mn>3</mn><mo>×</mo><mn>3</mn><mtext> such that </mtext><mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mn>3</mn><mo>,</mo><mtext> then </mtext><mo>|</mo><mi>adj</mi><mi>A</mi><mo>|</mo><mtext> is ?</mtext></mrow></math>",
+      "o":["<math><mn>3</mn></math>","<math><mfrac><mn>1</mn><mn>3</mn></mfrac></math>","<math><mn>9</mn></math>","<math><mn>27</mn></math>"],"a":"c"},
+    {"id":2,"q":"<math><mrow><mtext>Suppose P and Q are two different matrices of order </mtext><mn>3</mn><mo>×</mo><mi>n</mi><mtext> and </mtext><mi>n</mi><mo>×</mo><mi>p</mi><mo>,</mo><mtext> then order of </mtext><mi>P</mi><mo>×</mo><mi>Q</mi><mtext> is?</mtext></mrow></math>",
+      "o":["<math><mn>3</mn><mo>×</mo><mi>p</mi></math>","<math><mi>p</mi><mo>×</mo><mn>3</mn></math>","<math><mi>n</mi><mo>×</mo><mi>n</mi></math>","<math><mn>3</mn><mo>×</mo><mn>3</mn></math>"],"a":"a"},
+    {"id":3,"q":"<math><mrow><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>6</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>27</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>×</mo><mo>(</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mi>p</mi><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mi>q</mi><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>=</mo><mover><mn>0</mn><mo>→</mo></mover><mo>,</mo><mtext> then p and q are</mtext></mrow></math>",
+      "o":["<math><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>",
+          "<math><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>",
+          "<math><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>",
+          "<math><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>"],
+      "a":"b"}
+  ,
+  
+
+    {
+      "id": 4,
+      "q": "<math><mrow><mtext>If </mtext><mi>A</mi><mtext> and </mtext><mi>B</mi><mtext> are two events such that </mtext><mi>P</mi><mo>(</mo><mi>A</mi><mo>)</mo><mo>=</mo><mn>0.2</mn><mo>,</mo><mtext> </mtext><mi>P</mi><mo>(</mo><mi>B</mi><mo>)</mo><mo>=</mo><mn>0.4</mn><mtext> and </mtext><mi>P</mi><mo>(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo>)</mo><mo>=</mo><mn>0.5</mn><mo>,</mo><mtext> then value of </mtext><mi>P</mi><mo>(</mo><mi>A</mi><mo>/</mo><mi>B</mi><mo>)</mo><mtext> is ?</mtext></mrow></math>",
+      "o": [
+        "<math><mn>0.1</mn></math>",
+        "<math><mn>0.25</mn></math>",
+        "<math><mn>0.5</mn></math>",
+        "<math><mn>0.08</mn></math>"
+      ],
+      "a": "b"
+    },
+    {
+      "id": 5,
+      "q": "<math><mrow><mtext>The point which does not lie in the half plane </mtext><mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn><mi>y</mi><mo>-</mo><mn>12</mn><mo>≤</mo><mn>0</mn><mtext> is</mtext></mrow></math>",
+      "o": [
+        "<math><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>",
+        "<math><mo>(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo>)</mo></math>",
+        "<math><mo>(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></math>",
+        "<math><mo>(</mo><mn>-3</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>"
+      ],
+      "a": "c"
+    },
+    {
+      "id": 6,
+      "q": "<math><mrow><mtext>If </mtext><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>y</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac><mo>,</mo><mtext> then the value of </mtext><msup><mi>cos</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>cos</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>y</mi><mtext> is</mtext></mrow></math>",
+      "o": [
+        "<math><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac></math>",
+        "<math><mfrac><mi>π</mi><mn>3</mn></mfrac></math>",
+        "<math><mfrac><mi>π</mi><mn>2</mn></mfrac></math>",
+        "<math><mi>π</mi></math>"
+      ],
+      "a": "a"
+    },
+    {
+      "id": 7,
+      "q": "<math><mrow><mtext>An urn contains 6 balls of which two are red and four are black. Two balls are drawn at random. Probability that they are of different colours is</mtext></mrow></math>",
+      "o": [
+        "<math><mfrac><mn>2</mn><mn>5</mn></mfrac></math>",
+        "<math><mfrac><mn>1</mn><mn>15</mn></mfrac></math>",
+        "<math><mfrac><mn>8</mn><mn>15</mn></mfrac></math>",
+        "<math><mfrac><mn>4</mn><mn>15</mn></mfrac></math>"
+      ],
+      "a": "c"
+    },
+    {
+      "id": 8,
+      "q": "<math><mrow><mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><msqrt><mrow><mn>9</mn><mo>-</mo><mn>25</mn><msup><mi>x</mi><mn>2</mn></msup></mrow></msqrt></mfrac></mrow></math>",
+      "o": [
+        "<math><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mrow><mo>(</mo><mfrac><mrow><mn>5</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>)</mo></mrow><mo>+</mo><mi>c</mi></math>",
+        "<math><mfrac><mn>1</mn><mn>5</mn></mfrac><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mrow><mo>(</mo><mfrac><mrow><mn>5</mn><mi>x</mi></mrow><mn>3</mn></mfrac><mo>)</mo></mrow><mo>+</mo><mi>c</mi></math>",
+        "<math><mfrac><mn>1</mn><mn>6</mn></mfrac><mi>log</mi><mrow><mo>|</mo><mfrac><mrow><mn>3</mn><mo>+</mo><mn>5</mn><mi>x</mi></mrow><mrow><mn>3</mn><mo>-</mo><mn>5</mn><mi>x</mi></mrow></mfrac><mo>|</mo></mrow><mo>+</mo><mi>c</mi></math>",
+        "<math><mfrac><mn>1</mn><mn>30</mn></mfrac><mi>log</mi><mrow><mo>|</mo><mfrac><mrow><mn>3</mn><mo>+</mo><mn>5</mn><mi>x</mi></mrow><mrow><mn>3</mn><mo>-</mo><mn>5</mn><mi>x</mi></mrow></mfrac><mo>|</mo></mrow><mo>+</mo><mi>c</mi></math>"
+      ],
+      "a": "b"
+    },
+    {
+      "id": 9,
+      "q": "<math><mrow><mtext>What is the distance (in units) between the two planes </mtext><mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn><mi>y</mi><mo>+</mo><mn>7</mn><mi>z</mi><mo>=</mo><mn>3</mn><mtext> and </mtext><mn>9</mn><mi>x</mi><mo>+</mo><mn>15</mn><mi>y</mi><mo>+</mo><mn>21</mn><mi>z</mi><mo>=</mo><mn>9</mn><mtext> ?</mtext></mrow></math>",
+      "o": [
+        "<math><mn>0</mn></math>",
+        "<math><mn>3</mn></math>",
+        "<math><mfrac><mn>6</mn><msqrt><mn>83</mn></msqrt></mfrac></math>",
+        "<math><mn>6</mn></math>"
+      ],
+      "a": "a"
+    },
+    
+    {
+  "id": 10,
+"q": "<math display='block'><mrow><mtext>The equation of the line in vector form passing</mtext><mspace linebreak='newline'/><mtext>through the point </mtext><mo>(</mo><mn>-1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>)</mo><mtext> and parallel to the line</mtext><mspace linebreak='newline'/><mfrac><mrow><mi>x</mi><mo>-</mo><mn>3</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mi>y</mi><mo>-</mo><mn>4</mn></mrow><mn>3</mn></mfrac><mo>,</mo><mspace linebreak='newline'/><mi>z</mi><mo>=</mo><mn>2</mn><mtext> is</mtext></mrow></math>",
+  "o": [
+    "<math><mrow><mover accent='true'><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mo>-</mo><mi mathvariant='normal'>i</mi><mo>+</mo><mn>3</mn><mi mathvariant='normal'>j</mi><mo>+</mo><mn>5</mn><mi mathvariant='normal'>k</mi><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mn>2</mn><mi mathvariant='normal'>i</mi><mo>+</mo><mn>3</mn><mi mathvariant='normal'>j</mi><mo>+</mo><mi mathvariant='normal'>k</mi><mo>)</mo></mrow></math>",
+    "<math><mrow><mover accent='true'><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mo>-</mo><mi mathvariant='normal'>i</mi><mo>+</mo><mn>3</mn><mi mathvariant='normal'>j</mi><mo>+</mo><mn>5</mn><mi mathvariant='normal'>k</mi><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mn>2</mn><mi mathvariant='normal'>i</mi><mo>+</mo><mn>3</mn><mi mathvariant='normal'>j</mi><mo>)</mo></mrow></math>",
+    "<math><mrow><mover accent='true'><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mn>2</mn><mi mathvariant='normal'>i</mi><mo>+</mo><mn>3</mn><mi mathvariant='normal'>j</mi><mo>-</mo><mn>2</mn><mi mathvariant='normal'>k</mi><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mo>-</mo><mi mathvariant='normal'>i</mi><mo>+</mo><mn>3</mn><mi mathvariant='normal'>j</mi><mo>+</mo><mn>5</mn><mi mathvariant='normal'>k</mi><mo>)</mo></mrow></math>",
+    "<math><mrow><mover accent='true'><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mn>2</mn><mi mathvariant='normal'>i</mi><mo>+</mo><mn>3</mn><mi mathvariant='normal'>j</mi><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mo>-</mo><mi mathvariant='normal'>i</mi><mo>+</mo><mn>3</mn><mi mathvariant='normal'>j</mi><mo>+</mo><mn>5</mn><mi mathvariant='normal'>k</mi><mo>)</mo></mrow></math>"
+  ],
+  "a": "b"
+},
+
+
+
+    {
+      "id": 11,
+      "q": "<math><mrow><mtext>The equation of the line in vector form passing through the point </mtext><mo>(</mo><mn>-1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>)</mo><mtext> and parallel to line </mtext><mfrac><mrow><mi>x</mi><mo>-</mo><mn>3</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mi>y</mi><mo>-</mo><mn>4</mn></mrow><mn>3</mn></mfrac><mo>,</mo><mi>z</mi><mo>=</mo><mn>2</mn><mtext> is</mtext></mrow></math>",
+      "o": [
+        "<math><mrow><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mo>-</mo><mi>i</mi><mo>+</mo><mn>3</mn><mi>j</mi><mo>+</mo><mn>5</mn><mi>k</mi><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mn>2</mn><mi>i</mi><mo>+</mo><mn>3</mn><mi>j</mi><mo>+</mo><mi>k</mi><mo>)</mo></mrow></math>",
+        "<math><mrow><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mo>-</mo><mi>i</mi><mo>+</mo><mn>3</mn><mi>j</mi><mo>+</mo><mn>5</mn><mi>k</mi><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mn>2</mn><mi>i</mi><mo>+</mo><mn>3</mn><mi>j</mi><mo>)</mo></mrow></math>",
+        "<math><mrow><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mn>2</mn><mi>i</mi><mo>+</mo><mn>3</mn><mi>j</mi><mo>-</mo><mn>2</mn><mi>k</mi><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mo>-</mo><mi>i</mi><mo>+</mo><mn>3</mn><mi>j</mi><mo>+</mo><mn>5</mn><mi>k</mi><mo>)</mo></mrow></math>",
+        "<math><mrow><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mn>2</mn><mi>i</mi><mo>+</mo><mn>3</mn><mi>j</mi><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mo>-</mo><mi>i</mi><mo>+</mo><mn>3</mn><mi>j</mi><mo>+</mo><mn>5</mn><mi>k</mi><mo>)</mo></mrow></math>"
+      ],
+      "a": "a"
+    }]
+};
+
+let currentIdx = 0;
+const questionBox = document.getElementById("questionBox");
+const optionsBox = document.getElementById("optionsBox");
+const questionSelect = document.getElementById("questionSelect");
+
+// Populate dropdown
+data.questions.forEach((q,i)=>{
+  const opt = document.createElement("option");
+  opt.value = i;
+  opt.textContent = `Question ${q.id}`;
+  questionSelect.appendChild(opt);
+});
+
+function renderQuestion(idx){
+  const q = data.questions[idx];
+  questionBox.innerHTML = q.q;
+  optionsBox.innerHTML = "";
+  q.o.forEach(optHtml => {
+    const btn = document.createElement("div");
+    btn.className = "option-btn";
+    btn.innerHTML = optHtml;
+    optionsBox.appendChild(btn);
+  });
+  if(window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([questionBox, optionsBox]);
+  questionSelect.value = idx;
+}
+
+// Show answer
+document.getElementById("showAnswerBtn").addEventListener("click",()=>{
+  const q = data.questions[currentIdx];
+  Array.from(optionsBox.children).forEach((btn,i)=>{
+    btn.classList.remove("correct");
+    const letters = ['a','b','c','d','e','f','g'];
+    if(letters[i]===q.a) btn.classList.add("correct");
+  });
+});
+
+// Next / Previous buttons
+document.getElementById("nextBtn").addEventListener("click",()=>{
+  if(currentIdx<data.questions.length-1) currentIdx++;
+  renderQuestion(currentIdx);
+});
+document.getElementById("prevBtn").addEventListener("click",()=>{
+  if(currentIdx>0) currentIdx--;
+  renderQuestion(currentIdx);
+});
+
+// Dropdown change
+questionSelect.addEventListener("change",(e)=>{
+  currentIdx=parseInt(e.target.value);
+  renderQuestion(currentIdx);
+});
+
+// Initial render
+renderQuestion(currentIdx);
+</script>
+
+</body>
+</html>
+

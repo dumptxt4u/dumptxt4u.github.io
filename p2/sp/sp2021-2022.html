@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Questions Slide Show</title>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .slide-container {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .q-badge {
+            background-color: #007bff;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .marks {
+            color: #666;
+            font-weight: bold;
+        }
+
+        .content {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+            flex-grow: 1;
+        }
+
+        .options {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .option-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 150px;
+        }
+
+        /* MathML specific styling adjustments */
+        math {
+            font-size: 1.1em;
+        }
+        
+        /* Add this new block to your <style> section */
+.main-title {
+    color: #333;
+    font-size: 1.5em; /* Adjust size as needed */
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 15px;
+    background-color: #e9ecef; /* Light background for contrast */
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+    </style>
+</head>
+<body>
+
+
+
+<div class="slide-container">
+<h6 class="main-title">CLASS - XII | MATHEMATICS- 041 <br> SAMPLE QUESTION PAPER 2021-22</h6>
+    <div class="header">
+        <span class="q-badge" id="q-number">Q1</span>
+        <span class="marks">1 Mark</span>
+    </div>
+
+    <div class="content" id="q-content">
+        </div>
+
+
+
+    <div class="controls">
+        <button id="btn-prev">Previous</button>
+        <select id="q-selector">
+            </select>
+        <button id="btn-next">Next</button>
+             <button   action="renderAllQuestions()">View All Questions</button>  
+    </div>
+</div>
+
+<script>
+    // JSON Data with embedded MathML
+    
+    
+    const questions =[
+  {
+    "id": "1",
+    "type": "MCQ",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>sin</mi><mrow><mo>[</mo><mfrac><mi>&#x3C0;</mi><mn>3</mn></mfrac><mo>-</mo><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mrow><mo>(</mo><mo>-</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>)</mo></mrow><mo>]</mo></mrow></math> is equal to:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>2</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>3</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>1</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>1</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "2",
+    "type": "MCQ",
+    "text": "The value of <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>k</mi><mo>(</mo><mi>k</mi><mo>&lt;</mo><mn>0</mn><mo>)</mo></math> for which the function <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi></math> defined as <math display='block' xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mfenced open='{' close=''><mtable><mtr><mtd><mfrac><mrow><mn>1</mn><mo>-</mo><mi>cos</mi><mi>k</mi><mi>x</mi></mrow><mrow><mi>x</mi><mi>sin</mi><mi>x</mi></mrow></mfrac><mo>,</mo></mtd><mtd><mi>x</mi><mo>&#x2260;</mo><mn>0</mn></mtd></mtr><mtr><mtd><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>,</mo></mtd><mtd><mi>x</mi><mo>=</mo><mn>0</mn></mtd></mtr></mtable></mfenced></math> is continuous at <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>x</mi><mo>=</mo><mn>0</mn></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>&#xB1;</mo><mn>1</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>1</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>&#xB1;</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>2</mn></mfrac></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "3",
+    "type": "MCQ",
+    "text": "If <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mo>[</mo><msub><mi>a</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>]</mo></math> is a square matrix of order 2 such that <math display='block' xmlns='http://www.w3.org/1998/Math/MathML'><msub><mi>a</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><mfenced open='{' close=''><mtable><mtr><mtd><mn>1</mn><mo>,</mo></mtd><mtd><mtext>when </mtext><mi>i</mi><mo>&#x2260;</mo><mi>j</mi></mtd></mtr><mtr><mtd><mn>0</mn><mo>,</mo></mtd><mtd><mtext>when </mtext><mi>i</mi><mo>=</mo><mi>j</mi></mtd></mtr></mtable></mfenced></math>, then <math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>A</mi><mn>2</mn></msup></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfenced open='[' close=']'><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr></mtable></mfenced></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfenced open='[' close=']'><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr></mtable></mfenced></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfenced open='[' close=']'><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr></mtable></mfenced></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfenced open='[' close=']'><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable></mfenced></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "4",
+    "type": "MCQ",
+    "text": "Value of <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>k</mi></math>, for which <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mfenced open='[' close=']'><mtable><mtr><mtd><mi>k</mi></mtd><mtd><mn>8</mn></mtd></mtr><mtr><mtd><mn>4</mn></mtd><mtd><mn>2</mn><mi>k</mi></mtd></mtr></mtable></mfenced></math> is a singular matrix is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/MathML'><mn>4</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>4</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>&#xB1;</mo><mn>4</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>0</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "5",
+    "type": "MCQ",
+    "text": "Find the intervals in which the function <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi></math> given by <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>-</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>6</mn></math> is strictly increasing:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mi>&#x221E;</mi><mo>,</mo><mn>2</mn><mo>)</mo><mo>&#x222A;</mo><mo>(</mo><mn>2</mn><mo>,</mo><mi>&#x221E;</mi><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>2</mn><mo>,</mo><mi>&#x221E;</mi><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mi>&#x221E;</mi><mo>,</mo><mn>2</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mi>&#x221E;</mi><mo>,</mo><mn>2</mn><mo>]</mo><mo>&#x222A;</mo><mo>(</mo><mn>2</mn><mo>,</mo><mi>&#x221E;</mi><mo>)</mo></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "6",
+    "type": "MCQ",
+    "text": "Given that <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi></math> is a square matrix of order 3 and <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mo>-</mo><mn>4</mn></math>, then <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>|</mo><mi>adj</mi><mi>A</mi><mo>|</mo></math> is equal to:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>4</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>4</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>16</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>16</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "7",
+    "type": "MCQ",
+    "text": "A relation <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>R</mi></math> in set <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>}</mo></math> is defined as <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>3</mn><mo>)</mo><mo>}</mo></math>. Which of the following ordered pair in <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>R</mi></math> shall be removed to make it an equivalence relation in <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi></math>?",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/MathML'><mo>(</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>3</mn><mo>,</mo><mn>3</mn><mo>)</mo></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "8",
+    "type": "MCQ",
+    "text": "If <math xmlns='http://www.w3.org/1998/Math/MathML'><mfenced open='[' close=']'><mtable><mtr><mtd><mn>2</mn><mi>a</mi><mo>+</mo><mi>b</mi></mtd><mtd><mi>a</mi><mo>-</mo><mn>2</mn><mi>b</mi></mtd></mtr><mtr><mtd><mn>5</mn><mi>c</mi><mo>-</mo><mi>d</mi></mtd><mtd><mn>4</mn><mi>c</mi><mo>+</mo><mn>3</mn><mi>d</mi></mtd></mtr></mtable></mfenced><mo>=</mo><mfenced open='[' close=']'><mtable><mtr><mtd><mn>4</mn></mtd><mtd><mo>-</mo><mn>3</mn></mtd></mtr><mtr><mtd><mn>11</mn></mtd><mtd><mn>24</mn></mtd></mtr></mtable></mfenced></math>, then value of <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>a</mi><mo>+</mo><mi>b</mi><mo>-</mo><mi>c</mi><mo>+</mo><mn>2</mn><mi>d</mi></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>8</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>10</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>4</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>8</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "9",
+    "type": "MCQ",
+    "text": "The point at which the normal to the curve <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>y</mi><mo>=</mo><mi>x</mi><mo>+</mo><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>,</mo><mi>x</mi><mo>&gt;</mo><mn>0</mn></math> is perpendicular to the line <math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mi>x</mi><mo>-</mo><mn>4</mn><mi>y</mi><mo>-</mo><mn>7</mn><mo>=</mo><mn>0</mn></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>2</mn><mo>,</mo><mn>5</mn><mo>/</mo><mn>2</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>&#xB1;</mo><mn>2</mn><mo>,</mo><mn>5</mn><mo>/</mo><mn>2</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mn>1</mn><mo>/</mo><mn>2</mn><mo>,</mo><mn>5</mn><mo>/</mo><mn>2</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>1</mn><mo>/</mo><mn>2</mn><mo>,</mo><mn>5</mn><mo>/</mo><mn>2</mn><mo>)</mo></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "10",
+    "type": "MCQ",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>sin</mi><mo>(</mo><msup><mi>tan</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>)</mo></math>, where <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>|</mo><mi>x</mi><mo>|</mo><mo>&lt;</mo><mn>1</mn></math>, is equal to:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mi>x</mi><msqrt><mn>1</mn><mo>-</mo><msup><mi>x</mi><mn>2</mn></msup></msqrt></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><msqrt><mn>1</mn><mo>-</mo><msup><mi>x</mi><mn>2</mn></msup></msqrt></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><msqrt><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></msqrt></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mi>x</mi><msqrt><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></msqrt></mfrac></math>"
+    ],
+    "marks": 1
+  },
+  
+ {
+    "id": "11",
+    "type": "MCQ",
+    "text": "Let the relation <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>R</mi></math> in the set <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mo>{</mo><mi>x</mi><mo>&#x2208;</mo><mi>Z</mi><mo>:</mo><mn>0</mn><mo>&#x2264;</mo><mi>x</mi><mo>&#x2264;</mo><mn>12</mn><mo>}</mo></math>, given by <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>)</mo><mo>:</mo><mo>|</mo><mi>a</mi><mo>-</mo><mi>b</mi><mo>|</mo><mtext> is a multiple of </mtext><mn>4</mn><mo>}</mo></math>. Then <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>[</mo><mn>1</mn><mo>]</mo></math>, the equivalence class containing 1, is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>{</mo><mn>1</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>9</mn><mo>}</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>5</mn><mo>}</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>&#x3D5;</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "12",
+    "type": "MCQ",
+    "text": "If <math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><msup><mi>e</mi><mi>y</mi></msup><mo>=</mo><msup><mi>e</mi><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow></msup></math>, then <math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mrow><mi>d</mi><mi>y</mi></mrow><mrow><mi>d</mi><mi>x</mi></mrow></mfrac></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>e</mi><mrow><mi>y</mi><mo>-</mo><mi>x</mi></mrow></msup></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>e</mi><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow></msup></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><msup><mi>e</mi><mrow><mi>y</mi><mo>-</mo><mi>x</mi></mrow></msup></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>2</mn><msup><mi>e</mi><mrow><mi>x</mi><mo>-</mo><mi>y</mi></mrow></msup></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "13",
+    "type": "MCQ",
+    "text": "Given that matrices <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>B</mi></math> are of order <math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mo>&#xD7;</mo><mi>n</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>m</mi><mo>&#xD7;</mo><mn>5</mn></math> respectively, then the order of matrix <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>C</mi><mo>=</mo><mn>5</mn><mi>A</mi><mo>+</mo><mn>3</mn><mi>B</mi></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mo>&#xD7;</mo><mn>5</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>5</mn><mo>&#xD7;</mo><mn>3</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mo>&#xD7;</mo><mn>3</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>5</mn><mo>&#xD7;</mo><mn>5</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "14",
+    "type": "MCQ",
+    "text": "If <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>y</mi><mo>=</mo><mn>5</mn><mi>cos</mi><mi>x</mi><mo>-</mo><mn>3</mn><mi>sin</mi><mi>x</mi></math>, then <math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mrow><msup><mi>d</mi><mn>2</mn></msup><mi>y</mi></mrow><mrow><mi>d</mi><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></math> is equal to:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mi>y</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>y</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>25</mn><mi>y</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>9</mn><mi>y</mi></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "15",
+    "type": "MCQ",
+    "text": "For matrix <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mfenced open='[' close=']'><mtable><mtr><mtd><mn>2</mn></mtd><mtd><mn>5</mn></mtd></mtr><mtr><mtd><mo>-</mo><mn>11</mn></mtd><mtd><mn>7</mn></mtd></mtr></mtable></mfenced></math>, <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mi>adj</mi><mi>A</mi><msup><mo>)</mo><mo>'</mo></msup></math> is equal to:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfenced open='[' close=']'><mtable><mtr><mtd><mo>-</mo><mn>2</mn></mtd><mtd><mo>-</mo><mn>5</mn></mtd></mtr><mtr><mtd><mn>11</mn></mtd><mtd><mo>-</mo><mn>7</mn></mtd></mtr></mtable></mfenced></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfenced open='[' close=']'><mtable><mtr><mtd><mn>7</mn></mtd><mtd><mn>5</mn></mtd></mtr><mtr><mtd><mn>11</mn></mtd><mtd><mn>2</mn></mtd></mtr></mtable></mfenced></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfenced open='[' close=']'><mtable><mtr><mtd><mn>7</mn></mtd><mtd><mn>11</mn></mtd></mtr><mtr><mtd><mo>-</mo><mn>5</mn></mtd><mtd><mn>2</mn></mtd></mtr></mtable></mfenced></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfenced open='[' close=']'><mtable><mtr><mtd><mn>7</mn></mtd><mtd><mo>-</mo><mn>5</mn></mtd></mtr><mtr><mtd><mn>11</mn></mtd><mtd><mn>2</mn></mtd></mtr></mtable></mfenced></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "16",
+    "type": "MCQ",
+    "text": "The points on the curve <math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>9</mn></mfrac><mo>+</mo><mfrac><msup><mi>y</mi><mn>2</mn></msup><mn>16</mn></mfrac><mo>=</mo><mn>1</mn></math> at which the tangents are parallel to <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>y</mi></math> axis are:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>0</mn><mo>,</mo><mo>&#xB1;</mo><mn>4</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>&#xB1;</mo><mn>4</mn><mo>,</mo><mn>0</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>&#xB1;</mo><mn>3</mn><mo>,</mo><mn>0</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>0</mn><mo>,</mo><mo>&#xB1;</mo><mn>3</mn><mo>)</mo></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "17",
+    "type": "MCQ",
+    "text": "Given that <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mo>[</mo><msub><mi>a</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>]</mo></math> is a square matrix of order <math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mo>&#xD7;</mo><mn>3</mn></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mo>-</mo><mn>7</mn></math>, then the value of <math xmlns='http://www.w3.org/1998/Math/MathML'><munderover><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mn>3</mn></munderover><msub><mi>a</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub><msub><mi>A</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub></math>, where <math xmlns='http://www.w3.org/1998/Math/MathML'><msub><mi>A</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></math> denotes the cofactor of element <math xmlns='http://www.w3.org/1998/Math/MathML'><msub><mi>a</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>7</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>7</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>0</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>49</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "18",
+    "type": "MCQ",
+    "text": "If <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>y</mi><mo>=</mo><mi>log</mi><mo>(</mo><mi>cos</mi><msup><mi>e</mi><mi>x</mi></msup><mo>)</mo></math>, then <math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mrow><mi>d</mi><mi>y</mi></mrow><mrow><mi>d</mi><mi>x</mi></mrow></mfrac></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>cos</mi><msup><mi>e</mi><mrow><mi>x</mi><mo>-</mo><mn>1</mn></mrow></msup></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>e</mi><mrow><mo>-</mo><mi>x</mi></mrow></msup><mi>cos</mi><msup><mi>e</mi><mi>x</mi></msup></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>e</mi><mi>x</mi></msup><mi>sin</mi><msup><mi>e</mi><mi>x</mi></msup></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><msup><mi>e</mi><mi>x</mi></msup><mi>tan</mi><msup><mi>e</mi><mi>x</mi></msup></math>"
+    ],
+    "marks": 1
+  }, 
+  
+  
+  ,
+  {
+    "id": "19",
+    "type": "MCQ",
+    "text": "In the graph showing a feasible region for a Linear Programming Problem (LPP) (implied), the minimum value of the objective function will occur at:",
+    "options": [
+      "Point B",
+      "Point C",
+      "Point D",
+      "every point on the line segment CD"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "20",
+    "type": "MCQ",
+    "text": "The least value of the function <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>2</mn><mi>cos</mi><mi>x</mi><mo>+</mo><mi>x</mi></math> in the closed interval <math xmlns='http://www.w3.org/1998/Math/MathML'><mrow><mo>[</mo><mn>0</mn><mo>,</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>]</mo></mrow></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>2</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mi>π</mi><mn>6</mn></mfrac><mo>+</mo><msqrt><mn>3</mn></msqrt></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mi>π</mi><mn>2</mn></mfrac></math>",
+      "The least value does not exist."
+    ],
+    "marks": 1
+  },
+  {
+    "id": "21",
+    "type": "MCQ",
+    "text": "The function <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi><mo>:</mo><mi>R</mi><mo>→</mo><mi>R</mi></math> defined as <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup></math> is:",
+    "options": [
+      "One-one but not onto",
+      "Not one-one but onto",
+      "Neither one-one nor onto",
+      "One-one and onto"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "22",
+    "type": "MCQ",
+    "text": "If <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>x</mi><mo>=</mo><mi>a</mi><mi>sec</mi><mi>θ</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>y</mi><mo>=</mo><mi>b</mi><mi>tan</mi><mi>θ</mi></math>, then <math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mrow><msup><mi>d</mi><mn>2</mn></msup><mi>y</mi></mrow><mrow><mi>d</mi><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></math> at <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>θ</mi><mo>=</mo><mfrac><mi>π</mi><mn>6</mn></mfrac></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mrow><mo>-</mo><mn>3</mn><msqrt><mn>3</mn></msqrt><mi>b</mi></mrow><msup><mi>a</mi><mn>2</mn></msup></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mrow><mo>-</mo><mn>2</mn><msqrt><mn>3</mn></msqrt><mi>b</mi></mrow><mi>a</mi></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mrow><mo>-</mo><mn>3</mn><msqrt><mn>3</mn></msqrt><mi>b</mi></mrow><mi>a</mi></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mrow><mo>-</mo><mi>b</mi></mrow><mrow><mn>3</mn><msqrt><mn>3</mn></msqrt><msup><mi>a</mi><mn>2</mn></msup></mrow></mfrac></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "23",
+    "type": "MCQ",
+    "text": "In the given graph (implied), the feasible region for a LPP is shaded. The objective function <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Z</mi><mo>=</mo><mn>2</mn><mi>x</mi><mo>-</mo><mn>3</mn><mi>y</mi></math>, will be minimum at:",
+    "options": [
+      "Point B",
+      "Point C",
+      "Point D",
+      "every point on the line segment CD"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "24",
+    "type": "MCQ",
+    "text": "The derivative of <math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mrow><mo>(</mo><mn>2</mn><mi>x</mi><msqrt><mrow><mn>1</mn><mo>-</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></msqrt><mo>)</mo></mrow></math> w.r.t <math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>x</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mfrac><mn>1</mn><msqrt><mn>2</mn></msqrt></mfrac><mo><</mo><mi>x</mi><mo><</mo><mfrac><mn>1</mn><msqrt><mn>2</mn></msqrt></mfrac></math>, is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>2</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>-</mo><mn>2</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mi>π</mi><mn>2</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>2</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "25",
+    "type": "MCQ",
+    "text": "If <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mfenced open='[' close=']'><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mo>-</mo><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>2</mn></mtd><mtd><mn>3</mn></mtd><mtd><mn>4</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>2</mn></mtd></mtr></mtable></mfenced></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>B</mi><mo>=</mo><mfenced open='[' close=']'><mtable><mtr><mtd><mn>2</mn></mtd><mtd><mn>2</mn></mtd><mtd><mo>-</mo><mn>4</mn></mtd></mtr><mtr><mtd><mo>-</mo><mn>4</mn></mtd><mtd><mn>2</mn></mtd><mtd><mo>-</mo><mn>4</mn></mtd></mtr><mtr><mtd><mn>2</mn></mtd><mtd><mo>-</mo><mn>1</mn></mtd><mtd><mn>5</mn></mtd></mtr></mtable></mfenced></math>, then:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>A</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>=</mo><mi>B</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>A</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>=</mo><mn>6</mn><mi>B</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>B</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>=</mo><mi>B</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>B</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>=</mo><mfrac><mn>1</mn><mn>6</mn></mfrac><mi>A</mi></math>"
+    ],
+    "marks": 1
+  }
+
+
+,
+  {
+    "id": "26",
+    "type": "MCQ",
+    "text": "The real function <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>2</mn><msup><mi>x</mi><mn>3</mn></msup><mo>-</mo><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mo>-</mo><mn>36</mn><mi>x</mi><mo>+</mo><mn>7</mn></math> is:",
+    "options": [
+      "Strictly increasing in <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mi>∞</mi><mo>,</mo><mo>-</mo><mn>2</mn><mo>)</mo></math> and strictly decreasing in <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mn>2</mn><mo>,</mo><mi>∞</mi><mo>)</mo></math>",
+      "Strictly decreasing in <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></math>",
+      "Strictly decreasing in <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mi>∞</mi><mo>,</mo><mn>3</mn><mo>)</mo></math> and strictly increasing in <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>3</mn><mo>,</mo><mi>∞</mi><mo>)</mo></math>",
+      "Strictly decreasing in <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mi>∞</mi><mo>,</mo><mo>-</mo><mn>2</mn><mo>)</mo><mo>∪</mo><mo>(</mo><mn>3</mn><mo>,</mo><mi>∞</mi><mo>)</mo></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "27",
+    "type": "MCQ",
+    "text": "Simplest form of <math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>tan</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mfenced><mfrac><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mi>cos</mi><mi>x</mi></mrow></msqrt><mo>+</mo><msqrt><mrow><mn>1</mn><mo>-</mo><mi>cos</mi><mi>x</mi></mrow></msqrt></mrow><mrow><msqrt><mrow><mn>1</mn><mo>+</mo><mi>cos</mi><mi>x</mi></mrow></msqrt><mo>-</mo><msqrt><mrow><mn>1</mn><mo>-</mo><mi>cos</mi><mi>x</mi></mrow></msqrt></mrow></mfrac></mfenced></math>, <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>π</mi><mo><</mo><mi>x</mi><mo><</mo><mfrac><mrow><mn>3</mn><mi>π</mi></mrow><mn>2</mn></mfrac></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mi>π</mi><mn>4</mn></mfrac><mo>-</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mrow><mn>3</mn><mi>π</mi></mrow><mn>2</mn></mfrac><mo>-</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>π</mi><mo>-</mo><mfrac><mi>x</mi><mn>2</mn></mfrac></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "28",
+    "type": "MCQ",
+    "text": "Given that A is a non-singular matrix of order 3 such that <math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>A</mi><mn>2</mn></msup><mo>=</mo><mn>2</mn><mi>A</mi></math>, then value of <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>|</mo><mn>2</mn><mi>A</mi><mo>|</mo></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>4</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>8</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>64</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>16</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "29",
+    "type": "MCQ",
+    "text": "The value of <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>b</mi></math> for which the function <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi>x</mi><mo>+</mo><mi>cos</mi><mi>x</mi><mo>+</mo><mi>b</mi></math> is strictly decreasing over <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>R</mi></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>b</mi><mo><</mo><mn>1</mn></math>",
+      "No value of b exists",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>b</mi><mo>≤</mo><mn>1</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>b</mi><mo>≥</mo><mn>1</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "30",
+    "type": "MCQ",
+    "text": "Let R be the relation in the set N given by <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>R</mi><mo>=</mo><mo>{</mo><mo>(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>)</mo><mo>:</mo><mi>a</mi><mo>=</mo><mi>b</mi><mo>-</mo><mn>2</mn><mo>,</mo><mi>b</mi><mo>></mo><mn>6</mn><mo>}</mo></math>, then:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo>)</mo><mo>∈</mo><mi>R</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>3</mn><mo>,</mo><mn>8</mn><mo>)</mo><mo>∈</mo><mi>R</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>6</mn><mo>,</mo><mn>8</mn><mo>)</mo><mo>∈</mo><mi>R</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>8</mn><mo>,</mo><mn>7</mn><mo>)</mo><mo>∈</mo><mi>R</mi></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "31",
+    "type": "MCQ",
+    "text": "The point(s), at which the function f given by <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mfenced open='{' close=''><mtable columnalign='left left'><mtr><mtd><mfrac><mi>x</mi><mrow><mo>|</mo><mi>x</mi><mo>|</mo></mrow></mfrac></mtd><mtd><mo>,</mo><mi>x</mi><mo><</mo><mn>0</mn></mtd></mtr><mtr><mtd><mo>-</mo><mn>1</mn></mtd><mtd><mo>,</mo><mi>x</mi><mo>≥</mo><mn>0</mn></mtd></mtr></mtable></mfenced></math> is continuous, is/are:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>x</mi><mo>∈</mo><mi>R</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>x</mi><mo>=</mo><mn>0</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>x</mi><mo>∈</mo><mi>R</mi><mo>-</mo><mo>{</mo><mn>0</mn><mo>}</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>x</mi><mo>=</mo><mo>-</mo><mn>1</mn></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><mn>1</mn></math>"
+    ],
+    "marks": 1
+  }
+
+,
+  {
+    "id": "32",
+    "type": "MCQ",
+    "text": "If <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mfenced open='[' close=']'><mtable><mtr><mtd><mn>0</mn></mtd><mtd><mn>2</mn></mtd></mtr><mtr><mtd><mn>3</mn></mtd><mtd><mo>-</mo><mn>4</mn></mtd></mtr></mtable></mfenced></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>k</mi><mi>A</mi><mo>=</mo><mfenced open='[' close=']'><mtable><mtr><mtd><mn>0</mn></mtd><mtd><mn>3</mn><mi>a</mi></mtd></mtr><mtr><mtd><mn>2</mn><mi>b</mi></mtd><mtd><mn>24</mn></mtd></mtr></mtable></mfenced></math>, then the values of <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>k</mi></math>, <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>a</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>b</mi></math> respectively are:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>6</mn><mo>,</mo><mo>-</mo><mn>12</mn><mo>,</mo><mo>-</mo><mn>18</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>6</mn><mo>,</mo><mo>-</mo><mn>4</mn><mo>,</mo><mo>-</mo><mn>9</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>6</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>9</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>-</mo><mn>6</mn><mo>,</mo><mn>12</mn><mo>,</mo><mn>18</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "33",
+    "type": "MCQ",
+    "text": "A linear programming problem is as follows: Minimize <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Z</mi><mo>=</mo><mn>30</mn><mi>x</mi><mo>+</mo><mn>50</mn><mi>y</mi></math> subject to the constraints, <math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn><mi>y</mi><mo>≥</mo><mn>15</mn><mo>,</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn><mi>y</mi><mo>≤</mo><mn>18</mn><mo>,</mo><mi>x</mi><mo>≥</mo><mn>0</mn><mo>,</mo><mi>y</mi><mo>≥</mo><mn>0</mn></math>. In the feasible region, the minimum value of Z occurs at",
+    "options": [
+      "a unique point",
+      "no point",
+      "infinitely many points",
+      "two points only"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "34",
+    "type": "MCQ",
+    "text": "The area of a trapezium is defined by function <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi></math> and given by <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mo>(</mo><mn>10</mn><mo>+</mo><mi>x</mi><mo>)</mo><msqrt><mn>100</mn><mo>-</mo><msup><mi>x</mi><mn>2</mn></msup></msqrt></math>, then the area when it is maximised is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>75</mn><mo> </mo><mi>cm</mi><msup><mn>2</mn></msup></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>7</mn><msqrt><mn>3</mn></msqrt><mo> </mo><mi>cm</mi><msup><mn>2</mn></msup></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>75</mn><msqrt><mn>3</mn></msqrt><mo> </mo><mi>cm</mi><msup><mn>2</mn></msup></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>5</mn><mo> </mo><mi>cm</mi><msup><mn>2</mn></msup></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "35",
+    "type": "MCQ",
+    "text": "If A is square matrix such that <math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>A</mi><mn>2</mn></msup><mo>=</mo><mi>A</mi></math>, then <math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mo>(</mo><mi>I</mi><mo>+</mo><mi>A</mi><mo>)</mo><mn>3</mn></msup><mo>-</mo><mn>7</mn><mi>A</mi></math> is equal to:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>I</mi><mo>+</mo><mi>A</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>I</mi><mo>-</mo><mi>A</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>I</mi></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "36",
+    "type": "MCQ",
+    "text": "If <math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>tan</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>=</mo><mi>y</mi></math>, then:",
+    "options": [
+      "No options provided in original"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "37",
+    "type": "MCQ",
+    "text": "Let <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>}</mo></math>, <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>B</mi><mo>=</mo><mo>{</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>6</mn><mo>,</mo><mn>7</mn><mo>}</mo></math> and let <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi><mo>=</mo><mo>{</mo><mo>(</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>2</mn><mo>,</mo><mn>5</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>3</mn><mo>,</mo><mn>6</mn><mo>)</mo><mo>}</mo></math> be a function from A to B. Based on the given information, <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>f</mi></math> is best defined as:",
+    "options": [
+      "Surjective function",
+      "Injective function",
+      "Bijective function",
+      "function"
+    ],
+    "marks": 1
+  }
+  
+  
+  
+  
+  
+  ,
+  {
+    "id": "38",
+    "type": "MCQ",
+    "text": "For <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mfenced open='[' close=']'><mtable><mtr><mtd><mn>3</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo>-</mo><mn>1</mn></mtd><mtd><mn>2</mn></mtd></mtr></mtable></mfenced></math>, then <math xmlns='http://www.w3.org/1998/Math/MathML'><mn>14</mn><msup><mi>A</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup></math> is given by:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>14</mn><mfenced open='[' close=']'><mtable><mtr><mtd><mn>2</mn></mtd><mtd><mo>-</mo><mn>1</mn></mtd></mtr><mtr><mtd><mn>1</mn></mtd><mtd><mn>3</mn></mtd></mtr></mtable></mfenced></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfenced open='[' close=']'><mtable><mtr><mtd><mn>4</mn></mtd><mtd><mo>-</mo><mn>2</mn></mtd></mtr><mtr><mtd><mn>2</mn></mtd><mtd><mn>6</mn></mtd></mtr></mtable></mfenced></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>2</mn><mfenced open='[' close=']'><mtable><mtr><mtd><mn>2</mn></mtd><mtd><mo>-</mo><mn>1</mn></mtd></mtr><mtr><mtd><mn>1</mn></mtd><mtd><mo>-</mo><mn>3</mn></mtd></mtr></mtable></mfenced></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>2</mn><mfenced open='[' close=']'><mtable><mtr><mtd><mo>-</mo><mn>3</mn></mtd><mtd><mo>-</mo><mn>1</mn></mtd></mtr><mtr><mtd><mn>1</mn></mtd><mtd><mo>-</mo><mn>2</mn></mtd></mtr></mtable></mfenced></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "39",
+    "type": "MCQ",
+    "text": "The point(s) on the curve <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>y</mi><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>-</mo><mn>11</mn><mi>x</mi><mo>+</mo><mn>5</mn></math> at which the tangent is <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>y</mi><mo>=</mo><mi>x</mi><mo>-</mo><mn>11</mn></math> is/are:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mn>2</mn><mo>,</mo><mn>19</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>2</mn><mo>,</mo><mo>-</mo><mn>9</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>±</mo><mn>2</mn><mo>,</mo><mn>19</mn><mo>)</mo></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mn>2</mn><mo>,</mo><mn>19</mn><mo>)</mo></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>2</mn><mo>,</mo><mo>-</mo><mn>9</mn><mo>)</mo></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "40",
+    "type": "MCQ",
+    "text": "Given that <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mfenced open='[' close=']'><mtable><mtr><mtd><mi>α</mi></mtd><mtd><mi>β</mi></mtd></mtr><mtr><mtd><mi>γ</mi></mtd><mtd><mo>-</mo><mi>α</mi></mtd></mtr></mtable></mfenced></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>A</mi><mn>2</mn></msup><mo>=</mo><mn>3</mn><mi>I</mi></math>, then:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>1</mn><mo>+</mo><msup><mi>α</mi><mn>2</mn></msup><mo>+</mo><mi>β</mi><mi>γ</mi><mo>=</mo><mn>0</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>1</mn><mo>-</mo><msup><mi>α</mi><mn>2</mn></msup><mo>-</mo><mi>β</mi><mi>γ</mi><mo>=</mo><mn>0</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mo>-</mo><msup><mi>α</mi><mn>2</mn></msup><mo>-</mo><mi>β</mi><mi>γ</mi><mo>=</mo><mn>0</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mo>+</mo><msup><mi>α</mi><mn>2</mn></msup><mo>+</mo><mi>β</mi><mi>γ</mi><mo>=</mo><mn>0</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "41",
+    "type": "MCQ",
+    "text": "For an objective function <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Z</mi><mo>=</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi></math>, where <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>a</mi><mo>,</mo><mi>b</mi><mo>></mo><mn>0</mn></math>; the corner points of the feasible region determined by a set of constraints (linear inequalities) are <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>0</mn><mo>,</mo><mn>20</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>10</mn><mo>,</mo><mn>10</mn><mo>)</mo><mo>,</mo><mo>(</mo><mn>30</mn><mo>,</mo><mn>30</mn><mo>)</mo></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>0</mn><mo>,</mo><mn>40</mn><mo>)</mo></math>. The condition on <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>a</mi></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>b</mi></math> such that the maximum <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Z</mi></math> occurs at both the points <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>30</mn><mo>,</mo><mn>30</mn><mo>)</mo></math> and <math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>0</mn><mo>,</mo><mn>40</mn><mo>)</mo></math> is:",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>b</mi><mo>-</mo><mn>3</mn><mi>a</mi><mo>=</mo><mn>0</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>a</mi><mo>=</mo><mn>3</mn><mi>b</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>a</mi><mo>+</mo><mn>2</mn><mi>b</mi><mo>=</mo><mn>0</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>2</mn><mi>a</mi><mo>-</mo><mi>b</mi><mo>=</mo><mn>0</mn></math>"
+    ],
+    "marks": 1
+  },
+  {
+    "id": "42",
+    "type": "MCQ",
+    "text": "For which value of <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>m</mi></math> is the line <math xmlns='http://www.w3.org/1998/Math/MathML'><mi>y</mi><mo>=</mo><mi>m</mi><mi>x</mi><mo>+</mo><mn>1</mn></math> a tangent to the curve <math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>4</mn><mi>x</mi></math>?",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>2</mn></mfrac></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>1</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>2</mn></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn></math>"
+    ],
+    "marks": 1
+  }
+
+  
+  
+];
+    
+   
+      
+      
+      
+      
+      // Function executed when 'btn-toggle-view' is clicked
+function renderAllQuestions() {
+    // Build actual list every time (so new questions appear instantly)
+    let listHTML = '';
+
+    questions.forEach((q, idx) => {
+        listHTML += `
+            <div class="all-q-item">
+                <h3>Q${q.id} (${q.marks} Mark)</h3>
+                <div class="question-text">${q.text}</div>
+        `;
+
+        // Show options if MCQ
+        if (q.type === 'MCQ' && q.options) {
+            const labels = ['(a)', '(b)', '(c)', '(d)'];
+
+            listHTML += `<div style="margin-top:12px;">`;
+
+            q.options.forEach((opt, i) => {
+                listHTML += `
+                    <div style="margin:4px 0;">
+                        <strong>${labels[i]}</strong> ${opt}
+                    </div>
+                `;
+            });
+
+            listHTML += `</div>`;
+        }
+
+        listHTML += `</div>`;
+    });
+
+    allQuestionsList.innerHTML = listHTML;
+
+    // Render MathJax for all-questions view
+    if (window.MathJax) {
+        MathJax.typesetPromise([allQuestionsView]);
+    }
+
+    // TOGGLE LOGIC
+    if (isSlideView) {
+        slideView.style.display = 'none';
+        allQuestionsView.style.display = 'block';
+        btnToggleView.textContent = 'Return to Slide View';
+        isSlideView = false;
+    } else {
+        allQuestionsView.style.display = 'none';
+        slideView.style.display = 'flex';
+        btnToggleView.textContent = 'View All Questions';
+        isSlideView = true;
+        renderSlide(currentIndex);
+    }
+}
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+   
+
+    let currentIndex = 0;
+
+    const domQNum = document.getElementById('q-number');
+    const domContent = document.getElementById('q-content');
+    const domSelector = document.getElementById('q-selector');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+
+     const slideView = document.getElementById('slide-view');
+    const allQuestionsView = document.getElementById('all-questions-view');
+    const allQuestionsList = document.getElementById('all-questions-list');
+    const btnToggleView = document.getElementById('btn-toggle-view');
+    // Initialize Dropdown
+    questions.forEach((q, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.text = `Question ${q.id}`;
+        domSelector.appendChild(option);
+    });
+
+    function renderSlide(index) {
+        const q = questions[index];
+        domQNum.textContent = `Q${q.id}`;
+        
+        // Build Content
+        let html = `<div style="margin-bottom:20px;">${q.text}</div>`;
+        
+        if (q.type === 'MCQ' && q.options) {
+            html += '<div class="options">';
+            q.options.forEach((opt, i) => {
+                const labels = ['(a)', '(b)', '(c)', '(d)'];
+                html += `<div class="option-item"><strong>${labels[i]}</strong> ${opt}</div>`;
+            });
+            html += '</div>';
+        }
+
+        domContent.innerHTML = html;
+        domSelector.value = index;
+
+        // Button States
+        btnPrev.disabled = index === 0;
+        btnNext.disabled = index === questions.length - 1;
+
+        // Trigger MathJax to process the new math tags
+        if (window.MathJax) {
+            MathJax.typesetPromise([domContent]);
+        }
+    }
+
+    // Event Listeners
+    btnPrev.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            renderSlide(currentIndex);
+        }
+    });
+
+    btnNext.addEventListener('click', () => {
+        if (currentIndex < questions.length - 1) {
+            currentIndex++;
+            renderSlide(currentIndex);
+        }
+    });
+
+    domSelector.addEventListener('change', (e) => {
+        currentIndex = parseInt(e.target.value);
+        renderSlide(currentIndex);
+    });
+
+
+
+
+
+
+    // Initial Render
+    renderSlide(0);
+
+</script>
+
+</body>
+</html>

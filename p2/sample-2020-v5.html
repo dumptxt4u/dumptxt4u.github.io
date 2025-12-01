@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Section A - Full MathML Quiz</title>
+  <style>
+    body, html { margin:0; padding:0; height:100%; background:#f4f6f9; font-family:'Times New Roman', serif; }
+    .container { width:90vw; height:90vh; margin:5vh auto; background:white; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.18); overflow:hidden; display:flex; flex-direction:column; }
+    .header { background:#1a2a44; color:white; padding:20px; text-align:center; font-size:1.8em; font-weight:bold; }
+    .info { padding:12px 40px; background:#fff8e1; color:#b37400; font-weight:bold; text-align:center; }
+    .slide { flex:1; padding:45px; overflow-y:auto; display:none; background:white; }
+    .slide.active { display:block; }
+    .qnum { font-size:1.6em; font-weight:bold; color:#1a2a44; margin-bottom:20px; }
+    .question-math { font-size:1.5em; line-height:1.8; margin:30px 0; }
+    .options { display:grid; gap:20px; margin-top:30px; }
+    .option {
+      padding:22px; background:#fafafa; border:2px solid #e0e0e0; border-radius:14px;
+      cursor:pointer; transition:all 0.3s; font-size:1.25em; box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    }
+    .option:hover { background:#e3f2fd; border-color:#1976d2; }
+    .option.selected { background:#bbdefb; border-color:#1976d2; font-weight:bold; }
+    .option.correct { background:#c8e6c9 !important; border-color:#4caf50 !important; }
+    .option.incorrect { background:#ffcdd2 !important; border-color:#e53935 !important; }
+    .fill { width:380px; padding:14px; font-size:1.4em; border:none; border-bottom:4px solid #1976d2; background:transparent; }
+    .answer-reveal { margin-top:30px; padding:20px; background:#e8f5e8; border-radius:12px; font-weight:bold; display:none; font-size:1.3em; }
+    .answer-reveal.show { display:block; }
+    .navigation { padding:20px; background:#f8f9fa; border-top:1px solid #ddd; display:flex; justify-content:space-between; align-items:center; }
+    button, select { padding:14px 30px; font-size:1.2em; border-radius:12px; cursor:pointer; }
+    button { background:#1976d2; color:white; border:none; }
+    button:hover:not(:disabled) { background:#1565c0; }
+    button:disabled { background:#95a5a6; cursor:not-allowed; }
+    select { border:2px solid #ddd; }
+    .or { text-align:center; font-style:italic; color:#7f8c8d; margin:25px 0; font-size:1.3em; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">SECTION A</div>
+  <div class="info">Q1 - Q10 are multiple choice type questions. Select the correct option</div>
+
+  <div id="slides"></div>
+
+  <div class="navigation">
+    <button id="prev">Previous</button>
+    <select id="jump"></select>
+    <button id="next">Next</button>
+  </div>
+
+  <div style="text-align:center; padding:18px; background:#1a2a44;">
+    <button id="showAnswers" style="background:#c0392b; padding:14px 50px; font-size:1.3em;">
+      Show All Correct Answers
+    </button>
+  </div>
+</div>
+
+<script>
+// 100% MathML — Exact original wording preserved
+const quizData = [
+  {
+    type: "mcq",
+    question: `<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtext>If </mtext><mi>A</mi><mtext> is any square matrix of order </mtext>
+      <mn>3</mn><mo>×</mo><mn>3</mn><mtext> such that </mtext>
+      <mo stretchy="false">|</mo><mi mathvariant="normal">A</mi><mo stretchy="false">|</mo><mo>=</mo><mn>3</mn><mtext>, then the value of </mtext>
+      <mo stretchy="false">|</mo><mi>adj</mi><mo>⁡</mo><mi>A</mi><mo stretchy="false">|</mo><mtext> is ?</mtext>
+    </math>`,
+    options: [
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>3</mn></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>3</mn></mfrac></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>9</mn></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>27</mn></math>`
+    ],
+    correct: 2
+  },
+  {
+    type: "mcq",
+    question: `<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtext>Suppose </mtext><mi>P</mi><mtext> and </mtext><mi>Q</mi><mtext> are two different matrices of order </mtext>
+      <mn>3</mn><mo>×</mo><mi mathvariant="normal">n</mi><mtext> and </mtext><mi mathvariant="normal">n</mi><mo>×</mo><mi mathvariant="normal">p</mi><mtext>, then the order of the matrix </mtext>
+      <mi mathvariant="normal">P</mi><mo>×</mo><mi mathvariant="normal">Q</mi><mtext> is?</mtext>
+    </math>`,
+    options: [
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>3</mn><mo>×</mo><mi mathvariant="normal">p</mi></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">p</mi><mo>×</mo><mn>3</mn></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">n</mi><mo>×</mo><mi mathvariant="normal">n</mi></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>3</mn><mo>×</mo><mn>3</mn></math>`
+    ],
+    correct: 0
+  },
+  {
+    type: "mcq",
+    question: `<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtext>If </mtext>
+      <mo stretchy="false">(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>6</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>27</mn><mover><mi>k</mi><mo>^</mo></mover><mo stretchy="false">)</mo>
+      <mo>×</mo>
+      <mo stretchy="false">(</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mi>p</mi><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mi>q</mi><mover><mi>k</mi><mo>^</mo></mover><mo stretchy="false">)</mo>
+      <mo>=</mo><mn>0</mn><mtext>, then the values of </mtext><mi>p</mi><mtext> and </mtext><mi>q</mi><mtext> are ?</mtext>
+    </math>`,
+    options: [
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>`
+    ],
+    correct: 2
+  },
+  {
+    type: "mcq",
+    question: `<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtext>If </mtext><mi>A</mi><mtext> and </mtext><mi>B</mi><mtext> are two events such that </mtext>
+      <mi>P</mi><mo stretchy="false">(</mo><mi>A</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0.2</mn><mo>,</mo>
+      <mi>P</mi><mo stretchy="false">(</mo><mi>B</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0.4</mn><mtext> and </mtext>
+      <mi>P</mi><mo stretchy="false">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0.5</mn><mtext>, then value of </mtext>
+      <mi>P</mi><mo stretchy="false">(</mo><mi>A</mi><mo>/</mo><mi>B</mi><mo stretchy="false">)</mo><mtext> is ?</mtext>
+    </math>`,
+    options: [
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0.1</mn></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0.25</mn></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0.5</mn></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0.08</mn></math>`
+    ],
+    correct: 0
+  },
+  {
+    type: "mcq",
+    question: `<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtext>The point which does not lie in the half plane </mtext>
+      <mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn><mi>y</mi><mo>-</mo><mn>12</mn><mo>≤</mo><mn>0</mn><mtext> is</mtext>
+    </math>`,
+    options: [
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false">)</mo></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo stretchy="false">)</mo></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo stretchy="false">)</mo></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>-3</mn><mo>,</mo><mn>2</mn><mo stretchy="false">)</mo></math>`
+    ],
+    correct: 2
+  },
+  {
+    type: "mcq",
+    question: `<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtext>If </mtext>
+      <msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>y</mi>
+      <mo>=</mo><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac><mtext>, then the value of </mtext>
+      <msup><mi>cos</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>x</mi><mo>+</mo><msup><mi>cos</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mi>y</mi>
+      <mtext> is </mtext><mrow><mo>_____</mo></mrow>
+    </math>`,
+    options: [
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>π</mi><mn>3</mn></mfrac></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>π</mi><mn>2</mn></mfrac></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>π</mi></math>`
+    ],
+    correct: 1
+  },
+  {
+    type: "mcq",
+    question: `<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtext>An urn contains 6 balls of which two are red and four are black. Two balls are drawn at random. </mtext>
+      <mtext>Probability that they are of the different colours is</mtext>
+    </math>`,
+    options: [
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>2</mn><mn>5</mn></mfrac></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>15</mn></mfrac></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>8</mn><mn>15</mn></mfrac></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>4</mn><mn>15</mn></mfrac></math>`
+    ],
+    correct: 2
+  },
+  {
+    type: "mcq",
+    question: `<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mo>∫</mo><mfrac><mrow><mi>d</mi><mi>x</mi></mrow><msqrt><mn>9</mn><mo>-</mo><mn>25</mn><msup><mi>x</mi><mn>2</mn></msup></msqrt></mfrac>
+    </math>`,
+    options: [
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mfenced><mfrac><mrow><mn>5</mn><mi>x</mi></mrow><mn>3</mn></mfrac></mfenced><mo>+</mo><mi>c</mi></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>5</mn></mfrac><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mfenced><mfrac><mrow><mn>5</mn><mi>x</mi></mrow><mn>3</mn></mfrac></mfenced><mo>+</mo><mi>c</mi></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>6</mn></mfrac><mi>log</mi><mfenced><mfrac><mrow><mn>3</mn><mo>+</mo><mn>5</mn><mi>x</mi></mrow><mrow><mn>3</mn><mo>-</mo><mn>5</mn><mi>x</mi></mrow></mfrac></mfenced><mo>+</mo><mi>c</mi></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>1</mn><mn>30</mn></mfrac><mi>log</mi><mfenced><mfrac><mrow><mn>3</mn><mo>+</mo><mn>5</mn><mi>x</mi></mrow><mrow><mn>3</mn><mo>-</mo><mn>5</mn><mi>x</mi></mrow></mfrac></mfenced><mo>+</mo><mi>c</mi></math>`
+    ],
+    correct: 1
+  },
+  {
+    type: "mcq",
+    question: `<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtext>What is the distance(in units) between the two planes</mtext><mspace width="1em"/>
+      <mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn><mi>y</mi><mo>+</mo><mn>7</mn><mi>z</mi><mo>=</mo><mn>3</mn><mtext> and </mtext>
+      <mn>9</mn><mi>x</mi><mo>+</mo><mn>15</mn><mi>y</mi><mo>+</mo><mn>21</mn><mi>z</mi><mo>=</mo><mn>9</mn><mtext> ?</mtext>
+    </math>`,
+    options: [
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>3</mn></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>6</mn><msqrt><mn>83</mn></msqrt></mfrac></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mn>6</mn></math>`
+    ],
+    correct: 0
+  },
+  {
+    type: "mcq",
+    question: `<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+      <mtext>The equation of the line in vector form passing through the point</mtext><mo stretchy="false">(</mo><mn>-1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo stretchy="false">)</mo><mtext> and parallel to line </mtext>
+      <mfrac><mrow><mi>x</mi><mo>-</mo><mn>3</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mi>y</mi><mo>-</mo><mn>4</mn></mrow><mn>3</mn></mfrac><mo>,</mo><mi>z</mi><mo>=</mo><mn>2</mn><mtext>. is</mtext>
+    </math>`,
+    options: [
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mover><mi>r</mi><mo stretchy="true">→</mo></mover><mo>=</mo><mo stretchy="false">(</mo><mo>-</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo stretchy="false">)</mo><mo>+</mo><mi>λ</mi><mo stretchy="false">(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mover><mi>k</mi><mo>^</mo></mover><mo stretchy="false">)</mo></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mover><mi>r</mi><mo stretchy="true">→</mo></mover><mo>=</mo><mo stretchy="false">(</mo><mo>-</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo stretchy="false">)</mo><mo>+</mo><mi>λ</mi><mo stretchy="false">(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo stretchy="false">)</mo></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mover><mi>r</mi><mo stretchy="true">→</mo></mover><mo>=</mo><mo stretchy="false">(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>-</mo><mn>2</mn><mover><mi>k</mi><mo>^</mo></mover><mo stretchy="false">)</mo><mo>+</mo><mi>λ</mi><mo stretchy="false">(</mo><mo>-</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo stretchy="false">)</mo></math>`,
+      `<math xmlns="http://www.w3.org/1998/Math/MathML"><mover><mi>r</mi><mo stretchy="true">→</mo></mover><mo>=</mo><mo stretchy="false">(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo stretchy="false">)</mo><mo>+</mo><mi>λ</mi><mo stretchy="false">(</mo><mo>-</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo stretchy="false">)</mo></math>`
+    ],
+    correct: 0
+  }
+  // Add Q11–Q20 similarly if needed — let me know if you want them too!
+];
+
+let current = 0;
+const slidesDiv = document.getElementById("slides");
+const jump = document.getElementById("jump");
+
+quizData.forEach((q, i) => {
+  const slide = document.createElement("div");
+  slide.className = "slide" + (i===0?" active":"");
+
+  let html = `<div class="qnum">Question ${i+1}</div>`;
+  html += `<div class="question-math">${q.question}</div>`;
+
+  if (q.type === "mcq") {
+    html += `<div class="options">`;
+    q.options.forEach((opt, j) => {
+      html += `<div class="option" onclick="selectOpt(${i},${j})">
+        <strong>(${String.fromCharCode(97+j)})</strong> ${opt}
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  html += `<div class="answer-reveal" id="ans${i}"></div>`;
+  slide.innerHTML = html;
+  slidesDiv.appendChild(slide);
+
+  const opt = document.createElement("option");
+  opt.value = i; opt.textContent = `Q${i+1}`;
+  jump.appendChild(opt);
+});
+
+function show(n) {
+  document.querySelectorAll(".slide").forEach((s,i)=>s.classList.toggle("active",i===n));
+  current = n; jump.value = n;
+  document.getElementById("prev").disabled = n===0;
+  document.getElementById("next").disabled = n===quizData.length-1;
+}
+
+window.selectOpt = (q,j) => {
+  document.querySelectorAll(`.slide:nth-child(${q+1}) .option`).forEach((el,i)=> {
+    el.classList.remove("selected");
+    if(i===j) el.classList.add("selected");
+  });
+};
+
+document.getElementById("prev").onclick = () => show(current-1);
+document.getElementById("next").onclick = () => show(current+1);
+jump.onchange = () => show(+jump.value);
+
+document.getElementById("showAnswers").onclick = () => {
+  quizData.forEach((q,i) => {
+    if(q.type==="mcq"){
+      document.querySelectorAll(`.slide:nth-child(${i+1}) .option`).forEach((el,j)=>{
+        if(j===q.correct) el.classList.add("correct");
+        else if(el.classList.contains("selected")) el.classList.add("incorrect");
+      });
+    }
+    document.getElementById(`ans${i}`).classList.add("show");
+  });
+  document.getElementById("showAnswers").textContent = "Answers Revealed!";
+  document.getElementById("showAnswers").disabled = true;
+};
+
+show(0);
+</script>
+</body>
+</html>

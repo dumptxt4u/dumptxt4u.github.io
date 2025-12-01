@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class 12 Math Practice Quiz</title>
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"/>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}], throwOnError:false});">
+  </script>
+
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --card: rgba(30, 41, 59, 0.85);
+      --accent: #fbbf24;
+      --text: #f1f5f9;
+      --correct: #10b981;
+      --wrong: #ef4444;
+      --glass: rgba(255, 255, 255, 0.1);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(10px);
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(12px);
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; background: linear-gradient(90deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .controls {
+      padding: 1rem;
+      background: rgba(15,23,42,0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    button, select {
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 12px;
+      background: var(--glass);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(8px);
+    }
+    button:hover, select:hover { background: var(--accent); color: black; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(251,191,36,0.3); }
+    .slides {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265,1.55);
+      pointer-events: none;
+    }
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(16px);
+      border-radius: 24px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 900px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border: 1px solid rgba(251,191,36,0.2);
+    }
+    .qno {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+    }
+    .question {
+      font-size: 1.7rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .options {
+      display: grid;
+      gap: 1rem;
+      font-size: 1.4rem;
+    }
+    .option {
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      transition: all 0.4s;
+      cursor: default;
+    }
+    .option.correct { background: rgba(16,185,129,0.3); border: 2px solid var(--correct); transform: scale(1.05); }
+    .answer-btn {
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      background: var(--accent);
+      color: black;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(0,0,0,0.5);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .question { font-size: 1.4rem; }
+      .options { font-size: 1.2rem; }
+      .qno { font-size: 2rem; }
+      .card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Class 12 Mathematics</h1>
+    <p>Practice Quiz • 20 Questions • Interactive & Beautiful</p>
+  </header>
+
+  <div class="controls">
+    <button id="prev">Previous</button>
+    <select id="nav"></select>
+    <button id="next">Next</button>
+  </div>
+
+  <div class="slides" id="slides"></div>
+
+  <footer>Beautiful Math Quiz • Fully Responsive • Made with Love</footer>
+
+  <script>
+    const questions = [
+      { type:"mcq", q:"If $A$ is any square matrix of order $3\\times3$ such that $|A|=3$, then $|\\adj A|$ =", options:["(a) 3","(b) $\\frac{1}{3}$","(c) 9","(d) 27"], ans:3 },
+      { type:"mcq", q:"P ($3\\times n$) and Q ($n\\times p$), order of $PQ$ is?", options:["(a) $3\\times p$","(b) $p\\times 3$","(c) $n\\times n$","(d) $3\\times 3$"], ans:0 },
+      { type:"mcq", q:"If $(2\\hat{i}+6\\hat{j}+27\\hat{k}) \\times (\\hat{i}+p\\hat{j}+q\\hat{k})=\\vec{0}$, then $p,q$ =", options:["(a) $p=6,q=27$","(b) $p=3,q=\\frac{27}{2}$","(c) $p=6,q=\\frac{27}{2}$","(d) $p=3,q=27$"], ans:2 },
+      { type:"mcq", q:"$P(A)=0.2$, $P(B)=0.4$, $P(A\\cup B)=0.5$, then $P(A/B)=$?", options:["(a) 0.1","(b) 0.25","(c) 0.5","(d) 0.08"], ans:1 },
+      { type:"mcq", q:"Point not in $2x+3y-12\\leq 0$:", options:["(a) (1,2)","(b) (2,1)","(c) (2,3)","(d) (−3,2)"], ans:2 },
+      { type:"mcq", q:"$\\sin^{-1}x + \\sin^{-1}y = \\frac{2\\pi}{3}$, then $\\cos^{-1}x + \\cos^{-1}y =$?", options:["(a) $\\frac{2\\pi}{3}$","(b) $\\frac{\\pi}{3}$","(c) $\\frac{\\pi}{2}$","(d) $\\pi$"], ans:1 },
+      { type:"mcq", q:"Urn: 2 red, 4 black balls. Prob both different colors =", options:["(a) $\\frac{2}{5}$","(b) $\\frac{1}{15}$","(c) $\\frac{8}{15}$","(d) $\\frac{4}{15}$"], ans:2 },
+      { type:"mcq", q:"$\\int \\frac{dx}{\\sqrt{9-25x^2}} =$?", options:["(a) $\\sin^{-1}(\\frac{5x}{3})+c$","(b) $\\frac{1}{5}\\sin^{-1}(\\frac{5x}{3})+c","(c) ...log form","(d) ...log form"], ans:1 },
+      { type:"mcq", q:"Distance between planes $3x+5y+7z=3$ and $9x+15y+21z=9$?", options:["(a) 0","(b) 3","(c) $\\frac{6}{\\sqrt{83}}$","(d) 6"], ans:0 },
+      { type:"mcq", q:"Line through (−1,3,5) parallel to $\\frac{x-3}{2}=\\frac{y-4}{3},z=2$ in vector form?", options:["(a) $\\vec{r}=(-\\hat{i}+3\\hat{j}+5\\hat{k})+\\lambda(2\\hat{i}+3\\hat{j}+\\hat{k})$","(b) ...","(c) ...","(d) ..."], ans:0 },
+      { type:"blank", q:"$g(f(-\\frac{5}{4}))$ where $f(x)=[x]$, $g(x)=|x|$ is ______" },
+      { type:"blank", q:"Value of $k$ for continuity: $f(x)=\\begin{cases} \\frac{x^2-1}{x-1} & x\\ne1 \\\\ k & x=1 \\end{cases}$" },
+      { type:"blank", q:"$\\begin{bmatrix}1&2\\\\2&1\\end{bmatrix}\\begin{bmatrix}x\\\\y\\end{bmatrix}=\\begin{bmatrix}5\\\\4\\end{bmatrix}$, then $y=$" },
+      { type:"blank", q:"Tangent to $y^2+3x-7=0$ at $(h,k)$ parallel to $x-y=4 \\Rightarrow k=$ ?<br><strong>OR</strong><br>Curve $y=5x-2x^3$, $dx/dt=2$, at $x=3$, rate of change of slope =" },
+      { type:"blank", q:"Projection magnitude of $(2\\hat{i}-\\hat{j}+\\hat{k})$ on $(\\hat{i}-2\\hat{j}+2\\hat{k})$<br><strong>OR</strong><br>Unit vector opposite to $2\\hat{i}+3\\hat{j}-6\\hat{k}$ with magnitude 5" },
+      { type:"short", q:"Is $(l+m+n)$ a factor of $\\begin{vmatrix} l+m & m+n & n+l \\\\ n & 1 & m \\\\ 2 & 2 & 2 \\end{vmatrix}$? Reason." },
+      { type:"short", q:"Evaluate $\\int_{-2}^{2} (x^3 + 1)\\,dx$" },
+      { type:"short", q:"Find $\\int \\frac{3+3\\cos x}{x + \\sin x}\\,dx$ <br><strong>OR</strong> $\\int (\\cos^2 2x - \\sin^2 2x)\\,dx$" },
+      { type:"short", q:"Find $\\int x e^{1+x^2}\\,dx$" },
+      { type:"short", q:"General solution of $\\frac{dy}{dx} = e^{x+y}$" }
+    ];
+
+    const slidesDiv = document.getElementById('slides');
+    const navSelect = document.getElementById('nav');
+    let current = 0;
+
+    questions.forEach((q, i) => {
+      // Create slide
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      if(i===0) slide.classList.add('active');
+
+      let optionsHTML = '';
+      let buttonHTML = '';
+      if(q.type === "mcq"){
+        optionsHTML = '<div class="options">' + 
+          q.options.map((opt, idx) => 
+            `<div class="option" data-idx="${idx}">${opt}</div>`
+          ).join('') + '</div>';
+        buttonHTML = `<button class="answer-btn" onclick="reveal(${i})">Show Answer</button>`;
+      }
+
+      slide.innerHTML = `
+        <div class="card">
+          <div class="qno">Question ${i+1}</div>
+          <div class="question">${q.q}</div>
+          ${optionsHTML}
+          ${buttonHTML}
+        </div>
+      `;
+      slidesDiv.appendChild(slide);
+
+      // Dropdown
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = `Q${i+1} ${q.q.replace(/<[^>]*>/g,'').substring(0,40)}...`;
+      navSelect.appendChild(opt);
+    });
+
+    const slides = document.querySelectorAll('.slide');
+
+    function goTo(n){
+      slides[current].classList.remove('active');
+      current = n;
+      slides[current].classList.add('active');
+      navSelect.value = current;
+      document.getElementById('prev').disabled = current===0;
+      document.getElementById('next').disabled = current===slides.length-1;
+    }
+
+    window.reveal = function(idx){
+      const slide = slides[idx];
+      const correctIdx = questions[idx].ans;
+      slide.querySelectorAll('.option').forEach((el,i) => {
+        el.classList.toggle('correct', i===correctIdx);
+      });
+      slide.querySelector('.answer-btn').disabled = true;
+    }
+
+    document.getElementById('prev').onclick = () => goTo(current-1);
+    document.getElementById('next').onclick = () => goTo(current+1);
+    navSelect.onchange = () => goTo(+navSelect.value);
+
+    // Init
+    document.getElementById('prev').disabled = true;
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math MCQ Slides - Full Screen & Responsive</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    .slide { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+    .math-display { line-height: 2.4; }
+  </style>
+</head>
+<body class="h-full bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100">
+
+  <!-- Full-screen Slides Container -->
+  <div class="relative h-screen w-screen overflow-hidden">
+
+    <!-- Slides -->
+    <div id="slidesContainer" class="absolute inset-0 flex transition-transform duration-700 ease-in-out" style="transform: translateX(0%)">
+      <!-- Slides will be injected here by JS -->
+    </div>
+
+    <!-- Navigation Overlay -->
+    <div class="fixed top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
+      <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl px-6 py-4 pointer-events-auto">
+        <select id="questionSelect" class="text-lg font-semibold bg-transparent border-none outline-none cursor-pointer">
+          <!-- Options filled by JS -->
+        </select>
+      </div>
+
+      <div class="text-white text-5xl font-bold drop-shadow-2xl">
+        <span id="counter">1</span> / <span id="total">10</span>
+      </div>
+    </div>
+
+    <!-- Left / Right Arrow Hints (optional, fade on mobile) -->
+    <div class="fixed inset-y-0 left-4 flex items-center z-40 hidden md:flex">
+      <div class="bg-black/30 text-white p-4 rounded-full">←</div>
+    </div>
+    <div class="fixed inset-y-0 right-4 flex items-center z-40 hidden md:flex">
+      <div class="bg-black/30 text-white p-4 rounded-full">→</div>
+    </div>
+  </div>
+
+  <!-- Your MCQ Data -->
+  <script>
+    const mcq_array = [
+      { q_mathml: "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>A</mi><mo>=</mo><mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mn>3</mn></math>", options: ["<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>3</mn></mfrac></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mn>3</mn><mn>2</mn></msup><mo>=</mo><mn>9</mn></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mn>3</mn><mn>3</mn></msup><mo>=</mo><mn>27</mn></math>"], answer: "C" },
+      { q_mathml: "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>Suppose P and Q are two different matrices of order </mtext><mn>3</mn><mo>×</mo><mi>n</mi><mtext> and </mtext><mi>n</mi><mo>×</mo><mi>p</mi><mtext>, then the order of the matrix </mtext><mi>P</mi><mo>×</mo><mi>Q</mi><mtext> is?</mtext></math>", options: ["<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mo>×</mo><mi>p</mi></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>p</mi><mo>×</mo><mn>3</mn></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>n</mi><mo>×</mo><mi>n</mi></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>3</mn><mo>×</mo><mn>3</mn></math>"], answer: "A" },
+      { q_mathml: "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>If </mtext><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>6</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>27</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>×</mo><mo>(</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mi>p</mi><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mi>q</mi><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>=</mo><mn>0</mn><mtext>, then the values of p and q are?</mtext></math>", options: ["<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>p</mi><mo>=</mo><mn>6</mn><mo>,</mo><mi>q</mi><mo>=</mo><mfrac><mn>27</mn><mn>2</mn></mfrac></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>p</mi><mo>=</mo><mn>3</mn><mo>,</mo><mi>q</mi><mo>=</mo><mn>27</mn></math>"], answer: "B" },
+      { q_mathml: "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>If A and B are two events such that P(A)=0.2, P(B)=0.4 and P(A∪B)=0.5, then P(A/B) is?</mtext></math>", options: ["<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>0.1</mn></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>0.25</mn></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>0.5</mn></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>0.08</mn></math>"], answer: "B" },
+      { q_mathml: "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>The point which does not lie in the half plane 2x + 3y - 12 ≤ 0 is</mtext></math>", options: ["<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>2</mn><mo>,</mo><mn>1</mn><mo>)</mo></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>)</mo></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>(</mo><mo>-</mo><mn>3</mn><mo>,</mo><mn>2</mn><mo>)</mo></math>"], answer: "C" },
+      { q_mathml: "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>If sin⁻¹x + sin⁻¹y = 2π/3, then cos⁻¹x + cos⁻¹y is</mtext></math>", options: ["<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>2π</mn><mn>3</mn></mfrac></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mi>π</mi><mn>3</mn></mfrac></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mi>π</mi><mn>2</mn></mfrac></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>π</mi></math>"], answer: "B" },
+      { q_mathml: "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>An urn contains 6 balls: 2 red, 4 black. Probability of drawing two of different colors?</mtext></math>", options: ["<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>2</mn><mn>5</mn></mfrac></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>15</mn></mfrac></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>8</mn><mn>15</mn></mfrac></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>4</mn><mn>15</mn></mfrac></math>"], answer: "C" },
+      { q_mathml: "<math xmlns='http://www.w3.org/1998/Math/MathML'><mo>∫</mo><mfrac><mi>dx</mi><msqrt><mn>9</mn><mo>-</mo><mn>25</mn><msup><mi>x</mi><mn>2</mn></msup></msqrt></mfrac></math>", options: ["<math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>(</mo><mfrac><mrow><mn>5x</mn></mrow><mn>3</mn></mfrac><mo>)</mo><mo>+</mo><mi>c</mi></math>","<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>1</mn><mn>5</mn></mfrac><msup><mi>sin</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>(</mo><mfrac><mrow><mn>5x</mn></mrow><mn>3</mn></mfrac><mo>)</mo><mo>+</mo><mi>c</mi></math>","...","..."], answer: "B" },
+      { q_mathml: "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>Distance between planes 3x+5y+7z=3 and 9x+15y+21z=9?</mtext></math>", options: ["0","3","<math xmlns='http://www.w3.org/1998/Math/MathML'><mfrac><mn>6</mn><msqrt><mn>83</mn></msqrt></mfrac></math>","6"], answer: "A" },
+      { q_mathml: "<math xmlns='http://www.w3.org/1998/Math/MathML'><mtext>Vector equation of line through (-1,3,5) parallel to </mtext><mfrac><mrow><mi>x</mi><mo>-</mo><mn>3</mn></mrow><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mi>y</mi><mo>-</mo><mn>4</mn></mrow><mn>3</mn></mfrac><mo>,</mo><mi>z</mi><mo>=</mo><mn>2</mn></math>", options: ["<math xmlns='http://www.w3.org/1998/Math/MathML'><mover><mi>r</mi><mo>→</mo></mover><mo>=</mo><mo>(</mo><mo>-</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>5</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>+</mo><mi>λ</mi><mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>3</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo></math>","...","...","..."], answer: "A" }
+    ];
+
+    let currentSlide = 0;
+    const container = document.getElementById("slidesContainer");
+    const select = document.getElementById("questionSelect");
+    const counter = document.getElementById("counter");
+    const total = document.getElementById("total");
+
+    // Create slides
+    mcq_array.forEach((q, i) => {
+      // Dropdown option
+      const opt = document.createElement("option");
+      opt.value = i;
+      opt.textContent = `Question ${i + 1}`;
+      select.appendChild(opt);
+
+      // Slide
+      const slide = document.createElement("div");
+      slide.className = "slide min-w-full h-full flex items-center justify-center px-8 md:px-16";
+      slide.innerHTML = `
+        <div class="max-w-6xl w-full bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-10 md:p-16 text-center">
+          <div class="text-3xl md:text-5xl font-bold text-gray-800 mb-12 math-display">
+            ${q.q_mathml}
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-2xl md:text-3xl">
+            ${q.options.map((opt, idx) => `
+              <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-2xl border-2 border-indigo-200 hover:border-indigo-500 hover:shadow-xl transition">
+                <span class="font-bold text-indigo-700">[${String.fromCharCode(65 + idx)}]</span> ${opt}
+              </div>
+            `).join("")}
+          </div>
+          <div class="mt-12 text-lg text-gray-500">Answer: ${q.answer}</div>
+        </div>
+      `;
+      container.appendChild(slide);
+    });
+
+    total.textContent = mcq_array.length;
+
+    function goToSlide(n) {
+      currentSlide = (n + mcq_array.length) % mcq_array.length;
+      container.style.transform = `translateX(-${currentSlide * 100}%)`;
+      counter.textContent = currentSlide + 1;
+      select.value = currentSlide;
+      MathJax.typesetPromise();
+    }
+
+    select.addEventListener("change", () => goToSlide(parseInt(select.value)));
+    document.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight") goToSlide(currentSlide + 1);
+      if (e.key === "ArrowLeft") goToSlide(currentSlide - 1);
+    });
+
+    // Touch swipe support (mobile)
+    let touchStartX = 0;
+    document.addEventListener("touchstart", e => touchStartX = e.touches[0].clientX);
+    document.addEventListener("touchend", e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) goToSlide(currentSlide + 1);
+        else goToSlide(currentSlide - 1);
+      }
+    });
+
+    // Start
+    goToSlide(0);
+  </script>
+</body>
+</html>

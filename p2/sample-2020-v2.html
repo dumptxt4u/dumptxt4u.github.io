@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Math Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .quiz-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+    .question {
+      margin-bottom: 35px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      border-left: 5px solid #3498db;
+    }
+    .question-text {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+    .options {
+      display: grid;
+      gap: 12px;
+    }
+    .option {
+      padding: 14px 18px;
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1.1em;
+    }
+    .option:hover {
+      background: #e3f2fd;
+      border-color: #3498db;
+    }
+    .option.selected {
+      background: #bbdefb;
+      border-color: #1976d2;
+      font-weight: bold;
+    }
+    .option.correct {
+      background: #c8e6c9 !important;
+      border-color: #4caf50 !important;
+      color: #2e7d32;
+    }
+    .option.incorrect {
+      background: #ffcdd2 !important;
+      border-color: #f44336 !important;
+      color: #c62828;
+    }
+    .show-answers-btn {
+      display: block;
+      margin: 40px auto;
+      padding: 14px 32px;
+      font-size: 1.1em;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .show-answers-btn:hover {
+      background: #34495e;
+    }
+    .answer-reveal {
+      margin-top: 10px;
+      padding: 10px;
+      background: #e8f5e8;
+      border-radius: 8px;
+      font-weight: bold;
+      display: none;
+    }
+    .answer-reveal.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Mathematics Quiz</h1>
+
+  <div id="quiz"></div>
+
+  <button class="show-answers-btn" id="showAnswers">Show All Correct Answers</button>
+</div>
+
+<script>
+  // Data Structure: Array of question objects (dictionary-like)
+  const quizData = [
+    {
+      question: "What is the derivative of <math><mi>x</mi><mn>2</mn></math>?",
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mi>x</mi><mn>2</mn>
+               </math>`,
+      options: ["x", "2x", "x²", "1"],
+      correct: 1, // index of correct answer
+      explanation: "The derivative of x² is 2x (power rule)."
+    },
+    {
+      question: "Solve for x: <math><mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo>=</mo><mn>20</mn></math>",
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn>3</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo>=</mo><mn>20</mn>
+               </math>`,
+      options: ["x = 5", "x = 15", "x = 6", "x = 25/3"],
+      correct: 0,
+      explanation: "3x = 15 → x = 5"
+    },
+    {
+      question: "What is <math><msup><mi>x</mi><mn>0</mn></msup></math>?",
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML">
+                <msup><mi>x</mi><mn>0</mn></msup>
+               </math>`,
+      options: ["0", "1", "x", "undefined"],
+      correct: 1,
+      explanation: "Any non-zero number raised to the power of 0 is 1."
+    },
+    {
+      question: "Integral of <math><mn>1</mn><mo>/</mo><mi>x</mi></math> dx =",
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML">
+                <mn>1</mn><mo>/</mo><mi>x</mi>
+               </math>`,
+      options: ["x²/2 + C", "ln|x| + C", "1/x² + C", "e^x + C"],
+      correct: 1,
+      explanation: "The integral of 1/x is the natural logarithm of |x|."
+    }
+  ];
+
+  // Render Quiz
+  const quizContainer = document.getElementById("quiz");
+  let selectedAnswers = new Array(quizData.length).fill(null);
+
+  quizData.forEach((q, qIndex) => {
+    const questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+
+    questionDiv.innerHTML = `
+      <div class="question-text">
+        <strong>Question ${qIndex + 1}:</strong> ${q.question.replace(
+          /<math.*?math>/g,
+          q.mathml
+        )}
+      </div>
+      <div class="options" id="options-${qIndex}"></div>
+      <div class="answer-reveal" id="answer-${qIndex}">
+        Correct Answer: <strong>${q.options[q.correct]}</strong><br>
+        <em>${q.explanation}</em>
+      </div>
+    `;
+
+    const optionsDiv = questionDiv.querySelector(`#options-${qIndex}`);
+    q.options.forEach((option, i) => {
+      const opt = document.createElement("div");
+      opt.className = "option";
+      opt.textContent = option;
+      opt.onclick = () => {
+        // Remove previous selection
+        document.querySelectorAll(`#options-${qIndex} .option`).forEach(el => {
+          el.classList.remove("selected");
+        });
+        opt.classList.add("selected");
+        selectedAnswers[qIndex] = i;
+      };
+      optionsDiv.appendChild(opt);
+    });
+
+    quizContainer.appendChild(questionDiv);
+  });
+
+  // Show Answers Button
+  document.getElementById("showAnswers").addEventListener("click", () => {
+    quizData.forEach((q, i) => {
+      const options = document.querySelectorAll(`#options-${i} .option`);
+      const answerDiv = document.getElementById(`answer-${i}`);
+
+      options.forEach((opt, idx) => {
+        if (idx === q.correct) {
+          opt.classList.add("correct");
+        } else if (selectedAnswers[i] === idx) {
+          opt.classList.add("incorrect");
+        }
+      });
+
+      answerDiv.classList.add("show");
+    });
+
+    document.getElementById("showAnswers").disabled = true;
+    document.getElementById("showAnswers").textContent = "Answers Revealed!";
+  });
+</script>
+
+</body>
+</html>

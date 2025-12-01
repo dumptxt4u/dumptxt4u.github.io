@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Section A - Full Screen Quiz</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0; height: 100%; background: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .container {
+      width: 90vw; height: 90vh;
+      margin: 5vh auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      background: #2c3e50;
+      color: white;
+      padding: 15px 25px;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .slide {
+      flex: 1;
+      padding: 40px;
+      overflow-y: auto;
+      display: none;
+      background: white;
+    }
+    .slide.active {
+      display: block;
+    }
+    .question-text {
+      font-size: 1.4em;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .options {
+      display: grid;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .option {
+      padding: 18px;
+      background: #f8f9fa;
+      border: 2px solid #ddd;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.15em;
+    }
+    .option:hover { background: #e3f2fd; border-color: #3498db; }
+    .option.selected { background: #bbdefb; border-color: #1976d2; font-weight: bold; }
+    .option.correct { background: #c8e6c9 !important; border-color: #4caf50 !important; }
+    .option.incorrect { background: #ffcdd2 !important; border-color: #e53935 !important; }
+
+    .fill-blank {
+      width: 300px; padding: 12px; font-size: 1.2em;
+      border: none; border-bottom: 3px solid #3498db;
+      background: transparent;
+    }
+    .answer-reveal {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f5e8;
+      border-radius: 10px;
+      font-weight: bold;
+      display: none;
+    }
+    .answer-reveal.show { display: block; }
+
+    .navigation {
+      padding: 20px;
+      background: #f8f9fa;
+      border-top: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button {
+      padding: 12px 28px;
+      font-size: 1.1em;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #2980b9; }
+    button:disabled { background: #95a5a6; cursor: not-allowed; }
+
+    select {
+      padding: 12px;
+      font-size: 1.1em;
+      border-radius: 10px;
+      border: 2px solid #ddd;
+    }
+    .or-text { font-style: italic; margin: 20px 0; color: #7f8c8d; text-align: center; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">SECTION A - Mathematics Quiz</div>
+
+  <!-- Slides will be injected here -->
+  <div id="slides"></div>
+
+  <div class="navigation">
+    <button id="prevBtn">Previous</button>
+    
+    <select id="questionSelect"></select>
+    
+    <button id="nextBtn">Next</button>
+  </div>
+
+  <div style="text-align:center; padding: 15px; background:#2c3e50; color:white;">
+    <button id="showAnswers" style="background:#e74c3c; padding:12px 30px; font-size:1.1em;">
+      Show All Answers
+    </button>
+  </div>
+</div>
+
+<script>
+  const quizData = [
+    { type: "mcq", text: "If A is any square matrix of order 3×3 such that |A| = 3, then |adj A| = ?", 
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>A</mi> is any square matrix of order <mn>3</mn><mo>×</mo><mn>3</mn> such that 
+        <mo>|</mo><mi>A</mi><mo>|</mo><mo>=</mo><mn>3</mn>, then 
+        <mo>|</mo><mi>adj</mi><mo>⁡</mo><mi>A</mi><mo>|</mo><mo>=</mo><mo>?</mo>
+      </math>`,
+      options: ["3", "1/3", "9", "27"], correct: 2, answer: "9" },
+
+    { type: "mcq", text: "Order of matrix P (3×n) × Q (n×p) is?", 
+      options: ["3×p", "p×3", "n×n", "3×3"], correct: 0, answer: "3×p" },
+
+    { type: "mcq", text: "If (2î + 6ĵ + 27k̂) × (î + pĵ + qk̂) = 0, then p and q are?",
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mo>(</mo><mn>2</mn><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mn>6</mn><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mn>27</mn><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo>
+        <mo>×</mo><mo>(</mo><mover><mi>i</mi><mo>^</mo></mover><mo>+</mo><mi>p</mi><mover><mi>j</mi><mo>^</mo></mover><mo>+</mo><mi>q</mi><mover><mi>k</mi><mo>^</mo></mover><mo>)</mo><mo>=</mo><mn>0</mn>
+      </math>`,
+      options: ["p=6,q=27", "p=3,q=27/2", "p=6,q=27/2", "p=3,q=27"], correct: 2, answer: "p=6, q=27/2" },
+
+    { type: "mcq", text: "P(A)=0.2, P(B)=0.4, P(A∪B)=0.5 → P(A/B)=?", 
+      options: ["0.1", "0.25", "0.5", "0.08"], correct: 0, answer: "0.1" },
+
+    { type: "mcq", text: "Point not in 2x + 3y − 12 ≤ 0:",
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn><mi>y</mi><mo>−</mo><mn>12</mn><mo>≤</mo><mn>0</mn>
+      </math>`,
+      options: ["(1,2)", "(2,1)", "(2,3)", "(-3,2)"], correct: 2, answer: "(2,3)" },
+
+    { type: "mcq", text: "sin⁻¹x + sin⁻¹y = 2π/3 → cos⁻¹x + cos⁻¹y =",
+      options: ["2π/3", "π/3", "π/2", "π"], correct: 1, answer: "π/3" },
+
+    { type: "mcq", text: "Urn: 2 red, 4 black. P(different colors) when 2 drawn?",
+      options: ["2/5", "1/15", "8/15", "4/15"], correct: 2, answer: "8/15" },
+
+    { type: "mcq", text: "∫ dx / √(9 - 25x²) =",
+      mathml: `<math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mo>∫</mo><mfrac><mi>dx</mi><msqrt><mn>9</mn><mo>-</mo><mn>25</mn><msup><mi>x</mi><mn>2</mn></msup></msqrt></mfrac>
+      </math>`,
+      options: [
+        "sin⁻¹(5x/3)+c",
+        "(1/5)sin⁻¹(5x/3)+c",
+        "(1/6)log|(3+5x)/(3-5x)|+c",
+        "(1/30)log|(3+5x)/(3-5x)|+c"
+      ], correct: 1, answer: "(1/5)sin⁻¹(5x/3)+c" },
+
+    { type: "mcq", text: "Distance between planes 3x+5y+7z=3 and 9x+15y+21z=9?",
+      options: ["0", "3", "6/√83", "6"], correct: 0, answer: "0" },
+
+    { type: "mcq", text: "Line through (-1,3,5) parallel to (x-3)/2 = (y-4)/3, z=2",
+      options: [
+        "r = (−i + 3j + 5k) + λ(2i + 3j + k)",
+        "r = (−i + 3j + 5k) + λ(2i + 3j)",
+        "r = (2i + 3j - 2k) + λ(-i + 3j + 5k)",
+        "r = (2i + 3j) + λ(-i + 3j + 5k)"
+      ], correct: 0, answer: "Option (a)" },
+
+    // Fill in the blanks
+    { type: "fill", text: "g(f(-5/4)) where f(x)=[x], g(x)=|x|", answer: "1" },
+    { type: "fill", text: "f(x)=(x²-1)/(x-1) for x≠1, f(1)=k for continuity → k=", answer: "2" },
+    { type: "fill", text: "[1 2; 2 1][x;y] = [5;4] → y =", answer: "1" },
+    { type: "fill", text: "Tangent to y² + 3x - 7 = 0 parallel to x-y=4 → k =", answer: "4",
+      or: "For y=5x-2x³, dx/dt=2, at x=3 → dy/dt =", orAnswer: "-30" },
+    { type: "fill", text: "Projection magnitude of (2i-j+k) on (i-2j+2k)", answer: "√3" },
+
+    // Short answers
+    { type: "short", text: "Is (l+m+n) a factor of det |1+m m+n n+l; n 1 m; 2 2 2|?", answer: "Yes (substitute l+m+n=0 → Row1 = Row3 → det=0)" },
+    { type: "short", text: "∫ from -2 to 2 (x³ + 1) dx =", answer: "4" },
+    { type: "short", text: "∫ (3 + 3cos x)/(x + sin x) dx =", answer: "3 ln|x + sin x| + C" },
+    { type: "short", text: "∫ x e^(1+x²) dx =", answer: "(1/2) e^(1+x²) + C" },
+    { type: "short", text: "General solution: dy/dx = e^(x+y)", answer: "e^(-y) = e^(-x) + C" }
+  ];
+
+  let currentSlide = 0;
+
+  const slidesDiv = document.getElementById("slides");
+  const select = document.getElementById("questionSelect");
+
+  // Create slides
+  quizData.forEach((q, i) => {
+    const slide = document.createElement("div");
+    slide.className = "slide";
+    if (i === 0) slide.classList.add("active");
+
+    let content = `<div class="question-text"><strong>Question ${i+1}:</strong><br>`;
+    if (q.mathml) content += q.mathml;
+    else content += q.text;
+    content += `</div>`;
+
+    if (q.type === "mcq") {
+      content += `<div class="options" id="opts-${i}"></div>`;
+      q.options.forEach((opt, j) => {
+        content += `<div class="option" onclick="selectOption(${i},${j})">
+          <strong>(${String.fromCharCode(97+j)})</strong> ${opt}
+        </div>`;
+      });
+    } else if (q.type === "fill") {
+      content += `<input type="text" class="fill-blank" placeholder="Type answer">`;
+      if (q.or) {
+        content += `<div class="or-text">OR</div><div>${q.or}</div>
+                    <input type="text" class="fill-blank" placeholder="Type answer">`;
+      }
+    } else if (q.type === "short") {
+      content += `<textarea rows="4" style="width:100%; padding:12px; font-size:1.1em; border:2px solid #ddd; border-radius:10px; margin-top:15px;"></textarea>`;
+    }
+
+    content += `<div class="answer-reveal" id="ans-${i}">
+      Correct Answer: <strong>${q.answer || q.orAnswer || "See explanation"}</strong>
+    </div>`;
+
+    slide.innerHTML = content;
+    slidesDiv.appendChild(slide);
+
+    // Dropdown
+    const opt = document.createElement("option");
+    opt.value = i;
+    opt.textContent = `Q${i+1}`;
+    select.appendChild(opt);
+  });
+
+  function showSlide(n) {
+    document.querySelectorAll(".slide").forEach((s, i) => {
+      s.classList.toggle("active", i === n);
+    });
+    currentSlide = n;
+    select.value = n;
+    updateButtons();
+  }
+
+  function updateButtons() {
+    document.getElementById("prevBtn").disabled = currentSlide === 0;
+    document.getElementById("nextBtn").disabled = currentSlide === quizData.length - 1;
+  }
+
+  window.selectOption = function(qIndex, optIndex) {
+    document.querySelectorAll(`#opts-${qIndex} .option`).forEach((el, i) => {
+      el.classList.remove("selected");
+      if (i === optIndex) el.classList.add("selected");
+    });
+  };
+
+  document.getElementById("prevBtn").onclick = () => showSlide(currentSlide - 1);
+  document.getElementById("nextBtn").onclick = () => showSlide(currentSlide + 1);
+  select.onchange = () => showSlide(parseInt(select.value));
+
+  document.getElementById("showAnswers").onclick = () => {
+    document.querySelectorAll(".answer-reveal").forEach(el => el.classList.add("show"));
+    document.querySelectorAll(".option").forEach((opt, i) => {
+      const qIndex = Math.floor(i / 4);
+      const optIndex = i % 4;
+      const q = quizData[qIndex];
+      if (q.type === "mcq" && optIndex === q.correct) {
+        opt.classList.add("correct");
+      } else if (opt.classList.contains("selected") && optIndex !== q.correct) {
+        opt.classList.add("incorrect");
+      }
+    });
+    document.getElementById("showAnswers").textContent = "Answers Shown!";
+    document.getElementById("showAnswers").disabled = true;
+  };
+
+  updateButtons();
+</script>
+</body>
+</html>
