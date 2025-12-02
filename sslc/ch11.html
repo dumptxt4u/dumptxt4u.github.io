@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 11 Geometry and Algebra</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card {
+      width: 95vw;
+      max-width: 1300px;
+      height: 95vh;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.12);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide {
+      flex: 1;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr auto;
+      gap: 2.5rem;
+      grid-template-areas:
+        "title title"
+        "content image"
+        "footer footer";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .slide.active { opacity: 1; z-index: 10; }
+
+    .title {
+      grid-area: title;
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      color: #1e40af;
+    }
+    .content {
+      grid-area: content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 1.7rem;
+      line-height: 1.7;
+    }
+    .question {
+      background: #eff6ff;
+      padding: 2rem;
+      border-radius: 16px;
+      border-left: 7px solid #3b82f6;
+      margin-bottom: 1.8rem;
+    }
+    .hint {
+      font-size: 1.35rem;
+      color: #475569;
+      background: #f8fafc;
+      padding: 1.2rem 1.6rem;
+      border-radius: 12px;
+      font-style: italic;
+    }
+    .image {
+      grid-area: image;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .image img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 14px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    .caption {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #64748b;
+      text-align: center;
+    }
+    .footer {
+      grid-area: footer;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 1rem;
+      color: #64748b;
+      border-top: 1px solid #e2e8f0;
+    }
+    .slide-no {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .nav {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e40af;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      box-shadow: 0 12px 30px rgba(30,64,175,0.4);
+      z-index: 100;
+      font-size: 1.2rem;
+    }
+    .nav button {
+      background:none; border:none; color:white; font-size:2rem; margin:0 1.2rem; cursor:pointer;
+    }
+    .counter { margin:0 1.5rem; font-weight:bold; }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card"></div>
+
+  <div class="nav">
+    <button id="prev">Previous</button>
+    <span class="counter" id="counter">1 / 5</span>
+    <button id="next">Next</button>
+  </div>
+
+<script>
+// ==================== DATA WITH figure_url (always present) ====================
+const questions = [
+  { slide:1, question:"(1) Three vertices of a parallelogram are A(2,3), B(7,5), and C(9,10). Find the coordinates of the fourth vertex D.", figure_url:"ch11img/ch11q1.png", hint:"" },
+  { slide:2, question:"(2)The sides of the larger triangle in the picture are parallel to the sides of the smaller triangle.Calculate the coordinates of the vertices of the large triangle.",figure_url: "ch11img/ch11q2.png", hint:"" },
+  { slide:3, question:"(3)The adjacent sides of a parallelogram are the lines joining the origin to the pointswith coordinates (x1, y1) and (x2, y2). What are the coordinates of the fourthvertex?",figure_url: "ch11img/ch11q3.png", hint:"" },
+  { slide:4, question:"(4)In the picture, the coordinates of the four vertices of a parallelogram are marked: Prove that the coordinates are connected by the relations below: x1 + x3 = x2 + x4 y1 + y3 = y2 + y4", figure_url:"ch11img/ch11q4.png", hint:"" },
+ ];
+
+const card = document.getElementById('card');
+let current = 0;
+
+// Generate slides
+questions.forEach((q, i) => {
+  const slide = document.createElement('div');
+  slide.className = 'slide';
+  if (i === 0) slide.classList.add('active');
+
+  // Build image block only if figure_url exists
+  const imageHTML = q.figure_url 
+    ? `<div class="image">
+         <img src="${q.figure_url}" alt="Diagram for question ${q.slide}">
+
+       </div>`
+    : '<div class="image"><p style="color:#94a3b8;">No diagram provided</p></div>';
+
+  slide.innerHTML = `
+    <div class="slide-no">Slide ${q.slide}</div>
+    <div class="title">Chapter 11 -Geometry and Algebra</div>
+    
+    <div class="content">
+      <div class="question">${q.question}</div>
+      <!--div class="hint">Hint: ${q.hint}</div-->
+    </div>
+    
+    ${imageHTML}
+    
+    <div class="footer">
+      Coordinate Geometry • Use ← → or Space to navigate
+    </div>
+  `;
+  card.appendChild(slide);
+});
+
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('counter');
+
+function show(n) {
+  slides.forEach(s => s.classList.remove('active'));
+  slides[n].classList.add('active');
+  counter.textContent = `${n + 1} / ${slides.length}`;
+}
+
+// Navigation
+document.getElementById('next').onclick = () => {
+  current = (current + 1) % slides.length;
+  show(current);
+};
+document.getElementById('prev').onclick = () => {
+  current = (current - 1 + slides.length) % slides.length;
+  show(current);
+};
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') {
+    document.getElementById('next').click();
+  } else if (e.key === 'ArrowLeft') {
+    document.getElementById('prev').click();
+  }
+});
+
+show(0);
+</script>
+
+</body>
+</html>
