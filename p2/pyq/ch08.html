@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration Questions Slideshow</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .slideshow-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .question-card {
+            display: none;
+            padding: 2.5rem;
+            min-height: 70vh;
+        }
+        .question-card.active {
+            display: block;
+        }
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #5c6bc0;
+        }
+        .q-id {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #5c6bc0;
+        }
+        .q-marks {
+            background: #e8eaf6;
+            color: #5c6bc0;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+        .option-item {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .option-item:hover {
+            background: #e3f2fd;
+            border-color: #5c6bc0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(92, 107, 192, 0.15);
+        }
+        .nav-btn {
+            position: absolute;
+            top: 90%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            color: #5c6bc0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .nav-btn:hover {
+            background: #5c6bc0;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+
+        .status {
+            text-align: center;
+            padding: 1rem;
+            background: #5c6bc0;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Better MathML rendering */
+        math {
+            font-size: 1.1em !important;
+        }
+
+        @media (max-width: 768px) {
+            .question-card { padding: 1.5rem; min-height: 60vh; }
+            .q-id { font-size: 1.5rem; }
+            .nav-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            .prev-btn { left: 10px; }
+            .next-btn { right: 10px; }
+        }
+        @media (max-width: 576px) {
+            .q-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            .nav-btn {
+                bottom: 20px;
+                top: auto;
+                transform: none;
+            }
+            .prev-btn { left: 15px; }
+            .next-btn { right: 15px; }
+        }
+        
+        .q-card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    margin: 12px 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.q-text {
+    font-size: 1.1rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+}
+
+/* Force MathML to wrap (most important) */
+.q-card math,
+.q-card mrow,
+.q-card mfrac,
+.q-card msup,
+.q-card msub,
+.q-card msubsup,
+.q-card mi,
+.q-card mn,
+.q-card mo,
+.q-card mtext {
+    white-space: normal !important;
+    display: inline !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="slideshow-container position-relative">
+    <div id="question-cards-container"></div>
+
+    <button class="nav-btn prev-btn" onclick="plusSlides(-1)">‹</button>
+    <button class="nav-btn next-btn" onclick="plusSlides(1)">›</button>
+
+    <div class="status" id="status">
+        Question <span id="slide-number">1</span> of <span id="total-questions"></span>
+    </div>
+</div>
+
+<!-- Bootstrap JS (for any future components) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* -----------------------------
+    LOAD QUESTIONS INTO DOM
+------------------------------ */
+const questions = [ 
+
+  {
+    "id": "Q1",
+    "type": "MCQ",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>The</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>shaded</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>curves</mi><mo>&#xA0;</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mi>x</mi><mo>,</mo><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mn>4</mn><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>x</mi><mo>-</mo><mi>axis</mi><mo>&#xA0;</mo><mi>is</mi><mo>&#xA0;</mo><mi>given</mi><mo>&#xA0;</mo><mi>by</mi></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><munderover><mo>&#x222B;</mo><mn>0</mn><mn>4</mn></munderover><mi>x</mi><mo>&#xA0;</mo><mi mathvariant='normal'>d</mi><mi>x</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><munderover><mo>&#x222B;</mo><mn>0</mn><mn>2</mn></munderover><msup><mi>y</mi><mn>2</mn></msup><mo>&#xA0;</mo><mi mathvariant='normal'>d</mi><mi>y</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mn>2</mn><munderover><mo>&#x222B;</mo><mn>0</mn><mn>4</mn></munderover><msqrt><mi>x</mi></msqrt><mo>&#xA0;</mo><mi mathvariant='normal'>d</mi><mi>x</mi></math>",
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><munderover><mo>&#x222B;</mo><mn>0</mn><mn>4</mn></munderover><msqrt><mi>x</mi></msqrt><mo>&#xA0;</mo><mi mathvariant='normal'>d</mi><mi>x</mi></math>"
+    ],
+    "correct_option":
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><munderover><mo>&#x222B;</mo><mn>0</mn><mn>4</mn></munderover><msqrt><mi>x</mi></msqrt><mo>&#xA0;</mo><mi mathvariant='normal'>d</mi><mi>x</mi></math>",
+    "marks": 1
+  },
+
+  {
+    "id": "Q2",
+    "type": "Problem",
+    "text":
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Sketch</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>graph</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mo>|</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo>|</mo><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>enclosed</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>curve</mi><mo>,</mo><mo>&#xA0;</mo><mi>x</mi><mo>-</mo><mi>axis</mi><mo>,</mo><mo>&#xA0;</mo><mi>between</mi><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mo>-</mo><mn>6</mn><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mn>0</mn><mo>,</mo><mo>&#xA0;</mo><mi>using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>.</mo></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Area</mi><mo>=</mo><mn>9</mn><mo>&#xA0;</mo><mi>sq</mi><mo>.</mo><mo>&#xA0;</mo><mi>units</mi></math>"
+    ],
+    "marks": 3
+  },
+
+  {
+    "id": "Q3",
+    "type": "Problem",
+    "text":
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>ellipse</mi><mo>&#xA0;</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>16</mn></mfrac><mo>+</mo><mfrac><msup><mi>y</mi><mn>2</mn></msup><mn>4</mn></mfrac><mo>=</mo><mn>1</mn><mo>,</mo><mo>&#xA0;</mo><mi>included</mi><mo>&#xA0;</mo><mi>between</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>lines</mi><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mo>-</mo><mn>2</mn><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mn>2</mn><mo>.</mo></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Area</mi><mo>=</mo><mo>(</mo><mn>4</mn><msqrt><mn>3</mn></msqrt><mo>+</mo><mfrac><mrow><mn>8</mn><mi>&#x3C0;</mi></mrow><mn>3</mn></mfrac><mo>)</mo><mo>&#xA0;</mo><mi>sq</mi><mo>.</mo><mo>&#xA0;</mo><mi>units</mi></math>"
+    ],
+    "marks": 4
+  },
+
+  {
+    "id": "Q4",
+    "type": "Problem",
+    "text":
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Sketch</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>lines</mi><mo>&#xA0;</mo><mn>2</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mn>8</mn><mo>,</mo><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mn>2</mn><mo>,</mo><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mn>4</mn><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>y</mi><mo>-</mo><mi>axis</mi><mo>.</mo><mo>&#xA0;</mo><mi>Hence</mi><mo>,</mo><mo>&#xA0;</mo><mi>obtain</mi><mo>&#xA0;</mo><mi>its</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>.</mo></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Area</mi><mo>=</mo><mn>7</mn><mo>&#xA0;</mo><mi>sq</mi><mo>.</mo><mo>&#xA0;</mo><mi>units</mi></math>"
+    ],
+    "marks": 2
+  },
+
+  {
+    "id": "Q5",
+    "type": "Problem",
+    "text":
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>curve</mi><mo>&#xA0;</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>4</mn><mi>x</mi><mo>,</mo><mo>&#xA0;</mo><mi>y</mi><mo>-</mo><mi>axis</mi><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mn>3</mn><mo>.</mo></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Area</mi><mo>=</mo><mfrac><mn>9</mn><mn>4</mn></mfrac><mo>&#xA0;</mo><mi>sq</mi><mo>.</mo><mo>&#xA0;</mo><mi>units</mi></math>"
+    ],
+    "marks": 2
+  },
+
+  {
+    "id": "Q6",
+    "type": "Problem",
+    "text":
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mn>2</mn><mi>y</mi><mo>=</mo><mo>-</mo><mi>x</mi><mo>+</mo><mn>8</mn><mo>,</mo><mo>&#xA0;</mo><mi>x</mi><mo>-</mo><mi>axis</mi><mo>,</mo><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mn>2</mn><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mn>4</mn><mo>.</mo></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Area</mi><mo>=</mo><mn>3</mn><mo>&#xA0;</mo><mi>sq</mi><mo>.</mo><mo>&#xA0;</mo><mi>units</mi></math>"
+    ],
+    "marks": 2
+  },
+
+  {
+    "id": "Q7",
+    "type": "Problem",
+    "text":
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>following</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>.</mo><mo>&#xA0;</mo><mo>{</mo><mo>(</mo><mi>x</mi><mo>,</mo><mo>&#xA0;</mo><mi>y</mi><mo>)</mo><mo>:</mo><msup><mi>y</mi><mn>2</mn></msup><mo>&#x2264;</mo><mn>2</mn><mi>x</mi><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>y</mi><mo>&#x2265;</mo><mi>x</mi><mo>-</mo><mn>4</mn><mo>}</mo></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Area</mi><mo>=</mo><mn>18</mn><mo>&#xA0;</mo><mi>sq</mi><mo>.</mo><mo>&#xA0;</mo><mi>units</mi></math>"
+    ],
+    "marks": 3
+  },
+
+  {
+    "id": "Q8",
+    "type": "Problem",
+    "text":
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mi>m</mi><mi>x</mi><mo>(</mo><mi>m</mi><mo>&#x3E;</mo><mn>0</mn><mo>)</mo><mo>,</mo><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mn>1</mn><mo>,</mo><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mn>2</mn><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>x</mi><mo>-</mo><mi>axis</mi><mo>.</mo></math>",
+    "options": [
+      "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Area</mi><mo>=</mo><mfrac><mrow><mn>3</mn><mi>m</mi></mrow><mn>2</mn></mfrac><mo>&#xA0;</mo><mi>sq</mi><mo>.</mo><mo>&#xA0;</mo><mi>units</mi></math>"
+    ],
+    "marks": 2
+  }
+
+
+
+
+
+
+
+
+
+
+,
+  {
+    "id": "Q9",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>If</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>curve</mi><mo>&#xA0;</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>4</mn><mi>a</mi><mi>x</mi><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mn>4</mn><mi>a</mi><mo>&#xA0;</mo><mi>is</mi><mo>&#xA0;</mo><mfrac><mn>256</mn><mn>3</mn></mfrac><mo>&#xA0;</mo><mi>sq</mi><mo>.</mo><mo>&#xA0;</mo><mi>units</mi><mo>,</mo><mo>&#xA0;</mo><mi>then</mi><mo>&#xA0;</mo><mi>using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>value</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>a</mi><mo>,</mo><mo>&#xA0;</mo><mi>where</mi><mo>&#xA0;</mo><mi>a</mi><mo>&#x3E;</mo><mn>0</mn><mo>.</mo></math>",
+    "options": [
+     ""
+    ],
+    "marks": 4
+  },
+  {
+    "id": "Q10",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>curve</mi><mo>&#xA0;</mo><mn>4</mn><msup><mi>x</mi><mn>2</mn></msup><mo>=</mo><mi>y</mi><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mn>8</mn><mi>x</mi><mo>+</mo><mn>12</mn><mo>,</mo><mo>&#xA0;</mo><mi>using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>.</mo></math>",
+    "options": [
+     ""
+    ],
+    "marks": 4
+  },
+  {
+    "id": "Q11",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>curves</mi><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mo>|</mo><mi>x</mi><mo>-</mo><mn>1</mn><mo>|</mo><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mn>1</mn><mo>,</mo><mo>&#xA0;</mo><mi>using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>.</mo></math>",
+    "options": [
+      ""
+    ],
+    "marks": 4
+  },
+  {
+    "id": "Q12",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>circle</mi><mo>&#xA0;</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>16</mn><mo>,</mo><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mi>x</mi><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>y</mi><mo>-</mo><mi>axis</mi><mo>,</mo><mo>&#xA0;</mo><mi>but</mi><mo>&#xA0;</mo><mi>lying</mi><mo>&#xA0;</mo><mi>in</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><msup><mn>1</mn><mrow><mi>s</mi><mi>t</mi></mrow></msup><mo>&#xA0;</mo><mi>quadrant</mi><mo>.</mo></math>",
+    "options": [
+     ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q13",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>following</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>:</mo><mo>&#xA0;</mo><mo>{</mo><mo>(</mo><mi>x</mi><mo>,</mo><mo>&#xA0;</mo><mi>y</mi><mo>)</mo><mo>:</mo><mi>y</mi><mo>&#x3C;</mo><mo>|</mo><mi>x</mi><mo>|</mo><mo>+</mo><mn>2</mn><mo>,</mo><mo>&#xA0;</mo><mi>y</mi><mo>&#x3E;</mo><msup><mi>x</mi><mn>2</mn></msup><mo>}</mo></math>",
+    "options": [
+     ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q14",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>a</mi><mo>&#xA0;</mo><mi>triangle</mi><mo>&#xA0;</mo><mi>whose</mi><mo>&#xA0;</mo><mi>vertices</mi><mo>&#xA0;</mo><mi>are</mi><mo>&#xA0;</mo><mo>(</mo><mn>1</mn><mo>,</mo><mo>&#xA0;</mo><mn>0</mn><mo>)</mo><mo>,</mo><mo>&#xA0;</mo><mo>(</mo><mn>2</mn><mo>,</mo><mo>&#xA0;</mo><mn>2</mn><mo>)</mo><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mo>(</mo><mn>3</mn><mo>,</mo><mo>&#xA0;</mo><mn>1</mn><mo>)</mo><mo>.</mo></math>",
+    "options": [
+      ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q15",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>smaller</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>enclosed</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>circle</mi><mo>&#xA0;</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>4</mn><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo>=</mo><mn>2</mn><mo>.</mo></math>",
+    "options": [
+     ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q16",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>in</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>first</mi><mo>&#xA0;</mo><mi>quadrant</mi><mo>&#xA0;</mo><mi>enclosed</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>x</mi><mo>-</mo><mi>axis</mi><mo>,</mo><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mi>x</mi><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>circle</mi><mo>&#xA0;</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>32</mn><mo>.</mo></math>",
+    "options": [
+    ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q17",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>If</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>between</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>curves</mi><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><msup><mi>y</mi><mn>2</mn></msup><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mn>4</mn><mo>&#xA0;</mo><mi>is</mi><mo>&#xA0;</mo><mi>divided</mi><mo>&#xA0;</mo><mi>into</mi><mo>&#xA0;</mo><mi>two</mi><mo>&#xA0;</mo><mi>equal</mi><mo>&#xA0;</mo><mi>parts</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mi>a</mi><mo>,</mo><mo>&#xA0;</mo><mi>then</mi><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>value</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>a</mi><mo>&#xA0;</mo><mi>using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>.</mo></math>",
+    "options": [
+     ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q18",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>method</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>lines</mi><mo>&#xA0;</mo><mn>3</mn><mi>x</mi><mo>-</mo><mn>2</mn><mi>y</mi><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn><mo>,</mo><mo>&#xA0;</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn><mi>y</mi><mo>-</mo><mn>21</mn><mo>=</mo><mn>0</mn><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>x</mi><mo>-</mo><mn>5</mn><mi>y</mi><mo>+</mo><mn>9</mn><mo>=</mo><mn>0</mn><mo>.</mo></math>",
+    "options": [
+     ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q19",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>circle</mi><mo>&#xA0;</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>16</mn><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><msqrt><mn>3</mn></msqrt><mi>y</mi><mo>=</mo><mi>x</mi><mo>&#xA0;</mo><mi>in</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>first</mi><mo>&#xA0;</mo><mi>quadrant</mi><mo>,</mo><mo>&#xA0;</mo><mi>using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>.</mo></math>",
+    "options": [
+     ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q20",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>enclosed</mi><mo>&#xA0;</mo><mi>between</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>parabola</mi><mo>&#xA0;</mo><mn>4</mn><mi>y</mi><mo>=</mo><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>straight</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mn>3</mn><mi>x</mi><mo>-</mo><mn>2</mn><mi>y</mi><mo>+</mo><mn>12</mn><mo>=</mo><mn>0</mn><mo>.</mo></math>",
+    "options": [
+    ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q21",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mi>x</mi><mo>-</mo><mi>y</mi><mo>+</mo><mn>2</mn><mo>=</mo><mn>0</mn><mo>,</mo><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>curve</mi><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><msqrt><mi>y</mi></msqrt><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>y</mi><mo>-</mo><mi>axis</mi><mo>.</mo></math>",
+    "options": [
+     ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q22",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>in</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>first</mi><mo>&#xA0;</mo><mi>quadrant</mi><mo>&#xA0;</mo><mi>enclosed</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>y</mi><mo>-</mo><mi>axis</mi><mo>,</mo><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mi>x</mi><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>circle</mi><mo>&#xA0;</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>32</mn><mo>,</mo><mo>&#xA0;</mo><mi>using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>.</mo></math>",
+    "options": [
+    ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q23",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>smaller</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>ellipse</mi><mo>&#xA0;</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>9</mn></mfrac><mo>+</mo><mfrac><msup><mi>y</mi><mn>2</mn></msup><mn>4</mn></mfrac><mo>=</mo><mn>1</mn><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mfrac><mi>x</mi><mn>3</mn></mfrac><mo>+</mo><mfrac><mi>y</mi><mn>2</mn></mfrac><mo>=</mo><mn>1</mn><mo>.</mo></math>",
+    "options": [
+     ""   ],
+    "marks": 6
+  },
+  {
+    "id": "Q24",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>curves</mi><mo>&#xA0;</mo><mo>:</mo><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mo>|</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo>|</mo><mo>+</mo><mn>1</mn><mo>,</mo><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mo>-</mo><mn>3</mn><mo>,</mo><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mn>3</mn><mo>,</mo><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mn>0</mn><mo>.</mo></math>",
+    "options": [
+     ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q25",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>bounded</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>curve</mi><mo>&#xA0;</mo><msup><mi>x</mi><mn>2</mn></msup><mo>=</mo><mn>4</mn><mi>y</mi><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mi>x</mi><mo>=</mo><mn>4</mn><mi>y</mi><mo>-</mo><mn>2</mn><mo>.</mo></math>",
+    "options": [
+    ""
+    ],
+    "marks": 6
+  },
+  {
+    "id": "Q26",
+    "type": "Problem",
+    "text": "<math xmlns='http://www.w3.org/1998/Math/MathML'><mi>Using</mi><mo>&#xA0;</mo><mi>integration</mi><mo>,</mo><mo>&#xA0;</mo><mi>find</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>area</mi><mo>&#xA0;</mo><mi>of</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>region</mi><mo>&#xA0;</mo><mi>in</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>first</mi><mo>&#xA0;</mo><mi>quadrant</mi><mo>&#xA0;</mo><mi>enclosed</mi><mo>&#xA0;</mo><mi>by</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>x</mi><mo>-</mo><mi>axis</mi><mo>,</mo><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>line</mi><mo>&#xA0;</mo><mi>y</mi><mo>=</mo><mi>x</mi><mo>&#xA0;</mo><mi>and</mi><mo>&#xA0;</mo><mi>the</mi><mo>&#xA0;</mo><mi>circle</mi><mo>&#xA0;</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>18</mn><mo>.</mo></math>",
+    "options": [
+     ""
+    ],
+    "marks": 6
+  }
+
+
+
+];
+
+let slideIndex = 1;
+
+function renderQuestions() {
+    let html = "";
+    questions.forEach((q, index) => {
+        let optionsHtml = "";
+        if (q.options && q.options.length > 0) {
+            q.options.forEach(opt => {
+                optionsHtml += `<div class="option-item">${opt}</div>`;
+            });
+        }
+        html += `
+            <div class="question-card ${index === 0 ? 'active' : ''}">
+                <div class="q-header">
+                    <div class="q-id">${q.id}</div>
+                    <div class="q-marks">${q.marks} Mark${q.marks > 1 ? 's' : ''}</div>
+                </div>
+                <div class="q-text">${q.text}</div>
+                <div class="options-container">${optionsHtml}</div>
+            </div>
+        `;
+    });
+    document.getElementById("question-cards-container").innerHTML = html;
+    document.getElementById("total-questions").textContent = questions.length;
+    updateStatus();
+}
+
+function plusSlides(n) {
+    showSlide(slideIndex += n);
+}
+
+function showSlide(n) {
+    const slides = document.querySelectorAll(".question-card");
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
+
+    slides.forEach(s => s.classList.remove("active"));
+    slides[slideIndex - 1].classList.add("active");
+    updateStatus();
+}
+
+function updateStatus() {
+    document.getElementById("slide-number").textContent = slideIndex;
+}
+
+// Keyboard navigation
+document.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight" || e.key === " ") plusSlides(1);
+    if (e.key === "ArrowLeft") plusSlides(-1);
+});
+
+// Touch swipe support
+let touchStartX = 0;
+document.addEventListener("touchstart", e => touchStartX = e.touches[0].clientX);
+document.addEventListener("touchend", e => {
+    const touchEndX = e.changedTouches[0].clientX;
+    if (touchStartX - touchEndX > 50) plusSlides(1);
+    if (touchEndX - touchStartX > 50) plusSlides(-1);
+});
+
+renderQuestions();
+showSlide(slideIndex);
+</script>
+
+</body>
+</html>
