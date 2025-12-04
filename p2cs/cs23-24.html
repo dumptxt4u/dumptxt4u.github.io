@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Python Stack Operations - Dynamic Render</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .qid {
+      background: #e74c3c;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .content {
+      padding: 40px;
+    }
+    .passage {
+      background: #f8f9fa;
+      border-left: 6px solid #3498db;
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+    .sub-question {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .sub-question:hover {
+      transform: translateY(-5px);
+    }
+    .sub-id {
+      display: inline-block;
+      background: #3498db;
+      color: white;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-right: 15px;
+    }
+    .example-box {
+      background: #e8f5e9;
+      border: 2px dashed #27ae60;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 15px;
+      font-family: 'Courier New', monospace;
+    }
+    .output {
+      background: #2c3e50;
+      color: #f1c40f;
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #34495e;
+      color: #bdc3c7;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Python Stack Operations on Student Data</h1>
+    <div class="qid">Q_PROG</div>
+  </header>
+
+  <div class="content" id="question-content">
+    <!-- Content will be injected here by JavaScript -->
+  </div>
+
+  <footer>
+    Programming Practice • Stack • Dictionary • Python Functions
+  </footer>
+</div>
+
+<script>
+// Your JSON data (the one you provided)
+const questions = [
+  {
+    "id": "Q_PROG",
+    "year": "2025",
+    "type": "Programming Task",
+    "heading": "Python Stack Operations on Student Data",
+    "passage": "Given a Dictionary <strong>Stu_dict</strong> containing marks of students for three test-series in the form <strong>Stu ID:(TS1, TS2, TS3)</strong> as key-value pairs. Write a Python program with the following user-defined functions to perform the specified operations on a stack named <strong>Stu_Stk</strong>.",
+    "sub_questions": [
+      {
+        "sub_id": "(i)",
+        "text": "Define <code>Push_elements(Stu_Stk, Stu_dict)</code>: It allows pushing IDs of those students from the dictionary who have scored <strong>≥ 80 marks</strong> in <strong>TS3</strong> into the stack."
+      },
+      {
+        "sub_id": "(ii)",
+        "text": "Define <code>Pop_elements(Stu_Stk)</code>: Removes and prints all elements in <strong>LIFO</strong> order. Displays <em>'Stack Empty'</em> when stack is empty."
+      },
+      {
+        "sub_id": "(iii)",
+        "text": `<strong>Example:</strong><br>
+<pre>Stu_dict = {
+    5:  (87, 68, 89),
+    10: (57, 54, 61),
+    12: (71, 67, 90),
+    14: (66, 81, 80),
+    18: (80, 48, 91)
+}</pre>
+<strong>After Push_elements():</strong> Stack → [5, 12, 14, 18]<br>
+<strong>After Pop_elements():</strong><br>
+<div class="output">18<br>14<br>12<br>5<br>Stack Empty</div>`
+      }
+    ]
+  }
+];
+
+// JavaScript function to render the question beautifully
+function renderQuestion() {
+  const container = document.getElementById('question-content');
+  const q = questions[0]; // since it's a single question
+
+  let html = `
+      <div class="passage">${q.year}</div>
+    <div class="passage">${q.passage}</div>
+  `;
+
+  q.sub_questions.forEach((sq, index) => {
+    html += `
+      <div class="sub-question">
+        <span class="sub-id">${sq.sub_id}</span>
+        <div style="display:inline-block; width: calc(100% - 60px); vertical-align: top;">
+          ${sq.text}
+          ${index === 2 ? '<div class="example-box">' + sq.text.split('<strong>')[1] + '</div>' : ''}
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+// Run when page loads
+window.onload = renderQuestion;
+</script>
+
+</body>
+</html>
