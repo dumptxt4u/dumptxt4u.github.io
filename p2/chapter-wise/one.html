@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Questions Slideshow (Compact & Readable)</title>
+    <!-- Reveal.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/theme/black.min.css">
+    <!-- jsPDF + html2canvas for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        .reveal {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+        }
+        .reveal section {
+            text-align: left;
+            padding: 40px 80px;
+            box-sizing: border-box;
+        }
+        .slide-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .question-number {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #1a5fb4;
+        }
+        .question {
+            font-size: 1.8em;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        .question p {
+            margin: 0.8em 0;
+        }
+        /* Force question to fit in 1–2 lines where possible */
+        .question .main-func {
+            display: block;
+            font-size: 1.3em;
+            margin: 20px 0;
+        }
+        .question math {
+            font-size: 1.4em;
+        }
+        .answer {
+            display: none;
+            font-size: 1.6em;
+            line-height: 1.7;
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 8px solid #1a5fb4;
+            border-radius: 8px;
+        }
+        .answer p {
+            margin: 1.2em 0;
+        }
+        .answer math {
+            font-size: 1.3em;
+        }
+        .toggle-btn {
+            margin-top: 30px;
+            padding: 14px 32px;
+            font-size: 1.3em;
+            background: #1a5fb4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .toggle-btn:hover {
+            background: #0d47a1;
+        }
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.85);
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            z-index: 100;
+        }
+        .controls select,
+        .controls button {
+            margin: 8px 0;
+            padding: 10px;
+            width: 100%;
+            font-size: 1em;
+        }
+        .controls button {
+            background: #1a5fb4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides" id="slides-container"></div>
+    </div>
+
+    <div class="controls">
+        <select id="slideSelector"></select>
+        <button onclick="generatePDF()">Download PDF (with answers)</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.js"></script>
+    <script>
+        // Same 6 repeated questions
+        const baseQuestion = {
+            "question": {
+                "mathml": `<p>Consider the function</p>
+                           <div class="main-func"><math display="block"><mi>f</mi><mo>:</mo><mi>ℝ</mi><mo>→</mo><mi>ℝ</mi><mspace width="1em"/></math>
+                           <math display="block"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>3</mn></math></div>
+                           <p>Show that <math display="inline"><mi>f</mi></math> is invertible and find its inverse.</p>`
+            },
+            "answer": {
+                "mathml": `<p>The function is linear with slope 4 ≠ 0, hence strictly increasing and one-to-one.</p>
+                           <p>As <math display="inline"><munder><mi>lim</mi><mrow><mi>x</mi><mo>→</mo><mo>+</mo><mi>∞</mi></mrow></munder><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mo>+</mo><mi>∞</mi></math> and 
+                              <math display="inline"><munder><mi>lim</mi><mrow><mi>x</mi><mo>→</mo><mo>-</mo><mi>∞</mi></mrow></munder><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mo>-</mo><mi>∞</mi></math>, 
+                              the range is <math display="inline"><mi>ℝ</mi></math>. Thus <math display="inline"><mi>f</mi></math> is bijective.</p>
+                           <p>Set <math display="block"><mi>y</mi><mo>=</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>3</mn></math>:</p>
+                           <math display="block"><mi>y</mi><mo>-</mo><mn>3</mn><mo>=</mo><mn>4</mn><mi>x</mi><mo>⟹</mo><mi>x</mi><mo>=</mo><mfrac><mrow><mi>y</mi><mo>-</mo><mn>3</mn></mrow><mn>4</mn></mfrac></math>
+                           <p>Therefore,</p>
+                           <math display="block"><msup><mi>f</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mi>x</mi><mo>-</mo><mn>3</mn></mrow><mn>4</mn></mfrac></math>`
+                }
+            
+        };
+
+        const questionsData = [];
+        for (let i = 0; i < 6; i++) {
+            questionsData.push(JSON.parse(JSON.stringify(baseQuestion))); // deep copy
+        }
+
+        // Generate slides
+        const slidesContainer = document.getElementById('slides-container');
+        questionsData.forEach((item, index) => {
+            const section = document.createElement('section');
+            section.innerHTML = `
+                <div class="slide-container">
+                    <div class="question-number">Question ${index + 1}</div>
+                    <div class="question">
+                        ${item.question.mathml}
+                    </div>
+                    <div class="answer">
+                        ${item.answer.mathml}
+                    </div>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                </div>
+            `;
+            slidesContainer.appendChild(section);
+        });
+
+        // Initialize Reveal.js
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: false,
+            transition: 'fade',
+            width: '100%',
+            height: '100%',
+            margin: 0.05,
+            minScale: 1,
+            maxScale: 1
+        });
+
+        // Slide selector
+        const selector = document.getElementById('slideSelector');
+        questionsData.forEach((_, i) => {
+            const opt = document.createElement('option');
+            opt.value = i;
+            opt.text = `Question ${i + 1}`;
+            selector.appendChild(opt);
+        });
+        selector.addEventListener('change', () => Reveal.slide(parseInt(selector.value)));
+        Reveal.on('slidechanged', () => selector.value = Reveal.getIndices().h);
+
+        // Toggle answer
+        function toggleAnswer(btn) {
+            const answerDiv = btn.previousElementSibling;
+            if (answerDiv.style.display === 'block') {
+                answerDiv.style.display = 'none';
+                btn.textContent = 'Show Answer';
+            } else {
+                answerDiv.style.display = 'block';
+                btn.textContent = 'Hide Answer';
+            }
+        }
+
+        // PDF generation
+        async function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            let yPos = 20;
+
+            for (let i = 0; i < questionsData.length; i++) {
+                Reveal.slide(i);
+                await new Promise(r => setTimeout(r, 600));
+
+                const answerDiv = document.querySelector('.present .answer');
+                const btn = document.querySelector('.present .toggle-btn');
+                const wasHidden = answerDiv.style.display === 'none';
+                if (wasHidden) btn.click();
+
+                const canvas = await html2canvas(document.querySelector('.present'), {scale: 2});
+                const imgData = canvas.toDataURL('image/png');
+                const imgWidth = 190;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+                if (yPos + imgHeight > 280) {
+                    pdf.addPage();
+                    yPos = 20;
+                }
+                pdf.addImage(imgData, 'PNG', 10, yPos, imgWidth, imgHeight);
+                yPos += imgHeight + 10;
+
+                if (wasHidden) btn.click();
+            }
+            pdf.save('math-questions-compact.pdf');
+        }
+    </script>
+</body>
+</html>

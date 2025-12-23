@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Math Questions Slideshow (Full Width)</title>
+    <!-- Reveal.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/theme/solarized.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <!-- MathJax for reliable rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- jsPDF + html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body { background: #002b36; }
+        .reveal { font-family: 'Source Sans Pro', sans-serif; }
+        .reveal section { text-align: center; padding: 40px; }
+
+        /* Full-width container with 5% padding on all sides */
+        .slide-card {
+            width: 90%;               /* 100% minus 5% left + 5% right padding */
+            max-width: none;          /* Remove any max-width restriction */
+            margin: 40px auto;
+            padding: 5%;              /* 5% padding on all sides */
+            box-sizing: border-box;   /* Include padding in width calculation */
+            background: linear-gradient(135deg, #fdf6e3 0%, #eee8d5 100%);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at top left, rgba(131, 189, 193, 0.15), transparent 50%);
+            pointer-events: none;
+        }
+        .question-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #cb4b16;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .question {
+            font-size: 2.2em;
+            line-height: 1.5;
+            color: #073642;
+            margin-bottom: 40px;
+        }
+        .question .main-func {
+            display: block;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(203, 75, 22, 0.1);
+            border-radius: 16px;
+        }
+        .answer {
+            display: none;
+            font-size: 1.8em;
+            line-height: 1.8;
+            color: #073642;
+            background: rgba(131, 189, 193, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid #83bdcc;
+            margin: 40px 0;
+        }
+        .toggle-btn {
+            padding: 16px 40px;
+            font-size: 1.5em;
+            font-weight: 600;
+            background: linear-gradient(to right, #cb4b16, #dc322f);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(203, 75, 22, 0.4);
+            transition: all 0.3s ease;
+        }
+        .toggle-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(203, 75, 22, 0.5);
+        }
+        .controls {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(0, 43, 54, 0.9);
+            padding: 18px;
+            border-radius: 16px;
+            color: white;
+            z-index: 100;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .controls select,
+        .controls button {
+            margin: 10px 0;
+            padding: 12px;
+            width: 100%;
+            font-size: 1.1em;
+            border-radius: 8px;
+        }
+        .controls button {
+            background: #cb4b16;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides" id="slides-container"></div>
+    </div>
+
+    <div class="controls">
+        <select id="slideSelector"></select>
+        <button onclick="generatePDF()">Download PDF (with answers)</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.js"></script>
+    <script>
+        // LaTeX content rendered beautifully by MathJax
+        const baseQuestion = {
+            question: `
+                <p>Consider the function</p>
+                <div class="main-func">
+                    \\[ f: \\mathbb{R} \\to \\mathbb{R} \\]
+                    \\[ f(x) = 4x + 3 \\]
+                </div>
+                <p>Show that \\( f \\) is invertible and find its inverse.</p>
+            `,
+            answer: `
+                <p>The function is linear with slope 4 ≠ 0 → strictly increasing → one-to-one.</p>
+                <p>Limits at ±∞ confirm the range is all of \\( \\mathbb{R} \\) → bijective → invertible.</p>
+                <p>Solving \\( y = 4x + 3 \\):</p>
+                \\[ x = \\frac{y - 3}{4} \\]
+                <p style="margin-top: 30px; font-size: 1.2em; font-weight: bold;">
+                    Inverse: \\[ f^{-1}(x) = \\frac{x - 3}{4} \\]
+                </p>
+            `
+        };
+
+        const questionsData = [];
+        for (let i = 0; i < 6; i++) {
+            questionsData.push(baseQuestion);
+        }
+
+        const container = document.getElementById('slides-container');
+        questionsData.forEach((item, index) => {
+            const section = document.createElement('section');
+            section.innerHTML = `
+                <div class="slide-card">
+                    <div class="question-number">Question ${index + 1}</div>
+                    <div class="question">${item.question}</div>
+                    <div class="answer">${item.answer}</div>
+                    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                </div>
+            `;
+            container.appendChild(section);
+        });
+
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'convex',
+            backgroundTransition: 'fade',
+            width: '100%',
+            height: '100%',
+            margin: 0.05,
+            minScale: 1,
+            maxScale: 1
+        });
+
+        const selector = document.getElementById('slideSelector');
+        questionsData.forEach((_, i) => {
+            const opt = document.createElement('option');
+            opt.value = i;
+            opt.text = `Question ${i + 1}`;
+            selector.appendChild(opt);
+        });
+        selector.addEventListener('change', () => Reveal.slide(parseInt(selector.value)));
+        Reveal.on('slidechanged', () => selector.value = Reveal.getIndices().h);
+
+        function toggleAnswer(btn) {
+            const answer = btn.previousElementSibling;
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                btn.textContent = 'Show Answer';
+            } else {
+                answer.style.display = 'block';
+                btn.textContent = 'Hide Answer';
+            }
+        }
+
+        async function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            let yPos = 20;
+
+            for (let i = 0; i < questionsData.length; i++) {
+                Reveal.slide(i);
+                await new Promise(r => setTimeout(r, 800));
+
+                const answer = document.querySelector('.present .answer');
+                const btn = document.querySelector('.present .toggle-btn');
+                const wasHidden = answer.style.display === 'none';
+                if (wasHidden) btn.click();
+
+                const canvas = await html2canvas(document.querySelector('.present'), {scale: 2});
+                const imgData = canvas.toDataURL('image/png');
+                const imgWidth = 190;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+                if (yPos + imgHeight > 280) {
+                    pdf.addPage();
+                    yPos = 20;
+                }
+                pdf.addImage(imgData, 'PNG', 10, yPos, imgWidth, imgHeight);
+                yPos += imgHeight + 10;
+
+                if (wasHidden) btn.click();
+            }
+            pdf.save('beautiful-math-questions-fullwidth.pdf');
+        }
+    </script>
+</body>
+</html>

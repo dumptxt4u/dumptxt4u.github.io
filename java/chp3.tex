@@ -1,0 +1,600 @@
+
+\documentclass{article}
+\usepackage{enumitem}
+\newcommand{\answer}[1]{\paragraph{Ans:} #1}
+\newcommand{\explanation}[1]{#1}
+
+\begin{document}
+	
+	\title{Chapter 3: User Defined Methods - Multiple Choice Questions}
+	\maketitle
+	
+	\section{Section 1: General Methods}
+	
+	\begin{enumerate}
+		\item What is an advantage of using functions in programming?
+		\begin{enumerate}[label=(\alph*)]
+			\item Code repetition
+			\item Abstraction
+			\item Increased complexity
+			\item Slower debugging
+		\end{enumerate}
+		\answer{(b) Abstraction}
+		\explanation{Functions help abstract the complexity of code by encapsulating functionality into reusable blocks. This makes code more modular and maintainable.}
+		
+		\item What does the term ``function signature'' refer to?
+		\begin{enumerate}[label=(\alph*)]
+			\item The body of the function
+			\item The return type of the function
+			\item The combination of the functions name and parameter list
+			\item The access specifier of the function
+		\end{enumerate}
+		\answer{(c) The combination of the functions name and parameter list}
+		\explanation{A function signature uniquely identifies a function, typically including the name and parameter types, which are essential for distinguishing overloaded methods.}
+		
+		\item What is the correct syntax for creating an object in Java?
+		\begin{enumerate}[label=(\alph*)]
+			\item ClassName objectName = ClassName();
+			\item ObjectName = new ClassName();
+			\item ClassName objectName = new ClassName();
+			\item New ClassName objectName;
+		\end{enumerate}
+		\answer{(c) ClassName objectName = new ClassName()}
+		\explanation{This is the proper syntax for creating and initializing an object in Java using the new keyword.}
+		
+		\item Which of the following is an example of a non-member method?
+		\begin{enumerate}[label=(\alph*)]
+			\item Void display()
+			\item Static void checkSum()
+			\item Void sum()
+			\item Public void calculate()
+		\end{enumerate}
+		\answer{(b) Static void checkSum()}
+		\explanation{Static methods belong to the class rather than an instance of the class, making them non-member methods in the context of objects.}
+		
+		\item What type of function brings about a change in its arguments and is referred to as an impure function?
+		\begin{enumerate}[label=(\alph*)]
+			\item Pure function
+			\item Static function
+			\item Impure function
+			\item Reference function
+		\end{enumerate}
+		\answer{(c) Impure function}
+		\explanation{An impure function modifies its arguments or depends on external state, producing side effects.}
+		
+		\item In Java, how are objects passed to methods?
+		\begin{enumerate}[label=(\alph*)]
+			\item Call by Value
+			\item Call by Reference
+			\item Call by Name
+			\item Call by Assignment
+		\end{enumerate}
+		\answer{(b) Call by Reference}
+		\explanation{In Java, object references are passed by value, but since the reference points to the same object, changes to the object affect the original.}
+		
+		\item Which of the following is a valid function prototype?
+		\begin{enumerate}[label=(\alph*)]
+			\item Public void calculateSum()
+			\item Public calculateSum(int a, int b)
+			\item CalculateSum(int a, int b)
+			\item Public int calculateSum(int a, int b)
+		\end{enumerate}
+		\answer{(d) Public int calculateSum(int a, int b)}
+		\explanation{A function prototype must include the return type, method name, and parameter list.}
+		
+		\item Which of these statements is true for method overloading?
+		\begin{enumerate}[label=(\alph*)]
+			\item Methods with the same name and identical parameter lists can be overloaded.
+			\item Methods with the same name and different parameter lists are considered overloaded
+			\item Overloaded methods must return the same data type
+			\item Overloaded methods cannot have more than two parameters
+		\end{enumerate}
+		\answer{(b) Methods with the same name and different parameter lists are considered overloaded}
+		\explanation{Method overloading occurs when methods have the same name but different parameter types or counts.}
+		
+		\item Which method call in the following options refers to calling a member method?
+		\begin{enumerate}[label=(\alph*)]
+			\item ObjectName.sum()
+			\item CheckSum()
+			\item Main()
+			\item New ClassName();
+		\end{enumerate}
+		\answer{(a) ObjectName.sum()}
+		\explanation{objectName.sum() because it refers to calling a member method of a class using an object. In Java, member methods are instance-specific methods, and they must be accessed through an object of the class.}
+		
+		\item What is the general format for calling a function that does not return a value?
+		\begin{enumerate}[label=(\alph*)]
+			\item Return_type variableName = function_name(actual_parameters);
+			\item Function_name(actual_parameters);
+			\item Function_name;
+			\item Function_name[parameters];
+		\end{enumerate}
+		\answer{(b) Function_name(actual_parameters);}
+		\explanation{This is the correct way to call a function that does not return a value. The function is called using its name, followed by parentheses enclosing any required arguments.}
+		
+		\item Find the odd one out
+		\begin{enumerate}[label=(\alph*)]
+			\item Method overloading
+			\item Polymorphism
+			\item Abstraction
+			\item Multiple forms of same
+		\end{enumerate}
+		\answer{(c) Abstraction}
+		\explanation{While overloading, polymorphism, and “multiple forms of the same” are related to polymorphism, abstraction deals with hiding implementation details.}
+		
+		\item Built-in functions are also called:
+		\begin{enumerate}[label=(\alph*)]
+			\item Library methods
+			\item User-defined methods
+			\item Fixed methods
+			\item All of the above
+		\end{enumerate}
+		\answer{(a) Library methods}
+		\explanation{Built-in functions are predefined methods provided by programming languages or their standard libraries. These functions are part of the language's library, and they are designed to perform common tasks such as mathematical operations, string manipulations, input/output handling, etc.}
+		
+		\item How many return statements can a method have and how many of them should get executed for the program to run successfully?
+		\begin{enumerate}[label=(\alph*)]
+			\item 1, 1
+			\item Many, 1
+			\item 1, Many
+			\item Many, Many
+		\end{enumerate}
+		\answer{(b) Many, 1}
+		\explanation{A method can have multiple return statements, but only one is executed during a single call.}
+		
+		\item A method in which the method parameters can get modified is called a ______.
+		\begin{enumerate}[label=(\alph*)]
+			\item Pure method
+			\item Impure method
+			\item Virtual method
+			\item None of the above
+		\end{enumerate}
+		\answer{(b) Impure method}
+		\explanation{An impure method is a method where the parameters passed to it can be modified. This means that the method may have side effects, such as changing the state of the arguments (if they are objects or passed by reference) or modifying global variables.}
+		
+		\item A method prototype has which of the following components?
+		\begin{enumerate}[label=(\alph*)]
+			\item Name of method
+			\item Return type of method
+			\item List of formal parameters
+			\item All of the above
+		\end{enumerate}
+		\answer{(d) All of the above}
+		\explanation{A method prototype (also called a method declaration or signature in some contexts) defines the structure of a method without providing its implementation.}
+		
+		\item A method with no result or value to return has a return type as
+		\begin{enumerate}[label=(\alph*)]
+			\item Null
+			\item Void
+			\item No return type
+			\item Default
+		\end{enumerate}
+		\answer{(b) Void}
+		\explanation{In Java (and many other programming languages), when a method does not return any value, its return type is explicitly specified as void. The void keyword indicates that the method performs some actions but does not return a result to the caller.}
+		
+		\item When a reference is passed to a method as a parameter, which of the following statement is true?
+		\begin{enumerate}[label=(\alph*)]
+			\item The reference parameter creates a copy of the variable passed to it
+			\item Reference parameter refers to the same variable passed to it
+			\item The reference parameter value can get changed but passing variable value does not get changed
+			\item A reference can be of simple data type
+		\end{enumerate}
+		\answer{(b) Reference parameter refers to the same variable passed to it}
+		\explanation{When a reference is passed to a method as a parameter, the method receives a reference to the actual object, not a copy of it. This means that any changes made to the object using the reference in the method will directly affect the original object outside the method. This behavior occurs because the reference parameter points to the same memory location as the original variable.}
+		
+		\item An operator used to invoke methods or variables using class name
+		\begin{enumerate}[label=(\alph*)]
+			\item New
+			\item Dot
+			\item Relational
+			\item Arithmetic
+		\end{enumerate}
+		\answer{(b) Dot}
+		\explanation{The dot operator (.) is used in Java to access methods or variables of a class. When used with a class name, it allows accessing static methods or static variables of the class. Similarly, when used with an object, it enables accessing instance methods or instance variables.}
+		
+		\item What would be the prototype of the below method for implementing method overloading?
+		
+		int check(double x)
+		\begin{enumerate}[label=(\alph*)]
+			\item Double check(int x, double y)
+			\item Double check(double x)
+			\item Both (a) and (b)
+			\item Neither (a) nor (b)
+		\end{enumerate}
+		\answer{(a) Double check(int x, double y)}
+		\explanation{This has a different parameter list (two parameters instead of one), which makes it a valid overload. The return type (double) is irrelevant for overloading, but the parameters differ, so it satisfies the conditions for overloading.}
+		
+		\item The parameters that are used in the prototype of the method are called
+		\begin{enumerate}[label=(\alph*)]
+			\item Actual parameters
+			\item Formal parameters
+			\item Virtual parameters
+			\item Real parameters
+		\end{enumerate}
+		\answer{(b) Formal parameters}
+		\explanation{Formal parameters are the parameters listed in the method prototype or declaration. These are placeholders for the values that will be passed to the method when it is called. They are defined within the parentheses of the method signature and exist only within the scope of the method during its execution.}
+		
+		\item Which of the following java statement will compile successfully for defining a method to receive a list of 10 values?
+		\begin{enumerate}[label=(\alph*)]
+			\item Void test-method (int a[10])
+			\item Void test-method (int a[ ])
+			\item Void test-method (int a)0
+			\item Both (b) and (c)
+		\end{enumerate}
+		\answer{(d) Both (b) and (c)}
+		\explanation{In Java, when defining a method that takes an array as a parameter, the array size is not explicitly specified in the method declaration. Java does not allow specifying the size of an array in the parameter list because the size of the array is determined at runtime, not at compile time.}
+		
+		\item The number of values that a method can return is
+		\begin{enumerate}[label=(\alph*)]
+			\item 1
+			\item 2
+			\item 3
+			\item 4
+		\end{enumerate}
+		\answer{(a) 1}
+		\explanation{In Java, a method can directly return only one value. This is because the method's return type specifies the type of the single value it can return. When a return statement is executed, the method terminates and provides that single value back to the caller.}
+		
+		\item A student writes the following code to multiply a variable z by 5. He has written the following statement, which is incorrect:
+		
+		z * 5;
+		
+		What will be the correct statement?
+		
+		A. z *= 5;
+		
+		B. z = z * 5;
+		
+		C. z * 5;
+		\begin{enumerate}[label=(\alph*)]
+			\item Only A
+			\item Only B
+			\item Both A and B
+			\item All the three
+		\end{enumerate}
+		\answer{(c) Both A and B}
+		\explanation{The given statement z * 5; is incorrect because it performs a multiplication operation but does not store the result anywhere. In Java, such a statement has no effect since the result of the multiplication is not assigned back to the variable or used elsewhere.}
+		
+		\item A student writes the following code to divide a variable a by 4. He has written the following statement, which is incorrect:
+		
+		a = /4;
+		
+		What will be the correct statement?
+		
+		A. a /= 4;
+		
+		B. a = a / 4;
+		
+		C. a = /4;
+		\begin{enumerate}[label=(\alph*)]
+			\item Only A
+			\item Only B
+			\item Both A and B
+			\item All the three
+		\end{enumerate}
+		\answer{(c) Both A and B}
+		\explanation{The given statement a = /4; is incorrect because it is not valid syntax in Java. The / operator must be used between two operands, and the statement must assign the result to a variable correctly.}
+		
+		\item A student writes the following code to increment a variable n by 1. He has written the following statement, which is incorrect:
+		
+		n + 1;
+		
+		A. n++;
+		
+		B. n += 1;
+		
+		C. n = n + 1;
+		\begin{enumerate}[label=(\alph*)]
+			\item Only A
+			\item Only C
+			\item All A, B, and C
+			\item None of the above
+		\end{enumerate}
+		\answer{(c) All A, B, and C}
+		\explanation{The statement written by the student, n + 1;, is incorrect because it simply evaluates the expression n + 1 but does not assign the result back to the variable n. All three forms increment n by 1.}
+		
+		\item A student writes the following code to subtract 7 from a variable p.
+		
+		He has written the following statement, which is incorrect:
+		
+		p = 7-;
+		
+		What will be the correct statement?
+		
+		A. p -= 7;
+		
+		B. p = p - 7;
+		
+		C. p = -7;
+		\begin{enumerate}[label=(\alph*)]
+			\item Both A and B
+			\item Only B
+			\item Only C
+			\item None of the above
+		\end{enumerate}
+		\answer{(a) Both A and B}
+		\explanation{The given statement p = 7-; is incorrect because it is not valid syntax.}
+		
+	\end{enumerate}
+	
+	\section{Section 2: Constructors}
+	
+	\begin{enumerate}
+		\item A special method that initializes values to data members is called ______.
+		\begin{enumerate}[label=(\alph*)]
+			\item Constructor
+			\item Method
+			\item Function
+			\item All of the above
+		\end{enumerate}
+		\answer{(a) Constructor}
+		\explanation{A constructor is a special method in object-oriented programming used to initialize the values of data members when an object is created. It is automatically called when the object is instantiated.}
+		
+		\item Is the following statement true/false?
+		
+		Access specifiers can be used for defining constructors.
+		\begin{enumerate}[label=(\alph*)]
+			\item True
+			\item False
+			\item May be
+			\item May not be
+		\end{enumerate}
+		\answer{(a) True}
+		\explanation{Access specifiers (public, private, and protected) can indeed be used for defining constructors in object-oriented programming. The access specifier determines the level of accessibility of the constructor.}
+		
+		\item Which of the following is a return type of a constructor?
+		\begin{enumerate}[label=(\alph*)]
+			\item Void
+			\item Int
+			\item Null
+			\item None of the above
+		\end{enumerate}
+		\answer{(d) None of the above}
+		\explanation{A constructor does not have a return type, not even void. Constructors are special methods in object-oriented programming that are called automatically when an object is created. They initialize the object's properties but do not return any value.}
+		
+		\item If a constructor is declared as private, how many instances can be created for the class?
+		\begin{enumerate}[label=(\alph*)]
+			\item 1
+			\item 2
+			\item Many
+			\item 0
+		\end{enumerate}
+		\answer{(a) 1}
+		\explanation{A private constructor restricts object creation, typically allowing only one instance via a factory method or singleton pattern.}
+		
+		\item How would the compiler/interpreter behave if there is no constructor defined in the class?
+		\begin{enumerate}[label=(\alph*)]
+			\item No error. Default values will be initialized to members
+			\item Error
+			\item Impossible
+			\item Program hangs
+		\end{enumerate}
+		\answer{(a) No error. Default values will be initialized to members}
+		\explanation{Java always provides a default constructor if no constructor is defined. Primitive types are initialized to their default values (0 for numeric types, false for boolean, null for references).}
+		
+		\item State the output of the below code:
+		
+		class Abc { int a; String c; public static void main() { Abc ob = new Abc(); System.out.print(ob.a + `` '' + ob.c); } }
+		\begin{enumerate}[label=(\alph*)]
+			\item 1 * 1
+			\item 0 0
+			\item 0
+			\item 0 null
+		\end{enumerate}
+		\answer{(d) 0 null}
+		\explanation{Instance variables of a class in Java are automatically initialized to their default values if not explicitly assigned. Default value for int is 0. Default value for String (a reference type) is null.}
+		
+		\item State the output of the below code:
+		
+		class Abc { int a; String c; Abc(int x, String y) { a = x; c = y; } public static void main() { Abc ob = new Abc(2, 1''); System.out.print(ob.a +  '' + ob.c); } }
+		\begin{enumerate}[label=(\alph*)]
+			\item ?null
+			\item error
+			\item nullnull
+			\item 2 1
+		\end{enumerate}
+		\answer{(d) 2 1}
+		\explanation{The parameterized constructor initializes a and c with 2 and ``1'', respectively.}
+		
+		\item A constructor can only be written ______ in a class.
+		\begin{enumerate}[label=(\alph*)]
+			\item At the beginning
+			\item At the end
+			\item Anywhere
+			\item None of the above
+		\end{enumerate}
+		\answer{(c) anywhere}
+		\explanation{A constructor can be written anywhere within a class. Its placement in the code does not matter because it is identified by its name matching the class name and having no return type. The compiler recognizes it based on its signature.}
+		
+		\item An object is allocated the memory when the execution of ______ is completed.
+		\begin{enumerate}[label=(\alph*)]
+			\item Main method
+			\item Constructor
+			\item Program
+			\item All of the above
+		\end{enumerate}
+		\answer{(b) Constructor}
+		\explanation{An object is allocated memory when its constructor finishes execution. The constructor initializes the object, setting up its properties and resources, and once completed, the object is ready for use in memory.}
+		
+		\item A constructor with no parameters is called _______.
+		\begin{enumerate}[label=(\alph*)]
+			\item Non-parameterized constructor
+			\item Parameterized constructor
+			\item None
+			\item Error
+		\end{enumerate}
+		\answer{(a) Non-parameterized constructor}
+		\explanation{A constructor with no parameters is called a non-parameterized or default constructor. It initializes the object with default values and does not require arguments during object creation.}
+		
+		\item A student tries to create a constructor in a class Sample. The constructor is written as: void Sample() { System.out.println(``Constructor called''); } What is incorrect in the above statement, and what will be the correct statement?
+		\begin{enumerate}[label=(\alph*)]
+			\item Only A
+			\item Only B
+			\item All the three
+			\item Both A and B
+		\end{enumerate}
+		\answer{(a) Only A}
+		\explanation{The provided constructor is incorrectly defined as a method (with a return type). Constructors should not specify a return type.}
+		
+		\item What is the purpose of a constructor in a class?
+		\begin{enumerate}[label=(\alph*)]
+			\item To define class methods
+			\item To initialize class data members
+			\item To destroy objects
+			\item To handle exceptions
+		\end{enumerate}
+		\answer{(b) To initialize class data members}
+		\explanation{A constructor is specifically designed to initialize the data members of a class when an object is created.}
+		
+		\item Which statement about a constructor is TRUE?
+		\begin{enumerate}[label=(\alph*)]
+			\item It must have a return type.
+			\item Its name must match the class name.
+			\item It must be explicitly called by the user.
+			\item It can have a different name than the class.
+		\end{enumerate}
+		\answer{(b) Its name must match the class name.}
+		\explanation{A constructor's name must exactly match the class name to ensure automatic invocation during object creation.}
+		
+		\item What is a non-parameterized constructor?
+		\begin{enumerate}[label=(\alph*)]
+			\item A constructor that does not return anything.
+			\item A constructor that does not accept parameters.
+			\item A constructor with only default values.
+			\item A constructor with a private access specifier.
+		\end{enumerate}
+		\answer{(b) A constructor that does not accept parameters.}
+		\explanation{Non-parameterized constructors do not take any arguments and usually set default values for data members.}
+		
+		\item What happens if no constructor is defined in a class?
+		\begin{enumerate}[label=(\alph*)]
+			\item The program throws an error.
+			\item A default constructor is automatically provided.
+			\item The class cannot be instantiated.
+			\item The object is created without initialization.
+		\end{enumerate}
+		\answer{(b) A default constructor is automatically provided.}
+		\explanation{Java provides a default constructor that initializes member variables to default values if no constructor is explicitly defined.}
+		
+		\item Which access specifier is most commonly used for constructors?
+		\begin{enumerate}[label=(\alph*)]
+			\item Private
+			\item Public
+			\item Protected
+			\item Default
+		\end{enumerate}
+		\answer{(b) Public}
+		\explanation{Constructors are typically declared public to allow objects of the class to be created from any other class. If private, the class can only be instantiated from within the class itself, restricting object creation to controlled scenarios. Public access ensures the class can be widely used.}
+		
+		\item What is the primary function of a parameterized constructor?
+		\begin{enumerate}[label=(\alph*)]
+			\item To return a value
+			\item To set default values
+			\item To accept arguments for initialization
+			\item To invoke another constructor
+		\end{enumerate}
+		\answer{(c) To accept arguments for initialization}
+		\explanation{Parameterized constructors are used to initialize class data members with specific values passed as arguments during object creation, offering flexibility and customization.}
+		
+		\item What is constructor overloading?
+		\begin{enumerate}[label=(\alph*)]
+			\item Using multiple constructors with the same name but different access specifiers.
+			\item Defining multiple constructors with different parameter lists.
+			\item Calling one constructor from another.
+			\item Overriding a constructor in a subclass.
+		\end{enumerate}
+		\answer{(b) Defining multiple constructors with different parameter lists.}
+		\explanation{Constructor overloading allows a class to have multiple constructors with varying numbers or types of parameters, providing different initialization options for objects.}
+		
+		\item Which of the following is TRUE about formal parameters?
+		\begin{enumerate}[label=(\alph*)]
+			\item They are values passed to a constructor during object creation.
+			\item They are variables declared in the constructor definition.
+			\item They are always initialized to default values.
+			\item They are only used in default constructors.
+		\end{enumerate}
+		\answer{(b) They are variables declared in the constructor definition.}
+		\explanation{Formal parameters are the placeholders defined in the constructor's parameter list, receiving values passed by actual parameters during object creation.}
+		
+		\item What is the default value of a member variable in Java?
+		\begin{enumerate}[label=(\alph*)]
+			\item null for all types
+			\item 0 for numeric types, null for objects
+			\item User-defined default values
+			\item Compiler-defined random values
+		\end{enumerate}
+		\answer{(b) 0 for numeric types, null for objects}
+		\explanation{In Java, member variables are automatically initialized with default values: 0 for numeric types, false for boolean, and null for object references, unless explicitly initialized.}
+		
+		\item Which of these correctly initializes an object using a default constructor?
+		\begin{enumerate}[label=(\alph*)]
+			\item MyClass obj = new MyClass(5);
+			\item MyClass obj = new MyClass();
+			\item MyClass obj;
+			\item obj = MyClass();
+		\end{enumerate}
+		\answer{(b) MyClass obj = new MyClass();}
+		\explanation{A default constructor takes no arguments. The syntax MyClass obj = new MyClass(); creates an object using the default constructor.}
+		
+		\item Which of these is an actual parameter?
+		\begin{enumerate}[label=(\alph*)]
+			\item Variables declared in the constructor definition.
+			\item Variables passed to a constructor during object creation.
+			\item Parameters used to call a method.
+			\item Variables that define the constructor.
+		\end{enumerate}
+		\answer{(b) Variables passed to a constructor during object creation.}
+		\explanation{Actual parameters are the values or variables passed to a constructor during object creation, which are then copied to formal parameters.}
+		
+		\item What is a formal parameter in a constructor?
+		\begin{enumerate}[label=(\alph*)]
+			\item A variable declared outside the constructor.
+			\item A placeholder variable declared in the constructor definition.
+			\item A variable used to call a method.
+			\item A parameter used to call another constructor.
+		\end{enumerate}
+		\answer{(b) A placeholder variable declared in the constructor definition.}
+		\explanation{Formal parameters are variables defined in the constructor's parameter list and used to receive the values passed by actual parameters.}
+		
+		\item How do you define a parameterized constructor?
+		\begin{enumerate}[label=(\alph*)]
+			\item By providing default values to all variables.
+			\item By defining a constructor with parameters to accept values.
+			\item By using a special access specifier.
+			\item By defining a constructor without any parameters.
+		\end{enumerate}
+		\answer{(b) By defining a constructor with parameters to accept values.}
+		\explanation{A parameterized constructor accepts arguments that are used to initialize the data members of a class with specific values during object creation.}
+		
+		\item What happens when you call a constructor explicitly in Java?
+		\begin{enumerate}[label=(\alph*)]
+			\item It initializes the object multiple times.
+			\item It throws an error.
+			\item The constructor cannot be explicitly called.
+			\item It overrides the default constructor.
+		\end{enumerate}
+		\answer{(c) The constructor cannot be explicitly called.}
+		\explanation{In Java, constructors are automatically invoked during object creation and cannot be explicitly called like methods.}
+		
+		\item Which of these is an example of constructor overloading?
+		\begin{enumerate}[label=(\alph*)]
+			\item A class having multiple constructors with the same name and parameter lists.
+			\item A class having multiple constructors with different parameter lists.
+			\item A class having a single constructor.
+			\item A class having private constructors only.
+		\end{enumerate}
+		\answer{(b) A class having multiple constructors with different parameter lists.}
+		\explanation{Constructor overloading refers to having multiple constructors in a class, differing in the number or types of parameters.}
+		
+		\item Which constructor is automatically invoked if none is defined in the class?
+		\begin{enumerate}[label=(\alph*)]
+			\item Parameterized constructor
+			\item Default constructor
+			\item Private constructor
+			\item Static constructor
+		\end{enumerate}
+		\answer{(b) Default constructor}
+		\explanation{If no constructor is defined in a class, the compiler provides a default constructor that initializes the object with default values.}
+		
+
+	
+\end{document}

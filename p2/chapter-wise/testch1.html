@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relations & Functions - Past Year Questions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        .slide {
+            padding: 60px 80px;
+            min-height: 80vh;
+            display: none;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        .slide.active {
+            display: block;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 100;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        button:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .counter {
+            font-weight: bold;
+            color: #2c3e50;
+            min-width: 100px;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-content {
+            line-height: 1.8;
+            font-size: 18px;
+        }
+        .slide-content ul, .slide-content ol {
+            margin-left: 30px;
+        }
+        .slide-content blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="slides-container"></div>
+    </div>
+
+    <div class="controls">
+        <button id="prev-btn">← Previous</button>
+        <select id="slide-select"></select>
+        <span class="counter" id="counter">1 / 1</span>
+        <button id="next-btn">Next →</button>
+    </div>
+
+    <script>
+        // JSON array containing slide data (title + LaTeX/HTML content)
+        const slidesData = [
+            {
+                title: "2015 Questions",
+                content: `<strong>Question 1:</strong> Show that the relation \( R \) in the set<br>
+                          \( A = \\{1,2,3,4,5\\} \) given by<br>
+                          $$ R = \\{ (a,b) : |a-b| \\text{ is divisible by } 2 \\} $$<br>
+                          is an equivalence relation.<br><br>
+                          Show that all the elements of \\{1,3,5\\} are related to each other and all the elements of \\{2,4\\} are related to each other, but no element of \\{1,3,5\\} is related to any element of \\{2,4\\}.<br>
+                          <em>(6 Marks)</em>`
+            },
+           
+           
+           {
+    title: "2016 Questions",
+    content: `
+        <p><strong>Question:</strong> Let <i>f</i> : ℕ → ℕ be a function defined as</p>
+
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>f</mi>
+  <mo>(</mo>
+  <mi>x</mi>
+  <mo>)</mo>
+  <mo>=</mo>
+  <mn>4</mn>
+  <msup>
+    <mi>x</mi>
+    <mn>2</mn>
+  </msup>
+  <mo>+</mo>
+  <mn>12</mn>
+  <mi>x</mi>
+  <mo>+</mo>
+  <mn>15</mn>
+  <mo>.</mo>
+</math>
+
+<p>Show that <i>f</i> : ℕ → <i>S</i> is invertible (where <i>S</i> is the range of <i>f</i>).<br>
+Find the inverse of <i>f</i> and hence find <i>f</i><sup>-1</sup>(31) and <i>f</i><sup>-1</sup>(87).</p>`,
+answers:`
+<p><strong>Answer:</strong></p>
+
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+  <msup>
+    <mi>f</mi>
+    <mrow>
+      <mo>-</mo>
+      <mn>1</mn>
+    </mrow>
+  </msup>
+  <mo>(</mo>
+  <mi>y</mi>
+  <mo>)</mo>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <msqrt>
+        <mi>y</mi>
+        <mo>-</mo>
+        <mn>6</mn>
+      </msqrt>
+      <mo>-</mo>
+      <mn>3</mn>
+    </mrow>
+    <mn>2</mn>
+  </mfrac>
+</math>
+
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+  <msup>
+    <mi>f</mi>
+    <mrow>
+      <mo>-</mo>
+      <mn>1</mn>
+    </mrow>
+  </msup>
+  <mo>(</mo>
+  <mn>31</mn>
+  <mo>)</mo>
+  <mo>=</mo>
+  <mn>1</mn>
+  <mo>,</mo>
+  <mspace width="2em"/>
+  <msup>
+    <mi>f</mi>
+    <mrow>
+      <mo>-</mo>
+      <mn>1</mn>
+    </mrow>
+  </msup>
+  <mo>(</mo>
+  <mn>87</mn>
+  <mo>)</mo>
+  <mo>=</mo>
+  <mn>3</mn>
+  <mo>.</mo>
+</math>
+    
+    `
+},
+           
+           
+           {
+    title: "2017 Questions",
+    content: `
+        <strong>1.</strong> Consider 
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mi>f</mi><mo>:</mo>
+          <mi mathvariant="double-struck">R</mi>
+          <mo stretchy="false">{</mo><mo>-</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mo stretchy="false">}</mo>
+          <mo>→</mo>
+          <mi mathvariant="double-struck">R</mi>
+          <mo stretchy="false">{</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mo stretchy="false">}</mo>
+        </math>
+        given by<br>
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo>
+          <mfrac>
+            <mrow><mn>4</mn><mi>x</mi><mo>+</mo><mn>3</mn></mrow>
+            <mrow><mn>3</mn><mi>x</mi><mo>+</mo><mn>4</mn></mrow>
+          </mfrac><mo>.</mo>
+        </math><br>
+        Show that <i>f</i> is bijective. Find the inverse of <i>f</i> and hence find 
+        <i>f<sup>-1</sup>(0)</i> and <i>x</i> such that <i>f<sup>-1</sup>(x) = 2</i>.<br>
+        <span style="float:right;">(6 Marks)</span>
+    `
+},
+           
+           
+           
+           
+           {
+    title: "Functions - Neither One-One Nor Onto",
+    content: `
+        Show that the function
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mi>f</mi><mo>:</mo>
+          <mi mathvariant="double-struck">R</mi>
+          <mo>→</mo>
+          <mi mathvariant="double-struck">R</mi>
+        </math>
+        defined by<br>
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo>
+          <mfrac>
+            <mi>x</mi>
+            <mrow>
+              <msup><mi>x</mi><mn>2</mn></msup>
+              <mo>+</mo>
+              <mn>1</mn>
+            </mrow>
+          </mfrac>
+          <mo>,</mo>
+          <mspace width="1em"/>
+          <mo>∀</mo><mi>x</mi><mo>∈</mo>
+          <mi mathvariant="double-struck">R</mi>
+        </math>
+        is neither one-one nor onto.<br><br>
+        Also, if
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mi>g</mi><mo>:</mo>
+          <mi mathvariant="double-struck">R</mi>
+          <mo>→</mo>
+          <mi mathvariant="double-struck">R</mi>
+        </math>
+        is defined as<br>
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo>
+          <mn>2</mn><mi>x</mi><mo>-</mo><mn>1</mn><mo>,</mo>
+        </math>
+        find
+        <mi>f</mi><mo>∘</mo><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo>.<br><br>
+        <strong>Ans:</strong>
+        <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+          <mfrac>
+            <mrow><mn>2</mn><mi>x</mi><mo>-</mo><mn>1</mn></mrow>
+            <mrow><mn>4</mn><msup><mi>x</mi><mn>2</mn></msup><mo>-</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>2</mn></mrow>
+          </mfrac>
+        </math>
+    `
+}
+           
+           
+           
+           
+           
+           
+           
+           
+      ,     
+           
+           
+           
+            {
+                title: "2017 Questions (continued)",
+                content: `Show that the function \( f : \\mathbb{R} \\to \\mathbb{R} \) defined by<br>
+                          $$ f(x) = \\frac{x}{x^2 + 1}, \\quad \\forall x \\in \\mathbb{R} $$<br>
+                          is neither one-one nor onto.<br><br>
+                          Also, if \( g : \\mathbb{R} \\to \\mathbb{R} \) is defined as<br>
+                          $$ g(x) = 2x - 1, $$<br>
+                          find \( f \\circ g(x) \).<br><br>
+                          <strong>Ans:</strong> \\( \\dfrac{2x - 1}{4x^2 - 4x + 2} \\)`
+            },
+            {
+                title: "2019 Questions",
+                content: `<ol>
+                            <li>Let \\( * \\) be an operation defined as<br>
+                            $$ * : \\mathbb{R} \\times \\mathbb{R} \\to \\mathbb{R}, \\quad a * b = 2a + b, \\quad a, b \\in \\mathbb{R}. $$<br>
+                            Check if \\( * \\) is a binary operation. If yes, find if it is associative too.</li>
+                            <li>Let \( A = \\mathbb{R} - \\{2\\} \) and \( B = \\mathbb{R} - \\{1\\} \). If \( f : A \\to B \) is a function defined by<br>
+                            $$ f(x) = \\frac{x - 1}{x - 2}, $$<br>
+                            show that \( f \) is one-one and onto.<br>
+                            Hence find \( f^{-1} \).<br>
+                            <strong>Ans:</strong> \\( f^{-1}(x) = \\dfrac{2x - 1}{x - 1} \\)</li>
+                          </ol>`
+            },
+            {
+                title: "2020 Questions",
+                content: `<ol>
+                            <li>The least value of the function<br>
+                            $$ f(x) = ax + \\frac{b}{x} \\quad (a > 0, \\, b > 0, \\, x > 0) $$<br>
+                            is \\dots<br>
+                            <strong>Ans:</strong> \\( 2\\sqrt{ab} \\)</li>
+                            <li>A relation in a set \( A \) is called \\dots relation, if each element of \( A \) is related to itself.<br>
+                            <strong>Ans: Reflexive relation</strong></li>
+                            <li>If<br>
+                            $$ f(x) = \\frac{4x - 3}{6x - 4}, \\quad x \\neq \\frac{2}{3} $$<br>
+                            then show that \( (f \\circ f)(x) = x \), for all \( x \\neq \\frac{2}{3} \). Also, write inverse of \( f \).<br>
+                            <strong>Ans:</strong> \\( f^{-1}(x) = \\frac{4x - 3}{6x - 4} \\)</li>
+                            <li><strong>OR</strong> Check if the relation \( R \) in the set \\( \\mathbb{R} \\) of real numbers defined as<br>
+                            $$ R = \\{ (a, b) : a < b \\} $$<br>
+                            is (i) symmetric, (ii) transitive.</li>
+                            <li>A relation \( R \) on a set \( A \) is called \\dots, if \( (a_1, a_2) \\in R \) and \( (a_2, a_3) \\in R \) implies that \( (a_1, a_3) \\in R \) for \( a_1, a_2, a_3 \\in A \).<br>
+                            <strong>Ans: transitive</strong></li>
+                          </ol>`
+            },
+            {
+                title: "2020 Questions (continued)",
+                content: `<ol start="6">
+                            <li>Check if the relation \( R \) on the set \( A = \\{1, 2, 3, 4, 5, 6\\} \) defined as<br>
+                            $$ R = \\{ (x, y) : y \\text{ is divisible by } x \\} $$<br>
+                            is (i) symmetric, (ii) transitive. (Delhi 2020) (4 marks)</li>
+                            <li>Prove that the relation \( R \) on \\( \\mathbb{Z} \\), defined by<br>
+                            $$ R = \\{ (x, y) : x - y \\text{ is divisible by } 5 \\} $$<br>
+                            is an equivalence relation. (Delhi 2020) (6 marks)</li>
+                          </ol>`
+            },
+            {
+                title: "2022 Questions",
+                content: `<ol>
+                            <li>A relation \( R \) is defined on \\( \\mathbb{N} \\). Which of the following is the reflexive relation?<br>
+                            <ol type="a">
+                                <li>\( R = \\{(x,y): x > y,\\, x, y \\in \\mathbb{N}\\}</li>
+                                <li>\( R = \\{(x,y): x + y = 10,\\, x, y \\in \\mathbb{N}\\}</li>
+                                <li>\( R = \\{(x,y): x \\text{ is the square number},\\, x, y \\in \\mathbb{N}\\}</li>
+                                <li>\( R = \\{(x,y): x + 4y = 10,\\, x, y \\in \\mathbb{N}\\}</li>
+                            </ol>
+                            <strong>Ans: option (c)</strong></li>
+                            <li>The function \( f: \\mathbb{R} \\rightarrow \\mathbb{R} \) defined by \( f(x) = 4 + 3 \\cos x \) is:<br>
+                            <ol type="a">
+                                <li>bijective</li>
+                                <li>one-one but not onto</li>
+                                <li>onto but not one-one</li>
+                                <li>neither one-one nor onto</li>
+                            </ol>
+                            <strong>Ans: option (d)</strong></li>
+                            <!-- Additional 2022 questions omitted for brevity -->
+                          </ol>`
+            }
+            // Add more slides here if needed – the pattern is the same
+        ];
+
+        const container = document.getElementById('slides-container');
+        const select = document.getElementById('slide-select');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const counter = document.getElementById('counter');
+
+        let currentIndex = 0;
+
+        function renderSlides() {
+            slidesData.forEach((slide, index) => {
+                const div = document.createElement('div');
+                div.className = 'slide';
+                div.id = `slide-${index}`;
+                div.innerHTML = `
+                    <h1>${slide.title}</h1>
+                    <div class="slide-content">${slide.content}</div>
+                `;
+                container.appendChild(div);
+
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `Slide ${index + 1}: ${slide.title}`;
+                select.appendChild(option);
+            });
+
+            updateView();
+        }
+
+        function updateView() {
+            document.querySelectorAll('.slide').forEach((s, i) => {
+                s.classList.toggle('active', i === currentIndex);
+            });
+            select.value = currentIndex;
+            counter.textContent = `${currentIndex + 1} / ${slidesData.length}`;
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === slidesData.length - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateView();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < slidesData.length - 1) {
+                currentIndex++;
+                updateView();
+            }
+        });
+
+        select.addEventListener('change', (e) => {
+            currentIndex = parseInt(e.target.value);
+            updateView();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevBtn.click();
+            if (e.key === 'ArrowRight') nextBtn.click();
+        });
+
+        renderSlides();
+    </script>
+</body>
+</html>

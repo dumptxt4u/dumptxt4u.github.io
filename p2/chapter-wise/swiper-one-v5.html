@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Questions - Question & Answer Slides</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #002b36;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #fdf6e3;
+            overflow: hidden;
+            height: 100vh;
+        }
+        .swiper {
+            width: 100%;
+            height: 100vh;
+        }
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5%;
+            box-sizing: border-box;
+        }
+        .slide-card {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #fdf6e3 0%, #eee8d5 100%);
+            border-radius: 40px;
+            padding: 80px 90px;
+            box-sizing: border-box;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: #073642;
+            gap: 30px;
+        }
+        .slide-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at top left, rgba(131, 189, 193, 0.2), transparent 60%);
+            pointer-events: none;
+        }
+        .question-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2em;
+            color: #cb4b16;
+            margin: 0;
+            text-align: center;
+        }
+        .question {
+            font-size: 1.9em;
+            line-height: 1.5;
+            text-align: center;
+            max-width: 100%;
+        }
+        .question math {
+            font-size: 1.4em;
+        }
+        .answer {
+            font-size: 1.7em;
+            line-height: 1.6;
+            background: rgba(131, 189, 193, 0.25);
+            padding: 50px;
+            border-radius: 28px;
+            border: 5px solid #83bdcc;
+            text-align: center;
+            max-width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .answer math {
+            font-size: 1.3em;
+        }
+        .action-btn {
+            padding: 16px 50px;
+            font-size: 1.5em;
+            background: linear-gradient(to right, #cb4b16, #dc322f);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(203, 75, 22, 0.5);
+            transition: all 0.3s;
+        }
+        .action-btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(203, 75, 22, 0.6);
+        }
+
+        /* Very small arrow navigation on far left/right bottom */
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 40px !important;
+            height: 40px !important;
+            background: rgba(203, 75, 22, 0.85);
+            border-radius: 50%;
+            margin: 0;
+            top: auto !important;
+            bottom: 30px !important;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+        .swiper-button-prev { left: 30px !important; }
+        .swiper-button-next { right: 30px !important; }
+        .swiper-button-prev:after,
+        .swiper-button-next:after {
+            font-size: 18px !important;
+            color: white;
+        }
+
+        /* Question selector dropdown */
+        .question-selector {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            padding: 10px 25px;
+            background: rgba(0, 43, 54, 0.95);
+            color: white;
+            border-radius: 30px;
+            font-size: 1.1em;
+            border: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Pagination dots */
+        .swiper-pagination {
+            bottom: 30px !important;
+        }
+        .swiper-pagination-bullet {
+            background: #cb4b16;
+            opacity: 0.7;
+        }
+        .swiper-pagination-bullet-active {
+            background: #dc322f;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="swiper">
+    <div class="swiper-wrapper" id="slides-container"></div>
+
+    <!-- Small navigation arrows (far left/right bottom) -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- Direct question selector -->
+    <select class="question-selector" onchange="swiper.slideTo(this.selectedIndex * 2)"></select>
+
+    <!-- Pagination dots -->
+    <div class="swiper-pagination"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    //const questionsData = [
+  // ]; 
+    const questionsData = [
+  {
+    "number": 1,
+    "year": 2015,
+    "question": `
+      <p><strong>Question 1:</strong> Show that the relation <math><mi>R</mi></math> in the set</p>
+      <math display="block">
+        <mi>A</mi><mo>=</mo><mo>{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>5</mn><mo>}</mo>
+      </math>
+      <p>given by</p>
+      <math display="block">
+        <mi>R</mi><mo>=</mo><mo>{</mo>
+        <mo>(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>)</mo>
+        <mo>:</mo>
+        <mo>|</mo><mi>a</mi><mo>-</mo><mi>b</mi><mo>|</mo>
+        <mtext> is divisible by </mtext><mn>2</mn>
+        <mo>}</mo>
+      </math>
+      <p>is an equivalence relation.</p>
+      <p>
+        Show that all elements of <math><mo>{</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>}</mo></math>
+        are related to each other and all elements of
+        <math><mo>{</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo>}</mo></math>
+        are related to each other, but no element of the first set is related to any element of the second set.
+      </p>
+      <p><em>(6 Marks)</em></p>
+    `
+  },
+  {
+    "number": 2,
+    "year": 2016,
+    "question": `
+      <p>Let</p>
+      <math display="block">
+        <mi>f</mi><mo>:</mo><mi>ℕ</mi><mo>→</mo><mi>ℕ</mi>
+      </math>
+      <p>be defined by</p>
+      <math display="block">
+        <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo>
+        <mo>=</mo>
+        <mn>4</mn><msup><mi>x</mi><mn>2</mn></msup>
+        <mo>+</mo><mn>12</mn><mi>x</mi>
+        <mo>+</mo><mn>15</mn>
+      </math>
+      <p>
+        Show that <math><mi>f</mi></math> is invertible. Find <math><msup><mi>f</mi><mn>-1</mn></msup></math>
+        and hence find <math><msup><mi>f</mi><mn>-1</mn></msup><mo>(</mo><mn>31</mn><mo>)</mo></math>
+        and <math><msup><mi>f</mi><mn>-1</mn></msup><mo>(</mo><mn>87</mn><mo>)</mo></math>.
+      </p>
+    `,
+    "answer": `
+      <math display="block">
+        <msup><mi>f</mi><mn>-1</mn></msup><mo>(</mo><mi>y</mi><mo>)</mo>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <msqrt><mi>y</mi><mo>-</mo><mn>6</mn></msqrt>
+            <mo>-</mo><mn>3</mn>
+          </mrow>
+          <mn>2</mn>
+        </mfrac>
+      </math>
+      <math display="block">
+        <msup><mi>f</mi><mn>-1</mn></msup><mo>(</mo><mn>31</mn><mo>)</mo><mo>=</mo><mn>1</mn>
+        <mo>,</mo>
+        <msup><mi>f</mi><mn>-1</mn></msup><mo>(</mo><mn>87</mn><mo>)</mo><mo>=</mo><mn>3</mn>
+      </math>
+    `
+  },
+  {
+    "number": 3,
+    "year": 2017,
+    "question": `
+      <p>Consider</p>
+      <math display="block">
+        <mi>f</mi><mo>:</mo>
+        <mi>ℝ</mi><mo>−</mo><mo>{</mo>
+        <mo>-</mo><mfrac><mn>4</mn><mn>3</mn></mfrac>
+        <mo>}</mo>
+        <mo>→</mo>
+        <mi>ℝ</mi><mo>−</mo><mo>{</mo>
+        <mfrac><mn>4</mn><mn>3</mn></mfrac>
+        <mo>}</mo>
+      </math>
+      <p>defined by</p>
+      <math display="block">
+        <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo>
+        <mo>=</mo>
+        <mfrac>
+          <mrow><mn>4</mn><mi>x</mi><mo>+</mo><mn>3</mn></mrow>
+          <mrow><mn>3</mn><mi>x</mi><mo>+</mo><mn>4</mn></mrow>
+        </mfrac>
+      </math>
+      <p>
+        Show that <math><mi>f</mi></math> is bijective. Find its inverse and hence find
+        <math><msup><mi>f</mi><mn>-1</mn></msup><mo>(</mo><mn>0</mn><mo>)</mo></math>
+        and the value of <math><mi>x</mi></math> such that
+        <math><msup><mi>f</mi><mn>-1</mn></msup><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>2</mn></math>.
+      </p>
+      <p><em>(6 Marks)</em></p>
+    `
+  },
+  {
+    "number": 4,
+    "year": 2018,
+    "question": `
+      <p>Show that the function</p>
+      <math display="block">
+        <mi>f</mi><mo>:</mo><mi>ℝ</mi><mo>→</mo><mi>ℝ</mi>
+      </math>
+      <math display="block">
+        <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo>
+        <mo>=</mo>
+        <mfrac><mi>x</mi><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac>
+      </math>
+      <p>is neither one-one nor onto.</p>
+      <p>If</p>
+      <math display="block">
+        <mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>2</mn><mi>x</mi><mo>-</mo><mn>1</mn>
+      </math>
+      <p>find <math><mi>f</mi><mo>∘</mo><mi>g</mi></math>.</p>
+    `,
+    "answer": `
+      <math display="block">
+        <mfrac>
+          <mrow><mn>2</mn><mi>x</mi><mo>-</mo><mn>1</mn></mrow>
+          <mrow><mn>4</mn><msup><mi>x</mi><mn>2</mn></msup><mo>-</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>2</mn></mrow>
+        </mfrac>
+      </math>
+    `
+  },
+  {
+    "number": 1,
+    "question": `
+      <p>Consider the function</p>
+      <math display="block"><mi>f</mi><mo>:</mo><mi>ℝ</mi><mo>→</mo><mi>ℝ</mi></math>
+      <math display="block"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>3</mn></math>
+      <p>Show that <math><mi>f</mi></math> is invertible and find its inverse.</p>
+    `,
+    "answer": `
+      <p>The function is linear with slope 4 ≠ 0, so it is strictly increasing and one-to-one.</p>
+      <p>Since it is continuous and the limits at ±∞ go to ±∞, the range is all of ℝ → bijective.</p>
+      <p>Set <math display="block"><mi>y</mi><mo>=</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>3</mn></math></p>
+      <math display="block"><mi>x</mi><mo>=</mo><mfrac><mrow><mi>y</mi><mo>-</mo><mn>3</mn></mrow><mn>4</mn></mfrac></math>
+      <p><strong>Thus, the inverse is</strong></p>
+      <math display="block"><msup><mi>f</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mi>x</mi><mo>-</mo><mn>3</mn></mrow><mn>4</mn></mfrac></math>
+    `
+  },
+  {
+    "number": 2,
+    "question": `
+      <p>Determine whether the function is one-to-one:</p>
+      <math display="block"><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi>x</mi><msup><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn></math>
+      <p>If it is, find its inverse. If not, explain why and state the domain where it becomes invertible.</p>
+    `,
+    "answer": `
+      <p>This is a quadratic function (parabola opening upwards).</p>
+      <p>It is <strong>not one-to-one</strong> on ℝ because it fails the horizontal line test.</p>
+      <p>However, it is one-to-one on restricted domains, e.g., <math>[<mn>-1</mn><mo>,</mo><mo>+</mo><mi>∞</mi>)</math> or <math>(<mo>-</mo><mi>∞</mi><mo>,</mo><mn>-1</mn>]</math>.</p>
+      <p>On <math><mi>x</mi><mo>≥</mo><mn>-1</mn></math>:</p>
+      <math display="block"><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mo>(</mo><mi>x</mi><mo>+</mo><mn>1</mn><msup><mo>)</mo><mn>2</mn></msup><mo>+</mo><mn>4</mn></math>
+      <p>Inverse:</p>
+      <math display="block"><msup><mi>g</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>(</mo><mi>y</mi><mo>)</mo><mo>=</mo><msqrt><mrow><mi>y</mi><mo>-</mo><mn>4</mn></mrow></msqrt><mo>-</mo><mn>1</mn></math>
+    `
+  },
+  {
+    "year": "2015",
+    "question": "Show that the relation $$ R \\in the set \\ A = \\{1,2,3,4,5\\} \\ given by \\ R = \\{(a,b) : |a-b| \\text{ is divisible by } 2\\} \\ is an equivalence relation.\n\nShow that all the elements of \\ \\{1,3,5\\} are related to each other and all the elements of \\ \\{2,4\\} are related to each other, but no element of \\ \\{1,3,5\\} is related to any element of \\ \\{2,4\\} \\ .",
+    "answer": "<p>The relation \\ R \\ means that two elements are related if their difference is even, i.e., they have the same parity (both odd or both even).</p><p><strong>Equivalence relation:</strong></p><ul><li><strong>Reflexive:</strong> For any \\ a \\in A \\ , \\ |a - a| = 0 \\ , which is divisible by 2. Hence \\ (a,a) \\in R \\ .</li><li><strong>Symmetric:</strong> If \\ (a,b) \\in R \\ , then \\ |a-b| \\ is divisible by 2, so \\ |b-a| = |a-b| \\ is divisible by 2. Hence \\ (b,a) \\in R \\ .</li><li><strong>Transitive:</strong> If \\ (a,b) \\in R \\ and \\ (b,c) \\in R \\ , then \\ a \\ and \\ b \\ have same parity, \\ b \\ and \\ c \\ have same parity, so \\ a \\ and \\ c \\ have same parity. Thus \\ |a-c| \\ is even, so \\ (a,c) \\in R \\ .</li></ul><p>Hence \\ R \\ is an equivalence relation.</p><p>The equivalence classes are \\ \\{1,3,5\\} \\ (odd numbers) and \\ \\{2,4\\} \\ (even numbers).</p><p>Within \\ \\{1,3,5\\} \\ , differences are even, so all pairs are related.</p><p>Within \\ \\{2,4\\} \\ , they are related (\\ |4-2|=2 \\ ).</p><p>Between the sets, odd-even difference is odd, not divisible by 2, so no relation across the sets.</p>"
+  },
+  {
+    "year": "2016",
+    "question": "Let \\ f: \\mathbb{N} \\to \\mathbb{N} \\ be a function defined as \\ f(x) = 4x^{2} + 12x + 15 \\ .\n\nShow that \\ f: \\mathbb{N} \\to S \\ is invertible (where \\ S \\ is the range of \\ f \\ ).\n\nFind the inverse of \\ f \\ and hence find \\ f^{-1}(31) \\ and \\ f^{-1}(87) \\ .",
+    "answer": "<p>Rewrite \\ f(x) = 4x^2 + 12x + 15 = (2x + 3)^2 + 6 \\ .</p><p>For \\ x \\in \\mathbb{N} \\ (starting from 1), the minimum is at \\ x=1 \\ : \\ f(1)=31 \\ , and \\ f(x) \\ is strictly increasing for \\ x \\geq 1 \\ (vertex at \\ x = -3/2 \\ ).</p><p>Thus \\ f \\ is one-to-one on \\ \\mathbb{N} \\ , and onto its range \\ S = \\{31, 47, 67, 91, \\dots\\} \\ .</p><p>Hence \\ f: \\mathbb{N} \\to S \\ is bijective, so invertible.</p><p>To find the inverse: Solve \\ y = 4x^2 + 12x + 15 \\ .</p><p>\\ x = \\frac{-12 \\pm \\sqrt{144 - 16(15-y)}}{8} = \\frac{-12 \\pm 4\\sqrt{y-6}}{8} = \\frac{-3 \\pm \\sqrt{y-6}}{2} \\ .</p><p>Since \\ x > 0 \\ , take the positive branch:</p><math display=\"block\">f^{-1}(y) = \\\\frac{\\\\sqrt{y - 6} - 3}{2}</math><p>Verification:</p><p>\\ f^{-1}(31) = \\frac{\\sqrt{25} - 3}{2} = \\frac{5-3}{2} = 1 \\ ,</p><p>\\ f^{-1}(87) = \\frac{\\sqrt{81} - 3}{2} = \\frac{9-3}{2} = 3 \\ .</p>"
+  },
+  {
+    "year": "2017",
+    "question": "Consider \\ f : \\mathbb{R} - \\left\\{-\\frac{4}{3}\\right\\} \\to \\mathbb{R} - \\left\\{\\frac{4}{3}\\right\\} \\ given by \\ f(x) = \\frac{4x + 3}{3x + 4} \\ .\n\nShow that \\ f \\ is bijective. Find the inverse of \\ f \\ and hence find \\ f^{-1}(0) \\ and \\ x \\ such that \\ f^{-1}(x) = 2 \\ .",
+    "answer": "<p>\\ f \\ is a linear fractional transformation with determinant \\ 4\\cdot4 - 3\\cdot3 = 7 \\neq 0 \\ , hence bijective from \\ \\mathbb{R} \\ minus the pole \\ x = -4/3 \\ onto \\ \\mathbb{R} \\ minus the excluded value \\ 4/3 \\ .</p><p>To find the inverse: Let \\ y = \\frac{4x + 3}{3x + 4} \\ .</p><p>Solve for \\ x \\ : \\ y(3x + 4) = 4x + 3 \\Rightarrow 3xy + 4y = 4x + 3 \\Rightarrow 3xy - 4x = 3 - 4y \\Rightarrow x(3y - 4) = 3 - 4y \\ .</p><p>Thus</p><math display=\"block\">f^{-1}(y) = \\\\frac{3 - 4y}{3y - 4}</math><p>(or equivalently \\ \\frac{4y - 3}{4 - 3y} \\ after multiplying numerator and denominator by -1).</p><p>\\ f^{-1}(0) = \\frac{3 - 0}{0 - 4} = \\frac{3}{-4} = -\\frac{3}{4} \\ .</p><p>For \\ f^{-1}(x) = 2 \\ : \\ 2 = \\frac{3 - 4x}{3x - 4} \\Rightarrow 2(3x - 4) = 3 - 4x \\Rightarrow 6x - 8 = 3 - 4x \\Rightarrow 10x = 11 \\Rightarrow x = \\frac{11}{10} \\ .</p>"
+  },
+  {
+    "year": "2017",
+    "question": "Let \\ A = \\mathbb{Q} \\times \\mathbb{Q} \\ and let \\ * \\ be a binary operation on \\ A \\ defined by \\ (a,b) * (c,d) = (ac, b + ad) \\ for \\ (a,b), (c,d) \\in A \\ .\n\nDetermine whether \\ * \\ is commutative and associative. Then, with respect to \\ * \\ on \\ A \\ :\n(i) Find the identity element in \\ A \\ .\n(ii) Find the invertible elements of \\ A \\ .",
+    "answer": "<p><strong>Commutative?</strong> \\ (a,b)(c,d) = (ac, b + ad) \\ , \\ (c,d)(a,b) = (ca, d + ba) = (ac, d + ab) \\ .</p><p>Generally \\ b + ad \\neq d + ab \\ . Counterexample: \\ (2,0)(0,1) = (0,0) \\ , \\ (0,1)(2,0) = (0,1) \\ . Not commutative.</p><p><strong>Associative?</strong> \\ ((a,b)(c,d))(e,f) = (ac, b+ad)(e,f) = (ace, b + ad + acf) \\ .</p><p>\\ (a,b)((c,d)(e,f)) = (a,b)(ce, d + cf) = (ace, b + a(d + cf)) = (ace, b + ad + acf) \\ . Same. Associative.</p><p>(i) <strong>Identity</strong> \\ e = (p,q) \\ : \\ (a,b)(p,q) = (ap, b + aq) = (a,b) \\ for all \\ a,b \\ .</p><p>\\ ap = a \\Rightarrow p=1 \\ , \\ b + aq = b \\Rightarrow aq=0 \\ for all \\ a \\Rightarrow q=0 \\ .</p><p>Identity is \\ (1,0) \\ .</p><p>(ii) <strong>Invertible:</strong> \\ (a,b)(c,d) = (1,0) \\Rightarrow ac=1 \\Rightarrow c=1/a \\ (so \\ a \\neq 0 \\ ), and \\ b + ad = 0 \\Rightarrow d = -b/a \\ .</p><p>Invertible iff \\ a \\neq 0 \\ , inverse \\ \\left( \\frac{1}{a}, -\\frac{b}{a} \\right) \\ .</p>"
+  },
+  {
+    "year": "2017",
+    "question": "Show that the function \\ f : \\mathbb{R} \\to \\mathbb{R} \\ defined by \\ f(x) = \\frac{x}{x^2 + 1}, \\quad \\forall x \\in \\mathbb{R} \\ is neither one-one nor onto.\n\nAlso, if \\ g : \\mathbb{R} \\to \\mathbb{R} \\ is defined as \\ g(x) = 2x - 1 \\ , find \\ f \\circ g(x) \\ .",
+    "answer": "<p>\\ f(x) = \\frac{x}{x^2 + 1} \\ .</p><p><strong>Not onto:</strong> \\ |f(x)| \\leq \\frac{1}{2} \\ (maximum \\ f(1) = \\frac{1}{2} \\ , minimum \\ f(-1) = -\\frac{1}{2} \\ ). Range \\ \\left[-\\frac{1}{2}, \\frac{1}{2}\\right] \\subsetneq \\mathbb{R} \\ .</p><p><strong>Not one-one:</strong> Example: \\ f\\left(\\frac{1}{2}\\right) = \\frac{1/2}{1/4 + 1} = \\frac{0.5}{1.25} = 0.4 \\ , \\ f(2) = \\frac{2}{5} = 0.4 \\ , but \\ \\frac{1}{2} \\neq 2 \\ .</p><p>Derivative \\ f'(x) = \\frac{1 - x^2}{(x^2 + 1)^2} \\ changes sign at \\ x = \\pm 1 \\ , so not monotonic.</p><p>Now, \\( f \\circ g(x) = f(2x - 1) = \\frac{2x - 1}{(2x - 1)^2 + 1} = \\frac{2x - 1}{4x^2 - 4x + 1 + 1} = <math display=\"block\">\\frac{2x - 1}{4x^2 - 4x + 2}</math></p>"
+  }
+];
+
+
+    
+
+
+    let swiper;
+
+    const container = document.getElementById('slides-container');
+    const selector = document.querySelector('.question-selector');
+
+    questionsData.forEach((item, index) => {
+        // Add to dropdown
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = `Question ${item.number}`;
+        selector.appendChild(option);
+
+        // Question Slide
+        const qSlide = document.createElement('div');
+        qSlide.className = 'swiper-slide';
+        qSlide.innerHTML = `
+            <div class="slide-card">
+                <div class="question-number">Question ${item.number}</div>
+                <div class="question">${item.question}</div>
+
+            </div>
+        `;
+        container.appendChild(qSlide);
+
+        // Answer Slide (separate)
+        const aSlide = document.createElement('div');
+        aSlide.className = 'swiper-slide';
+        aSlide.innerHTML = `
+            <div class="slide-card">
+                <div class="question-number">Question ${item.number} - Answer</div>
+                <div class="question">${item.question}</div>
+             
+                <button class="action-btn" onclick="swiper.slideNext()">Next Question →</button>
+            </div>
+        `;
+   
+    });
+
+    // Initialize Swiper
+    swiper = new Swiper('.swiper', {
+        direction: 'vertical',
+        loop: false,
+        mousewheel: true,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        grabCursor: true,
+        speed: 800,
+        effect: 'fade',
+        fadeEffect: { crossFade: true },
+        on: {
+            slideChange: () => {
+                // Sync dropdown to current question (even indices = question slides)
+                const questionIndex = Math.floor(swiper.activeIndex / 2);
+                selector.value = questionIndex;
+            }
+        }
+    });
+
+    // Initial dropdown sync
+    selector.value = 0;
+</script>
+</body>
+</html>

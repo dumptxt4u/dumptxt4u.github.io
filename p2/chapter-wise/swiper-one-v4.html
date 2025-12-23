@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Questions - Clean & Compact</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #002b36;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #fdf6e3;
+            overflow: hidden;
+            height: 100vh;
+        }
+        .swiper {
+            width: 100%;
+            height: 100vh;
+        }
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5%;
+            box-sizing: border-box;
+        }
+        .slide-card {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #fdf6e3 0%, #eee8d5 100%);
+            border-radius: 40px;
+            padding: 70px 80px;
+            box-sizing: border-box;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: #073642;
+            gap: 25px;
+        }
+        .slide-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at top left, rgba(131, 189, 193, 0.2), transparent 60%);
+            pointer-events: none;
+        }
+        .question-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2em;
+            color: #cb4b16;
+            margin: 0;
+            text-align: center;
+        }
+        .question {
+            font-size: 1.9em;
+            line-height: 1.5;
+            text-align: center;
+            max-width: 100%;
+        }
+        .question math {
+            font-size: 1.4em;
+        }
+        .answer {
+            display: none;
+            font-size: 1.6em;
+            line-height: 1.6;
+            background: rgba(131, 189, 193, 0.25);
+            padding: 40px;
+            border-radius: 24px;
+            border: 5px solid #83bdcc;
+            text-align: center;
+            max-width: 100%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .answer math {
+            font-size: 1.3em;
+        }
+        .toggle-btn {
+            padding: 14px 40px;
+            font-size: 1.4em;
+            background: linear-gradient(to right, #cb4b16, #dc322f);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(203, 75, 22, 0.5);
+            transition: all 0.3s;
+        }
+        .toggle-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(203, 75, 22, 0.6);
+        }
+
+        /* Very small arrow navigation on far left/right bottom */
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 40px !important;
+            height: 40px !important;
+            background: rgba(203, 75, 22, 0.8);
+            border-radius: 50%;
+            margin: 0;
+            top: auto !important;
+            bottom: 30px !important;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+        .swiper-button-prev {
+            left: 30px !important;
+        }
+        .swiper-button-next {
+            right: 30px !important;
+        }
+        .swiper-button-prev:after,
+        .swiper-button-next:after {
+            font-size: 18px !important;
+            color: white;
+        }
+
+        /* Question selector dropdown */
+        .question-selector {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            padding: 10px 20px;
+            background: rgba(0, 43, 54, 0.9);
+            color: white;
+            border-radius: 30px;
+            font-size: 1.1em;
+            border: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Pagination (dots) */
+        .swiper-pagination {
+            bottom: 30px !important;
+        }
+        .swiper-pagination-bullet {
+            background: #cb4b16;
+            opacity: 0.7;
+        }
+        .swiper-pagination-bullet-active {
+            background: #dc322f;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="swiper">
+    <div class="swiper-wrapper" id="slides-container"></div>
+
+    <!-- Navigation Arrows (very small, far left/right) -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- Question Selector Dropdown -->
+    <select class="question-selector" onchange="swiper.slideTo(this.value)"></select>
+
+    <!-- Pagination Dots -->
+    <div class="swiper-pagination"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const questionsData = [
+        {
+            number: 1,
+            question: `
+                <p>Consider the function</p>
+                <math display="block"><mi>f</mi><mo>:</mo><mi>ℝ</mi><mo>→</mo><mi>ℝ</mi></math>
+                <math display="block"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>3</mn></math>
+                <p>Show that <math><mi>f</mi></math> is invertible and find its inverse.</p>
+            `,
+            answer: `
+                <p>The function is linear with slope 4 ≠ 0, so it is strictly increasing and one-to-one.</p>
+                <p>Since it is continuous and the limits at ±∞ go to ±∞, the range is all of ℝ → bijective.</p>
+                <p>Set <math display="block"><mi>y</mi><mo>=</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>3</mn></math></p>
+                <math display="block"><mi>x</mi><mo>=</mo><mfrac><mrow><mi>y</mi><mo>-</mo><mn>3</mn></mrow><mn>4</mn></mfrac></math>
+                <p><strong>Thus, the inverse is</strong></p>
+                <math display="block"><msup><mi>f</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mi>x</mi><mo>-</mo><mn>3</mn></mrow><mn>4</mn></mfrac></math>
+            `
+        },
+        {
+            number: 2,
+            question: `
+                <p>Determine whether the function is one-to-one:</p>
+                <math display="block"><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi>x</mi><msup><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn></math>
+                <p>If it is, find its inverse. If not, explain why and state the domain where it becomes invertible.</p>
+            `,
+            answer: `
+                <p>This is a quadratic function (parabola opening upwards).</p>
+                <p>It is <strong>not one-to-one</strong> on ℝ because it fails the horizontal line test.</p>
+                <p>However, it is one-to-one on restricted domains, e.g., <math>[<mn>-1</mn><mo>,</mo><mo>+</mo><mi>∞</mi>)</math> or <math>(<mo>-</mo><mi>∞</mi><mo>,</mo><mn>-1</mn>]</math>.</p>
+                <p>On <math><mi>x</mi><mo>≥</mo><mn>-1</mn></math>:</p>
+                <math display="block"><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mo>(</mo><mi>x</mi><mo>+</mo><mn>1</mn><msup><mo>)</mo><mn>2</mn></msup><mo>+</mo><mn>4</mn></math>
+                <p>Inverse:</p>
+                <math display="block"><msup><mi>g</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>(</mo><mi>y</mi><mo>)</mo><mo>=</mo><msqrt><mrow><mi>y</mi><mo>-</mo><mn>4</mn></mrow></msqrt><mo>-</mo><mn>1</mn></math>
+            `
+        }
+    ];
+
+    let swiper;
+
+    // Generate slides
+    const container = document.getElementById('slides-container');
+    const selector = document.querySelector('.question-selector');
+
+    questionsData.forEach((item, index) => {
+        // Add option to dropdown
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = `Question ${item.number}`;
+        selector.appendChild(option);
+
+        // Create slide
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `
+            <div class="slide-card">
+                <div class="question-number">Question ${item.number}</div>
+                <div class="question">${item.question}</div>
+                <div class="answer">${item.answer}</div>
+                <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            </div>
+        `;
+        container.appendChild(slide);
+    });
+
+    // Initialize Swiper with built-in navigation arrows
+    swiper = new Swiper('.swiper', {
+        direction: 'vertical',
+        loop: false,
+        mousewheel: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        grabCursor: true,
+        speed: 800,
+        effect: 'fade',
+        fadeEffect: { crossFade: true },
+        on: {
+            slideChange: () => {
+                selector.value = swiper.activeIndex;
+            }
+        }
+    });
+
+    // Sync dropdown with current slide
+    selector.value = 0;
+
+    // Toggle answer function
+    function toggleAnswer(btn) {
+        const answer = btn.previousElementSibling;
+        if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+            btn.textContent = 'Show Answer';
+        } else {
+            answer.style.display = 'block';
+            btn.textContent = 'Hide Answer';
+        }
+    }
+</script>
+</body>
+</html>

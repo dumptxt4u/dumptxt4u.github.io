@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Quiz: Functions, Methods & Constructors</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px;
+        }
+        h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 1.8rem;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9ff;
+            border-left: 5px solid #667eea;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.1);
+        }
+        .question {
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .options {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+        .reveal-btn {
+            display: block;
+            margin: 15px 0 0;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: fit-content;
+            transition: background 0.3s;
+        }
+        .reveal-btn:hover {
+            background: #764ba2;
+        }
+        .answer-box {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            border-left: 4px solid #1976d2;
+            display: none;
+            font-weight: bold;
+            color: #1976d2;
+        }
+        .answer-box.show {
+            display: block;
+        }
+        .explanation {
+            font-size: 0.95rem;
+            color: #555;
+            font-style: italic;
+            margin-top: 8px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #667eea;
+            color: white;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .content { padding: 20px; }
+            li { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Java Programming Quiz</h1>
+            <p>Functions, Methods & Constructors<br><em>Click "Show Answer" to reveal the correct answer and explanation</em></p>
+        </header>
+        <div class="content">
+            <h2>Section 1: General Functions and Methods</h2>
+            <ol>
+                <li>
+                    <div class="question">1. What is an advantage of using functions in programming?</div>
+                    <div class="options">(a) Code repetition &nbsp; (b) Abstraction &nbsp; (c) Increased complexity &nbsp; (d) Slower debugging</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Abstraction<br>
+                        <span class="explanation">Functions promote abstraction by hiding implementation details and enabling code reuse.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">2. What does the term "function signature" refer to?</div>
+                    <div class="options">(a) The body of the function &nbsp; (b) The return type of the function &nbsp; (c) The combination of the function's name and parameter list &nbsp; (d) The access specifier of the function</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) The combination of the function's name and parameter list
+                    </div>
+                </li>
+                <li>
+                    <div class="question">3. What is the correct syntax for creating an object in Java?</div>
+                    <div class="options">(a) ClassName objectName = ClassName(); &nbsp; (b) ObjectName = new ClassName(); &nbsp; (c) ClassName objectName = new ClassName(); &nbsp; (d) New ClassName objectName;</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) ClassName objectName = new ClassName();
+                    </div>
+                </li>
+                <li>
+                    <div class="question">4. Which of the following is an example of a non-member method?</div>
+                    <div class="options">(a) Void display() &nbsp; (b) Static void checkSum() &nbsp; (c) Void sum() &nbsp; (d) Public void calculate()</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Static void checkSum()<br>
+                        <span class="explanation">Static methods belong to the class, not instances (non-member).</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">5. What type of function brings about a change in its arguments and is referred to as an impure function?</div>
+                    <div class="options">(a) Pure function &nbsp; (b) Static function &nbsp; (c) Impure function &nbsp; (d) Reference function</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) Impure function
+                    </div>
+                </li>
+                <li>
+                    <div class="question">6. In Java, how are objects passed to methods?</div>
+                    <div class="options">(a) Call by Value &nbsp; (b) Call by Reference &nbsp; (c) Call by Name &nbsp; (d) Call by Assignment</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) Call by Value<br>
+                        <span class="explanation">Object references are passed by value in Java.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">7. Which of the following is a valid function prototype?</div>
+                    <div class="options">(a) Public void calculateSum() &nbsp; (b) Public calculateSum(int a, int b) &nbsp; (c) CalculateSum(int a, int b) &nbsp; (d) Public int calculateSum(int a, int b)</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (d) Public int calculateSum(int a, int b)
+                    </div>
+                </li>
+                <li>
+                    <div class="question">8. Which of these statements is true for method overloading?</div>
+                    <div class="options">(a) Methods with the same name and identical parameter lists can be overloaded. &nbsp; (b) Methods with the same name and different parameter lists are considered overloaded &nbsp; (c) Overloaded methods must return the same data type &nbsp; (d) Overloaded methods cannot have more than two parameters</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Methods with the same name and different parameter lists are considered overloaded
+                    </div>
+                </li>
+                <li>
+                    <div class="question">9. Which method call in the following options refers to calling a member method?</div>
+                    <div class="options">(a) ObjectName.sum() &nbsp; (b) CheckSum() &nbsp; (c) Main() &nbsp; (d) New ClassName();</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) ObjectName.sum()
+                    </div>
+                </li>
+                <li>
+                    <div class="question">10. What is the general format for calling a function that does not return a value?</div>
+                    <div class="options">(a) Return_type variableName = function_name(actual_parameters); &nbsp; (b) Function_name(actual_parameters); &nbsp; (c) Function_name; &nbsp; (d) Function_name[parameters];</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Function_name(actual_parameters);
+                    </div>
+                </li>
+                <li>
+                    <div class="question">11. Find the odd one out</div>
+                    <div class="options">(a) Method overloading &nbsp; (b) Polymorphism &nbsp; (c) Abstraction &nbsp; (d) Multiple forms of same</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) Abstraction<br>
+                        <span class="explanation">The others relate to polymorphism.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">12. Built-in functions are also called:</div>
+                    <div class="options">(a) Library methods &nbsp; (b) User-defined methods &nbsp; (c) Fixed methods &nbsp; (d) All of the above</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) Library methods
+                    </div>
+                </li>
+                <li>
+                    <div class="question">13. How many return statements can a method have and how many of them should get executed for the program to run successfully?</div>
+                    <div class="options">(a) 1, 1 &nbsp; (b) Many, 1 &nbsp; (c) 1, Many &nbsp; (d) Many, Many</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Many, 1
+                    </div>
+                </li>
+                <li>
+                    <div class="question">14. A method in which the method parameters can get modified is called a ______.</div>
+                    <div class="options">(a) Pure method &nbsp; (b) Impure method &nbsp; (c) Virtual method &nbsp; (d) None of the above</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Impure method
+                    </div>
+                </li>
+                <li>
+                    <div class="question">15. A method prototype has which of the following components?</div>
+                    <div class="options">(a) Name of method &nbsp; (b) Return type of method &nbsp; (c) List of formal parameters &nbsp; (d) All of the above</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (d) All of the above
+                    </div>
+                </li>
+                <li>
+                    <div class="question">16. A method with no result or value to return has a return type as</div>
+                    <div class="options">(a) Null &nbsp; (b) Void &nbsp; (c) No return type &nbsp; (d) Default</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Void
+                    </div>
+                </li>
+                <li>
+                    <div class="question">17. When a reference is passed to a method as a parameter, which of the following statement is true?</div>
+                    <div class="options">(a) The reference parameter creates a copy of the variable passed to it &nbsp; (b) Reference parameter refers to the same variable passed to it &nbsp; (c) The reference parameter value can get changed but passing variable value does not get changed &nbsp; (d) A reference can be of simple data type</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Reference parameter refers to the same variable passed to it
+                    </div>
+                </li>
+                <li>
+                    <div class="question">18. An operator used to invoke methods or variables using class name</div>
+                    <div class="options">(a) New &nbsp; (b) Dot &nbsp; (c) Relational &nbsp; (d) Arithmetic</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Dot
+                    </div>
+                </li>
+                <li>
+                    <div class="question">19. What would be the prototype of the below method for implementing method overloading? int check(double x)</div>
+                    <div class="options">(a) Double check(int x, double y) &nbsp; (b) Double check(double x) &nbsp; (c) Both (a) and (b) &nbsp; (d) Neither (a) nor (b)</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (d) Neither (a) nor (b)<br>
+                        <span class="explanation">Overloading requires different parameter types or count.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">20. The parameters that are used in the prototype of the method are called</div>
+                    <div class="options">(a) Actual parameters &nbsp; (b) Formal parameters &nbsp; (c) Virtual parameters &nbsp; (d) Real parameters</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Formal parameters
+                    </div>
+                </li>
+                <li>
+                    <div class="question">21. Which of the following java statement will compile successfully for defining a method to receive a list of 10 values?</div>
+                    <div class="options">(a) Void test-method (int a[10]) &nbsp; (b) Void test-method (int a[ ]) &nbsp; (c) Void test-method (int a)0 &nbsp; (d) Both (b) and (c)</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Void test-method (int a[ ])
+                    </div>
+                </li>
+                <li>
+                    <div class="question">22. The number of values that a method can return is</div>
+                    <div class="options">(a) 1 &nbsp; (b) 2 &nbsp; (c) 3 &nbsp; (d) 4</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) 1
+                    </div>
+                </li>
+                <li>
+                    <div class="question">23. A student writes the following code to multiply a variable z by 5. Incorrect statement: z * 5;</div>
+                    <div class="options">A. z *= 5; B. z = z * 5; C. z * 5; (a) Only A (b) Only B (c) Both A and B (d) All the three</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) Both A and B
+                    </div>
+                </li>
+                <li>
+                    <div class="question">24. A student writes the following code to divide a variable a by 4. Incorrect: a = /4;</div>
+                    <div class="options">A. a /= 4; B. a = a / 4; C. a = /4; (a) Only A (b) Only B (c) Both A and B (d) All the three</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) Both A and B
+                    </div>
+                </li>
+                <li>
+                    <div class="question">25. Increment n by 1. Incorrect: n + 1;</div>
+                    <div class="options">A. n++; B. n += 1; C. n = n + 1; (a) Only A (b) Only C (c) All A, B, and C (d) None</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) All A, B, and C
+                    </div>
+                </li>
+                <li>
+                    <div class="question">26. Subtract 7 from p. Incorrect: p = 7-;</div>
+                    <div class="options">A. p -= 7; B. p = p - 7; C. p = -7; (a) Both A and B (b) Only B (c) Only C (d) None</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) Both A and B
+                    </div>
+                </li>
+            </ol>
+
+            <h2>Section 2: Constructors</h2>
+            <ol>
+                <li>
+                    <div class="question">1. A special method that initializes values to data members is called ______.</div>
+                    <div class="options">(a) Constructor &nbsp; (b) Method &nbsp; (c) Function &nbsp; (d) All of the above</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) Constructor
+                    </div>
+                </li>
+                <li>
+                    <div class="question">2. Access specifiers can be used for defining constructors.</div>
+                    <div class="options">(a) True &nbsp; (b) False &nbsp; (c) May be &nbsp; (d) May not be</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) True
+                    </div>
+                </li>
+                <li>
+                    <div class="question">3. Which of the following is a return type of a constructor?</div>
+                    <div class="options">(a) Void &nbsp; (b) Int &nbsp; (c) Null &nbsp; (d) None of the above</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (d) None of the above
+                    </div>
+                </li>
+                <li>
+                    <div class="question">4. If a constructor is declared as private, how many instances can be created?</div>
+                    <div class="options">(a) 1 &nbsp; (b) 2 &nbsp; (c) Many &nbsp; (d) 0</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (d) 0<br>
+                        <span class="explanation">(From outside the class; used in singleton patterns with static factory)</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">5. If no constructor is defined in the class?</div>
+                    <div class="options">(a) No error. Default values initialized &nbsp; (b) Error &nbsp; (c) Impossible &nbsp; (d) Program hangs</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) No error. Java provides default constructor
+                    </div>
+                </li>
+                <li>
+                    <div class="question">6. Output of: class Abc { int a; String c; ... new Abc(); print a + " " + c }</div>
+                    <div class="options">(a) 1 * 1 &nbsp; (b) 0 0 &nbsp; (c) 0 &nbsp; (d) 0 null</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (d) 0 null
+                    </div>
+                </li>
+                <!-- Add the rest similarly -->
+                <li>
+                    <div class="question">27. Which constructor is automatically invoked if none is defined?</div>
+                    <div class="options">(a) Parameterized &nbsp; (b) Default &nbsp; (c) Private &nbsp; (d) Static</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Default constructor
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <footer>
+            Java Quiz - Interactive (Answers hidden until clicked) | Fully Responsive
+        </footer>
+    </div>
+</body>
+</html>
