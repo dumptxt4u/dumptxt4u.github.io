@@ -31,14 +31,25 @@
     <style>
         :root { --primary: #2563eb; --success: #059669; --bg: #f8fafc; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .container { background: white; width: 90%; max-width: 800px; padding: 2rem; border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
-        .box { min-height: 120px; padding: 1.5rem; border-radius: 0.5rem; margin: 1rem 0; border-left: 5px solid var(--primary); background: #f1f5f9; font-size: 1.25rem; line-height: 1.6; transition: opacity 0.3s; }
-        .answer-box { border-left-color: var(--success); background: #f0fdf4; display: none; }
+        .container { background: white; width: 98%; max-width: 1500px; padding: 2rem; border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+        .box { min-height: 120px; padding: 1.5rem; border-radius: 0.5rem; margin: 1rem 0; border-left: 5px solid var(--primary); background: #f1f5f9; font-size: 2.25rem; line-height: 1.6; transition: opacity 0.3s; }
+        .answer-box { border-left-color: var(--success); background: #f0fdf4; display: none;  margin: 20px 0;
+            word-wrap: break-word;
+            overflow-wrap: anywhere; line-height: 1.6;  }
+            
+            
+            
+            
         .controls { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; }
         button { padding: 0.75rem 1.5rem; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: 600; transition: all 0.2s; }
         .btn-blue { background: var(--primary); color: white; }
         .btn-green { background: var(--success); color: white; width: 100%; margin-bottom: 1rem; }
         button:disabled { background: #cbd5e1; cursor: not-allowed; }
+          /* Center display math */
+        mjx-container[display="true"] {
+            margin: 30px auto !important;
+            text-align: center !important;
+        }
         .counter { color: #64748b; font-weight: 500; }
     </style>
 </head>
