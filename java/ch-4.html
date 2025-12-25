@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Quiz: Constructors</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #5e72e4 0%, #825ee4 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+        header p {
+            margin: 15px 0 0;
+            font-size: 1.3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        .content {
+            padding: 60px 50px;
+        }
+        h2 {
+            color: #5e72e4;
+            border-bottom: 4px solid #5e72e4;
+            padding-bottom: 12px;
+            margin: 0 0 50px 0;
+            font-size: 2.2rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        ol {
+            padding-left: 0;
+            list-style: none;
+            counter-reset: question-counter;
+        }
+        li {
+            counter-increment: question-counter;
+            margin: 40px 0;
+            padding: 30px 35px;
+            background: linear-gradient(to right, #f8fbff, #f0f4ff);
+            border-radius: 16px;
+            border-left: 6px solid #5e72e4;
+            box-shadow: 0 8px 25px rgba(94,114,228,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        li:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(94,114,228,0.15);
+        }
+        li::before {
+            content: counter(question-counter) ".";
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #5e72e4;
+            position: absolute;
+            left: 35px;
+            top: 30px;
+            transform: translateX(-100%);
+        }
+        .question {
+            font-weight: 700;
+            margin-bottom: 18px;
+            font-size: 1.25rem;
+            color: #2c3e50;
+            padding-left: 10px;
+        }
+        .options {
+            margin: 20px 0;
+            line-height: 2.4;
+            font-size: 1.1rem;
+            padding-left: 10px;
+        }
+        .reveal-btn {
+            display: inline-block;
+            margin: 25px 0 0;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #5e72e4, #825ee4);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(94,114,228,0.3);
+            transition: all 0.3s ease;
+        }
+        .reveal-btn:hover {
+            background: linear-gradient(135deg, #5062d0, #704ed0);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(94,114,228,0.4);
+        }
+        .answer-box {
+            margin-top: 25px;
+            padding: 20px 25px;
+            background: linear-gradient(to right, #e8f2ff, #e3f2fd);
+            border-radius: 12px;
+            border-left: 5px solid #1976d2;
+            display: none;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        .answer-box.show {
+            display: block;
+            animation: fadeIn 0.6s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .answer-box strong {
+            color: #1976d2;
+            font-size: 1.1rem;
+        }
+        .explanation {
+            display: block;
+            font-size: 0.98rem;
+            color: #444;
+            font-style: italic;
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed #bbdefb;
+        }
+        pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 16px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        code {
+            font-family: 'Fira Code', Consolas, 'Courier New', monospace;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #5e72e4, #825ee4);
+            color: white;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            body { padding: 20px 10px; }
+            header { padding: 50px 20px; }
+            header h1 { font-size: 2.3rem; }
+            .content { padding: 40px 25px; }
+            h2 { font-size: 1.9rem; margin-bottom: 40px; }
+            li { padding: 25px 20px; margin: 30px 0; }
+            .question { font-size: 1.15rem; }
+            .options { line-height: 2.1; font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            header h1 { font-size: 2rem; }
+            .content { padding: 30px 15px; }
+            li { padding: 20px 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Java Programming Quiz</h1>
+            <p>Constructors<br><em>Tap "Show Answer" to reveal the correct answer and explanation</em></p>
+        </header>
+        <div class="content">
+            <h2>Constructors MCQs</h2>
+            <ol>
+                <li>
+                    <div class="question">1. A special method that initializes values to data members is called ______.</div>
+                    <div class="options">(a) Constructor (b) Method (c) Function (d) All of the above</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (a) Constructor</strong>
+                        <span class="explanation">A constructor is a special method in object-oriented programming used to initialize the values of data members when an object is created. It is automatically called when the object is instantiated.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">2. Is the following statement true/false? Access specifiers can be used for defining constructors.</div>
+                    <div class="options">(a) True (b) False (c) May be (d) May not be</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (a) True</strong>
+                        <span class="explanation">Access specifiers (public, private, and protected) can indeed be used for defining constructors in object-oriented programming. The access specifier determines the level of accessibility of the constructor.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">3. Which of the following is a return type of a constructor?</div>
+                    <div class="options">(a) Void (b) Int (c) Null (d) None of the above</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (d) None of the above</strong>
+                        <span class="explanation">A constructor does not have a return type, not even void. Constructors are special methods in object-oriented programming that are called automatically when an object is created. They initialize the object's properties but do not return any value.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">4. If a constructor is declared as private, how many instances can be created for the class?</div>
+                    <div class="options">(a) 1 (b) 2 (c) Many (d) 0</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (a) 1</strong>
+                        <span class="explanation">A private constructor restricts object creation, typically allowing only one instance via a factory method or singleton pattern.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">5. How would the compiler/interpreter behave if there is no constructor defined in the class?</div>
+                    <div class="options">(a) No error. Default values will be initialized to members (b) Error (c) Impossible (d) Program hangs</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (a) No error. Default values will be initialized to members</strong>
+                        <span class="explanation">Java always provides a default constructor if no constructor is defined. Primitive types are initialized to their default values (0 for numeric types, false for boolean, null for references).</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">6. State the output of the below code: class Abc { int a; String c; public static void main() { Abc ob = new Abc(); System.out.print(ob.a + " " + ob.c); } }</div>
+                    <div class="options">(a) 1 * 1 (b) 0 0 (c) 0 (d) 0 null</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (d) 0 null</strong>
+                        <span class="explanation">Instance variables of a class in Java are automatically initialized to their default values if not explicitly assigned. Default value for int is 0. Default value for String (a reference type) is null.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">7. State the output of the below code: class Abc { int a; String c; Abc(int x, String y) { a = x; c = y; } public static void main() { Abc ob = new Abc(2, "1"); System.out.print(ob.a + " " + ob.c); } }</div>
+                    <div class="options">(a) ?null (b) error (c) nullnull (d) 2 1</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (d) 2 1</strong>
+                        <span class="explanation">The parameterized constructor initializes a and c with 2 and "1", respectively.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">8. A constructor can only be written ______ in a class.</div>
+                    <div class="options">(a) At the beginning (b) At the end (c) Anywhere (d) None of the above</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (c) Anywhere</strong>
+                        <span class="explanation">A constructor can be written anywhere within a class. Its placement in the code does not matter because it is identified by its name matching the class name and having no return type.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">9. An object is allocated the memory when the execution of ______ is completed.</div>
+                    <div class="options">(a) Main method (b) Constructor (c) Program (d) All of the above</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (b) Constructor</strong>
+                        <span class="explanation">An object is allocated memory when its constructor finishes execution. The constructor initializes the object, setting up its properties and resources.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">10. A constructor with no parameters is called _______.</div>
+                    <div class="options">(a) Non-parameterized constructor (b) Parameterized constructor (c) None (d) Error</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (a) Non-parameterized constructor</strong>
+                        <span class="explanation">A constructor with no parameters is called a non-parameterized or default constructor. It initializes the object with default values.</span>
+                    </div>
+                </li>
+                <!-- Continue with all remaining questions up to 44 using the same structure -->
+                <li>
+                    <div class="question">11. A student tries to create a constructor in a class Sample. The constructor is written as:  <pre><code class="language-java"> 
+                    void Sample() 
+                    { 
+                    System.out.println("Constructor called"); 
+                    }
+                    </pre>
+                    </code> What is incorrect in the above statement, and what will be the correct statement?</div>
+                    <div class="options">(a) Only A (b) Only B (c) All the three (d) Both A and B</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (a) Only A</strong>
+                        <span class="explanation">The provided constructor is incorrectly defined as a method (with a return type). Constructors should not specify a return type.</span>
+                    </div>
+                </li>
+                <!-- ... (questions 12 to 43 follow the same pattern) ... -->
+                
+                
+                
+                
+                
+                
+                
+                
+             
+             
+             
+             
+             
+              <div class="question">12. What is the purpose of a constructor in a class?</div>
+                    <div class="options">(a) To define class methods (b) To initialize class data members (c) To destroy objects (d) To handle exceptions</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) To initialize class data members<br>
+                        <span class="explanation">A constructor is specifically designed to initialize the data members of a class when an object is created.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">13. Which statement about a constructor is TRUE?</div>
+                    <div class="options">(a) It must have a return type. (b) Its name must match the class name. (c) It must be explicitly called by the user. (d) It can have a different name than the class.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Its name must match the class name.<br>
+                        <span class="explanation">A constructor's name must exactly match the class name to ensure automatic invocation during object creation.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">14. What is a non-parameterized constructor?</div>
+                    <div class="options">(a) A constructor that does not return anything. (b) A constructor that does not accept parameters. (c) A constructor with only default values. (d) A constructor with a private access specifier.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) A constructor that does not accept parameters.<br>
+                        <span class="explanation">Non-parameterized constructors do not take any arguments and usually set default values for data members.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">15. What happens if no constructor is defined in a class?</div>
+                    <div class="options">(a) The program throws an error. (b) A default constructor is automatically provided. (c) The class cannot be instantiated. (d) The object is created without initialization.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) A default constructor is automatically provided.<br>
+                        <span class="explanation">Java provides a default constructor that initializes member variables to default values if no constructor is explicitly defined.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">16. Which access specifier is most commonly used for constructors?</div>
+                    <div class="options">(a) Private (b) Public (c) Protected (d) Default</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Public<br>
+                        <span class="explanation">Constructors are typically declared public to allow objects of the class to be created from any other class. If private, the class can only be instantiated from within the class itself, restricting object creation to controlled scenarios. Public access ensures the class can be widely used.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">17. What is the primary function of a parameterized constructor?</div>
+                    <div class="options">(a) To return a value (b) To set default values (c) To accept arguments for initialization (d) To invoke another constructor</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) To accept arguments for initialization<br>
+                        <span class="explanation">Parameterized constructors are used to initialize class data members with specific values passed as arguments during object creation, offering flexibility and customization.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">18. What is constructor overloading?</div>
+                    <div class="options">(a) Using multiple constructors with the same name but different access specifiers. (b) Defining multiple constructors with different parameter lists. (c) Calling one constructor from another. (d) Overriding a constructor in a subclass.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Defining multiple constructors with different parameter lists.<br>
+                        <span class="explanation">Constructor overloading allows a class to have multiple constructors with varying numbers or types of parameters, providing different initialization options for objects.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">19. Which of the following is TRUE about formal parameters?</div>
+                    <div class="options">(a) They are values passed to a constructor during object creation. (b) They are variables declared in the constructor definition. (c) They are always initialized to default values. (d) They are only used in default constructors.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) They are variables declared in the constructor definition.<br>
+                        <span class="explanation">Formal parameters are the placeholders defined in the constructor's parameter list, receiving values passed by actual parameters during object creation.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">20. What is the default value of a member variable in Java?</div>
+                    <div class="options">(a) null for all types (b) 0 for numeric types, null for objects (c) User-defined default values (d) Compiler-defined random values</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) 0 for numeric types, null for objects<br>
+                        <span class="explanation">In Java, member variables are automatically initialized with default values: 0 for numeric types, false for boolean, and null for object references, unless explicitly initialized.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">21. Which of these correctly initializes an object using a default constructor?</div>
+                    <div class="options">(a) MyClass obj = new MyClass(5); (b) MyClass obj = new MyClass(); (c) MyClass obj; (d) obj = MyClass();</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) MyClass obj = new MyClass();<br>
+                        <span class="explanation">A default constructor takes no arguments. The syntax MyClass obj = new MyClass(); creates an object using the default constructor.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">22. Which of these is an actual parameter?</div>
+                    <div class="options">(a) Variables declared in the constructor definition. (b) Variables passed to a constructor during object creation. (c) Parameters used to call a method. (d) Variables that define the constructor.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Variables passed to a constructor during object creation.<br>
+                        <span class="explanation">Actual parameters are the values or variables passed to a constructor during object creation, which are then copied to formal parameters.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">23. What is a formal parameter in a constructor?</div>
+                    <div class="options">(a) A variable declared outside the constructor. (b) A placeholder variable declared in the constructor definition. (c) A variable used to call a method. (d) A parameter used to call another constructor.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) A placeholder variable declared in the constructor definition.<br>
+                        <span class="explanation">Formal parameters are variables defined in the constructor's parameter list and used to receive the values passed by actual parameters.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">24. How do you define a parameterized constructor?</div>
+                    <div class="options">(a) By providing default values to all variables. (b) By defining a constructor with parameters to accept values. (c) By using a special access specifier. (d) By defining a constructor without any parameters.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) By defining a constructor with parameters to accept values.<br>
+                        <span class="explanation">A parameterized constructor accepts arguments that are used to initialize the data members of a class with specific values during object creation.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">25. What happens when you call a constructor explicitly in Java?</div>
+                    <div class="options">(a) It initializes the object multiple times. (b) It throws an error. (c) The constructor cannot be explicitly called. (d) It overrides the default constructor.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) The constructor cannot be explicitly called.<br>
+                        <span class="explanation">In Java, constructors are automatically invoked during object creation and cannot be explicitly called like methods.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">26. Which of these is an example of constructor overloading?</div>
+                    <div class="options">(a) A class having multiple constructors with the same name and parameter lists. (b) A class having multiple constructors with different parameter lists. (c) A class having a single constructor. (d) A class having private constructors only.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) A class having multiple constructors with different parameter lists.<br>
+                        <span class="explanation">Constructor overloading refers to having multiple constructors in a class, differing in the number or types of parameters.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">27. Which constructor is automatically invoked if none is defined in the class?</div>
+                    <div class="options">(a) Parameterized constructor (b) Default constructor (c) Private constructor (d) Static constructor</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Default constructor<br>
+                        <span class="explanation">If no constructor is defined in a class, the compiler provides a default constructor that initializes the object with default values.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">28. Which of these is an invalid constructor definition?</div>
+                    <div class="options">(a) public MyClass() { } (b) void MyClass() { } (c) private MyClass() { } (d) MyClass() { }</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) void MyClass() { }<br>
+                        <span class="explanation">Constructors cannot have return types, even void. Including a return type makes it a regular method, not a constructor.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">29. Which access specifier allows the constructor to be called only within its class?</div>
+                    <div class="options">(a) public (b) private (c) protected (d) default</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) private<br>
+                        <span class="explanation">A private constructor restricts object creation to within the class itself, preventing access from outside the class.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">30. In the example Example(float value, int num), what is value?</div>
+                    <div class="options">(a) A member variable (b) An actual parameter (c) A formal parameter (d) A static variable</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) A formal parameter<br>
+                        <span class="explanation">In the constructor definition, value is a formal parameter used to receive values passed during object creation.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">31. What will happen if a constructor is declared private in a class?</div>
+                    <div class="options">(a) It cannot be accessed outside the class. (b) It initializes default values. (c) It can be called only by public methods. (d) It throws an error during compilation.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) It cannot be accessed outside the class.<br>
+                        <span class="explanation">A private constructor limits object creation to within the class, often used in singleton design patterns.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">32. A student writes the following code to initialize a member variable num to 10 using a default constructor: <pre><code class="language-java"> 
+                    class Demo 
+                    { 
+                    private int num; 
+                    Demo(int value)
+                     { 
+                     num = value; 
+                     } 
+                     } 
+                     </pre>
+                     </code>
+                     
+                     Which is the correct way to define the default constructor in this class? A. Demo() { num = 10; } B. Demo { num = 10; } C. public Demo() { num = 10; }</div>
+                    <div class="options">(a) Only A (b) Only C (c) Both A and C (d) All the three</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) Both A and C<br>
+                        <span class="explanation">The correct way to define a default constructor in Java is by using the class name followed by an empty parameter list, optionally including the public access modifier. In the given options, 
+                       <ol>
+                       <li> 
+                        A (Demo() { num = 10; }) is valid syntax but does not use the public modifier, which is considered a best practice though not mandatory. </li>
+                        <li>
+                        
+                        Option B (Demo { num = 10; }) is incorrect because constructors in Java must have parentheses, even if they do not take any parameters.
+                        </li>
+                        <li>
+                         Option C (public Demo() { num = 10; }) is the proper and most conventional way to define a default constructor.</span>
+                   </li>
+                   </ol>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">33. A student tries to create an object of a class Example with a parameterized constructor using the following code: Example obj = new Example(); Which is the correct way to create the object if the class constructor is defined as: Example(int num) { } <ol><li> A. Example obj = new Example(5);</li><li> B. Example obj = new Example();</li><li> C. Example obj = Example(5);</li></ol></div>
+                    <div class="options">(a) Only A (b) Only B (c) Both A and C (d) All the three</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) Only A<br>
+                        <span class="explanation">In Java, if a class has only a parametrized constructor (e.g., Example(int num)), the default no-argument constructor is not available. To create an object, you must pass the required parameter to the constructor. Thus, Example obj = new Example(5); is the correct way to instantiate the object. Options B and C are invalid due to syntax errors or missing arguments.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">34. A student defines two constructors for a class Test, as follows:</div>
+                    <pre><code class="language-java">class Test {
+  Test() { }
+  void Test(int x) { }
+}</code></pre>
+                    <div class="question">A. Both are constructors. B. Only the first one is a constructor. C. Both are methods.</div>
+                    <div class="options">(a) Only A (b) Only B (c) Only C (d) Both A and C</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (b) Only B<br>
+                        <span class="explanation">The first definition, Test(), is a constructor because it has no return type and its name matches the class name. The second definition, void Test(int x), is not a constructor because it has a return type (void). It is a method, not a constructor. Constructors in Java cannot have return types.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">35. A student writes the following code to overload a constructor in a class Shape:</div>
+                    <pre><code class="language-java">class Shape {
+  Shape(int length) { }
+  Shape(int length, int width) { }
+  Shape(double radius) { }
+}</code></pre>
+                    <div class="question">Which statement is true about constructor overloading? (i) Overloading works because of different numbers of parameters. (ii) Overloading works because of different parameter types. (iii) Overloading does not work in constructors.</div>
+                    <div class="options">(a) Only A (b) Only B (c) Both A and B (d) All the three</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) Both A and B<br>
+                        <span class="explanation">Constructor overloading in Java allows multiple constructors in a class to have the same name (e.g., Shape) as long as they differ in number of parameters (option A) or parameter types (option B). In the given code, the constructors Shape(int length), Shape(int length, int width), and Shape(double radius) demonstrate these variations. Option C is incorrect because constructor overloading is valid and commonly used in Java.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">36. Consider the following program segment where statements are jumbled. Choose the correct order to define a default constructor and initialize a variable.</div>
+                    <pre><code class="language-java">class Demo {
+  private int num;
+  Demo() {
+    System.out.println("Default constructor called"); // (1)
+    num = 0; // (2)
+  }
+}</code></pre>
+                    <div class="options">(a) (1) (2) (b) (2) (1) (c) Both orders are valid (d) Neither order is valid</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (c) Both orders are valid.<br>
+                        <span class="explanation">In a constructor, the order of statements does not affect the functionality as long as they are logically valid and follow the language syntax. In this case, initializing the variable num and printing the message using System.out.println can happen in any order without affecting the program's correctness. Both (1) (2) and (2) (1) are valid sequences.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">37. Consider the following jumbled code segment to swap two numbers without using a third variable. Choose the correct order of statements.</div>
+                    <pre><code class="language-java">void swap(int a, int b) {
+  a = a + b; // (1)
+  b = a - b; // (2)
+  a = a - b; // (3)
+}</code></pre>
+                    <div class="options">(a) (1) (2) (3) (b) (3) (2) (1) (c) (2) (1) (3) (d) (3) (1) (2)</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) (1) (2) (3)<br>
+                        <span class="explanation">The steps to swap two numbers a and b without using a third variable are as follows: (i) Add a and b and store the result in a: a = a + b. (ii) Subtract the new value of a (which is a + b) by b and store the result in b: b = a - b. (iii) Subtract the new value of b from a to assign the original value of b to a: a = a - b.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">38. Consider the following jumbled statements for creating an object using a parameterized constructor. Choose the correct order of statements.</div>
+                    <pre><code class="language-java">int value = 10; // (1)
+MyClass obj = new MyClass(value); // (2)
+
+class MyClass { // (3)
+  MyClass(int num) { // (4)
+    System.out.println("Constructor called with value: " + num);
+  }
+}</code></pre>
+                    <div class="options">(a) (3) (4) (1) (2) (b) (1) (3) (4) (2) (c) (3) (1) (4) (2) (d) (4) (3) (1) (2)</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) (3) (4) (1) (2)<br>
+                        <span class="explanation">To create an object using a parameterized constructor, the correct sequence is as follows: (i) Define the class: class MyClass { ... } (3). (ii) Define the parameterized constructor: MyClass(int num) { ... } (4). (iii) Initialize a variable to pass to the constructor: int value = 10; (1). (iv) Create the object using the parameterized constructor: MyClass obj = new MyClass(value); (2).</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">39. Consider the following program segment to define and use a constructor. The statements are jumbled. Choose the correct order of statements.</div>
+                    <pre><code class="language-java">class Test { // (1)
+  Test(int a) { // (2)
+    System.out.println("Value: " + a); // (3)
+  }
+
+  public static void main(String[] args) { // (4)
+    Test obj = new Test(5); // (5)
+  }
+}</code></pre>
+                    <div class="options">(a) (1) (2) (3) (4) (5) (b) (1) (4) (2) (5) (3) (c) (1) (4) (5) (2) (3) (d) (1) (2) (4) (5) (3)</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) (1) (2) (3) (4) (5)<br>
+                        <span class="explanation">To define and use a constructor correctly, the sequence of statements must follow these steps: (i) Define the class: class Test { (1). (ii) Define the constructor: Test(int a) { (2). (iii) Add the logic inside the constructor: System.out.println("Value: " + a); (3). (iv) Define the main method: public static void main(String[] args) { (4). (v) Create the object and call the constructor: Test obj = new Test(5); (5).</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">40. Assertion (A) : A constructor must not have a return type in Java. Reason (R) : If a return type is specified, the method will be treated as a regular method, not a constructor.</div>
+                    <div class="options">(a) Both A and R are true, and R is the correct explanation of A. (b) Both A and R are true, but R is not the correct explanation of A. (c) A is true, but R is false. (d) A is false, but R is true.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) Both A and R are true, and R is the correct explanation of A.<br>
+                        <span class="explanation">In Java, a constructor must not have a return type, including void. If a return type is specified, the method is treated as a regular method instead of a constructor. This is because constructors are special methods used to initialize objects, and their unique behavior is defined by the absence of a return type. Therefore, the assertion that "a constructor must not have a return type" is true, and the reason provided that specifying a return type makes it a regular method is also true and serves as the correct explanation.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">41. Assertion (A) : Default constructors are automatically provided in a class if no other constructors are explicitly defined. Reason (R) : The default constructor initializes member variables to their default values, like 0 for integers and null for objects.</div>
+                    <div class="options">(a) Both A and R are true, and R is the correct explanation of A. (b) Both A and R are true, but R is not the correct explanation of A. (c) A is true, but R is false. (d) A is false, but R is true.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) Both A and R are true, and R is the correct explanation of A.<br>
+                        <span class="explanation">In Java, if no constructors are explicitly defined in a class, the compiler automatically provides a default constructor. This default constructor initializes the member variables to their default values, such as 0 for numeric types, false for boolean, and null for reference types. The reason (R) accurately explains why the assertion (A) is true, as the purpose of the default constructor is to ensure member variables have valid initial values.</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="question">42. Assertion (A) : Constructor overloading in Java is possible by defining multiple constructors with the same name but different parameter lists. Reason (R) : Constructor overloading works due to the compile-time resolution of parameter types and counts.</div>
+                    <div class="options">(a) Both A and R are true, and R is the correct explanation of A. (b) Both A and R are true, but R is not the correct explanation of A. (c) A is true, but R is false. (d) A is false, but R is true.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) Both A and R are true, and R is the correct explanation of A.<br>
+                        <span class="explanation">Constructor overloading is allowed in Java, and the compiler differentiates constructors based on their parameter types and counts. Explanation-Overloading works due to compile-time resolution of different parameter types/ counts.</span>
+                    </div>
+                </li>
+            
+             
+             
+             
+             
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                  <li>
+                    <div class="question">42. Assertion (A) : Constructor overloading in Java is possible by defining multiple constructors with the same name but different parameter lists. Reason (R) : Constructor overloading works due to the compile-time resolution of parameter types and counts.</div>
+                    <div class="options">(a) Both A and R are true, and R is the correct explanation of A. (b) Both A and R are true, but R is not the correct explanation of A. (c) A is true, but R is false. (d) A is false, but R is true.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) Both A and R are true, and R is the correct explanation of A.<br>
+                        <span class="explanation">Constructor overloading is allowed in Java, and the compiler differentiates constructors based on their parameter types and counts. Explanation-Overloading works due to compile-time resolution of different parameter types/ counts.</span>
+                    </div>
+                </li>
+                <li>  
+                
+                
+                
+                 <div class="question">43. Assertion (A) : A parameterized constructor allows passing values to initialize object attributes during object creation. Reason (R) : Formal parameters in the constructor definition are used to initialize private member variables.</div>
+                    <div class="options">(a) Both A and R are true, and R is the correct explanation of A. (b) Both A and R are true, but R is not the correct explanation of A. (c) A is true, but R is false. (d) A is false, but R is true.</div>
+                    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Show Answer</button>
+                    <div class="answer-box">
+                        Correct Answer: (a) Both A and R are true, and R is the correct explanation of A.<br>
+                        <span class="explanation">A parameterized constructor is designed to allow the passing of values during object creation, which can then be used to initialize the attributes of the object. Formal parameters in the constructor serve as placeholders for these values and are often used to initialize private member variables, ensuring encapsulation. Therefore, both the assertion and the reason are true, and the reason correctly explains the assertion.</span>
+                    </div>
+                </li>
+                <li>
+                
+                
+                
+                
+                
+          
+                    <div class="question">44. Assertion (A) : Non-parameterized constructors are also known as default constructors in Java. Reason (R) : Non-parameterized constructors take no arguments and assign custom or default values to member variables.</div>
+                    <div class="options">(a) Both A and R are true, and R is the correct explanation of A. (b) Both A and R are true, but R is not the correct explanation of A. (c) A is true, but R is false. (d) A is false, but R is true.</div>
+                    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                    <div class="answer-box">
+                        <strong>Correct Answer: (a) Both A and R are true, and R is the correct explanation of A.</strong>
+                        <span class="explanation">Non-parameterized constructors, also known as default constructors, are constructors that take no arguments. They can either be explicitly defined by the programmer or implicitly provided by the compiler if no other constructors are present. These constructors typically initialize member variables to default or custom values.</span>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <footer>
+            Java Quiz - Constructors | Interactive & Fully Responsive | Modern Design
+        </footer>
+    </div>
+
+    <script>
+        function toggleAnswer(button) {
+            const answerBox = button.nextElementSibling;
+            answerBox.classList.toggle('show');
+            button.textContent = answerBox.classList.contains('show') ? 'Hide Answer' : 'Show Answer';
+        }
+    </script>
+</body>
+</html>
