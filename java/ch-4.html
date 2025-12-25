@@ -265,7 +265,29 @@
                     </div>
                 </li>
                 <li>
-                    <div class="question">7. State the output of the below code: class Abc { int a; String c; Abc(int x, String y) { a = x; c = y; } public static void main() { Abc ob = new Abc(2, "1"); System.out.print(ob.a + " " + ob.c); } }</div>
+                    <div class="question">7. State the output of the below code:  <pre><code class="language-java"> 
+                    class Abc 
+                    {   
+                       int a; 
+                       String c;
+                     
+                      Abc(int x, String y)
+                        {
+                          a = x; c = y;
+                       
+                        } 
+                       
+                       public static void main()
+                         { 
+                            Abc ob = new Abc(2, "1");
+                            System.out.print(ob.a + " " + ob.c);
+                         } 
+                          
+                        }
+                        
+                        </code>
+                          </pre>
+                          </div>
                     <div class="options">(a) ?null (b) error (c) nullnull (d) 2 1</div>
                     <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
                     <div class="answer-box">
