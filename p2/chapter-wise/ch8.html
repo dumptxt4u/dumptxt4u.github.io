@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Exam Master</title>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)'], ['$' , '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            },
+            options: {
+                enableMenu: false // Keeps the UI clean for students
+            },
+            startup: {
+                ready: () => {
+                    console.log('MathJax is loaded and ready');
+                    MathJax.startup.defaultReady();
+                    // Initial render call
+                    window.app.init();
+                }
+            }
+        };
+    </script>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <style>
+        :root { --primary: #2563eb; --success: #059669; --bg: #f8fafc; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background: white; width: 98%; max-width: 1500px; padding: 2rem; border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+        .box { min-height: 120px; padding: 1.5rem; border-radius: 0.5rem; margin: 1rem 0; border-left: 5px solid var(--primary); background: #f1f5f9; font-size: 2.25rem; line-height: 1.6; transition: opacity 0.3s; }
+        .answer-box { border-left-color: var(--success); background: #f0fdf4; display: none;  margin: 20px 0;
+            word-wrap: break-word;
+            overflow-wrap: anywhere; line-height: 1.6;  }
+            
+            
+            
+            
+        .controls { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; }
+        button { padding: 0.75rem 1.5rem; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .btn-blue { background: var(--primary); color: white; }
+        .btn-green { background: var(--success); color: white; width: 100%; margin-bottom: 1rem; }
+        button:disabled { background: #cbd5e1; cursor: not-allowed; }
+          /* Center display math */
+        mjx-container[display="true"] {
+            margin: 30px auto !important;
+            text-align: center !important;
+        }
+        .counter { color: #64748b; font-weight: 500; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="counter" id="counter">Loading...</div>
+    
+    <div class="box" id="questionBox"></div>
+    
+    <button class="btn-green" id="toggleBtn" onclick="app.toggleAnswer()">Show Answer</button>
+    
+    <div class="box answer-box" id="answerBox"></div>
+
+    <div class="controls">
+        <button class="btn-blue" id="prevBtn" onclick="app.prev()">← Previous</button>
+        <button class="btn-blue" id="nextBtn" onclick="app.next()">Next →</button>
+    </div>
+</div>
+
+<script>
+// Logic wrapped in an object to prevent global scope pollution
+window.app = {
+    currentIndex: 0,
+
+  "questions": [
+    {
+      "question_latex": "Two vectors $ \\hat{j} + \\hat{k}$ and $ 3\\hat{i} - \\hat{j} + \\hat{k}$ represent two sides AB and AC of a $\\triangle{ABC}$. find the length of the median passing through vertex $A$.",
+      "answer_latex": " "
+    },
+    
+    
+       {
+      "question_latex": "If $\\vec{a} $ and $ \\vec{b} $ are position vectors of A and B respectively find the position vector of a point C on BA produced such that $\\vec{BC}=1.5 \\vec{BA}$",
+      "answer_latex": ""
+    },
+    
+       {
+      "question_latex": "Find the positon vector of a point which divides the join of points with position vectors $\\vec{a} - 2\\vec{b}$ and $2\\vec{a}+\\vec{b}$ externally in the ration 2:1",
+      "year":2016,
+      "answer_latex": ""
+    },
+    
+    {
+    "question_latex":"What is the sum of vectors directed from vertices to mid points of opposite sides?",
+    "year":"",
+    
+    "answer":""
+    
+    },
+    {
+    "question_latex":"ABCD is a rhombus whose diagonals intersect at E.Prove that $\\vec{EA}+\\vec{EB}+\\vec{EC}+\\vec{ED}=\\vec{0}$",
+    
+    "year":"",
+    "answer":""
+    
+    }
+    ,
+    
+    
+    
+    
+    
+    {
+    "question_latex":"For what value of a the vectors $2\\hat{i}-3\\hat{j}+4\\hat{k}$ and $a\\hat{i}+6\\hat{j}-8\\hat{k}$ are collinear ",
+    
+    "year":"",
+    "answer":""
+    
+    }
+    
+  ,
+  
+  
+  
+  
+  
+      
+    
+    
+    {
+    "question_latex":"Find a vector of magnitude 5 units which is parallel to the resultant vectors $\\vec{a} = \\hat{i} +3\\hat{j} -k \\hat{k}$  and $\\vec{b}=\\hat{i} -2 \\hat{j} +\\hat{k}  $",
+    
+    "year":"",
+    "answer":""
+    
+    }
+  ,
+  
+  
+  
+  
+  
+  
+     
+    {
+    "question_latex":"Find a vector which makes angle $\\alpha , \\beta  , \\gamma$  with OX ,OY,OZ respectively .Find the $\\sin^{2}\\alpha + \\sin^{2}\\beta +\\sin^{2}\\gamma$",
+    
+    "year":"",
+    "answer":""
+    
+    },
+    
+    
+      
+  
+     
+    {
+    "question_latex":"Find the angle at which vector $2\\hat{i} -\\hat{j}+2\\hat{k} $is inclined to each of co-ordinate axes",
+    
+    "year":"",
+    "answer":""
+    
+    },
+    
+       {
+    "question_latex":"If a vector $\\vec{a}$ with magnitude 6 units makes an angle $\\frac{\\pi}{3}$ with $\\hat{i}$ and  $\\frac{\\pi}{4}$ with $\\hat{j}$ and an obtuse angle $\\theta$ with $\\hat{k}$ then find $\\theta$ and hence the components of $\\vec{a}$",
+    
+    "year":"",
+    "answer":""
+    
+    }
+  ,
+    
+    
+    
+    
+       {
+    "question_latex":"Find a vector of $\\vec{r}$ of magnitude $3\\sqrt{2}$ which makes an angle of $\\frac{\\pi}{4}$  ,$\\frac{\\pi}{2}$  with y-axis and z-axes ",
+    
+    "year":"",
+    "answer":""
+    
+    }
+  
+  
+  
+  
+  
+  ]
+
+      
+      
+      
+      
+      
+    ,
+
+    init: function() {
+        this.render();
+    },
+
+    render: function() {
+        const item = this.questions[this.currentIndex];
+        const qBox = document.getElementById('questionBox');
+        const aBox = document.getElementById('answerBox');
+        
+        // 1. Update text
+        qBox.innerHTML = item.question_latex;
+        aBox.innerHTML = item.answer_latex;
+        
+        // 2. Reset visibility
+        aBox.style.display = 'none';
+        document.getElementById('toggleBtn').innerText = "Show Answer";
+        
+        // 3. Update Controls
+        document.getElementById('counter').innerText = `Question ${this.currentIndex + 1} of ${this.questions.length}`;
+        document.getElementById('prevBtn').disabled = this.currentIndex === 0;
+        document.getElementById('nextBtn').disabled = this.currentIndex === this.questions.length - 1;
+
+        // 4. FOOLPROOF RENDERING: Wait for DOM, then typeset
+        if (window.MathJax) {
+            MathJax.typesetPromise([qBox, aBox]).catch((err) => console.log(err));
+        }
+    },
+
+    toggleAnswer: function() {
+        const aBox = document.getElementById('answerBox');
+        const btn = document.getElementById('toggleBtn');
+        if (aBox.style.display === 'none') {
+            aBox.style.display = 'block';
+            btn.innerText = "Hide Answer";
+        } else {
+            aBox.style.display = 'none';
+            btn.innerText = "Show Answer";
+        }
+    },
+
+    next: function() { if(this.currentIndex < this.questions.length - 1) { this.currentIndex++; this.render(); } },
+    prev: function() { if(this.currentIndex > 0) { this.currentIndex--; this.render(); } }
+};
+</script>
+
+</body>
+</html>
