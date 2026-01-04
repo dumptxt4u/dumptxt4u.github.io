@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group Theory – Concepts & Applications</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #6b7280;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #eef2ff, #f8fafc);
+      color: var(--text);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 2.6rem;
+      font-weight: 700;
+    }
+
+    header p {
+      max-width: 900px;
+      margin: auto;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 3rem 1.5rem;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    section h2 {
+      font-size: 1.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    section p.lead {
+      color: var(--muted);
+      max-width: 900px;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.6rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: var(--secondary);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 0.8rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Group Theory</h1>
+  <p>A unified mathematical language for symmetry, structure, and transformations — with powerful applications in physics, chemistry, mathematics, and beyond.</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>Introduction to Group Theory</h2>
+    <p class="lead">
+      Group theory studies algebraic structures known as <strong>groups</strong>, which capture the idea of symmetry and invariance. It plays a foundational role in modern mathematics and theoretical science.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Basic Concepts</h3>
+        <p>Definition of groups, identity, inverses, associativity, and common examples such as cyclic and permutation groups.</p>
+        <a href="https://brilliant.org/wiki/group-theory-introduction/" target="_blank">Read on Brilliant →</a>
+      </div>
+
+      <div class="card">
+        <h3>Why Group Theory?</h3>
+        <p>Explains why groups are central to mathematics and how they unify diverse problems under symmetry.</p>
+        <a href="https://kconrad.math.uconn.edu/math216/whygroups.html" target="_blank">Why Groups Matter →</a>
+      </div>
+
+      <div class="card">
+        <h3>Lecture Notes (PDF)</h3>
+        <p>Structured university-level notes covering core definitions, theorems, and examples.</p>
+        <a href="https://pdvpmtasgaon.edu.in/uploads/dptmaths/AnotesofGroupTheoryByMarkReeder.pdf" target="_blank">Download Notes →</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Applications of Group Theory</h2>
+    <p class="lead">
+      Group theory provides a mathematical framework for understanding symmetry in physical laws, molecular structures, cryptography, and abstract systems.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Real-World Applications</h3>
+        <p>Discussions on how finite and infinite groups appear in real-world systems and modern science.</p>
+        <a href="https://math.stackexchange.com/questions/324253/are-there-real-world-applications-of-finite-group-theory" target="_blank">Explore Discussion →</a>
+      </div>
+
+      <div class="card">
+        <h3>Research Article</h3>
+        <p>Recent academic overview of applications of group theory across scientific disciplines.</p>
+        <a href="https://ijsra.net/sites/default/files/IJSRA-2024-0841.pdf" target="_blank">View Paper →</a>
+      </div>
+
+      <div class="card">
+        <h3>Community Insights</h3>
+        <p>Informal explanations and perspectives from mathematicians and researchers.</p>
+        <a href="https://www.reddit.com/r/mathematics/comments/b51ywy/applications_of_group_theory/" target="_blank">Reddit Thread →</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Group Theory in Physics</h2>
+    <p class="lead">
+      In physics, group theory explains conservation laws, particle classification, and fundamental symmetries of nature.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Symmetry & Physical Laws</h3>
+        <p>How symmetry groups determine physical properties and invariants.</p>
+        <a href="https://link.springer.com/book/10.1007/978-1-4419-7598-0" target="_blank">Springer Book →</a>
+      </div>
+
+      <div class="card">
+        <h3>MIT Lecture Notes</h3>
+        <p>Advanced lecture notes connecting group theory with modern physics.</p>
+        <a href="https://web.mit.edu/course/6/6.734j/www/group-full02.pdf" target="_blank">MIT PDF →</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Group Theory in Chemistry</h2>
+    <p class="lead">
+      Chemical bonding, molecular vibrations, and spectroscopy rely heavily on symmetry groups.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Molecular Symmetry</h3>
+        <p>Group theory applied to molecular orbitals, vibrations, and spectroscopy.</p>
+        <a href="https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Group_Theory/Group_Theory_and_its_Application_to_Chemistry" target="_blank">LibreTexts →</a>
+      </div>
+
+      <div class="card">
+        <h3>Chemistry Conference Paper</h3>
+        <p>Applied group theory methods in chemical research and education.</p>
+        <a href="https://www.ijartet.com/2730/v4s21august2017spectrumsolutions/conference" target="_blank">View Paper →</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Further Resources</h2>
+    <p class="lead">
+      Additional materials for deeper study and structured learning.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>University PDF</h3>
+        <p>Comprehensive algebra and group theory lecture material.</p>
+        <a href="https://www.maths.gla.ac.uk/~mwemyss/teaching/3alg1-7.pdf" target="_blank">Download PDF →</a>
+      </div>
+
+      <div class="card">
+        <h3>Group Theory Organization</h3>
+        <p>Professional group theory resources, articles, and updates.</p>
+        <a href="https://www.advgrouptheory.com/index.php" target="_blank">Visit Site →</a>
+      </div>
+
+      <div class="card">
+        <h3>CUET Chemistry Syllabus</h3>
+        <p>Official syllabus highlighting group theory applications in chemistry.</p>
+        <a href="https://cdnbbsr.s3waas.gov.in/s3d1a21da7bca4abff8b0b61b87597de73/uploads/2025/12/20251227437950608.pdf" target="_blank">View Syllabus →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Group Theory Learning Page</p>
+  <p>Designed for students, educators, and enthusiasts</p>
+</footer>
+
+</body>
+</html>
