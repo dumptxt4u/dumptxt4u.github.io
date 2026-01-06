@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Exam Master</title>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)'], ['$' , '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            },
+            options: {
+                enableMenu: false // Keeps the UI clean for students
+            },
+            startup: {
+                ready: () => {
+                    console.log('MathJax is loaded and ready');
+                    MathJax.startup.defaultReady();
+                    // Initial render call
+                    window.app.init();
+                }
+            }
+        };
+    </script>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <style>
+        :root { --primary: #2563eb; --success: #059669; --bg: #f8fafc; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background: white; width: 98%; max-width: 1500px; padding: 2rem; border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+        .box { min-height: 120px; padding: 1.5rem; border-radius: 0.5rem; margin: 1rem 0; border-left: 5px solid var(--primary); background: #f1f5f9; font-size: 2.25rem; line-height: 1.6; transition: opacity 0.3s; }
+        .answer-box { border-left-color: var(--success); background: #f0fdf4; display: none;  margin: 20px 0;
+            word-wrap: break-word;
+            overflow-wrap: anywhere; line-height: 1.6;  }
+            
+            
+            
+            
+        .controls { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; }
+        button { padding: 0.75rem 1.5rem; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .btn-blue { background: var(--primary); color: white; }
+        .btn-green { background: var(--success); color: white; width: 100%; margin-bottom: 1rem; }
+        button:disabled { background: #cbd5e1; cursor: not-allowed; }
+          /* Center display math */
+        mjx-container[display="true"] {
+            margin: 30px auto !important;
+            text-align: center !important;
+        }
+        .counter { color: #64748b; font-weight: 500; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="counter" id="counter">Loading...</div>
+    
+    <div class="box" id="questionBox"></div>
+    
+    <button class="btn-green" id="toggleBtn" onclick="app.toggleAnswer()">Show Answer</button>
+    
+    <div class="box answer-box" id="answerBox"></div>
+
+    <div class="controls">
+        <button class="btn-blue" id="prevBtn" onclick="app.prev()">← Previous</button>
+        <button class="btn-blue" id="nextBtn" onclick="app.next()">Next →</button>
+    </div>
+</div>
+
+<script>
+// Logic wrapped in an object to prevent global scope pollution
+window.app = {
+    currentIndex: 0,
+    questions: [
+  
+
+
+
+ {
+ "question_latex":"$If \\matrix A= \\begin{bmatrix} \\alpha & \\beta \\\\ \\gamma & -\\alpha \\end{bmatrix}$ such that $A^2=I$ then $1-\\alpha^2 -\\beta\\gamma$",
+ "answer_latex":""
+ },
+ 
+ {
+ "question_latex":"If $\\matrix{A}=  \\begin{bmatrix}  0 & 1 \\\\ -1 & 0  \\end{bmatrix}$ and $(xI + yA)^2 =A$ then find the value of x and y",
+ "answer_latex":""
+ 
+ }
+  ,
+  {
+ "question_latex":"If $\\matrix{A}=  \\begin{bmatrix}  a & b \\\\ c & d  \\end{bmatrix}$ and $B=\\begin{bmatrix} p \\\\ q  \\end{bmatrix}$ $\\neq$  $\\begin{bmatrix} 0 \\\\ 0 \\end{bmatrix}$  such that AB=B and a+d=5050 .Find the value of value of $(ad-bc)$",
+ "answer_latex":""
+ 
+ }
+ ,
+ {
+ "question_latex":"If A=$\\begin{bmatrix} 1 & -2 &3 \\\\ -4 & 2 & 5 \\end{bmatrix}$ and B= $\\begin{bmatrix}  2 & 3 \\\\ 4 & 5 \\\\ 2 & 1\\end{bmatrix}$ and $BA = b_{ij} $ then find $b_{21} + b_{32}$",
+ "answer_latex":""
+ }
+  ,
+  {
+  
+  "question_latex":"Find the matrix $A^2$ here A=$a_{ij}$ is a 2x2 matrix  whose elements are given by $a_{ij}$ =maximum(i,j)-minimum(i,j)",
+  "answer_latex":"",
+  
+  },
+  {
+  "question_latex":"A and B are square matrix of same order .If $(A+B)^2=A^2 + B^2$ then AB equals"  ,
+  "answer_latex":""
+  },
+  
+  {
+  
+  "question_latex":"If A and B are to 3X3 matrix ,Then A'B-B'A is always",
+  "answer_latex":""
+  
+  },
+  {
+  "question_latex":"If A is a 3x4 matrix and B is a  matrix such that A'B and B'A are both defined then the order of matrix B is ",
+  "answer_latex":""
+  },
+  
+  {
+  
+  "question_latex":"If A and B are 2 matrices such that the transpose of A+B is $\\begin{bmatrix} 2 & -1 \\\\ 7 & 6 \\end{bmatrix}$.If$ \\begin{bmatrix} 3 & -2 \\\\ 6 & 0 \\end{bmatrix}$ then find matrix A"
+  
+  },
+  
+  
+  {
+   "question_latex":"In an online advertisement campaign there are to options fro publicity picture ads and video ads.The cost per ad is Rs is given by matrix .Cost per ad $A=\\begin{bmatrix} 0.2\\\\ 0.5\\end{bmatrix}$The number of ads  run by two companys X and Y is given by matrix $ b=\\begin{bmatrix}  100000 & 150000 \\\\8000 & 20000 \\end{bmatrix}$.Find the total cost of ads for the 2 companies using matrix algebra ",
+   "answer_latex":"",
+  
+  
+  },
+  
+  {
+  "question_latex":"If a=$A=\\begin{bmatrix} 3 & a & -1 \\\\ 2 & 5 & c\\\\ b & 8 & 2 \\end{bmatrix}$ is symmetric and  $B=\\begin{bmatrix}  d & 3 & a \\\\ b-a & e & -2b-c \\\\ -2 & 6 & -f   \\end{bmatrix}$ is skew symmetric .Find AB ",
+  "answer_latex":""
+  }
+  ,
+  {
+  "question_latex":"If A =$\\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix}$ and B= $\\begin{bmatrix} a & b\\\\ c & d\\end{bmatrix}$ and Ab=Ba. Find $\\frac{a - d}{3b-c}$ ",
+  "answer_latex":""
+  
+  },
+ {
+  "question_latex": "If $A=\\begin{bmatrix} 1 & 1 \\\\ 0 & \\beta \\end{bmatrix}$. For what value of $\\beta$ is $A^2=B$?",
+  "answer_latex": ""
+},
+  
+  {
+    "question_latex": "Identify, if the statement below is true or false. If true, give a reason. If false, give a counter-example. \"If $A$ is a non zero matrix such that $AK$ is a zero matrix, then $K$ is definitely a zero matrix.\"",
+    "anWer_latex": ""
+  },
+  {
+    "question_latex": "16. If $A = \\begin{bmatrix} 2 & -3 \\\\ 1 & 0 \\end{bmatrix}$. If $p A^2 + q A + r I = O$, where $O$ is the zero matrix, and $p, q$ and $r$ are integers. Find the value of $\\left(-\\frac{q}{p}\\right)$. Show your steps.",
+    "anWer_latex": ""
+  },
+  {
+    "question_latex": "17. Given $P = \\begin{bmatrix} 3 & -1 \\\\ 1 & -2 \\end{bmatrix}$. Find a matrix $Q$ such that $(P+Q)$ is a skew symmetric matrix.",
+    "anWer_latex": ""
+  },
+  {
+    "question_latex": "18. If $\\theta - \\phi = \\frac{\\pi}{2}$ and $A = \\begin{bmatrix} \\cos^2 \\theta & \\cos \\theta \\sin \\theta \\\\ \\cos \\theta \\sin \\theta & \\sin^2 \\theta \\end{bmatrix}$ and $B = \\begin{bmatrix} \\cos^2 \\phi & \\cos \\phi \\sin \\phi \\\\ \\cos \\phi \\sin \\phi & \\sin^2 \\phi \\end{bmatrix}$. Find $A \\cdot B$.",
+    "anWer_latex": ""
+  },
+  {
+    "question_latex": "19. If $B$ is a symmetric matrix, prove that $BB^T$ is a symmetric matrix.",
+    "anWer_latex": ""
+  },
+  {
+    "question_latex": "20. $A$ is a square matrix of order $m$. If $(A^2 - A)$ is invertible, then $A$ is invertible. Justify your answer.",
+    "anWer_latex": ""
+  }
+  
+  
+  
+  
+  ,
+  {
+    "question_latex": "21. If $A$ is a square matrix of order 2 and $|A| = -2$, then value of $|5A^T|$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "22. Let $A$ be a skew-symmetric matrix of order 3. If $|A| = x$, then $(2023)^x$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "23. If $A$ is a square matrix and $|A| = 2$, then $|AA^T|$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "24. If $A$ is a non singular matrix of order 3, such that $2A^2 = A$, then $|2A|$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "25. If $A$ is the non singular matrix of order 3, such that $|A| = 3$, then $|2AA^T|$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "26. If $A$ is a square matrix of order 3, such that $|\\text{adj } A| = 8$, then $|A^T|$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "27. If $A(\\text{adj } A) = \\begin{bmatrix} 3 & 0 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 3 \\end{bmatrix}$, then $|A| + |\\text{adj } A|$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "28. If $A$ is a $3 \\times 3$ matrix and $|3 \\text{adj } A| = 729$, then $|A|$ equals",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "29. If $A^{-1} = \\begin{bmatrix} 2x & 0 \\\\ x & x \\end{bmatrix}$ and $A = \\begin{bmatrix} 1 & 0 \\\\ -1 & 2 \\end{bmatrix}$, then $x$ equals",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "30. If the system of equations $x + 2y - 3z = 1$, $(a+2)z = 3$ and $(2a+1)y + z = 2$ are inconsistent, then the value of $a$ is",
+    "answer_latex": ""
+  }
+
+  
+  
+  
+ ,
+  {
+    "question_latex": "21. If $A$ is a square matrix of order 2 and $|A| = -2$, then value of $|5A^T|$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "22. Let $A$ be a skew-symmetric matrix of order 3. If $|A| = x$, then $(2023)^x$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "23. If $A$ is a square matrix and $|A| = 2$, then $|AA^T|$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "24. If $A$ is a non singular matrix of order 3, such that $2A^2 = A$, then $|2A|$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "25. If $A$ is the non singular matrix of order 3, such that $|A| = 3$, then $|2AA^T|$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "26. If $A$ is a square matrix of order 3, such that $|\\text{adj } A| = 8$, then $|A^T|$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "27. If $A(\\text{adj } A) = \\begin{bmatrix} 3 & 0 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 3 \\end{bmatrix}$, then $|A| + |\\text{adj } A|$ is ",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "28. If $A$ is a $3 \\times 3$ matrix and $|3 \\text{adj } A| = 729$, then $|A|$ equals",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "29. If $A^{-1} = \\begin{bmatrix} 2x & 0 \\\\ x & x \\end{bmatrix}$ and $A = \\begin{bmatrix} 1 & 0 \\\\ -1 & 2 \\end{bmatrix}$, then $x$ equals",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "30. If the system of equation $x + 2y - 3z = 1$, $(a+2)z = 3$ and $(2a+1)y + z = 2$ are inconsistent, then the value of $a$ is",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "31. If $A = \\begin{bmatrix} 1 & 2 & -3 \\\\ 3 & 2 & -2 \\\\ 2 & -1 & -1 \\end{bmatrix}$. Find $A^{-1}$ and use it to solve the system: $x + 3y + 2z = 6$, $2x + 2y - z = 3$, $-3x - 2y - z = 5$",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "32. Show that for any positive integer $n$, $\\begin{vmatrix} (n-1)! & n! \\\\ -n & n \\end{vmatrix} = (n+1)!$",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "33. If $A$ and $B$ are invertible matrices of same order such that $AB^{-1} = \\frac{1}{48} \\begin{bmatrix} 0 & 0 & 16 \\\\ 0 & 24 & 0 \\\\ 3 & 0 & 0 \\end{bmatrix}$ and $A = \\begin{bmatrix} -2 & 0 & 0 \\\\ 0 & -1 & 0 \\\\ 0 & 0 & 3 \\end{bmatrix}$. Find $B$.",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "34. Determine the product of $\\begin{bmatrix} -4 & 4 & 4 \\\\ -7 & 1 & 3 \\\\ 5 & -3 & -1 \\end{bmatrix} \\begin{bmatrix} 1 & -1 & 1 \\\\ 1 & -2 & -2 \\\\ 2 & 1 & 3 \\end{bmatrix}$ and then use the product to solve the system of equations $x - y + z = 4, x - 2y - 2z = 9, 2x + y + 3z = 1$.",
+    "answer_latex": ""
+  },
+  {
+    "question_latex": "35. Manjit wants to donate a rectangular plot of land for a school in his village. When he was asked to give dimensions of the plot, he told that if its length is decreased by $50\\text{ m}$ and breadth is increased by $50\\text{ m}$, then its area will remain same, but if length is decreased by $10\\text{ m}$ and breadth is decreased by 20m ,then its area ill decrease by 5300$m^{2}$.Using matrix algebra find dimension of rectangular plot",
+    "answer_latex": ""
+  },
+
+  {
+    "question_latex": "36. An amount of ₹ 5000 is put into three investments at the rate of interest of $6\\%, 7\\%$ and $8\\%$ per annum respectively. The total annual income is ₹ 358. If the combined income from the first two investments is ₹ 70 more than the income from the third, find the amount of each investment by matrix method.",
+    "answer_latex": ""
+  },
+ 
+  {
+    "question_latex": "38. Two factories decided to award their employees for three values of (a) adaptable to new techniques, (b) careful alert in difficult situations and (c) keeping calm in tense honour respectively. The first factory awards 2, 4 and 3 employees with a total prize money of ₹ 29000. The second factory decided to honour respectively 5, 2 and 3 employees with the total prize money of ₹ 30500. If the three prizes per person together cost ₹ 9500: \\\\ i) Represent the above situation by a matrix equation and form linear equations using Matrix multiplication. \\\\ ii) Solve these equations using Matrix Algebra.",
+    "answer_latex": ""
+  },
+    {
+  "question_latex": "37. An automobile company uses three types of steels $S_1, S_2$ and $S_3$ for producing three types of cars $C_1, C_2$ and $C_3$. Steel requirements (in tonnes) for each type of cars are given below: $  \\begin{array}{|c|c|c|c|} \\hline \\text{Steel/Car} & C_1 & C_2 & C_3 \\\\ \\hline S_1 & 2 & 3 & 4 \\\\ \\hline S_2 & 1 & 1 & 2 \\\\ \\hline S_3 & 3 & 2 & 1 \\\\ \\hline \\end{array} $ .Find the number of cars of each type which can be produced using 29, 13, and 16 tonnes of steel of three types respectively, using Matrix Algebra.",
+  "answer_latex": ""
+},
+
+  
+  
+]
+      
+      
+      
+      
+      
+    ,
+
+    init: function() {
+        this.render();
+    },
+
+    render: function() {
+        const item = this.questions[this.currentIndex];
+        const qBox = document.getElementById('questionBox');
+        const aBox = document.getElementById('answerBox');
+        
+        // 1. Update text
+        qBox.innerHTML = item.question_latex;
+        aBox.innerHTML = item.answer_latex;
+        
+        // 2. Reset visibility
+        aBox.style.display = 'none';
+        document.getElementById('toggleBtn').innerText = "Show Answer";
+        
+        // 3. Update Controls
+        document.getElementById('counter').innerText = `Question ${this.currentIndex + 1} of ${this.questions.length}`;
+        document.getElementById('prevBtn').disabled = this.currentIndex === 0;
+        document.getElementById('nextBtn').disabled = this.currentIndex === this.questions.length - 1;
+
+        // 4. FOOLPROOF RENDERING: Wait for DOM, then typeset
+        if (window.MathJax) {
+            MathJax.typesetPromise([qBox, aBox]).catch((err) => console.log(err));
+        }
+    },
+
+    toggleAnswer: function() {
+        const aBox = document.getElementById('answerBox');
+        const btn = document.getElementById('toggleBtn');
+        if (aBox.style.display === 'none') {
+            aBox.style.display = 'block';
+            btn.innerText = "Hide Answer";
+        } else {
+            aBox.style.display = 'none';
+            btn.innerText = "Show Answer";
+        }
+    },
+
+    next: function() { if(this.currentIndex < this.questions.length - 1) { this.currentIndex++; this.render(); } },
+    prev: function() { if(this.currentIndex > 0) { this.currentIndex--; this.render(); } }
+};
+</script>
+
+</body>
+</html>
+
