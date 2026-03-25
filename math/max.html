@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maxima and Minima (4 Variables - Full Guide)</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #f4f7fb;
+    color: #2c3e50;
+}
+
+header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.section {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+h2 {
+    border-left: 5px solid #3498db;
+    padding-left: 10px;
+}
+
+pre {
+    background: #272822;
+    color: #f8f8f2;
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+</style>
+
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)'], ['$', '$']] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<header>
+<h1>Maxima & Minima of Functions of Four Variables</h1>
+<p>Complete Detailed Guide</p>
+</header>
+
+<!-- INTRO -->
+<section class="section">
+<h2>1. Introduction</h2>
+
+<p>
+Optimization is one of the most important concepts in mathematics, science, and engineering. It deals with finding the best possible value of a function under given conditions. When we extend this idea to functions of four variables, written as \( f(x, y, z, w) \), the problem becomes significantly richer and more complex.
+</p>
+
+<p>
+A function of four variables maps a point in four-dimensional space to a real number. While visualizing such a function is not possible in the usual geometric sense, the underlying mathematical principles remain consistent with lower dimensions. Instead of graphs, we rely on algebraic tools such as gradients, matrices, and eigenvalues to study behavior.
+</p>
+
+<p>
+In practical applications, four-variable optimization arises frequently. In economics, a production function may depend on labor, capital, raw materials, and technology. In physics, a system with multiple degrees of freedom may depend on four independent coordinates. In machine learning, cost functions often depend on many parameters, and four-variable cases provide a foundation for understanding higher dimensions.
+</p>
+
+<p>
+The main objective is to determine points where the function attains maximum or minimum values. These points are called extrema. They may be local, meaning they are optimal within a small region, or global, meaning they are optimal across the entire domain.
+</p>
+
+<p>
+A necessary condition for an extremum is that the first derivatives vanish. This leads to the concept of critical points, which we explore using the gradient. After finding these points, we use second-order derivatives through the Hessian matrix to classify them.
+</p>
+
+<p>
+This guide builds a complete understanding of the process, starting from fundamental concepts and progressing to advanced techniques. Even though the dimension increases, the structure of the solution remains elegant and systematic.
+</p>
+
+</section>
+
+<!-- GRADIENT -->
+<section class="section">
+<h2>2. Gradient and Stationary Points</h2>
+
+<p>
+The first step in optimization is identifying stationary or critical points. These are points where the function stops increasing or decreasing in any direction. In multivariable calculus, this condition is expressed using the gradient vector.
+</p>
+
+<pre>\[
+\nabla f =
+\left(
+\frac{\partial f}{\partial x},
+\frac{\partial f}{\partial y},
+\frac{\partial f}{\partial z},
+\frac{\partial f}{\partial w}
+\right)
+\]</pre>
+
+<p>
+The gradient represents the direction of steepest increase of the function. Therefore, when the gradient becomes zero, the function has no immediate change in any direction. Such points are candidates for maxima, minima, or saddle points.
+</p>
+
+<p>
+To find stationary points, we solve the system:
+</p>
+
+<pre>\[
+\frac{\partial f}{\partial x}=0,\quad
+\frac{\partial f}{\partial y}=0,\quad
+\frac{\partial f}{\partial z}=0,\quad
+\frac{\partial f}{\partial w}=0
+\]</pre>
+
+<p>
+This system consists of four equations with four unknowns. Solving it may be straightforward for simple functions but can become highly complex for nonlinear functions. In many cases, symmetry or substitution methods help simplify the process.
+</p>
+
+<p>
+For example, consider:
+\( f = x^2 + y^2 + z^2 + w^2 \).
+Then partial derivatives give:
+</p>
+
+<pre>\[
+2x=0,\;2y=0,\;2z=0,\;2w=0
+\]</pre>
+
+<p>
+The only solution is \( (0,0,0,0) \), which is a critical point.
+</p>
+
+<p>
+In general, solving such systems may require computational tools like Python or MATLAB. However, understanding the structure of equations helps in recognizing patterns and simplifying calculations.
+</p>
+
+<p>
+Once all critical points are found, we proceed to classify them using second-order derivatives.
+</p>
+
+</section>
+
+<!-- HESSIAN -->
+<section class="section">
+<h2>3. Hessian Matrix</h2>
+
+<p>
+The Hessian matrix plays a crucial role in determining the nature of stationary points. It is a square matrix consisting of second-order partial derivatives of the function.
+</p>
+
+<pre>\[
+H =
+\begin{pmatrix}
+f_{xx} & f_{xy} & f_{xz} & f_{xw} \\
+f_{yx} & f_{yy} & f_{yz} & f_{yw} \\
+f_{zx} & f_{zy} & f_{zz} & f_{zw} \\
+f_{wx} & f_{wy} & f_{wz} & f_{ww}
+\end{pmatrix}
+\]</pre>
+
+<p>
+This matrix provides information about the curvature of the function near a critical point. If the function behaves like a bowl, the Hessian indicates a minimum. If it behaves like an upside-down bowl, it indicates a maximum.
+</p>
+
+<p>
+The Hessian is always symmetric if second derivatives are continuous. This simplifies calculations and ensures real eigenvalues.
+</p>
+
+<p>
+Near a critical point, the function can be approximated using Taylor expansion:
+</p>
+
+<pre>\[
+f \approx f(a) + \frac{1}{2} \mathbf{h}^T H \mathbf{h}
+\]</pre>
+
+<p>
+The sign of this quadratic form determines whether the point is a minimum, maximum, or saddle.
+</p>
+
+<p>
+Computing the Hessian for four variables requires calculating multiple second derivatives. Although this may seem tedious, the pattern is systematic and manageable with practice.
+</p>
+
+</section>
+
+<!-- CLASSIFICATION -->
+<section class="section">
+<h2>4. Classification of Critical Points</h2>
+
+<p>
+Once we obtain the Hessian matrix, we use it to classify the critical points. This involves analyzing the eigenvalues of the matrix.
+</p>
+
+<p>
+If all eigenvalues are positive, the function curves upward in all directions, indicating a local minimum. If all eigenvalues are negative, the function curves downward, indicating a local maximum.
+</p>
+
+<p>
+If eigenvalues have mixed signs, the point is a saddle point. In such cases, the function increases in some directions and decreases in others.
+</p>
+
+<p>
+An alternative method is using principal minors (Sylvester’s criterion). This avoids direct computation of eigenvalues.
+</p>
+
+<p>
+If any eigenvalue is zero, the test becomes inconclusive. Higher-order derivatives or alternative methods must be used.
+</p>
+
+<p>
+This classification step is essential because solving gradient equations only gives candidates, not actual extrema.
+</p>
+
+</section>
+
+<!-- CONSTRAINT -->
+<section class="section">
+<h2>5. Lagrange Multipliers</h2>
+
+<p>
+In many real-world problems, variables are subject to constraints. For example, the sum of squares may be fixed. In such cases, we use Lagrange multipliers.
+</p>
+
+<p>
+The method introduces a new variable \( \lambda \) and solves:
+</p>
+
+<pre>\[
+\nabla f = \lambda \nabla g
+\]</pre>
+
+<p>
+along with the constraint:
+</p>
+
+<pre>\[
+g(x,y,z,w)=c
+\]</pre>
+
+<p>
+This results in five equations with five unknowns. The solutions give candidate points for extrema under constraints.
+</p>
+
+<p>
+Geometrically, this means the gradients of the function and constraint are parallel at the optimum.
+</p>
+
+<p>
+This method is powerful and widely used in physics, economics, and engineering.
+</p>
+
+</section>
+
+<!-- APPLICATION -->
+<section class="section">
+<h2>6. Applications</h2>
+
+<p>
+Optimization in four variables has numerous applications. In economics, it is used to maximize profit or minimize cost. In physics, it helps find equilibrium states by minimizing energy.
+</p>
+
+<p>
+In engineering, design optimization often involves multiple parameters such as length, width, height, and material properties. In machine learning, optimization algorithms rely on gradient and Hessian concepts.
+</p>
+
+<p>
+Although real-world problems may involve more variables, understanding four-variable optimization builds a strong conceptual foundation.
+</p>
+
+<p>
+Thus, mastering these techniques is essential for advanced studies in mathematics and applied sciences.
+</p>
+
+</section>
+
+</body>
+</html>
