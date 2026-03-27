@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 More Important KTU Questions - Testing of Hypothesis (6-10)</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #1e40af;
+        }
+        h2 {
+            color: #1e3a8a;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 8px;
+        }
+        .question {
+            background-color: #f8fafc;
+            padding: 18px;
+            margin: 20px 0;
+            border-left: 6px solid #1e40af;
+            border-radius: 6px;
+        }
+        .answer {
+            background-color: #ecfdf5;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 6px;
+            line-height: 1.7;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #64748b;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1e40af;
+            color: white;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>5 More Important Questions on Testing of Hypothesis</h1>
+        <p style="text-align:center; font-size:18px; color:#1e40af;">
+            (Questions 6-10 – Frequently asked in KTU S4 MAT202 Exams)
+        </p>
+
+        <!-- Question 6 -->
+        <div class="question">
+            <h2>6. Explain the difference between One-tailed and Two-tailed tests with examples.</h2>
+            <div class="answer">
+                <strong>Answer:</strong><br>
+                <strong>Two-tailed test:</strong> Used when H₁ has ≠ sign. Rejection region is on both tails of the distribution.<br>
+                Example: H₀: μ = 50, H₁: μ ≠ 50<br><br>
+                <strong>One-tailed test:</strong> Used when H₁ has > or < sign. Rejection region is on only one side.<br>
+                • Right-tailed: H₁: μ > 50<br>
+                • Left-tailed: H₁: μ < 50<br><br>
+                <strong>Note:</strong> For the same α, critical value changes (e.g., for α=0.05, two-tailed ±1.96, one-tailed +1.645 or -1.645).
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question">
+            <h2>7. A random sample of 400 items has mean 55 and standard deviation 20. Can we conclude that the population mean is 60 at 5% level of significance? (Large sample Z-test for mean)</h2>
+            <div class="answer">
+                <strong>Answer:</strong><br>
+                H₀: μ = 60  H₁: μ ≠ 60 (Two-tailed)<br>
+                α = 0.05, Critical values = ±1.96<br><br>
+                Z = (x̄ - μ) / (σ / √n) = (55 - 60) / (20 / √400) = (–5) / 1 = –5<br><br>
+                |Z| = 5 > 1.96 → <strong>Reject H₀</strong><br><br>
+                <strong>Conclusion:</strong> The population mean is significantly different from 60 at 5% level of significance.
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question">
+            <h2>8. In a random sample of 200 bulbs, 160 were found to be defective. Test whether the proportion of defective bulbs is 0.75 at 1% level of significance. (Z-test for proportion)</h2>
+            <div class="answer">
+                <strong>Answer:</strong><br>
+                H₀: p = 0.75  H₁: p ≠ 0.75 (Two-tailed)<br>
+                α = 0.01, Critical values = ±2.58<br><br>
+                Sample proportion ˆp = 160/200 = 0.80<br>
+                Z = (ˆp - p) / √[p(1-p)/n] = (0.80 - 0.75) / √[0.75×0.25/200] = 0.05 / 0.0306 ≈ 1.633<br><br>
+                |1.633| < 2.58 → <strong>Do not reject H₀</strong><br><br>
+                <strong>Conclusion:</strong> The proportion of defective bulbs does not differ significantly from 0.75.
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question">
+            <h2>9. A sample of 10 items has mean 18.4 and standard deviation 3.2. Test the hypothesis that the population mean is 20 at 5% significance level. (Small sample t-test)</h2>
+            <div class="answer">
+                <strong>Answer:</strong><br>
+                H₀: μ = 20  H₁: μ ≠ 20 (Two-tailed)<br>
+                α = 0.05, df = 9, Critical t-value = ±2.262<br><br>
+                t = (x̄ - μ) / (s / √n) = (18.4 - 20) / (3.2 / √10) = (-1.6) / 1.012 ≈ -1.581<br><br>
+                |–1.581| < 2.262 → <strong>Do not reject H₀</strong><br><br>
+                <strong>Conclusion:</strong> There is not enough evidence to say that the population mean differs from 20.
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question">
+            <h2>10. Write short notes on:<br>
+            a) Critical region<br>
+            b) p-value<br>
+            c) Power of a test</h2>
+            <div class="answer">
+                <strong>Answer:</strong><br>
+                a) <strong>Critical Region (Rejection Region):</strong> The set of values of the test statistic for which we reject the null hypothesis.<br><br>
+                b) <strong>p-value:</strong> The probability of obtaining a test statistic at least as extreme as the observed value, assuming H₀ is true. If p-value ≤ α, reject H₀.<br><br>
+                c) <strong>Power of a test:</strong> The probability of correctly rejecting H₀ when it is false. Power = 1 – β (where β is Type II error probability). Higher power is desirable.
+            </div>
+        </div>
+
+        <p style="text-align:center; margin-top:30px; font-size:16px;">
+            <strong>KTU Exam Tip:</strong> Always clearly write H₀, H₁, α, test statistic formula, calculated value, critical value/table value, decision, and conclusion in words.
+        </p>
+    </div>
+</body>
+</html>

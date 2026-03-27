@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing of Hypothesis | Level of Significance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #1e3a8a;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #1e3a8a;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        .highlight {
+            background-color: #dbeafe;
+            font-weight: bold;
+        }
+        ul {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Testing of Hypothesis</h1>
+        <p style="text-align:center; font-size:18px;">
+            <strong>Level of Significance (α)</strong> – A key concept in Hypothesis Testing
+        </p>
+
+        <h2>1. What is Hypothesis Testing?</h2>
+        <p>Hypothesis testing is a statistical method used to make decisions about a population parameter based on sample data. It helps us determine whether there is enough evidence to reject or accept a claim (hypothesis).</p>
+
+        <h2>2. Basic Terms</h2>
+        <table>
+            <tr>
+                <th>Term</th>
+                <th>Definition</th>
+            </tr>
+            <tr>
+                <td><strong>Null Hypothesis (H₀)</strong></td>
+                <td>The statement of "no effect" or "no difference" (default assumption).</td>
+            </tr>
+            <tr>
+                <td><strong>Alternative Hypothesis (H₁ or Hₐ)</strong></td>
+                <td>The statement we are trying to prove (opposite of H₀).</td>
+            </tr>
+            <tr>
+                <td class="highlight"><strong>Level of Significance (α)</strong></td>
+                <td>The probability of rejecting H₀ when it is actually true (Type I error). Common values: <strong>0.05 (5%), 0.01 (1%), 0.10 (10%)</strong>.</td>
+            </tr>
+            <tr>
+                <td><strong>Critical Region / Rejection Region</strong></td>
+                <td>The area in the distribution where we reject H₀ if the test statistic falls in it.</td>
+            </tr>
+            <tr>
+                <td><strong>P-value</strong></td>
+                <td>The smallest level of significance at which we can reject H₀.</td>
+            </tr>
+        </table>
+
+        <h2>3. Steps in Testing of Hypothesis</h2>
+        <ol>
+            <li>State the Null Hypothesis (H₀) and Alternative Hypothesis (H₁).</li>
+            <li>Choose the <strong>Level of Significance (α)</strong>.</li>
+            <li>Select the appropriate test (Z-test, t-test, Chi-square, etc.).</li>
+            <li>Calculate the test statistic.</li>
+            <li>Find the critical value or P-value.</li>
+            <li>Make a decision: Reject H₀ if test statistic is in critical region or P-value ≤ α.</li>
+            <li>Draw conclusion in the context of the problem.</li>
+        </ol>
+
+        <h2>4. Common Levels of Significance</h2>
+        <ul>
+            <li><strong>α = 0.05 (5%) →</strong> Most commonly used in social sciences and engineering.</li>
+            <li><strong>α = 0.01 (1%) →</strong> Used when we need very strong evidence (medical, safety-critical fields).</li>
+            <li><strong>α = 0.10 (10%) →</strong> Used in exploratory studies.</li>
+        </ul>
+
+        <h2>5. Type I and Type II Errors</h2>
+        <table>
+            <tr>
+                <th>Decision</th>
+                <th>H₀ is True</th>
+                <th>H₀ is False</th>
+            </tr>
+            <tr>
+                <td>Reject H₀</td>
+                <td>Type I Error (Probability = α)</td>
+                <td>Correct Decision (Power = 1 - β)</td>
+            </tr>
+            <tr>
+                <td>Fail to Reject H₀</td>
+                <td>Correct Decision</td>
+                <td>Type II Error (Probability = β)</td>
+            </tr>
+        </table>
+
+        <p style="text-align:center; margin-top:30px; font-size:16px;">
+            <strong>Note for KTU Exams:</strong> Always mention that lower α means stricter test (less chance of Type I error but higher chance of Type II error).
+        </p>
+    </div>
+</body>
+</html>

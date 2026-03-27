@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypothesis Testing - Super Simple Explanation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #d9e8f5);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        header {
+            background: #4a90e2;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .content {
+            padding: 40px;
+            line-height: 1.8;
+        }
+        h2 {
+            color: #4a90e2;
+            border-bottom: 3px solid #4a90e2;
+            padding-bottom: 10px;
+        }
+        .example-box {
+            background: #f9f9f9;
+            border-left: 6px solid #4a90e2;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+        ul {
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 12px;
+        }
+        .simple-steps {
+            background: #e8f4fd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f0f4f8;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🧪 Hypothesis Testing</h1>
+        <p style="font-size:1.2em; margin-top:10px;">Explained in Very Simple Words</p>
+    </header>
+
+    <div class="content">
+
+        <h2>What is Hypothesis Testing?</h2>
+        <p>
+            Hypothesis Testing is like being a detective with data.<br>
+            You have a <strong>guess</strong> about something, and you use data to decide whether your guess is probably true or probably false.
+        </p>
+
+        <div class="example-box">
+            <strong>Real-life Example:</strong><br><br>
+            A company says: “Our new energy drink makes people run faster.”<br>
+            You don’t just believe them. You test it!<br><br>
+            You give the drink to some runners and measure their speed. Then you check if the improvement is real or just by chance.
+        </div>
+
+        <h2>The Two Main Guesses (Hypotheses)</h2>
+        <ul>
+            <li><strong>Null Hypothesis (H₀)</strong> → "Nothing is happening" or "No difference"<br>
+                Example: “The energy drink does NOT make people faster.”</li>
+            <li><strong>Alternative Hypothesis (H₁)</strong> → "Something is happening"<br>
+                Example: “The energy drink DOES make people faster.”</li>
+        </ul>
+
+        <div class="simple-steps">
+            <h2>Simple Steps of Hypothesis Testing</h2>
+            <ol>
+                <li>Make your guess (Null and Alternative Hypothesis)</li>
+                <li>Collect data from real world</li>
+                <li>Calculate a special number (called test statistic or p-value)</li>
+                <li>Decide: Is the result surprising enough to reject the Null Hypothesis?</li>
+            </ol>
+        </div>
+
+        <h2>Decision Time</h2>
+        <p>
+            If the data strongly disagrees with your Null Hypothesis (H₀), you <strong>Reject H₀</strong>.<br>
+            That means you believe the Alternative Hypothesis (H₁) is probably true.
+        </p>
+        <p>
+            If the data is not strong enough, you <strong>Fail to Reject H₀</strong>.<br>
+            You don’t say it’s true — you just say there’s not enough proof to say it’s false.
+        </p>
+
+        <div class="example-box">
+            <strong>Like in Court:</strong><br><br>
+            Null Hypothesis = “The person is innocent”<br>
+            You need strong evidence to reject “innocent” and say “guilty”.<br>
+            If evidence is weak → You don’t reject innocent.
+        </div>
+
+        <h2>Very Important Words</h2>
+        <ul>
+            <li><strong>p-value</strong>: How likely the result happened just by chance. Small p-value = surprising result.</li>
+            <li><strong>Significance level (α)</strong>: Usually 5% (0.05). If p-value &lt; 0.05, we reject H₀.</li>
+        </ul>
+
+        <p style="margin-top:40px; text-align:center; font-size:1.1em; color:#4a90e2;">
+            In short: Hypothesis Testing helps us make smart decisions using data instead of just guessing!
+        </p>
+
+    </div>
+
+    <footer>
+        Made super simple for you ❤️<br>
+        Copy this code and save as <strong>hypothesis-testing.html</strong> to open in any browser.
+    </footer>
+</div>
+
+</body>
+</html>

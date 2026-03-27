@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Important KTU Questions - Testing of Hypothesis</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #1e40af;
+        }
+        h2 {
+            color: #1e3a8a;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 8px;
+        }
+        .question {
+            background-color: #f8fafc;
+            padding: 18px;
+            margin: 20px 0;
+            border-left: 6px solid #1e40af;
+            border-radius: 6px;
+        }
+        .answer {
+            background-color: #ecfdf5;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 6px;
+            line-height: 1.7;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #64748b;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1e40af;
+            color: white;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>5 Important Questions on Testing of Hypothesis</h1>
+        <p style="text-align:center; font-size:18px; color:#1e40af;">
+            (Frequently asked in KTU S4 MAT202 Exams)
+        </p>
+
+        <!-- Question 1 -->
+        <div class="question">
+            <h2>1. Define Hypothesis Testing. What is Null Hypothesis and Alternative Hypothesis?</h2>
+            <div class="answer">
+                <strong>Answer:</strong><br>
+                Hypothesis testing is a statistical procedure used to make decisions about a population parameter based on sample data.<br><br>
+                <strong>Null Hypothesis (H₀):</strong> The statement of "no difference" or "no effect". It is the hypothesis that is tested and assumed to be true.<br>
+                <strong>Alternative Hypothesis (H₁ or Hₐ):</strong> The statement that contradicts the null hypothesis. It represents what we are trying to prove.
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <h2>2. Explain the Level of Significance (α). What are the commonly used values of α?</h2>
+            <div class="answer">
+                <strong>Answer:</strong><br>
+                The <span class="highlight">Level of Significance (α)</span> is the probability of committing a <strong>Type I error</strong> (rejecting H₀ when it is actually true).<br><br>
+                Commonly used values:<br>
+                • α = 0.05 (5%) — Most common in engineering and social sciences<br>
+                • α = 0.01 (1%) — Used in critical fields like medicine<br>
+                • α = 0.10 (10%) — Used in preliminary studies
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <h2>3. List and explain the steps involved in Testing of Hypothesis.</h2>
+            <div class="answer">
+                <strong>Answer:</strong><br>
+                The standard steps are:<br>
+                1. State the Null Hypothesis (H₀) and Alternative Hypothesis (H₁).<br>
+                2. Choose the Level of Significance (α).<br>
+                3. Select the appropriate test (Z-test, t-test, etc.).<br>
+                4. Calculate the test statistic.<br>
+                5. Determine the critical value or p-value.<br>
+                6. Make decision: Reject H₀ if test statistic lies in rejection region (or p-value ≤ α).<br>
+                7. Draw conclusion in the context of the problem.
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <h2>4. Explain Type I error and Type II error with their probabilities.</h2>
+            <div class="answer">
+                <strong>Answer:</strong><br>
+                <table>
+                    <tr>
+                        <th>Decision</th>
+                        <th>H₀ is True</th>
+                        <th>H₀ is False</th>
+                    </tr>
+                    <tr>
+                        <td>Reject H₀</td>
+                        <td><strong>Type I Error</strong> (Probability = α)</td>
+                        <td>Correct Decision (Power = 1 - β)</td>
+                    </tr>
+                    <tr>
+                        <td>Fail to Reject H₀</td>
+                        <td>Correct Decision</td>
+                        <td><strong>Type II Error</strong> (Probability = β)</td>
+                    </tr>
+                </table>
+                <strong>Note:</strong> α is called producer’s risk and β is called consumer’s risk.
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question">
+            <h2>5. A manufacturer claims that the mean lifetime of bulbs is 1500 hours. A random sample of 100 bulbs has a mean lifetime of 1480 hours with a standard deviation of 120 hours. Test the manufacturer’s claim at 5% level of significance. (Use Z-test)</h2>
+            <div class="answer">
+                <strong>Answer:</strong><br>
+                H₀: μ = 1500 hours  H₁: μ ≠ 1500 hours (Two-tailed test)<br>
+                α = 0.05  Critical values = ±1.96<br><br>
+                Test statistic Z = (x̄ - μ) / (σ / √n) = (1480 - 1500) / (120 / √100) = -1.667<br><br>
+                |Z| = 1.667 &lt; 1.96 → <strong>Do not reject H₀</strong><br><br>
+                <strong>Conclusion:</strong> There is not sufficient evidence to reject the manufacturer’s claim at 5% level of significance.
+            </div>
+        </div>
+
+        <p style="text-align:center; margin-top:30px; font-size:16px;">
+            <strong>Tip for KTU Exams:</strong> Always write H₀ and H₁ clearly, mention α, show calculation of test statistic, compare with critical value, and give conclusion in words.
+        </p>
+    </div>
+</body>
+</html>
