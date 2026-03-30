@@ -1,115 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Tools Hub</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-        }
-
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        p {
-            margin-bottom: 30px;
-            color: #666;
-        }
-
-        a {
-            display: inline-block;
-            text-decoration: none;
-            padding: 15px 25px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        a:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        footer {
-            margin-top: 25px;
-            font-size: 14px;
-            color: #999;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Index of my-software</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  padding: 20px;
+}
+.folder-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  margin: 10px 0;
+}
+.dropdown-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+.dropdown-btn:hover {
+  background: #0056b3;
+}
+.dropdown-container {
+  display: none;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+.file-item {
+  padding: 5px 0;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+a:hover {
+  color: #007bff;
+}
+</style>
 </head>
 <body>
-<p>
-    <div class="container">
-        <h1>📄 PDF Tools Hub</h1>
-        <p>Download and manage your WhatsApp PDFs easily with our powerful tools.</p>
+<h2>📁 Index of my-software</h2>
+<div class="file-item"><a href="1">1</a></div><div class="file-item"><a href="index-1.html">index-1.html</a></div><div class="file-item"><a href="index.html">index.html</a></div><div class="file-item"><a href="watsstatus.html">watsstatus.html</a></div><div class="file-item"><a href="whatsapp-business-whatsapp-pdf-downloader.html">whatsapp-business-whatsapp-pdf-downloader.html</a></div><div class="file-item"><a href="whatsapp_pdf_downloader_v1.py">whatsapp_pdf_downloader_v1.py</a></div><div class="file-item"><a href="whatsapp_status_backup.py">whatsapp_status_backup.py</a></div>
 
-        <a href="whatsapp-business-whatsapp-pdf-downloader.html">
-            🚀 Download PDFs from WhatsApp & WhatsApp Web
-        </a>
-
-        <footer>
-            Built with ❤️ for easy file management
-        </footer>
-    </div>
-    </p>
-<br>
-<hr>
-
-<p>
- <div class="container">
-        <h1>📄Daily whatsapp status downloader</h1>
-        <p>Status Downloader with Zip</p>
-
-        <a href="watsstatus.html">
-            🚀Status Downloader
-        </a>
-
-        <footer>
-            Built with ❤️ for easy status Whatsapp Business and Whatsapp Downloader ..Make a cron job if needed
-        </footer>
-    </div>
-    </p>
+<script>
+document.querySelectorAll(".dropdown-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const container = btn.nextElementSibling;
+    container.style.display = container.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
 </body>
 </html>

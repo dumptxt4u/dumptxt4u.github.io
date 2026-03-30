@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repository Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --sidebar-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --hover-bg: #334155;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .explorer-container {
+            width: 100%;
+            max-width: 900px;
+            background: var(--sidebar-bg);
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .explorer-header {
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.5);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .explorer-header h2 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        .breadcrumb {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .folder-section {
+            padding: 10px;
+        }
+
+        .item-row {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .item-row:hover {
+            background: var(--hover-bg);
+        }
+
+        .folder-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .icon {
+            width: 24px;
+            color: var(--text-dim);
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .folder-icon {
+            color: #fbbf24; /* Folder Gold */
+        }
+
+        .chevron {
+            margin-left: auto;
+            font-size: 0.75rem;
+            transition: transform 0.2s;
+        }
+
+        .expanded .chevron {
+            transform: rotate(90deg);
+        }
+
+        .content-group {
+            display: none;
+            margin-left: 20px;
+            border-left: 1px solid var(--border-color);
+            padding-left: 10px;
+        }
+
+        .file-link {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .file-link:hover {
+            color: var(--accent-color);
+        }
+
+        .git-hash {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<div class="explorer-container">
+    <div class="explorer-header">
+        <i class="fa-solid fa-code-branch" style="color: var(--accent-color)"></i>
+        <h2><span class="breadcrumb"><a href="#">root</a> / </span>Project Repository</h2>
+    </div>
+
+    <div class="folder-section">
+        <div class="item-wrap">
+            <div class="item-row" onclick="toggleFolder(this)">
+                <span class="icon folder-icon"><i class="fa-solid fa-folder-open"></i></span>
+                <span class="folder-name">.git</span>
+                <i class="fa-solid fa-chevron-right chevron"></i>
+            </div>
+            <div class="content-group">
+                <a href="HEAD" class="item-row file-link">
+                    <span class="icon"><i class="fa-regular fa-file-lines"></i></span>
+                    HEAD
+                </a>
+                <a href="config" class="item-row file-link">
+                    <span class="icon"><i class="fa-solid fa-gear"></i></span>
+                    config
+                </a>
+                
+                <div class="item-wrap">
+                    <div class="item-row" onclick="toggleFolder(this)">
+                        <span class="icon folder-icon"><i class="fa-solid fa-box-archive"></i></span>
+                        <span class="folder-name">objects</span>
+                        <i class="fa-solid fa-chevron-right chevron"></i>
+                    </div>
+                    <div class="content-group">
+                        <div class="item-wrap">
+                            <div class="item-row" onclick="toggleFolder(this)">
+                                <span class="icon folder-icon"><i class="fa-solid fa-folder"></i></span>
+                                <span class="folder-name">00</span>
+                                <i class="fa-solid fa-chevron-right chevron"></i>
+                            </div>
+                            <div class="content-group">
+                                <a href="#" class="item-row file-link git-hash">5d231bc6dc8776b1225...</a>
+                                <a href="#" class="item-row file-link git-hash">9515c7904503d80623f...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" class="item-row file-link">
+            <span class="icon" style="color: #e34c26;"><i class="fa-brands fa-html5"></i></span>
+            index.html
+        </a>
+    </div>
+</div>
+
+<script>
+    function toggleFolder(element) {
+        const wrap = element.parentElement;
+        const group = wrap.querySelector('.content-group');
+        const isExpanded = wrap.classList.contains('expanded');
+        
+        if (group) {
+            group.style.display = isExpanded ? 'none' : 'block';
+            wrap.classList.toggle('expanded');
+        }
+    }
+</script>
+
+</body>
+</html>
