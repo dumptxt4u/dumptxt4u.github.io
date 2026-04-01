@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eulerian Odyssey • Graph Theory Visual Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        :root {
+            --primary: 139 92 246;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+
+        .video-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        .thumbnail {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .thumbnail::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .video-card:hover .thumbnail::after {
+            opacity: 1;
+        }
+
+        .play-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover .play-btn {
+            transform: scale(1.15);
+            background-color: rgb(139 92 246);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: rgb(167 139 250);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .section-header {
+            position: relative;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, rgb(139 92 246), rgb(236 72 153));
+            bottom: -8px;
+            left: 0;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+
+    <!-- Hero Section -->
+    <header class="hero-bg text-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(at_bottom_right,#ffffff10_0%,transparent_50%)]"></div>
+        
+        <div class="max-w-7xl mx-auto px-8 relative">
+            <div class="flex flex-col items-center text-center">
+                <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-2 rounded-3xl mb-6">
+                    <span class="text-2xl">📐</span>
+                    <span class="uppercase tracking-[3px] text-sm font-medium">Discrete Mathematics</span>
+                </div>
+                
+                <h1 class="heading-font text-7xl md:text-8xl font-bold leading-none mb-6 tracking-tighter">
+                    Eulerian<br>Odyssey
+                </h1>
+                <p class="text-2xl text-violet-200 max-w-2xl mb-10">
+                    A beautiful exploration of Euler Graphs, Connected Graphs, and the elegant world of Graph Theory
+                </p>
+                
+                <div class="flex gap-4">
+                    <a href="#videos" 
+                       class="bg-white text-violet-700 hover:bg-violet-100 font-semibold px-10 py-4 rounded-2xl flex items-center gap-3 group">
+                        Explore Lectures
+                        <i class="fa-solid fa-arrow-down group-active:translate-y-1 transition"></i>
+                    </a>
+                    <a href="https://www.youtube.com/results?search_query=euler+graphs" target="_blank"
+                       class="border border-white/70 hover:bg-white/10 font-medium px-8 py-4 rounded-2xl flex items-center gap-2">
+                        <i class="fa-brands fa-youtube"></i>
+                        More on YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating graph elements -->
+        <div class="absolute top-10 right-20 text-6xl opacity-20 animate-float">⟐</div>
+        <div class="absolute bottom-20 left-32 text-7xl opacity-20 animate-float-delay">◉</div>
+    </header>
+
+    <nav class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-2xl flex items-center justify-center text-white font-bold text-xl">E</div>
+                <span class="font-semibold text-2xl tracking-tight">Eulerian Odyssey</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-10 text-sm uppercase tracking-widest font-medium">
+                <a href="#introduction" class="nav-link">Introduction</a>
+                <a href="#euler" class="nav-link">Euler Graphs</a>
+                <a href="#connected" class="nav-link">Connected Graphs</a>
+                <a href="#videos" class="nav-link">All Lectures</a>
+            </div>
+            
+            <a href="#videos" 
+               class="bg-violet-600 hover:bg-violet-500 transition px-6 py-3 rounded-2xl text-sm font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-play"></i>
+                Watch Collection
+            </a>
+        </div>
+    </nav>
+
+    <!-- Introduction -->
+    <section id="introduction" class="max-w-7xl mx-auto px-8 py-24">
+        <div class="grid md:grid-cols-12 gap-16 items-center">
+            <div class="md:col-span-7">
+                <div class="section-header">
+                    <span class="uppercase text-violet-400 text-sm tracking-widest font-medium">The Beauty of Graph Theory</span>
+                    <h2 class="heading-font text-6xl font-bold mt-3 leading-none">Understanding<br>Eulerian Paths &amp; Circuits</h2>
+                </div>
+                
+                <div class="prose prose-invert mt-10 text-lg max-w-prose">
+                    <p class="text-zinc-400">
+                        Leonhard Euler's groundbreaking work in the 18th century laid the foundation for graph theory. 
+                        His solution to the famous <strong>Seven Bridges of Königsberg</strong> problem introduced the concept of 
+                        traversing every edge exactly once — now known as <strong>Eulerian paths</strong> and <strong>Eulerian circuits</strong>.
+                    </p>
+                    <p class="text-zinc-400">
+                        These lectures explore the elegant theorems that determine when such paths and circuits exist, 
+                        the importance of vertex degrees, and beautiful applications including the Traveling Salesman Problem.
+                    </p>
+                </div>
+                
+                <div class="flex gap-8 mt-12">
+                    <div>
+                        <div class="text-5xl font-semibold text-violet-400">2k</div>
+                        <div class="text-sm text-zinc-400">Odd degree vertices</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-semibold text-emerald-400">Even</div>
+                        <div class="text-sm text-zinc-400">Degree condition</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-semibold text-amber-400">k</div>
+                        <div class="text-sm text-zinc-400">Edge-disjoint trails</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-5 bg-zinc-900 rounded-3xl p-8 border border-zinc-800">
+                <div class="aspect-video bg-black rounded-2xl flex items-center justify-center relative overflow-hidden">
+                    <div class="text-center">
+                        <div class="w-20 h-20 mx-auto bg-violet-600/20 backdrop-blur rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-diagram-project text-4xl text-violet-400"></i>
+                        </div>
+                        <p class="text-violet-300 font-medium">Connected Graph with Eulerian Properties</p>
+                    </div>
+                    <div class="absolute inset-0 bg-[radial-gradient(circle,#ffffff08_1px,transparent_1px)] [background-size:20px_20px]"></div>
+                </div>
+                
+                <div class="mt-8 text-sm text-zinc-400 leading-relaxed">
+                    A graph is <strong>Eulerian</strong> (has an Euler circuit) if and only if it is connected and every vertex has even degree.
+                    <br><br>
+                    If there are exactly two vertices of odd degree, an Euler path (but not circuit) exists.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Collection -->
+    <section id="videos" class="bg-zinc-900 py-20">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex items-end justify-between mb-12">
+                <div>
+                    <span class="uppercase tracking-widest text-pink-400 text-sm">Curated Lectures</span>
+                    <h2 class="heading-font text-5xl font-bold">Handpicked Graph Theory Videos</h2>
+                </div>
+                <a href="#" class="text-violet-400 hover:text-violet-300 flex items-center gap-2 text-sm font-medium">
+                    View all on YouTube <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="video-grid">
+                <!-- Videos populated here via JS or static cards -->
+                
+                <!-- Card 1 -->
+                <div class="video-card bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden group">
+                    <div class="thumbnail">
+                        <img src="https://i.ytimg.com/vi/3lFE_1Uc09Y/maxresdefault.jpg" 
+                             alt="Number of odd degree vertices" 
+                             class="w-full aspect-video object-cover">
+                        <div class="play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white rounded-2xl flex items-center justify-center shadow-xl">
+                            <i class="fa-solid fa-play text-violet-700 ml-0.5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs text-emerald-400 mb-2">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Core Theorem</span>
+                        </div>
+                        <h3 class="font-semibold text-lg leading-tight line-clamp-2 mb-3">
+                            Number of Vertices of Odd Degree in a Graph is always even
+                        </h3>
+                        <p class="text-zinc-400 text-sm line-clamp-3">
+                            Fundamental handshaking lemma in graph theory. Proves that in any graph, the number of vertices with odd degree must be even.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between text-xs">
+                            <div class="flex items-center gap-2">
+                                <span class="text-zinc-500">Bhai Bhai Tutorials</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=3lFE_1Uc09Y" target="_blank"
+                               class="text-violet-400 hover:text-white flex items-center gap-1.5">
+                                Watch <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Malayalam Euler -->
+                <div class="video-card bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden group">
+                    <div class="thumbnail">
+                        <img src="https://i.ytimg.com/vi/oBcjdHUQcO4/maxresdefault.jpg" 
+                             alt="Euler Graph Malayalam" 
+                             class="w-full aspect-video object-cover">
+                        <div class="play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white rounded-2xl flex items-center justify-center shadow-xl">
+                            <i class="fa-solid fa-play text-violet-700 ml-0.5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs text-amber-400 mb-2">
+                            <span class="px-2.5 py-0.5 bg-amber-500/10 rounded-full">മലയാളം</span>
+                        </div>
+                        <h3 class="font-semibold text-lg leading-tight line-clamp-2 mb-3">
+                            Euler's Graph | Euler's Path | Euler's Circuit | Discrete Mathematics | Malayalam
+                        </h3>
+                        <p class="text-zinc-400 text-sm line-clamp-3">
+                            Excellent introduction to Eulerian concepts explained beautifully in Malayalam by Sib Hath.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between text-xs">
+                            <span class="text-zinc-500">Sib Hath</span>
+                            <a href="https://www.youtube.com/watch?v=oBcjdHUQcO4" target="_blank"
+                               class="text-violet-400 hover:text-white flex items-center gap-1.5">
+                                Watch <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Euler Paths & Circuits (English classic) -->
+                <div class="video-card bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden group">
+                    <div class="thumbnail">
+                        <img src="https://i.ytimg.com/vi/5M-m62qTR-s/maxresdefault.jpg" 
+                             alt="Euler Paths and Circuits" 
+                             class="w-full aspect-video object-cover">
+                        <div class="play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white rounded-2xl flex items-center justify-center shadow-xl">
+                            <i class="fa-solid fa-play text-violet-700 ml-0.5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg leading-tight line-clamp-2 mb-3">
+                            Graph Theory: Euler Paths and Euler Circuits
+                        </h3>
+                        <p class="text-zinc-400 text-sm line-clamp-3">
+                            Clear explanation with multiple examples from Mathispower4u. Covers the precise conditions for existence of Euler paths and circuits.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between text-xs">
+                            <span class="text-zinc-500">Mathispower4u</span>
+                            <a href="https://www.youtube.com/watch?v=5M-m62qTR-s" target="_blank"
+                               class="text-violet-400 hover:text-white flex items-center gap-1.5">
+                                Watch <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Connected graph with 2k odd vertices -->
+                <div class="video-card bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden group">
+                    <div class="thumbnail">
+                        <img src="https://i.ytimg.com/vi/TAG_YKfbkEQ/maxresdefault.jpg" 
+                             alt="2k odd vertices" 
+                             class="w-full aspect-video object-cover">
+                        <div class="play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white rounded-2xl flex items-center justify-center shadow-xl">
+                            <i class="fa-solid fa-play text-violet-700 ml-0.5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs text-sky-400 mb-2">
+                            <i class="fa-solid fa-link"></i>
+                            <span>Advanced Theorem</span>
+                        </div>
+                        <h3 class="font-semibold text-lg leading-tight line-clamp-2 mb-3">
+                            In a connected graph with exactly 2k odd vertices, there exist k edge disjoint subgraphs
+                        </h3>
+                        <p class="text-zinc-400 text-sm line-clamp-3">
+                            Important generalization of Eulerian paths. Shows how a graph with 2k odd-degree vertices can be decomposed into k trails.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between text-xs">
+                            <span class="text-zinc-500">Lecture Series</span>
+                            <a href="https://www.youtube.com/watch?v=TAG_YKfbkEQ" target="_blank"
+                               class="text-violet-400 hover:text-white flex items-center gap-1.5">
+                                Watch <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Euler Theorem 2.4 -->
+                <div class="video-card bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden group">
+                    <div class="thumbnail">
+                        <img src="https://i.ytimg.com/vi/Pw6nvAHvFYg/maxresdefault.jpg" 
+                             alt="Euler graph iff even degree" 
+                             class="w-full aspect-video object-cover">
+                        <div class="play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white rounded-2xl flex items-center justify-center shadow-xl">
+                            <i class="fa-solid fa-play text-violet-700 ml-0.5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-lg leading-tight line-clamp-2 mb-3">
+                            A connected graph is Euler graph if and only if each of its vertices is of even degree
+                        </h3>
+                        <p class="text-zinc-400 text-sm line-clamp-3">
+                            Complete statement and proof of the classic Eulerian circuit theorem (Theorem 2.4 in many textbooks).
+                        </p>
+                        <div class="mt-6 flex items-center justify-between text-xs">
+                            <span class="text-zinc-500">Mathematics Kala</span>
+                            <a href="https://www.youtube.com/watch?v=Pw6nvAHvFYg" target="_blank"
+                               class="text-violet-400 hover:text-white flex items-center gap-1.5">
+                                Watch <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Traveling Salesman -->
+                <div class="video-card bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden group">
+                    <div class="thumbnail">
+                        <img src="https://i.ytimg.com/vi/3QiSyc7KyC4/maxresdefault.jpg" 
+                             alt="Traveling Salesman Problem" 
+                             class="w-full aspect-video object-cover">
+                        <div class="play-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white rounded-2xl flex items-center justify-center shadow-xl">
+                            <i class="fa-solid fa-play text-violet-700 ml-0.5"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-xs text-rose-400 mb-2">
+                            <span class="px-3 py-1 bg-rose-500/10 rounded-full">Application</span>
+                        </div>
+                        <h3 class="font-semibold text-lg leading-tight line-clamp-2 mb-3">
+                            Traveling Salesman Problem (TSP)
+                        </h3>
+                        <p class="text-zinc-400 text-sm line-clamp-3">
+                            One of the most famous NP-hard optimization problems in graph theory and computer science. Closely related to Hamiltonian circuits.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between text-xs">
+                            <span class="text-zinc-500">Lecture</span>
+                            <a href="https://www.youtube.com/watch?v=3QiSyc7KyC4" target="_blank"
+                               class="text-violet-400 hover:text-white flex items-center gap-1.5">
+                                Watch <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <p class="text-zinc-500 text-sm">More videos on Hamiltonian Circuits, Instant Insanity Puzzle, and advanced topics are also included in the full list.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-16 border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-8 text-center">
+            <div class="flex justify-center mb-8">
+                <div class="w-12 h-12 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-3xl flex items-center justify-center text-3xl">📐</div>
+            </div>
+            <p class="text-zinc-500">
+                Curated with ❤️ for students learning Graph Theory<br>
+                Especially useful for Malayalam-medium learners and English explanations
+            </p>
+            <div class="mt-10 text-xs text-zinc-600">
+                Built as a beautiful dynamic showcase • All videos open in new tab
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for floating elements if needed
+        console.log("%cEulerian Odyssey - Beautiful Graph Theory Learning Page Ready ✨", "color: #a5b4fc; font-family: monospace");
+        
+        // Tailwind script already included via CDN
+    </script>
+</body>
+</html>
