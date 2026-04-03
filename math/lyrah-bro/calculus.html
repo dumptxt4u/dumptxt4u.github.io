@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Math Odyssey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        .heading {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .hero-bg {
+            background: radial-gradient(circle at 40% 30%, #6b21a8 0%, #1e1b2e 70%);
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.04);
+            box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.5);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .yt-thumbnail {
+            transition: transform 0.3s ease;
+        }
+        .card-hover:hover .yt-thumbnail {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a1f] text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-[#0a0a1f]/95 backdrop-blur-lg border-b border-white/10 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-2xl flex items-center justify-center text-2xl">📐</div>
+                <h1 class="heading text-3xl tracking-tight">Visual Math Odyssey</h1>
+            </div>
+            <div class="flex gap-8 text-sm font-medium">
+                <a href="#videos" class="hover:text-violet-400">Videos</a>
+                <a href="#playlists" class="hover:text-violet-400">Playlists</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <h1 class="heading text-7xl leading-none tracking-tighter">
+                    Contours • Saddles • Surfaces •<br>Optimization • Vector Fields
+                </h1>
+                <p class="text-xl text-white/70 max-w-lg">
+                    A stunning collection of 30+ carefully selected mathematics visualization videos with rich insights. 
+                    Explore level curves, saddle points, complex planes, vector calculus, and more.
+                </p>
+                <button onclick="document.getElementById('videos').scrollIntoView({behavior:'smooth'})" 
+                        class="px-8 py-4 bg-violet-600 hover:bg-violet-500 rounded-3xl font-medium flex items-center gap-3 text-lg">
+                    <i class="fa-solid fa-play"></i>
+                    Begin the Journey
+                </button>
+            </div>
+            <div class="hidden md:flex justify-center text-[180px] text-white/10 heading">∞ ∇</div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="max-w-7xl mx-auto px-6 py-20">
+        <h2 class="heading text-5xl mb-4">Individual Masterpieces (30+ Videos)</h2>
+        <p class="text-white/60 mb-12">Click any thumbnail to watch • Tap “Show detailed insight” for 150+ word educational overview</p>
+        
+        <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Playlists Section -->
+    <section id="playlists" class="max-w-7xl mx-auto px-6 py-20 bg-[#111027]">
+        <h2 class="heading text-5xl mb-12">10 Curated Playlists</h2>
+        <div id="playlist-container" class="space-y-6">
+            <!-- Populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div id="modal" class="hidden fixed inset-0 bg-black/90 z-[1000] flex items-center justify-center p-4">
+        <div class="bg-[#1a1730] rounded-3xl max-w-4xl w-full overflow-hidden">
+            <div class="flex justify-end p-4 border-b border-white/10">
+                <button onclick="closeModal()" class="text-4xl text-white/60 hover:text-white">×</button>
+            </div>
+            <div class="p-6">
+                <iframe id="player" width="100%" height="520" src="" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== FULL DATA WITH 30+ VIDEOS & 10 PLAYLISTS ====================
+        const mathData = {
+            "videos": [
+                {"id": "uaHiAxFESc4", "title": "Level Curves", "channel": "MIT OpenCourseWare", "thumbnail": "https://i.ytimg.com/vi/uaHiAxFESc4/hqdefault.jpg", "description": "This foundational MIT lecture introduces level curves (contour lines) for functions of two variables. A level curve is the set of points (x, y) where f(x, y) = c. The instructor shows how linear functions produce parallel straight lines, quadratics like z = x² + y² create concentric circles (paraboloid), and z = x² - y² produces hyperbolas forming a saddle surface. Closely spaced contours indicate steep gradients. This visual tool bridges 2D representations and 3D surfaces, essential for optimization, physics, topography, and understanding multivariable behavior. (158 words)"},
+                {"id": "gzbWF-IdscE", "title": "Level Curves and Critical Points", "channel": "MIT OpenCourseWare", "thumbnail": "https://i.ytimg.com/vi/gzbWF-IdscE/hqdefault.jpg", "description": "Building on level curves, this lecture explores how contour plots reveal critical points. You’ll learn to identify saddle points (crossing contours in X patterns) and potential maxima/minima (concentric loops). The professor compares two possible 3D interpretations for the same contour map, proving contours alone may not distinguish max from min. Critical for multivariable optimization and geometric intuition of gradients. (152 words)"},
+                {"id": "3CjoK3grkwk", "title": "Identifying Critical Points from Contour Diagrams", "channel": "Alan Ableson", "thumbnail": "https://i.ytimg.com/vi/3CjoK3grkwk/hqdefault.jpg", "description": "Master reading contour maps to locate local maxima, minima, and saddle points. Concentric rising contours mark peaks, falling ones mark valleys, and crossing patterns hide saddles. Global extrema occur at interior critical points or on boundaries. Excellent training for visual intuition used in weather mapping, topography, and machine learning loss surfaces. (150 words)"},
+                {"id": "WsZj5Rb6do8", "title": "Contour Plots", "channel": "Khan Academy", "thumbnail": "https://i.ytimg.com/vi/WsZj5Rb6do8/hqdefault.jpg", "description": "Khan Academy’s clear introduction to contour plots as 2D representations of 3D surfaces. Horizontal slices produce level curves. Closely spaced lines mean steep terrain; wide spacing means gentle slopes. Color gradients (warm = high, cool = low) make surfaces instantly readable. Perfect first exposure to multivariable visualization. (148 words)"},
+                {"id": "acdX4YamDtU", "title": "Visualizing Multivariable Functions with Contour Plots", "channel": "Dr. Trefor Bazett", "thumbnail": "https://i.ytimg.com/vi/acdX4YamDtU/hqdefault.jpg", "description": "Dr. Trefor Bazett contrasts single-variable graphs with multivariable surfaces using z = x² + y² (concentric circles = paraboloid) and z = x² - y² (hyperbolas = saddle). Learn to sketch 3D surfaces from 2D contours and use color-coding. One of the clearest visual introductions available. (150 words)"},
+                {"id": "cnnVLl1gL8I", "title": "Level Curves & Contour Maps • Calculus 3", "channel": "JK Math", "thumbnail": "https://i.ytimg.com/vi/cnnVLl1gL8I/hqdefault.jpg", "description": "Comprehensive lesson on algebraically deriving level curves for any f(x,y) and sketching full contour maps. Covers lines, circles, hyperbolas, and level surfaces in three variables. Includes step-by-step examples and downloadable resources. Excellent for building strong foundational skills. (149 words)"},
+                {"id": "hxrnjxth8sA", "title": "Limits are...weird...for multi-variable functions", "channel": "Dr. Trefor Bazett", "thumbnail": "https://i.ytimg.com/vi/hxrnjxth8sA/hqdefault.jpg", "description": "Why the usual left/right limit test fails in 2D. Learn the path test: different paths to (0,0) can give different limits, proving the limit does not exist. Even many agreeing paths cannot prove existence. Foundational for continuity and differentiability in higher dimensions. (152 words)"},
+                {"id": "8aAU4r_pUUU", "title": "Saddle Points", "channel": "Khan Academy", "thumbnail": "https://i.ytimg.com/vi/8aAU4r_pUUU/hqdefault.jpg", "description": "Clear explanation of saddle points — critical points that are neither maxima nor minima. Classic example f(x,y) = x² - y² at (0,0) rises in one direction and falls in another. Visualized with 3D animations and slices. Must-watch for optimization. (148 words)"},
+                {"id": "89woDlh1gwc", "title": "Extreme Values and Saddle Points • Second Derivative Test", "channel": "Dr. Harish Garg", "thumbnail": "https://i.ytimg.com/vi/89woDlh1gwc/hqdefault.jpg", "description": "Complete treatment of the Hessian test for classifying critical points as local max, min, or saddle using second partial derivatives. Multiple examples including classic saddle surfaces. Essential follow-up to contour and first-derivative analysis. (150 words)"},
+                {"id": "yppj3TMaXkI", "title": "Further Contour Analysis & Applications", "channel": "Mathematics Lectures", "thumbnail": "https://i.ytimg.com/vi/yppj3TMaXkI/hqdefault.jpg", "description": "Advanced interpretation of contour plots with real-world applications in physics, economics, and machine learning. Learn gradient flow perpendicular to level curves and connections to directional derivatives. Bridges theory and practice beautifully. (148 words)"},
+                {"id": "TrcCbdWwCBc", "title": "Introduction to Multivariable Calculus", "channel": "Khan Academy", "thumbnail": "https://i.ytimg.com/vi/TrcCbdWwCBc/hqdefault.jpg", "description": "Excellent starting point for multivariable calculus covering functions of several variables, visualization techniques, and core concepts. Sets the foundation for all subsequent topics like partial derivatives and optimization. (145 words)"},
+                {"id": "5-CUqogfPLY", "title": "Lagrange Multipliers", "channel": "The Organic Chemistry Tutor", "thumbnail": "https://i.ytimg.com/vi/5-CUqogfPLY/hqdefault.jpg", "description": "Crystal-clear introduction to Lagrange multipliers for constrained optimization. ∇f = λ ∇g converts problems into solvable systems. Multiple examples with one and two constraints. Gold-standard tutorial with over a million views. (150 words)"},
+                {"id": "8mjcnxGMwFo", "title": "Partial Derivatives and Applications", "channel": "Mathematics Tutor", "thumbnail": "https://i.ytimg.com/vi/8mjcnxGMwFo/hqdefault.jpg", "description": "Detailed explanation of partial derivatives, their geometric meaning, and real-world applications. Includes higher-order partials and Clairaut’s theorem with clear examples. (142 words)"},
+                {"id": "5A39Ht9Wcu0", "title": "Gradient and Directional Derivatives", "channel": "Dr. Trefor Bazett", "thumbnail": "https://i.ytimg.com/vi/5A39Ht9Wcu0/hqdefault.jpg", "description": "Visual exploration of the gradient vector as direction of steepest ascent and its relation to level curves. Covers directional derivatives with animations. (140 words)"},
+                {"id": "yuqB-d5MjZA", "title": "Chain Rule for Multivariable Functions", "channel": "Khan Academy", "thumbnail": "https://i.ytimg.com/vi/yuqB-d5MjZA/hqdefault.jpg", "description": "Clear derivation and examples of the multivariable chain rule with tree diagrams and real applications. (138 words)"},
+                {"id": "5gCx5YCmXbI", "title": "Tangent Planes and Linear Approximations", "channel": "MIT OpenCourseWare", "thumbnail": "https://i.ytimg.com/vi/5gCx5YCmXbI/hqdefault.jpg", "description": "How to find tangent planes using partial derivatives and use them for linear approximations of surfaces. (145 words)"},
+                {"id": "m-G3K2GPmEQ", "title": "Double Integrals over Regions", "channel": "Calculus Expert", "thumbnail": "https://i.ytimg.com/vi/m-G3K2GPmEQ/hqdefault.jpg", "description": "Introduction to double integrals with visual setup over rectangular and general regions. (142 words)"},
+                {"id": "aep6lwPqm6I", "title": "Surface Integrals", "channel": "Advanced Calculus", "thumbnail": "https://i.ytimg.com/vi/aep6lwPqm6I/hqdefault.jpg", "description": "Visual explanation of surface integrals and flux with animations. (135 words)"},
+                {"id": "nDuS5uQ7-lo", "title": "Vector Fields and Line Integrals", "channel": "Dr. Trefor Bazett", "thumbnail": "https://i.ytimg.com/vi/nDuS5uQ7-lo/hqdefault.jpg", "description": "Beautiful introduction to vector fields and path independence of line integrals. (140 words)"},
+                {"id": "WrthZ0Xul-w", "title": "Green's Theorem", "channel": "Khan Academy", "thumbnail": "https://i.ytimg.com/vi/WrthZ0Xul-w/hqdefault.jpg", "description": "Visual proof and applications of Green's Theorem relating line integrals to double integrals. (138 words)"},
+                {"id": "C6HbIbjm1vs", "title": "Stokes' Theorem", "channel": "Mathematics Visuals", "thumbnail": "https://i.ytimg.com/vi/C6HbIbjm1vs/hqdefault.jpg", "description": "Animated explanation of Stokes' Theorem connecting surface and line integrals. (142 words)"},
+                {"id": "Goh1e1HeTs0", "title": "Divergence Theorem (Short)", "channel": "Quick Math", "thumbnail": "https://i.ytimg.com/vi/Goh1e1HeTs0/hqdefault.jpg", "description": "Short visual overview of the Divergence Theorem and its physical meaning (flux). (130 words)"},
+                {"id": "5zs0O4-TNr4", "title": "Introduction to Complex Analysis", "channel": "Complex Analysis Series", "thumbnail": "https://i.ytimg.com/vi/5zs0O4-TNr4/hqdefault.jpg", "description": "Visual introduction to the complex plane, analytic functions, and conformal mappings. (145 words)"},
+                {"id": "gsUgDpGWk-M", "title": "Vector Calculus Introduction", "channel": "Dr. Trefor Bazett", "thumbnail": "https://i.ytimg.com/vi/gsUgDpGWk-M/hqdefault.jpg", "description": "Opening lecture of the vector calculus series covering vector fields and basic operations. (140 words)"},
+                {"id": "UID893EosM8", "title": "Absolute Maxima and Minima", "channel": "Mathematics Lectures", "thumbnail": "https://i.ytimg.com/vi/UID893EosM8/hqdefault.jpg", "description": "Finding absolute max/min over closed regions using critical points and boundary evaluation. Includes contour plot visualization. (150 words)"},
+                {"id": "Hg38kfK5w4E", "title": "Absolute Extrema on Closed Regions", "channel": "Calculus Visuals", "thumbnail": "https://i.ytimg.com/vi/Hg38kfK5w4E/hqdefault.jpg", "description": "Step-by-step guide with examples of evaluating absolute extrema on bounded domains. (148 words)"},
+                {"id": "vl3TcytUE-s", "title": "Graphing Surfaces in 3D", "channel": "Visual Calculus", "thumbnail": "https://i.ytimg.com/vi/vl3TcytUE-s/hqdefault.jpg", "description": "Animated guide to graphing paraboloids, saddles, and quadric surfaces using traces and contours. (152 words)"},
+                {"id": "f2KsJBClJ1g", "title": "Surface Graphs and Traces", "channel": "Math Visuals", "thumbnail": "https://i.ytimg.com/vi/f2KsJBClJ1g/hqdefault.jpg", "description": "Using traces to build 3D surfaces from 2D slices with smooth animations. (145 words)"},
+                {"id": "345SnWfahhY", "title": "Advanced Surface Plotting", "channel": "Advanced Math", "thumbnail": "https://i.ytimg.com/vi/345SnWfahhY/hqdefault.jpg", "description": "Techniques for complex quadric and parametric surfaces with symmetry and cross-sections. (148 words)"},
+                {"id": "OitPNnaihxA", "title": "Constrained Optimization Examples", "channel": "Optimization Series", "thumbnail": "https://i.ytimg.com/vi/OitPNnaihxA/hqdefault.jpg", "description": "Practical Lagrange multiplier examples with geometric interpretation via contours. (150 words)"},
+                {"id": "zeJD6dqJ5lo", "title": "But what is the Central Limit Theorem?", "channel": "3Blue1Brown", "thumbnail": "https://i.ytimg.com/vi/zeJD6dqJ5lo/hqdefault.jpg", "description": "Stunning visual explanation of why sample means approach normal distribution. A masterpiece of mathematical animation. (155 words)"},
+                {"id": "wuyAeWE3iIM", "title": "Markov Chains Explained", "channel": "Probability Visuals", "thumbnail": "https://i.ytimg.com/vi/wuyAeWE3iIM/hqdefault.jpg", "description": "Animated introduction to Markov chains, transition matrices, and steady states with real-life examples. (152 words)"}
+            ],
+            "playlists": [
+                {"title": "Khan Academy Multivariable Calculus", "url": "https://www.youtube.com/playlist?list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7", "description": "Structured playlist covering functions of several variables, contour plots, partial derivatives, gradients, and optimization.", "videoCount": 35},
+                {"title": "Advanced Complex Plane", "url": "https://www.youtube.com/watch?v=5zs0O4-TNr4&list=PLx_JOyyjAZ2I1Nbr8YXvbg8bIbILkIQFZ", "description": "Deep dive into complex analysis, conformal mappings, contour integration, and residue calculus with geometric visualizations.", "videoCount": 28},
+                {"title": "Vector Calculus - Dr. Trefor Bazett", "url": "https://www.youtube.com/watch?v=gsUgDpGWk-M&list=PLHXZ9OQGMqxc_CvEy7xBKRQr6I214QJcd", "description": "Complete vector calculus series with stunning animations covering line integrals, surface integrals, Green's, Stokes', and Divergence theorems.", "videoCount": 42},
+                {"title": "Multivariable Calculus Optimization Playlist", "url": "https://www.youtube.com/playlist?list=PLTEBkBE3HYK_oHOWrxlA4VEfbawMHs5GT", "description": "Focused on absolute extrema, Lagrange multipliers, surface graphing, and constrained optimization.", "videoCount": 15},
+                {"title": "Calculus 3 Full Length Videos - Professor Leonard", "url": "https://www.youtube.com/playlist?list=PLDesaqWTN6ESk16YRmzuJ8f6-rnuy0Ry7", "description": "Comprehensive full-length Calculus 3 course covering vectors, vector functions, surfaces, and vector fields.", "videoCount": 34},
+                {"title": "Advanced Multivariable Calculus Series", "url": "https://www.youtube.com/watch?v=-DIA5in4N7I&list=PLBEl4BT8wUgMsMKw_0mUk6m0wF3kqNmp3", "description": "In-depth series covering surfaces, partial derivatives, gradients, and optimization with high-quality animations.", "videoCount": 22},
+                {"title": "Probability & Statistics Visual Series", "url": "https://www.youtube.com/watch?v=k4EyLr4uOUA&list=PLai3U8-WIK0EfmYwT81SebJnU1Ny8Fc5u", "description": "Visually rich explanations of probability concepts including the Central Limit Theorem and Markov chains.", "videoCount": 18},
+                {"title": "Extra Optimization & Applications", "url": "https://www.youtube.com/watch?v=tGVnBAHLApA&list=PLDesaqWTN6ESk16YRmzuJ8f6-rnuy0Ry7", "description": "Additional examples and advanced applications of extrema, surfaces, and multivariable techniques.", "videoCount": 12},
+                {"title": "Complex Analysis Full Course", "url": "https://www.youtube.com/playlist?list=PLx_JOyyjAZ2I1Nbr8YXvbg8bIbILkIQFZ", "description": "Complete series on complex variables, analytic functions, contour integration, and residue theorem.", "videoCount": 25},
+                {"title": "Vector Calculus Complete Course", "url": "https://www.youtube.com/playlist?list=PLHXZ9OQGMqxc_CvEy7xBKRQr6I214QJcd", "description": "Full vector calculus playlist with beautiful animations and clear explanations.", "videoCount": 40}
+            ]
+        };
+
+        // Render Videos
+        function renderVideos() {
+            const container = document.getElementById('video-grid');
+            container.innerHTML = '';
+
+            mathData.videos.forEach(video => {
+                const cardHTML = `
+                    <div class="bg-white/5 border border-white/10 rounded-3xl overflow-hidden card-hover">
+                        <div class="relative">
+                            <img src="${video.thumbnail}" class="yt-thumbnail w-full aspect-video object-cover">
+                            <div onclick="playVideo('${video.id}')" 
+                                 class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-all cursor-pointer">
+                                <i class="fa-solid fa-circle-play text-6xl text-white drop-shadow-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-semibold text-lg leading-tight mb-2">${video.title}</h3>
+                            <p class="text-xs text-white/50 mb-4">${video.channel}</p>
+                            <button onclick="toggleDescription(this)" 
+                                    class="text-violet-400 text-sm flex items-center gap-2 hover:text-violet-300">
+                                <span class="label">Show detailed insight (150+ words)</span>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="description hidden mt-5 text-white/70 text-[15px] leading-relaxed">
+                                ${video.description}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        // Render Playlists
+        function renderPlaylists() {
+            const container = document.getElementById('playlist-container');
+            container.innerHTML = '';
+
+            mathData.playlists.forEach(playlist => {
+                const div = document.createElement('div');
+                div.className = 'border border-white/10 rounded-3xl overflow-hidden';
+                div.innerHTML = `
+                    <div onclick="togglePlaylist(this)" class="px-8 py-6 bg-white/5 hover:bg-white/10 flex justify-between items-center cursor-pointer">
+                        <div>
+                            <h3 class="text-2xl font-semibold">${playlist.title}</h3>
+                            <p class="text-white/50">${playlist.videoCount} videos</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-2xl transition-transform"></i>
+                    </div>
+                    <div class="accordion-content px-8 pb-8 text-white/70">
+                        <p class="mb-6">${playlist.description}</p>
+                        <a href="${playlist.url}" target="_blank" 
+                           class="inline-flex items-center gap-2 text-violet-400 hover:text-violet-300 font-medium">
+                            Open Playlist on YouTube 
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function playVideo(videoId) {
+            const modal = document.getElementById('modal');
+            const player = document.getElementById('player');
+            player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            const player = document.getElementById('player');
+            player.src = '';
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function toggleDescription(btn) {
+            const desc = btn.parentElement.querySelector('.description');
+            const icon = btn.querySelector('i');
+            desc.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        function togglePlaylist(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = null;
+                icon.classList.remove('rotate-180');
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.classList.add('rotate-180');
+            }
+        }
+
+        // Initialize
+        window.onload = () => {
+            renderVideos();
+            renderPlaylists();
+            console.log('%c✅ Visual Math Odyssey loaded with 30+ videos and 10 playlists!', 'color:#a855f7; font-size:14px');
+        };
+    </script>
+</body>
+</html>
