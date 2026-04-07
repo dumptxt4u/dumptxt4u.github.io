@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relations and Functions | Resources Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .table-row {
+      transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+
+    .table-row:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+      transform: translateX(8px);
+    }
+
+    .animate-in {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 to-indigo-950 text-white min-h-screen">
+
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-5xl font-bold tracking-tight mb-3">
+        Relations and Functions
+      </h1>
+      <p class="text-2xl text-blue-300">IIT JEE | CBSE PYQs | Worksheets | Case Studies | Assignments</p>
+    </div>
+
+    <!-- Search -->
+    <div class="max-w-xl mx-auto mb-10">
+      <div class="relative">
+        <input 
+          id="searchInput"
+          type="text" 
+          placeholder="Search topics..." 
+          class="w-full bg-white/10 border border-white/20 rounded-3xl py-5 px-8 pl-16 text-lg focus:outline-none focus:border-blue-500 transition-all placeholder:text-white/50">
+        <i class="fa-solid fa-magnifying-glass absolute left-7 top-1/2 -translate-y-1/2 text-blue-400 text-2xl"></i>
+      </div>
+    </div>
+
+    <!-- Dynamic Table -->
+    <div class="bg-white/5 backdrop-blur-2xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+      <table class="w-full">
+        <thead>
+          <tr class="border-b border-white/10 bg-white/5">
+            <th class="py-6 px-8 text-left font-semibold text-blue-400 w-40">SI</th>
+            <th class="py-6 px-8 text-left font-semibold text-blue-400">Topic</th>
+            <th class="py-6 px-8 text-left font-semibold text-blue-400 w-56">Action</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody" class="divide-y divide-white/10"></tbody>
+      </table>
+    </div>
+
+    <div class="text-center mt-8 text-white/40 text-sm">
+      Total Resources: <span id="count" class="font-mono text-blue-300">0</span>
+    </div>
+  </div>
+
+  <script>
+    // JSON Data with your topics
+    const resourcesData = [
+ 
+    
+     {
+        "id": 0,
+        "topic": "BBK RElations and Functions",
+        "url": "https://drive.google.com/file/d/1OJZuxQy6zJSTzb-QnCZOOvrp6nD4wnr1/view?usp=sharing"
+      },
+    
+      {
+        "id": 1,
+        "topic": "Relations and Functions IIT Questions PYQ Self 174 pages",
+        "url": "https://drive.google.com/file/d/1Y6aqV1w2DaTKF6CuD9Kz7Zy6xjUNzF6m/view?usp=sharing"
+      },
+
+     
+      {
+        "id": 2,
+        "topic": "Worksheet 64 Questions on Relations and Functions Questions Darsait School - Relations and Functions",
+        "url": "https://drive.google.com/file/d/1SgmszWx5z5VrmZVurFoYyOSL91khXtxY/view?usp=sharing"
+      },
+      {
+        "id": 3,
+        "topic": "59 Questions Equivalence Relations",
+        "url": "https://drive.google.com/file/d/1SgmszWx5z5VrmZVurFoYyOSL91khXtxY/view"
+      },
+      {
+        "id": 4,
+        "topic": "Dr Amit Bajaj Relations and Functions",
+        "url": "#"
+      },
+      {
+        "id": 5,
+        "topic": "Worksheet 64 Questions on Relations and Functions",
+        "url": "#"
+      },
+      {
+        "id": 6,
+        "topic": "PYQ CBSE Questions [Types of Relations & Types of Functions] 2024 to 2021",
+        "url": "#"
+      },
+      {
+        "id": 7,
+        "topic": "Concepts of Relations and Functions - Total of 43 Questions",
+        "url": "https://drive.google.com/file/d/1_19Ny5zj9M95FmEnnZCZ9119Ux0icxHF/view?usp=sharing"
+      },
+      {
+        "id": 8,
+        "topic": "Case Study Relations and Functions - 5 Case Studies",
+        "url": "#"
+      },
+      {
+        "id": 9,
+        "topic": "Relations and Functions Case Study Questions - 10 Questions with Answers",
+        "url": "https://drive.google.com/file/d/19H6lTpMo7GlO0ZdAL6DjB2MRVeAs4BB4/view?usp=sharing"
+      },
+      {
+        "id": 10,
+        "topic": "Assignment HOTS Questions - Relations and Functions",
+        "url": "#"
+      },
+      {
+        "id": 11,
+        "topic": "Functions and Models",
+        "url": "#"
+      },
+      {
+        "id": 12,
+        "topic": "Assertion and Reason Questions - Relations and Functions with Answers [ZIET]",
+        "url": "https://drive.google.com/file/d/1uDFy44gLCYPNu0yUHnY8P3fsWSVmRLxh/view?usp=sharing"
+      },
+      {
+        "id": 13,
+        "topic": "Daily Practise Questions - Relations and Functions",
+        "url": "https://drive.google.com/file/d/12eg8re6iXC-7o8_gijmqcsBdiQa0FHaH/view?usp=sharing"
+      },
+      {"id":14,
+      "topic":"ZIET MCQ Questions",
+      "url":"https://drive.google.com/file/d/12Ekfqt0Tzs8RV61CO9mdgz78W7VYCgoh/view"
+      }
+    ];
+
+    // Render Table Function
+    function renderTable(data) {
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = '';
+
+      data.forEach((item, index) => {
+        const siCode = `+2-ch-1-${String(item.id).padStart(2, '0')}`;
+
+        const row = document.createElement('tr');
+        row.className = `table-row animate-in cursor-pointer`;
+        row.style.animationDelay = `${index * 60}ms`;
+
+        row.innerHTML = `
+          <td class="py-6 px-8 font-mono text-blue-400 font-medium">${siCode}</td>
+          <td class="py-6 px-8 text-lg">${item.topic}</td>
+          <td class="py-6 px-8">
+            <a href="${item.url}" target="_blank"
+               class="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 transition-colors text-white font-medium px-8 py-3 rounded-2xl">
+              <span>Open Resource</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </td>
+        `;
+
+        // Click anywhere on row to open link
+        row.addEventListener('click', (e) => {
+          if (!e.target.closest('a')) {
+            window.open(item.url, '_blank');
+          }
+        });
+
+        tbody.appendChild(row);
+      });
+
+      document.getElementById('count').textContent = data.length;
+    }
+
+    // Search Functionality
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase().trim();
+      
+      const filtered = resourcesData.filter(item => 
+        item.topic.toLowerCase().includes(term)
+      );
+
+      renderTable(filtered);
+    });
+
+    // Initialize
+    window.onload = () => {
+      renderTable(resourcesData);
+    };
+  </script>
+</body>
+</html>

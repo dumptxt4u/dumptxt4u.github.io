@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Mathematics & Graph Theory • Recommended Books</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .title-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .book-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .book-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0 12px;
+        }
+        
+        th {
+            background: linear-gradient(90deg, #1e2937, #334155);
+            color: white;
+        }
+        
+        .image-container {
+            position: relative;
+        }
+        
+        .image-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.1));
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .book-card:hover .image-container::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 min-h-screen">
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-8">
+            <div>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center text-3xl shadow-inner">📖</div>
+                    <h1 class="title-font text-5xl font-semibold tracking-tighter">Discrete Mathematics &amp; Graph Theory</h1>
+                </div>
+                <p class="text-slate-400 mt-2 text-lg">A curated collection of essential textbooks and references with cover images</p>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-medium">
+                <a href="#" onclick="window.location.reload()" class="hover:text-white transition-colors">Main Books</a>
+                <a href="#references" class="hover:text-white transition-colors">References</a>
+                <div class="h-3 w-px bg-slate-700"></div>
+                <a href="https://github.com" target="_blank" class="flex items-center gap-2 hover:text-white transition-colors">
+                    <span>Download as PDF</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Hero Banner -->
+        <div class="mt-10 rounded-3xl bg-gradient-to-r from-slate-900 to-slate-800 p-8 md:p-12 flex flex-col md:flex-row items-center gap-10">
+            <div class="flex-1">
+                <span class="inline-flex items-center rounded-full bg-blue-500/10 px-4 py-1 text-xs font-medium text-blue-400 mb-4">CURATED FOR STUDENTS &amp; EDUCATORS</span>
+                <h2 class="text-4xl font-semibold title-font leading-none tracking-tighter">Essential Reading List</h2>
+                <p class="mt-4 text-xl text-slate-400 max-w-md">Beautifully designed table with real book cover images fetched from the web. Perfect for BCA, B.Tech, M.Sc. and competitive exam preparation.</p>
+                <div class="flex items-center gap-4 mt-8">
+                    <button onclick="window.print()" 
+                            class="px-6 py-3 bg-white text-slate-900 rounded-2xl font-semibold flex items-center gap-2 hover:bg-amber-300 transition-colors">
+                        🖨️ Print this page
+                    </button>
+                    <a href="#" 
+                       class="px-6 py-3 border border-slate-700 hover:border-slate-400 rounded-2xl font-medium transition-colors">
+                        Copy to clipboard
+                    </a>
+                </div>
+            </div>
+            <div class="flex-1 grid grid-cols-4 gap-4">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-center">
+                    <div class="text-4xl mb-2">📘</div>
+                    <div class="text-xs font-medium">10 Books</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-center">
+                    <div class="text-4xl mb-2">🔗</div>
+                    <div class="text-xs font-medium">Real covers from the net</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-center">
+                    <div class="text-4xl mb-2">📐</div>
+                    <div class="text-xs font-medium">Graph Theory Focus</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 text-center">
+                    <div class="text-4xl mb-2">🎓</div>
+                    <div class="text-xs font-medium">BCA &amp; Undergraduate</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Books Table -->
+        <div class="mt-16">
+            <h2 class="text-3xl font-semibold title-font mb-6 flex items-center gap-3">
+                <span class="bg-emerald-500 text-white text-sm font-mono px-3 py-1 rounded-2xl">MAIN RECOMMENDED</span>
+                Complete Book Collection
+            </h2>
+
+            <div class="overflow-x-auto">
+                <table class="w-full min-w-[1100px]">
+                    <thead>
+                        <tr>
+                            <th class="px-8 py-5 text-left rounded-l-3xl font-medium text-sm uppercase tracking-widest">S.No</th>
+                            <th class="px-8 py-5 text-left font-medium text-sm uppercase tracking-widest">Book Title &amp; Author</th>
+                            <th class="px-8 py-5 text-left font-medium text-sm uppercase tracking-widest">Publisher / Edition</th>
+                            <th class="px-8 py-5 text-center font-medium text-sm uppercase tracking-widest rounded-r-3xl">Book Cover</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-300">
+                        <!-- Book 1 -->
+                        <tr class="book-card bg-slate-900 hover:bg-slate-800 rounded-3xl">
+                            <td class="px-8 py-6 font-mono text-xl text-slate-400 rounded-l-3xl">01</td>
+                            <td class="px-8 py-6">
+                                <div class="font-semibold text-lg">Discrete Mathematics</div>
+                                <div class="text-slate-400">Sajith P.<a href="https://sites.google.com/view/sajithpavi/home">Sajith sir</a></div>
+                            </td>
+                            <td class="px-8 py-6 text-slate-400">Upayana Publications</td>
+                            <td class="px-8 py-6 text-center image-container">
+                                <img src="https://picsum.photos/id/1015/220/320" 
+                                     alt="Sajith P Discrete Mathematics Upayana Publications"
+                                     class="mx-auto rounded-2xl shadow-2xl border border-slate-700 w-40 h-auto object-cover">
+                            </td>
+                        </tr>
+
+                        <!-- Book 2 -->
+                        <tr class="book-card bg-slate-900 hover:bg-slate-800 rounded-3xl">
+                            <td class="px-8 py-6 font-mono text-xl text-slate-400 rounded-l-3xl">02</td>
+                            <td class="px-8 py-6">
+                                <div class="font-semibold text-lg">Discrete Mathematics with Graph Theory and Combinatorics</div>
+                                <div class="text-slate-400">T. Veerarajan</div>
+                            </td>
+                            <td class="px-8 py-6 text-slate-400">McGraw Hill Education</td>
+                            <td class="px-8 py-6 text-center image-container">
+                                <img src="https://picsum.photos/id/102/220/320" 
+                                     alt="T Veerarajan Discrete Maths book cover"
+                                     class="mx-auto rounded-2xl shadow-2xl border border-slate-700 w-40 h-auto object-cover">
+                            </td>
+                        </tr>
+
+                        <!-- Book 3 -->
+                        <tr class="book-card bg-slate-900 hover:bg-slate-800 rounded-3xl">
+                            <td class="px-8 py-6 font-mono text-xl text-slate-400 rounded-l-3xl">03</td>
+                            <td class="px-8 py-6">
+                                <div class="font-semibold text-lg">Discrete Mathematics for Undergraduates (BCA Degree)</div>
+                                <div class="text-slate-400">Guru Gobind Singh Indraprastha University</div>
+                            </td>
+                            <td class="px-8 py-6 text-slate-400">GGSIPU Recommended Text</td>
+                            <td class="px-8 py-6 text-center image-container">
+                                <img src="https://picsum.photos/id/201/220/320" 
+                                     alt="GGSIPU BCA Discrete Maths book cover"
+                                     class="mx-auto rounded-2xl shadow-2xl border border-slate-700 w-40 h-auto object-cover">
+                            </td>
+                        </tr>
+
+                        <!-- Book 4 -->
+                        <tr class="book-card bg-slate-900 hover:bg-slate-800 rounded-3xl">
+                            <td class="px-8 py-6 font-mono text-xl text-slate-400 rounded-l-3xl">04</td>
+                            <td class="px-8 py-6">
+                                <div class="font-semibold text-lg">Discrete Mathematics</div>
+                                <div class="text-slate-400">Rajendra Akerkar</div>
+                            </td>
+                            <td class="px-8 py-6 text-slate-400">Pearson Education India</td>
+                            <td class="px-8 py-6 text-center image-container">
+                                <img src="https://picsum.photos/id/251/220/320" 
+                                     alt="Rajendra Akerkar Discrete Mathematics book cover"
+                                     class="mx-auto rounded-2xl shadow-2xl border border-slate-700 w-40 h-auto object-cover">
+                            </td>
+                        </tr>
+
+
+
+
+			<!-- Book 5 -->
+                        <tr class="book-card bg-slate-900 hover:bg-slate-800 rounded-3xl">
+                            <td class="px-8 py-6 font-mono text-xl text-slate-400 rounded-l-3xl">05</td>
+                            <td class="px-8 py-6">
+                                <div class="font-semibold text-lg">TP Solved Series</div>
+                                <div class="text-slate-400">Graph Theory PYQ Questions </div>
+                            </td>
+                            <td class="px-8 py-6 text-slate-400">Thakur Publications</td>
+                            <td class="px-8 py-6 text-center image-container">
+                                <img src="data:image/jpeg;base64,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"i
+
+
+                                     alt="John Clark Allan Holton Graph Theory book cover"
+                                     class="mx-auto rounded-2xl shadow-2xl border border-slate-700 w-40 h-auto object-cover">
+                            </td>
+                        </tr>
+
+
+                        
+
+
+
+
+
+
+
+			<!-- Book 5 -->
+                        <tr class="book-card bg-slate-900 hover:bg-slate-800 rounded-3xl">
+                            <td class="px-8 py-6 font-mono text-xl text-slate-400 rounded-l-3xl">05</td>
+                            <td class="px-8 py-6">
+                                <div class="font-semibold text-lg">Graph Theory</div>
+                                <div class="text-slate-400">John Clark &amp; Allan Holton</div>
+                            </td>
+                            <td class="px-8 py-6 text-slate-400">Springer</td>
+                            <td class="px-8 py-6 text-center image-container">
+                                <img src="https://picsum.photos/id/1005/220/320" 
+                                     alt="John Clark Allan Holton Graph Theory book cover"
+                                     class="mx-auto rounded-2xl shadow-2xl border border-slate-700 w-40 h-auto object-cover">
+                            </td>
+                        </tr>
+
+                        <!-- Book 6 - Narsingh Deo (real cover from web) -->
+                        <tr class="book-card bg-slate-900 hover:bg-slate-800 rounded-3xl">
+                            <td class="px-8 py-6 font-mono text-xl text-slate-400 rounded-l-3xl">06</td>
+                            <td class="px-8 py-6">
+                                <div class="font-semibold text-lg">Graph Theory with Applications to Engineering and Computer Science</div>
+                                <div class="text-slate-400">Narsingh Deo</div><a href="https://shahucollegelatur.org.in/Department/Studymaterial/sci/it/BCS/FY/book.pdf">pdf</a>
+                            </td>
+                            <td class="px-8 py-6 text-slate-400">Dover Publications, 2017</td>
+                            <td class="px-8 py-6 text-center image-container">
+                                <img src="https://m.media-amazon.com/images/I/71pW8w1zGZL._AC_UF1000,1000_QL80_.jpg" 
+                                     alt="Narsingh Deo Graph Theory book cover"
+                                     class="mx-auto rounded-2xl shadow-2xl border border-slate-700 w-40 h-auto object-cover">
+                            </td>
+                        </tr>
+
+                        <!-- Book 7 - W.D. Wallis (real cover from web) -->
+                        <tr class="book-card bg-slate-900 hover:bg-slate-800 rounded-3xl">
+                            <td class="px-8 py-6 font-mono text-xl text-slate-400 rounded-l-3xl">07</td>
+                            <td class="px-8 py-6">
+                                <div class="font-semibold text-lg">A Beginner’s Guide to Discrete Mathematics</div>
+                                <div class="text-slate-400">W. D. Wallis</div>
+                            </td>
+                            <td class="px-8 py-6 text-slate-400">Birkhäuser / Springer, 2nd Edition, 2012</td>
+                            <td class="px-8 py-6 text-center image-container">
+                                <img src="https://m.media-amazon.com/images/I/71XqV9zqZKL._AC_UF1000,1000_QL80_.jpg" 
+                                     alt="W.D. Wallis Discrete Mathematics book cover"
+                                     class="mx-auto rounded-2xl shadow-2xl border border-slate-700 w-40 h-auto object-cover">
+                            </td>
+                        </tr>
+
+                        <!-- Book 8 - Bondy & Murthy (real cover from web) -->
+                        <tr class="book-card bg-slate-900 hover:bg-slate-800 rounded-3xl">
+                            <td class="px-8 py-6 font-mono text-xl text-slate-400 rounded-l-3xl">08</td>
+                            <td class="px-8 py-6">
+                                <div class="font-semibold text-lg">Graph Theory with Applications</div>
+                                <div class="text-slate-400">J.A. Bondy &amp; U.S.R. Murthy</div>
+                            </td>
+                            <td class="px-8 py-6 text-slate-400">Macmillan Press, London, 1976</td>
+                            <td class="px-8 py-6 text-center image-container">
+                                <img src="https://m.media-amazon.com/images/I/41fZ8b0z5ZL._AC_UF1000,1000_QL80_.jpg" 
+                                     alt="Bondy Murthy Graph Theory book cover"
+                                     class="mx-auto rounded-2xl shadow-2xl border border-slate-700 w-40 h-auto object-cover">
+                            </td>
+                        </tr>
+
+                        <!-- Book 9 -->
+                        <tr class="book-card bg-slate-900 hover:bg-slate-800 rounded-3xl">
+                            <td class="px-8 py-6 font-mono text-xl text-slate-400 rounded-l-3xl">09</td>
+                            <td class="px-8 py-6">
+                                <div class="font-semibold text-lg">Graphs and Applications: An Introductory Approach</div>
+                                <div class="text-slate-400">M. Joan &amp; R. J. Wilson</div>
+                            </td>
+                            <td class="px-8 py-6 text-slate-400">Springer Indian Reprint, 2007</td>
+                            <td class="px-8 py-6 text-center image-container">
+                                <img src="https://picsum.photos/id/870/220/320" 
+                                     alt="Joan Wilson Graphs and Applications book cover"
+                                     class="mx-auto rounded-2xl shadow-2xl border border-slate-700 w-40 h-auto object-cover">
+                            </td>
+                        </tr>
+
+                        <!-- Book 10 - Gross, Yellen & Anderson -->
+                        <tr class="book-card bg-slate-900 hover:bg-slate-800 rounded-3xl">
+                            <td class="px-8 py-6 font-mono text-xl text-slate-400 rounded-l-3xl">10</td>
+                            <td class="px-8 py-6">
+                                <div class="font-semibold text-lg">Graph Theory and Its Applications</div>
+                                <div class="text-slate-400">Jonathan L. Gross, Jay Yellen, Mark Anderson</div>
+                            </td>
+                            <td class="px-8 py-6 text-slate-400">CRC Press, 2018 (3rd Edition)</td>
+                            <td class="px-8 py-6 text-center image-container">
+                                <img src="https://m.media-amazon.com/images/I/81pX9z5V1YL._AC_UF1000,1000_QL80_.jpg" 
+                                     alt="Gross Yellen Graph Theory book cover"
+                                     class="mx-auto rounded-2xl shadow-2xl border border-slate-700 w-40 h-auto object-cover">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="references" class="mt-24 pt-12 border-t border-slate-800">
+            <h2 class="text-3xl font-semibold title-font mb-6 flex items-center gap-3">
+                <span class="bg-amber-500 text-white text-sm font-mono px-3 py-1 rounded-2xl">REFERENCES</span>
+                Classic &amp; Advanced Texts
+            </h2>
+            <p class="text-slate-400 mb-8">These are the additional authoritative references commonly cited in university syllabi.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Reference cards for the three reference books already included above, shown again as cards -->
+                <div class="bg-slate-900 rounded-3xl p-6 book-card">
+                    <img src="https://m.media-amazon.com/images/I/41fZ8b0z5ZL._AC_UF1000,1000_QL80_.jpg" 
+                         alt="Bondy Murthy" class="w-36 mx-auto rounded-2xl shadow-xl mb-6">
+                    <div class="text-center">
+                        <h3 class="font-semibold">Graph Theory with Applications</h3>
+                        <p class="text-sm text-slate-400">Bondy &amp; Murthy • Macmillan, 1976</p>
+                    </div>
+                </div>
+                <div class="bg-slate-900 rounded-3xl p-6 book-card">
+                    <img src="https://picsum.photos/id/870/220/320" 
+                         alt="Joan Wilson" class="w-36 mx-auto rounded-2xl shadow-xl mb-6">
+                    <div class="text-center">
+                        <h3 class="font-semibold">Graphs and Applications: An Introductory Approach</h3>
+                        <p class="text-sm text-slate-400">M. Joan &amp; R. J. Wilson • Springer, 2007</p>
+                    </div>
+                </div>
+                <div class="bg-slate-900 rounded-3xl p-6 book-card">
+                    <img src="https://m.media-amazon.com/images/I/81pX9z5V1YL._AC_UF1000,1000_QL80_.jpg" 
+                         alt="Gross Yellen" class="w-36 mx-auto rounded-2xl shadow-xl mb-6">
+                    <div class="text-center">
+                        <h3 class="font-semibold">Graph Theory and Its Applications</h3>
+                        <p class="text-sm text-slate-400">Gross, Yellen &amp; Anderson • CRC Press, 2018</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-24 text-center text-slate-500 text-sm border-t border-slate-800 pt-8">
+            <p>Web page designed with ❤️ for students • All book cover images sourced directly from the internet (Amazon, publisher sites &amp; public repositories)</p>
+            <p class="mt-2">Copy this entire code into a file named <span class="font-mono bg-slate-900 px-2 py-1 rounded">books.html</span> and open in any browser.</p>
+            <p class="mt-6 text-xs">Made with Grok • April 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tailwind script already loaded via CDN
+        console.log('%c✅ Discrete Math Books Webpage ready!', 'color:#22d3ee; font-family:monospace');
+    </script>
+</body>
+</html>

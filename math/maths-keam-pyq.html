@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEAM Mathematics Resource Hub</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+            border-bottom: 2px solid #cbd5e1;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .tag {
+            font-size: 0.75em;
+            padding: 2px 8px;
+            border-radius: 99px;
+            background: #dbeafe;
+            color: #1e40af;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>KEAM Mathematics PDF Repository</h2>
+    <table id="pdfTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>File Name</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            </tbody>
+    </table>
+</div>
+
+<script>
+    // JSON Array parsed from your execution log
+    const pdfData = [
+        { name: "KEAM_2018_Mathematics_Answer_Key.pdf", url: "https://drive.google.com/file/d/1EAd9X6uCaEMd4IFyPQArR155EihsfQvP/view?usp=drivesdk" },
+        { name: "KEAM_2018_Mathematics_Question_Paper.pdf", url: "https://drive.google.com/file/d/1wyk_ahGsGvP834xom-VeaqH0M0NoWOoC/view?usp=drivesdk" },
+        { name: "KEAM_2023_Mathematics_Answer_Key.pdf", url: "https://drive.google.com/file/d/12bfQspHi3aC29ybs6Gn1rWYne3weXEPm/view?usp=drivesdk" },
+        { name: "KEAM_2023_Mathematics_Question_Paper.pdf", url: "https://drive.google.com/file/d/1Rnrv2J6EpzX1nJYGtB-seC2ud8TvYgPG/view?usp=drivesdk" },
+        { name: "KEAM_2024_Mathematics_Set4_Question_Paper.pdf", url: "https://drive.google.com/file/d/1gz5WRxT1o-iJHCShUTSdvvwQY0Z5uCcX/view?usp=drivesdk" },
+        { name: "KEAM_2024_Mathematics_Set2_Question_Paper.pdf", url: "https://drive.google.com/file/d/126zKy3-2_ggobN8O-YjlwJZ8PTgUUSux/view?usp=drivesdk" },
+        { name: "KEAM_2024_Mathematics_Set1_Question_Paper.pdf", url: "https://drive.google.com/file/d/1WNS4NzInY_2iw3I4gLbuFVBFWGIOy3tb/view?usp=drivesdk" },
+        { name: "KEAM_2024_Mathematics_Set3_Question_Paper.pdf", url: "https://drive.google.com/file/d/1mflmOGHzIEJtQBgeUfWbFaQymLOu2XnK/view?usp=drivesdk" },
+        { name: "KEAM_2019_Mathematics_Answer_Key.pdf", url: "https://drive.google.com/file/d/1LWDBDpOeylZdDV1B2Bi3FmDrix3ps-ga/view?usp=drivesdk" },
+        { name: "KEAM_2019_Mathematics_Question_Paper.pdf", url: "https://drive.google.com/file/d/1OocaPTtNo0NdKGx3Rjg7YWDnT5TfzdVz/view?usp=drivesdk" },
+        { name: "KEAM_2025_Mathematics_Day4_Question_Paper.pdf", url: "https://drive.google.com/file/d/1jxuYEiC2NasepTeyIS8vuk82rg0wUAoj/view?usp=drivesdk" },
+        { name: "KEAM_2025_Mathematics_Day2_Question_Paper.pdf", url: "https://drive.google.com/file/d/1BbN1yCxeT-4DrMwPWS6p5hsdRAjrUvxg/view?usp=drivesdk" },
+        { name: "KEAM_2025_Mathematics_Day1_Question_Paper.pdf", url: "https://drive.google.com/file/d/1wS7_AzO5XOYEDF92xn0R-lyK1FHtELCG/view?usp=drivesdk" },
+        { name: "KEAM_2025_Mathematics_Day5_Question_Paper.pdf", url: "https://drive.google.com/file/d/16gv_wBbtMsrxNwsmoHIctkjZecr2u-bE/view?usp=drivesdk" },
+        { name: "KEAM_2025_Mathematics_Question_Paper.pdf", url: "https://drive.google.com/file/d/1XEjz-XrVaed0nLrAgx6IT-aVx2RJ7Chs/view?usp=drivesdk" },
+        { name: "KEAM_2022_Mathematics_Answer_Key.pdf", url: "https://drive.google.com/file/d/1r6Xz-hJwNWikGvpYr6CUow1GjW1pF4is/view?usp=drivesdk" },
+        { name: "KEAM_2022_Mathematics_Question_Paper.pdf", url: "https://drive.google.com/file/d/19yXmDKcnkdpTbJIeoIGwVUFy3Tt3-cTO/view?usp=drivesdk" },
+        { name: "KEAM_2017_Mathematics_Answer_Key.pdf", url: "https://drive.google.com/file/d/1ZOwEOweOtcjRfSVz_J9JCYlsE7wajIrt/view?usp=drivesdk" },
+        { name: "KEAM_2017_Mathematics_Question_Paper.pdf", url: "https://drive.google.com/file/d/1jFvUfC_2uBpszx962NQzIt--ll0Tb42X/view?usp=drivesdk" },
+        { name: "KEAM_2020_Mathematics_Answer_Key.pdf", url: "https://drive.google.com/file/d/1AS0AabxSieeK1CN7XhZyrCGj6-hGRa6V/view?usp=drivesdk" },
+        { name: "KEAM_2020_Mathematics_Question_Paper.pdf", url: "https://drive.google.com/file/d/1uIF4ttFxjgVb92RSHYguCQfbzJH56K33/view?usp=drivesdk" },
+        { name: "KEAM_2021_Mathematics_Answer_Key.pdf", url: "https://drive.google.com/file/d/1ytdXKfzhJU_lCUSQ5oyjtQuDJIp7WpDB/view?usp=drivesdk" },
+        { name: "KEAM_2021_Mathematics_Question_Paper.pdf", url: "https://drive.google.com/file/d/1vJwuOoyKP-1gb3ZBB-BvrVAiwuBV2bRG/view?usp=drivesdk" }
+    ];
+
+    const tableBody = document.getElementById('tableBody');
+
+    // Iterate through the array and create table rows
+    pdfData.forEach((file, index) => {
+        const isAnswerKey = file.name.toLowerCase().includes('answer');
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${file.name}</td>
+            <td><span class="tag">${isAnswerKey ? 'Answer Key' : 'Question Paper'}</span></td>
+            <td><a href="${file.url}" target="_blank" class="btn">View PDF</a></td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+</script>
+
+</body>
+</html>
