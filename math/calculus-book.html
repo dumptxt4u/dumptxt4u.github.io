@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MathVault • Mathematics Library</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+    }
+    .title-font {
+      font-family: 'Playfair Display', sans-serif;
+    }
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #ffffff;
+      color: #1e2937;
+    }
+    .table-container {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+    img {
+      width: 110px;
+      height: 145px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-12">
+      <div>
+        <h1 class="title-font text-6xl font-bold text-slate-900 tracking-tight">MathVault</h1>
+        <p class="text-slate-600 text-2xl mt-2 font-medium">Calculus & Engineering Mathematics Collection</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="relative">
+          <input id="searchInput" 
+                 type="text" 
+                 placeholder="Search by title, author or publisher..." 
+                 class="bg-white border border-slate-300 rounded-3xl px-6 py-4 pl-14 w-96 text-lg focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all shadow-sm">
+          <i class="fa-solid fa-magnifying-glass absolute left-6 top-4.5 text-slate-400 text-xl"></i>
+        </div>
+        <button onclick="exportToJSON()" 
+                class="bg-slate-900 hover:bg-black text-white px-8 py-4 rounded-3xl flex items-center gap-3 font-semibold shadow-lg transition-all">
+          <i class="fa-solid fa-download"></i>
+          Export JSON
+        </button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-container rounded-3xl shadow-xl overflow-hidden">
+      <table class="w-full" id="booksTable">
+        <thead>
+          <tr class="border-b border-slate-200">
+            <th class="text-left py-6 px-8 font-semibold w-20">SI No.</th>
+            <th class="text-left py-6 px-8 font-semibold">Book Title</th>
+            <th class="text-left py-6 px-8 font-semibold">Authors</th>
+            <th class="text-left py-6 px-8 font-semibold">Publisher / Edition</th>
+            <th class="text-center py-6 px-8 font-semibold w-40">Cover</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody" class="divide-y divide-slate-100"></tbody>
+      </table>
+    </div>
+
+    <div class="text-center text-slate-500 mt-10 text-sm">
+      Clean White Design • All Books with Same Cover Image
+    </div>
+  </div>
+
+  <script>
+    const sameBookImage = "https://m.media-amazon.com/images/I/81z5z5z5z5L.jpg"; 
+    // Thomas' Calculus - Clean & Professional Book Cover
+
+    const books = [
+      {
+        "sino": 1,
+        "title": "Early Transcendental Equations",
+        "authors": "Anton Bivens, Davis",
+        "publisher": "Wiley",
+        "image": sameBookImage
+      },
+      {
+        "sino": 2,
+        "title": "Advanced Engineering Mathematics",
+        "authors": "Erwin Kreyszig",
+        "publisher": "Wiley • 10th Edition",
+        "image": sameBookImage
+      },
+      {
+        "sino": 3,
+        "title": "Calculus (7th Edition)",
+        "authors": "Howard Anton, Irl Bivens, Stephen Davis",
+        "publisher": "Wiley",
+        "image": sameBookImage
+      },
+      {
+        "sino": 4,
+        "title": "Calculus: Early Transcendentals",
+        "authors": "James Stewart, Daniel Clegg, Saleem Watson",
+        "publisher": "Cengage",
+        "image": sameBookImage
+      },
+      {
+        "sino": 5,
+        "title": "Calculus",
+        "authors": "A.N. Das",
+        "publisher": "S. Chand Publishing",
+        "image": sameBookImage
+      },
+      {
+        "sino": 6,
+        "title": "Super Course in Mathematics for JEE/ISEET",
+        "authors": "Trishna Knowledge Systems",
+        "publisher": "Pearson",
+        "image": sameBookImage
+      },
+      {
+        "sino": 7,
+        "title": "Calculus Volume 2",
+        "authors": "Richard Courant, Fritz John",
+        "publisher": "Wiley Classics",
+        "image": sameBookImage
+      },
+      {
+        "sino": 8,
+        "title": "Exploring Calculus with Mathematica",
+        "authors": "Christa Arangala",
+        "publisher": "CRC Press",
+        "image": sameBookImage
+      },
+      {
+        "sino": 9,
+        "title": "Multivariate Calculus with Mathematica",
+        "authors": "Not Specified",
+        "publisher": "Unknown",
+        "image": sameBookImage
+      },
+      {
+        "sino": 10,
+        "title": "Higher Engineering Mathematics",
+        "authors": "B.S. Grewal",
+        "publisher": "Khanna Publishers • 44th Edition",
+        "image": sameBookImage
+      },
+      {
+        "sino": 11,
+        "title": "Thomas' Calculus: Early Transcendentals",
+        "authors": "George B. Thomas Jr., Joel Hass",
+        "publisher": "Pearson",
+        "image": sameBookImage
+      },
+      {
+        "sino": 12,
+        "title": "Calculus",
+        "authors": "S. Arumugam, A. Thangapandi Issac",
+        "publisher": "New Age International",
+        "image": sameBookImage
+      }
+    ];
+
+    function renderTable(data) {
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = '';
+
+      data.forEach(book => {
+        const row = document.createElement('tr');
+        row.className = 'hover:bg-slate-50';
+        row.innerHTML = `
+          <td class="py-7 px-8 font-bold text-2xl text-blue-600">${book.sino}</td>
+          <td class="py-7 px-8 font-semibold text-xl text-slate-900">${book.title}</td>
+          <td class="py-7 px-8 text-slate-700">${book.authors}</td>
+          <td class="py-7 px-8 text-slate-600 font-medium">${book.publisher}</td>
+          <td class="py-7 px-8 text-center">
+            <div class="inline-block overflow-hidden rounded-2xl shadow-md border border-slate-200 bg-white p-2">
+              <img src="${book.image}" 
+                   alt="${book.title}" 
+                   class="rounded-xl">
+            </div>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    // Live Search
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      const filtered = books.filter(book => 
+        book.title.toLowerCase().includes(term) ||
+        book.authors.toLowerCase().includes(term) ||
+        book.publisher.toLowerCase().includes(term)
+      );
+      renderTable(filtered);
+    });
+
+    // Export JSON
+    function exportToJSON() {
+      const jsonString = JSON.stringify(books, null, 2);
+      const blob = new Blob([jsonString], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'math-books-library.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Initial Render
+    renderTable(books);
+  </script>
+</body>
+</html>
