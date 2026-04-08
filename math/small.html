@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Videos & Playlists</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #1a73e8;
+      margin-bottom: 30px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0 0 10px 0;
+      color: #1a73e8;
+    }
+    .type {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+    .video { background: #34a853; color: white; }
+    .playlist { background: #fbbc05; color: black; }
+    .url {
+      color: #666;
+      word-break: break-all;
+      font-size: 0.95rem;
+    }
+    .description {
+      margin-top: 12px;
+      line-height: 1.5;
+      color: #555;
+    }
+    .btn {
+      margin-top: 15px;
+      padding: 10px 18px;
+      background: #1a73e8;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      display: inline-block;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #0d5fd1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 YouTube Videos & Playlists</h1>
+
+    <div id="content"></div>
+  </div>
+
+  <script>
+    // Your JSON Data
+    const data = {
+      "source": "Mixed YouTube Videos and Playlists",
+      "total_items": 13,
+      "items": [
+        { "type": "video", "title": "Lesson 11 - Hypothesis Testing For Means & Small Samples, Part 1", "url": "https://www.youtube.com/watch?v=l6T__utszJU", "description": "Part 1 of Hypothesis Testing for Means with Small Samples (t-test). BSc Statistics." },
+        { "type": "video", "title": "Lesson 12 - Hypothesis Testing For Means & Small Samples, Part 2", "url": "https://www.youtube.com/watch?v=c5YTyGWpcmw", "description": "Part 2 of Hypothesis Testing for Means with Small Samples." },
+        { "type": "video", "title": "Lesson 13 - Hypothesis Testing For Means & Small Samples, Part 3", "url": "https://www.youtube.com/watch?v=cgAFpw464go", "description": "Part 3 of Hypothesis Testing for Means with Small Samples." },
+        { "type": "video", "title": "Lesson 14 - Hypothesis Testing For Means & Small Samples, Part 4", "url": "https://www.youtube.com/watch?v=HqFyP-DDx0I", "description": "Part 4 of Hypothesis Testing for Means with Small Samples." },
+        { "type": "video", "title": "Lesson 15 - Hypothesis Testing For Means & Small Samples, Part 5", "url": "https://www.youtube.com/watch?v=MbnJ-5nuQz0", "description": "Part 5 of Hypothesis Testing for Means with Small Samples." },
+        { "type": "video", "title": "Lesson 16 - Hypothesis Testing For Means & Small Samples, Part 6", "url": "https://www.youtube.com/watch?v=OVrABrwfVBo", "description": "Part 6 of Hypothesis Testing for Means with Small Samples." },
+        { "type": "video", "title": "Lesson 17 - Hypothesis Testing For Means & Small Samples, Part 7", "url": "https://www.youtube.com/watch?v=1JT5j5erhzE", "description": "Part 7 of Hypothesis Testing for Means with Small Samples." },
+        { "type": "video", "title": "Lesson 18 - Hypothesis Testing For Means & Small Samples, Part 8", "url": "https://www.youtube.com/watch?v=5EKkzK5Sq5k", "description": "Part 8 of Hypothesis Testing for Means with Small Samples." },
+        { "type": "playlist", "title": "Small Sample tests Lessons", "url": "https://www.youtube.com/playlist?list=PLr45G29rKQuY3gQ5ku1rbs7K7sXfXEsTT", "description": "Complete series on Small Sample Tests (t-test) by Jogi Raju - BSc Statistics", "video_count": 7 },
+        { "type": "playlist", "title": "Statistics Playlists", "url": "https://www.youtube.com/watch?v=dhIvtnuM0fs&list=PLVQ3w79qOkWplZBnecB4FHUtRN7Xon-BY", "description": "Another Statistics Playlist" },
+        { "type": "playlist", "title": "Abu Saleem Statistics", "url": "https://www.youtube.com/watch?v=hy2bhgm-gVw&list=PLJMyK_eMQsxxXDmw6y40fqEZW6oi3RJtY", "description": "Statistics Lectures by Abu Saleem" },
+        { "type": "playlist", "title": "Small Sample Tests in Telugu", "url": "https://www.youtube.com/playlist?list=PL-m5AYudsZbR73PXk1XakFITL_HsZL8u1", "description": "Small Sample Tests in Telugu" },
+        { "type": "video", "title": "Single Video", "url": "https://www.youtube.com/watch?v=D2sMsmL0ScQ", "description": "Individual Video Lecture" }
+      ]
+    };
+
+    // Generate HTML Cards
+    function renderCards() {
+      const contentDiv = document.getElementById('content');
+      let html = '';
+
+      data.items.forEach(item => {
+        const typeClass = item.type === 'playlist' ? 'playlist' : 'video';
+        const typeText = item.type === 'playlist' ? '📂 Playlist' : '🎥 Video';
+
+        html += `
+          <div class="card">
+            <span class="type ${typeClass}">${typeText}</span>
+            <div class="title">${item.title}</div>
+            <div class="url">${item.url}</div>
+            <div class="description">${item.description}</div>
+            
+            <a href="${item.url}" target="_blank" class="btn">
+              ${item.type === 'playlist' ? 'Open Playlist →' : 'Watch Video →'}
+            </a>
+          </div>
+        `;
+      });
+
+      contentDiv.innerHTML = html;
+    }
+
+    // Render on page load
+    window.onload = renderCards;
+  </script>
+</body>
+</html>

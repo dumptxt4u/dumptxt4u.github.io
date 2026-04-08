@@ -1,0 +1,86 @@
+{
+  "source": "Mixed YouTube Videos and Playlists",
+  "total_items": 13,
+  "generated_on": "2026-04-08",
+  "items": [
+    {
+      "type": "video",
+      "title": "Lesson 11 - Hypothesis Testing For Means & Small Samples, Part 1",
+      "url": "https://www.youtube.com/watch?v=l6T__utszJU",
+      "description": "Part 1 of Hypothesis Testing for Means with Small Samples (t-test). BSc Statistics."
+    },
+    {
+      "type": "video",
+      "title": "Lesson 12 - Hypothesis Testing For Means & Small Samples, Part 2",
+      "url": "https://www.youtube.com/watch?v=c5YTyGWpcmw",
+      "description": "Part 2 of Hypothesis Testing for Means with Small Samples."
+    },
+    {
+      "type": "video",
+      "title": "Lesson 13 - Hypothesis Testing For Means & Small Samples, Part 3",
+      "url": "https://www.youtube.com/watch?v=cgAFpw464go",
+      "description": "Part 3 of Hypothesis Testing for Means with Small Samples."
+    },
+    {
+      "type": "video",
+      "title": "Lesson 14 - Hypothesis Testing For Means & Small Samples, Part 4",
+      "url": "https://www.youtube.com/watch?v=HqFyP-DDx0I",
+      "description": "Part 4 of Hypothesis Testing for Means with Small Samples."
+    },
+    {
+      "type": "video",
+      "title": "Lesson 15 - Hypothesis Testing For Means & Small Samples, Part 5",
+      "url": "https://www.youtube.com/watch?v=MbnJ-5nuQz0",
+      "description": "Part 5 of Hypothesis Testing for Means with Small Samples."
+    },
+    {
+      "type": "video",
+      "title": "Lesson 16 - Hypothesis Testing For Means & Small Samples, Part 6",
+      "url": "https://www.youtube.com/watch?v=OVrABrwfVBo",
+      "description": "Part 6 of Hypothesis Testing for Means with Small Samples."
+    },
+    {
+      "type": "video",
+      "title": "Lesson 17 - Hypothesis Testing For Means & Small Samples, Part 7",
+      "url": "https://www.youtube.com/watch?v=1JT5j5erhzE",
+      "description": "Part 7 of Hypothesis Testing for Means with Small Samples."
+    },
+    {
+      "type": "video",
+      "title": "Lesson 18 - Hypothesis Testing For Means & Small Samples, Part 8",
+      "url": "https://www.youtube.com/watch?v=5EKkzK5Sq5k",
+      "description": "Part 8 of Hypothesis Testing for Means with Small Samples."
+    },
+    {
+      "type": "playlist",
+      "title": "Small Sample tests Lessons",
+      "url": "https://www.youtube.com/playlist?list=PLr45G29rKQuY3gQ5ku1rbs7K7sXfXEsTT",
+      "description": "Complete series on Small Sample Tests (t-test) by Jogi Raju - BSc Statistics",
+      "video_count": 7
+    },
+    {
+      "type": "playlist",
+      "title": "Unknown / Not extracted",
+      "url": "https://www.youtube.com/watch?v=dhIvtnuM0fs&list=PLVQ3w79qOkWplZBnecB4FHUtRN7Xon-BY",
+      "description": "Playlist link provided (could not fetch full details)"
+    },
+    {
+      "type": "playlist",
+      "title": "Unknown / Not extracted",
+      "url": "https://www.youtube.com/watch?v=hy2bhgm-gVw&list=PLJMyK_eMQsxxXDmw6y40fqEZW6oi3RJtY",
+      "description": "Playlist by Abu Saleem"
+    },
+    {
+      "type": "playlist",
+      "title": "Small Sample Tests",
+      "url": "https://www.youtube.com/playlist?list=PL-m5AYudsZbR73PXk1XakFITL_HsZL8u1",
+      "description": "Small Sample Tests in Telugu"
+    },
+    {
+      "type": "video",
+      "title": "Unknown Title",
+      "url": "https://www.youtube.com/watch?v=D2sMsmL0ScQ",
+      "description": "Single video (title could not be extracted automatically)"
+    }
+  ]
+}
