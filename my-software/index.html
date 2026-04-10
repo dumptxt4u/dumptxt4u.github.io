@@ -1,172 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my-software • Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .glass {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(16px);
-        }
-        
-        .card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 25px 50px -12px rgb(0 212 255 / 0.25);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background: linear-gradient(to right, #00d4ff, #00ff88);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover:after {
-            width: 100%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Index of my-software</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  padding: 20px;
+}
+.folder-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  margin: 10px 0;
+}
+.dropdown-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+.dropdown-btn:hover {
+  background: #0056b3;
+}
+.dropdown-container {
+  display: none;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+.file-item {
+  padding: 5px 0;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+a:hover {
+  color: #007bff;
+}
+</style>
 </head>
-<body class="bg-zinc-950 text-white min-h-screen">
+<body>
+<h2>📁 Index of my-software</h2>
+<div class="file-item"><a href="1">1</a></div><div class="file-item"><a href="file-organiser.html">file-organiser.html</a></div><div class="file-item"><a href="file_organiser.py">file_organiser.py</a></div><div class="file-item"><a href="index-1.html">index-1.html</a></div><div class="file-item"><a href="index-2.html">index-2.html</a></div><div class="file-item"><a href="index.html">index.html</a></div><div class="file-item"><a href="watsstatus.html">watsstatus.html</a></div><div class="file-item"><a href="whatsapp-business-whatsapp-pdf-downloader.html">whatsapp-business-whatsapp-pdf-downloader.html</a></div><div class="file-item"><a href="whatsapp_pdf_downloader_v1.py">whatsapp_pdf_downloader_v1.py</a></div><div class="file-item"><a href="whatsapp_status_backup.py">whatsapp_status_backup.py</a></div>
 
-    <!-- Header -->
-    <header class="border-b border-white/10 bg-black/70 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-emerald-400 rounded-2xl flex items-center justify-center text-2xl">
-                    💾
-                </div>
-                <div>
-                    <h1 class="text-3xl font-bold tracking-tighter">my-software</h1>
-                    <p class="text-xs text-gray-400 -mt-1">Personal Toolbox</p>
-                </div>
-            </div>
-            
-            <div class="flex items-center gap-8 text-sm">
-                <a href="#" class="nav-link text-gray-300 hover:text-white">Home</a>
-                <a href="file-organiser.html" class="nav-link text-cyan-400 font-medium flex items-center gap-2">
-                    <i class="fas fa-folder-open"></i> Smart File Organizer
-                </a>
-                <input type="text" id="searchInput" 
-                       placeholder="Search tools..." 
-                       onkeyup="filterTools()"
-                       class="bg-zinc-900 border border-white/20 focus:border-cyan-400 rounded-2xl px-5 py-3 w-72 text-sm outline-none transition-all">
-            </div>
-        </div>
-    </header>
-
-    <div class="max-w-7xl mx-auto px-8 py-12">
-        <!-- Hero Intro -->
-        <div class="mb-16">
-            <h2 class="text-5xl font-bold mb-4">My Software Collection</h2>
-            <p class="text-gray-400 max-w-2xl text-lg">
-                A curated collection of productivity tools, WhatsApp utilities, file organizers, 
-                and automation scripts. Built with passion to simplify daily digital workflows.
-                <span class="text-cyan-400 font-medium">(8 tools • Updated April 2026)</span>
-            </p>
-        </div>
-
-        <!-- Tools Grid -->
-        <div id="toolsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            <!-- Smart File Organizer -->
-            <a href="file-organiser.html" class="card group bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden">
-                <div class="h-2 bg-gradient-to-r from-cyan-400 to-emerald-400"></div>
-                <div class="p-8">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="text-5xl">📁</div>
-                        <span class="text-xs font-mono bg-emerald-900/50 text-emerald-400 px-3 py-1 rounded-full">RECOMMENDED</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors">Smart File Organizer Pro</h3>
-                    <p class="text-gray-400 text-sm line-clamp-3">
-                        Intelligent file renaming, hierarchical organization, and undo support. Perfect for students and professionals managing study materials and documents.
-                    </p>
-                    <div class="mt-6 flex items-center gap-2 text-xs text-gray-500">
-                        <span class="bg-white/10 px-3 py-1 rounded-full">Python</span>
-                        <span class="bg-white/10 px-3 py-1 rounded-full">Tkinter</span>
-                        <span class="bg-white/10 px-3 py-1 rounded-full">GUI</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Other Tools -->
-            <div class="card bg-zinc-900 border border-white/10 rounded-3xl p-8">
-                <div class="text-5xl mb-6">📱</div>
-                <h3 class="text-2xl font-semibold mb-2">WhatsApp Status Backup</h3>
-                <p class="text-gray-400 text-sm">Automatically backup disappearing WhatsApp statuses with metadata.</p>
-                <a href="whatsapp_status_backup.py" class="inline-block mt-8 text-cyan-400 text-sm hover:underline">Download .py →</a>
-            </div>
-
-            <div class="card bg-zinc-900 border border-white/10 rounded-3xl p-8">
-                <div class="text-5xl mb-6">📄</div>
-                <h3 class="text-2xl font-semibold mb-2">WhatsApp PDF Downloader</h3>
-                <p class="text-gray-400 text-sm">Bulk download PDF files shared in WhatsApp Business chats.</p>
-                <a href="whatsapp_pdf_downloader_v1.py" class="inline-block mt-8 text-cyan-400 text-sm hover:underline">Download .py →</a>
-            </div>
-
-            <div class="card bg-zinc-900 border border-white/10 rounded-3xl p-8">
-                <div class="text-5xl mb-6">💼</div>
-                <h3 class="text-2xl font-semibold mb-2">WhatsApp Business Downloader</h3>
-                <p class="text-gray-400 text-sm">Advanced utility for downloading media from WhatsApp Business.</p>
-                <a href="whatsapp-business-whatsapp-pdf-downloader.html" class="inline-block mt-8 text-cyan-400 text-sm hover:underline">Open Tool →</a>
-            </div>
-
-            <div class="card bg-zinc-900 border border-white/10 rounded-3xl p-8">
-                <div class="text-5xl mb-6">📊</div>
-                <h3 class="text-2xl font-semibold mb-2">WhatsApp Status Viewer</h3>
-                <p class="text-gray-400 text-sm">Enhanced viewer and downloader for WhatsApp statuses.</p>
-                <a href="watsstatus.html" class="inline-block mt-8 text-cyan-400 text-sm hover:underline">Open Tool →</a>
-            </div>
-
-            <div class="card bg-zinc-900 border border-white/10 rounded-3xl p-8">
-                <div class="text-5xl mb-6">🔧</div>
-                <h3 class="text-2xl font-semibold mb-2">Utilities</h3>
-                <p class="text-gray-400 text-sm">Additional scripts and tools for daily automation.</p>
-                <div class="mt-8 text-xs text-gray-400">More tools coming soon...</div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="border-t border-white/10 py-12 text-center text-gray-500 text-sm">
-        <p>© 2026 • Personal Software Archive • Built with elegance and purpose</p>
-    </footer>
-
-    <script>
-        function filterTools() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('#toolsGrid > div');
-            
-            cards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                card.style.display = text.includes(query) ? 'block' : 'none';
-            });
-        }
-
-        // Keyboard shortcut for search
-        document.addEventListener('keydown', (e) => {
-            if (e.key === '/' && document.getElementById('searchInput') !== document.activeElement) {
-                e.preventDefault();
-                document.getElementById('searchInput').focus();
-            }
-        });
-    </script>
+<script>
+document.querySelectorAll(".dropdown-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const container = btn.nextElementSibling;
+    container.style.display = container.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
 </body>
 </html>
