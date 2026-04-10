@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus Hub • Partial Derivatives & Lagrange Multipliers</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .youtube-card {
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .youtube-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px -15px rgb(249 115 22 / 0.3);
+        }
+
+        .thumbnail-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .thumbnail-container img {
+            transition: transform 0.5s ease;
+        }
+        
+        .youtube-card:hover .thumbnail-container img {
+            transform: scale(1.08);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .youtube-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #f97316, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl shadow-lg">∫</div>
+                <h1 class="title-font text-3xl font-bold tracking-tighter">Calculus Hub</h1>
+            </div>
+            <div class="flex gap-8 text-sm font-medium">
+                <a href="#playlists" class="hover:text-orange-400 transition-colors">Partial Derivatives</a>
+                <a href="#lagrange" class="hover:text-orange-400 transition-colors">Lagrange Multipliers</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-bg min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 pt-24 relative z-10">
+            <div class="max-w-4xl">
+                <h1 class="title-font text-7xl md:text-8xl font-bold leading-none tracking-tighter mb-6">
+                    Master <span class="gradient-text">Calculus</span><br>Visually
+                </h1>
+                <p class="text-2xl text-zinc-300 max-w-2xl">
+                    Curated YouTube playlists and videos with beautiful thumbnails for Partial Derivatives and Lagrange Multipliers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-7xl mx-auto px-6 pb-24">
+
+        <!-- Partial Derivatives Playlists -->
+        <section id="playlists" class="scroll-mt-20 mb-28">
+            <div class="flex items-center justify-between mb-12">
+                <div>
+                    <h2 class="title-font text-5xl font-semibold">Partial Derivatives Playlists</h2>
+                    <p class="text-zinc-400 mt-2">10 high-quality collections</p>
+                </div>
+                <span class="bg-orange-500/10 text-orange-400 px-6 py-2 rounded-full text-sm font-semibold">Playlists</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="playlists-container">
+                <!-- JS populated -->
+            </div>
+        </section>
+
+        <!-- Lagrange Multipliers Videos -->
+        <section id="lagrange" class="scroll-mt-20 mb-28">
+            <div class="flex items-center justify-between mb-12">
+                <div>
+                    <h2 class="title-font text-5xl font-semibold">Lagrange Multiplier Videos</h2>
+                    <p class="text-zinc-400 mt-2">20 best visual explanations</p>
+                </div>
+                <span class="bg-violet-500/10 text-violet-400 px-6 py-2 rounded-full text-sm font-semibold">Videos</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="videos-container">
+                <!-- JS populated -->
+            </div>
+        </section>
+
+        <!-- JSON Section -->
+        <section class="bg-zinc-900/70 rounded-3xl p-10 border border-white/10">
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center gap-4">
+                    <i class="fa-solid fa-code text-emerald-400 text-3xl"></i>
+                    <h3 class="text-2xl font-semibold">Raw JSON Data</h3>
+                </div>
+                <button onclick="copyToClipboard()" 
+                        class="flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold px-8 py-3 rounded-2xl transition-colors">
+                    <i class="fa-solid fa-copy"></i> Copy JSON
+                </button>
+            </div>
+            <pre id="json-viewer" class="bg-black p-8 rounded-2xl text-emerald-300 font-mono text-sm overflow-auto max-h-96 border border-white/10"></pre>
+        </section>
+    </div>
+
+    <footer class="bg-black py-16 text-center text-zinc-500 text-sm">
+        <p>Built for students who love beautiful, visual mathematics.</p>
+    </footer>
+
+    <script>
+        const dataSource = {
+            "partial_derivatives_playlists": [
+                {
+                    "title": "Partial Derivatives (Khan Academy)",
+                    "url": "https://www.youtube.com/playlist?list=PLSQl0a2vh4HCHBrSa1YErcRXpiz_BQRDS",
+                    "description": "Focused playlist on partial derivatives, gradient, divergence & curl.",
+                    "thumbnail": "https://i.ytimg.com/vi/AXqhWeUEtQU/maxresdefault.jpg"
+                },
+                {
+                    "title": "Multivariable Calculus Full Course",
+                    "url": "https://www.youtube.com/playlist?list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7",
+                    "description": "Complete multivariable series covering partials extensively.",
+                    "thumbnail": "https://i.ytimg.com/vi/e9L17SoGT8c/maxresdefault.jpg"
+                },
+                {
+                    "title": "Ch 14: Partial Derivatives",
+                    "url": "https://www.youtube.com/playlist?list=PLGOk2-zeLtjC5hdU7p24RdC0_VZgsZCE1",
+                    "description": "Textbook-aligned chapter playlist.",
+                    "thumbnail": "https://i.ytimg.com/vi/1CMDS4-PKKQ/maxresdefault.jpg"
+                },
+                {
+                    "title": "Professor Leonard Style",
+                    "url": "https://www.youtube.com/playlist?list=PLO1y6V1SXjjP6QaEMnB-Hs9zjgATU3XoM",
+                    "description": "Clear, long-form example-heavy lectures.",
+                    "thumbnail": "https://i.ytimg.com/vi/AXqhWeUEtQU/maxresdefault.jpg"
+                },
+                {
+                    "title": "Partial Derivatives Full Series",
+                    "url": "https://www.youtube.com/playlist?list=PLEGisO2JBrwXnYrDOc_yqGdiZZXGrasCM",
+                    "description": "Walkthroughs including chain rule and directional derivatives.",
+                    "thumbnail": "https://i.ytimg.com/vi/AXqhWeUEtQU/maxresdefault.jpg"
+                },
+                {
+                    "title": "Detailed Partials Examples",
+                    "url": "https://www.youtube.com/playlist?list=PLJb1qAQIrmmCKSZwoHh-Il6s9-68CfLCu",
+                    "description": "Covers limits, chain rule, and higher-order partials.",
+                    "thumbnail": "https://i.ytimg.com/vi/AXqhWeUEtQU/maxresdefault.jpg"
+                },
+                {
+                    "title": "Functions of Two Variables",
+                    "url": "https://youtube.com/playlist?list=PLROOIV7hGpZh9M4MKFWcpUqUIwoMOIQI8",
+                    "description": "First-order partials and contour map visualizations.",
+                    "thumbnail": "https://i.ytimg.com/vi/AXqhWeUEtQU/maxresdefault.jpg"
+                },
+                {
+                    "title": "Calculus III Full Course",
+                    "url": "https://www.youtube.com/playlist?list=PLHXZ9OQGMqxc_CvEy7xBKRQr6I214QJcd",
+                    "description": "Comprehensive coverage of vectors and curves.",
+                    "thumbnail": "https://i.ytimg.com/vi/e9L17SoGT8c/maxresdefault.jpg"
+                },
+                {
+                    "title": "Brian Fitzpatrick Series",
+                    "url": "https://www.youtube.com/playlist?list=PLwK75AcBxZCAHo2FLv4X5VFejOThbjJuf",
+                    "description": "University-level detailed lecture series.",
+                    "thumbnail": "https://i.ytimg.com/vi/AXqhWeUEtQU/maxresdefault.jpg"
+                },
+                {
+                    "title": "Classic Multi-Variable Calculus",
+                    "url": "https://www.youtube.com/playlist?list=PLunX8-zce75SkYU-hp_wGeRcG4QqHZFFg",
+                    "description": "A staple playlist for multivariable fundamentals.",
+                    "thumbnail": "https://i.ytimg.com/vi/e9L17SoGT8c/maxresdefault.jpg"
+                }
+            ],
+            "lagrange_multipliers_videos": [
+                {
+                    "title": "The Organic Chemistry Tutor",
+                    "url": "https://www.youtube.com/watch?v=5-CUqogfPLY",
+                    "description": "Best beginner-to-advanced intro.",
+                    "thumbnail": "https://i.ytimg.com/vi/5-CUqogfPLY/maxresdefault.jpg"
+                },
+                {
+                    "title": "Dr. Trefor Bazett Geometric Meaning",
+                    "url": "https://www.youtube.com/watch?v=8mjcnxGMwFo",
+                    "description": "Outstanding visual geometric explanation.",
+                    "thumbnail": "https://i.ytimg.com/vi/8mjcnxGMwFo/maxresdefault.jpg"
+                },
+                {
+                    "title": "PatrickJMT - Max/Min Values",
+                    "url": "https://www.youtube.com/watch?v=ry9cgNx1QV8",
+                    "description": "Classic, no-nonsense clear tutorial.",
+                    "thumbnail": "https://i.ytimg.com/vi/ry9cgNx1QV8/maxresdefault.jpg"
+                },
+                {
+                    "title": "Serpentine Integral Visuals",
+                    "url": "https://www.youtube.com/watch?v=5A39Ht9Wcu0",
+                    "description": "Animated visual intuition.",
+                    "thumbnail": "https://i.ytimg.com/vi/5A39Ht9Wcu0/maxresdefault.jpg"
+                },
+                {
+                    "title": "DataMListic Visualization",
+                    "url": "https://www.youtube.com/watch?v=-DrrRjsGizY",
+                    "description": "Intuition using gradient fields.",
+                    "thumbnail": "https://i.ytimg.com/vi/-DrrRjsGizY/maxresdefault.jpg"
+                },
+                {
+                    "title": "Khan Academy Tangency",
+                    "url": "https://www.youtube.com/watch?v=yuqB-d5MjZA",
+                    "description": "Official geometric tangency guide.",
+                    "thumbnail": "https://i.ytimg.com/vi/yuqB-d5MjZA/maxresdefault.jpg"
+                },
+                {
+                    "title": "Professor Leonard Lecture",
+                    "url": "https://www.youtube.com/watch?v=nUfYR5FBGZc",
+                    "description": "Full-length classroom walkthrough.",
+                    "thumbnail": "https://i.ytimg.com/vi/nUfYR5FBGZc/maxresdefault.jpg"
+                },
+                {
+                    "title": "Math with Professor V",
+                    "url": "https://www.youtube.com/watch?v=DZB4ZlNh0lo",
+                    "description": "Multiple constraint walkthroughs.",
+                    "thumbnail": "https://i.ytimg.com/vi/DZB4ZlNh0lo/maxresdefault.jpg"
+                },
+                {
+                    "title": "The Math Sorcerer",
+                    "url": "https://www.youtube.com/watch?v=jTf_ZZh6gbk",
+                    "description": "Step-by-step example tutorial.",
+                    "thumbnail": "https://i.ytimg.com/vi/jTf_ZZh6gbk/maxresdefault.jpg"
+                },
+                {
+                    "title": "Two Constraints Case",
+                    "url": "https://www.youtube.com/watch?v=LeKXDMtXBFw",
+                    "description": "Advanced multi-constraint tutorial.",
+                    "thumbnail": "https://i.ytimg.com/vi/LeKXDMtXBFw/maxresdefault.jpg"
+                },
+                {
+                    "title": "Pendulum Derivation",
+                    "url": "https://www.youtube.com/watch?v=wPk16G7mkZY",
+                    "description": "Clear physics-based derivation.",
+                    "thumbnail": "https://i.ytimg.com/vi/wPk16G7mkZY/maxresdefault.jpg"
+                },
+                {
+                    "title": "MIT OCW Style Intro",
+                    "url": "https://www.youtube.com/watch?v=Y9udSrlRCvk",
+                    "description": "Rigorous geometric justification.",
+                    "thumbnail": "https://i.ytimg.com/vi/Y9udSrlRCvk/maxresdefault.jpg"
+                },
+                {
+                    "title": "Concise Lagrangian Method",
+                    "url": "https://www.youtube.com/watch?v=BDogM9wBQPo",
+                    "description": "Short, effective example walkthrough.",
+                    "thumbnail": "https://i.ytimg.com/vi/BDogM9wBQPo/maxresdefault.jpg"
+                },
+                {
+                    "title": "Modern Optimization Visuals",
+                    "url": "https://www.youtube.com/watch?v=JA1lY5jSW-4",
+                    "description": "Why the gradients align.",
+                    "thumbnail": "https://i.ytimg.com/vi/JA1lY5jSW-4/maxresdefault.jpg"
+                },
+                {
+                    "title": "Standard Textbook Walkthrough",
+                    "url": "https://www.youtube.com/watch?v=ymp0BUa5QQs",
+                    "description": "Reliable step-by-step method.",
+                    "thumbnail": "https://i.ytimg.com/vi/ymp0BUa5QQs/maxresdefault.jpg"
+                },
+                {
+                    "title": "Tips and Tricks",
+                    "url": "https://www.youtube.com/watch?v=2jMomHT5554",
+                    "description": "Practical exam shortcuts.",
+                    "thumbnail": "https://i.ytimg.com/vi/2jMomHT5554/maxresdefault.jpg"
+                },
+                {
+                    "title": "Worked Example: x³y⁵",
+                    "url": "https://www.youtube.com/watch?v=3mhV6AL53CY",
+                    "description": "Specific complex problem solved.",
+                    "thumbnail": "https://i.ytimg.com/vi/3mhV6AL53CY/maxresdefault.jpg"
+                },
+                {
+                    "title": "Stationary Points Guide",
+                    "url": "https://www.youtube.com/watch?v=Le1sy2a4fgc",
+                    "description": "Great for exam-style questions.",
+                    "thumbnail": "https://i.ytimg.com/vi/Le1sy2a4fgc/maxresdefault.jpg"
+                },
+                {
+                    "title": "Economics Perspective",
+                    "url": "https://www.youtube.com/watch?v=uLH11T27c30",
+                    "description": "Utility maximization intuition.",
+                    "thumbnail": "https://i.ytimg.com/vi/uLH11T27c30/maxresdefault.jpg"
+                },
+                {
+                    "title": "Linear Algebra Connections",
+                    "url": "https://www.youtube.com/watch?v=8ONfqn0qC7s",
+                    "description": "Advanced matrix-based applications.",
+                    "thumbnail": "https://i.ytimg.com/vi/8ONfqn0qC7s/maxresdefault.jpg"
+                }
+            ]
+        };
+
+        function init() {
+            // Playlists
+            const pContainer = document.getElementById('playlists-container');
+            pContainer.innerHTML = dataSource.partial_derivatives_playlists.map(item => `
+                <a href="${item.url}" target="_blank" class="youtube-card group bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden block">
+                    <div class="thumbnail-container aspect-video bg-zinc-800">
+                        <img src="${item.thumbnail}" alt="${item.title}" class="w-full h-full object-cover">
+                        <div class="play-overlay">
+                            <div class="w-16 h-16 bg-red-600/90 rounded-2xl flex items-center justify-center text-white text-4xl shadow-2xl">
+                                ▶
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl leading-tight mb-3">${item.title}</h3>
+                        <p class="text-zinc-400 text-sm line-clamp-3">${item.description}</p>
+                    </div>
+                </a>
+            `).join('');
+
+            // Videos
+            const vContainer = document.getElementById('videos-container');
+            vContainer.innerHTML = dataSource.lagrange_multipliers_videos.map(item => `
+                <a href="${item.url}" target="_blank" class="youtube-card group bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden flex flex-col h-full">
+                    <div class="thumbnail-container aspect-video bg-zinc-800 relative">
+                        <img src="${item.thumbnail}" alt="${item.title}" class="w-full h-full object-cover">
+                        <div class="play-overlay">
+                            <div class="w-14 h-14 bg-red-600/90 rounded-2xl flex items-center justify-center text-white text-3xl shadow-2xl">
+                                ▶
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h4 class="font-semibold text-lg leading-tight mb-3">${item.title}</h4>
+                        <p class="text-zinc-400 text-sm flex-1">${item.description}</p>
+                    </div>
+                </a>
+            `).join('');
+
+            // JSON Viewer
+            document.getElementById('json-viewer').textContent = JSON.stringify(dataSource, null, 2);
+        }
+
+        function copyToClipboard() {
+            navigator.clipboard.writeText(JSON.stringify(dataSource, null, 2));
+            const btn = event.currentTarget;
+            const original = btn.innerHTML;
+            btn.innerHTML = '✅ Copied!';
+            setTimeout(() => btn.innerHTML = original, 2000);
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
