@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotics ROS • Video Library</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .video-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .video-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+    .thumbnail-container { position: relative; }
+    .duration {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .hero-bg {
+      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+    }
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100">
+
+  <!-- HEADER -->
+  <header class="hero-bg border-b border-zinc-800">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-x-4">
+          <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-3xl">🤖</div>
+          <div>
+            <h1 class="text-4xl font-bold tracking-tight">Robotics & ROS</h1>
+            <p class="text-blue-300">Video Library</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-x-6 text-sm">
+          <div class="bg-zinc-900/70 px-4 py-2 rounded-3xl flex items-center gap-x-2">
+            <span id="videoCount" class="text-emerald-400">0 videos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <!-- SEARCH -->
+    <div class="flex flex-col md:flex-row gap-4 mb-10">
+      <div class="flex-1 relative">
+        <input id="searchInput" type="text" placeholder="Search videos..." 
+               class="w-full bg-zinc-900 border border-zinc-700 rounded-3xl py-4 px-6 pl-14 focus:outline-none focus:border-blue-500 transition">
+        <i class="fa-solid fa-magnifying-glass absolute left-6 top-1/2 -translate-y-1/2 text-zinc-500"></i>
+      </div>
+    </div>
+
+    <!-- VIDEO GRID -->
+    <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <!-- Videos loaded here -->
+    </div>
+  </div>
+
+  <script>
+    let allVideos = [];
+
+    function createVideoCard(video) {
+      const card = document.createElement('div');
+      card.className = `video-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800`;
+      card.innerHTML = `
+        <div class="thumbnail-container">
+          <img src="${video.thumbnail}" alt="${video.title}" class="w-full aspect-video object-cover">
+          <div class="duration">18:42</div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold leading-tight line-clamp-2 mb-3 h-12">${video.title}</h3>
+          <a href="${video.url}" target="_blank" 
+             class="inline-flex items-center gap-x-2 text-blue-400 hover:text-blue-300 text-sm font-medium">
+            <i class="fa-solid fa-play"></i>
+            Watch on YouTube
+          </a>
+        </div>
+      `;
+      return card;
+    }
+
+    function renderVideos(videos) {
+      const container = document.getElementById('videoGrid');
+      container.innerHTML = '';
+      videos.forEach(video => container.appendChild(createVideoCard(video)));
+      document.getElementById('videoCount').textContent = `${videos.length} videos`;
+    }
+
+    // Load videos from a.json
+    async function loadVideos() {
+      try {
+        const response = await fetch('a.json');
+        if (!response.ok) throw new Error('File not found');
+
+        const data = await response.json();
+        allVideos = data.videos || [];
+        console.log(`✅ Loaded ${allVideos.length} videos from a.json`);
+        renderVideos(allVideos);
+
+      } catch (error) {
+        console.error("❌ Error loading a.json:", error);
+        document.getElementById('videoGrid').innerHTML = `
+          <div class="col-span-full text-center py-20">
+            <p class="text-red-400 text-xl mb-4">❌ Could not load a.json</p>
+            <p class="text-zinc-400">Make sure <strong>a.json</strong> is in the same folder as this HTML file.</p>
+            <p class="text-zinc-500 mt-6 text-sm">Tip: Use Live Server in VS Code or run <code>python -m http.server</code></p>
+          </div>`;
+      }
+    }
+
+    // Search
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase().trim();
+      if (!term) {
+        renderVideos(allVideos);
+        return;
+      }
+      const filtered = allVideos.filter(v => v.title.toLowerCase().includes(term));
+      renderVideos(filtered);
+    });
+
+    // Initialize
+    window.onload = loadVideos;
+  </script>
+</body>
+</html>

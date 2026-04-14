@@ -1,0 +1,1577 @@
+{
+  "project": "robotics",
+  "generated_at": "2026-04-15T01:01:53.163273",
+  "total_videos": 157,
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=tOfS8KKNfMw",
+      "video_id": "tOfS8KKNfMw",
+      "title": "Robotics And ROS_lectures  introduction in malayalam",
+      "thumbnail": "https://img.youtube.com/vi/tOfS8KKNfMw/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:09",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=zOHxUmQE-dY",
+      "video_id": "zOHxUmQE-dY",
+      "title": "Ros biginner tutorial |Installation|മലയാളത്തിൽ|in malayalam",
+      "thumbnail": "https://img.youtube.com/vi/zOHxUmQE-dY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:11",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=oti_iixJ3K4",
+      "video_id": "oti_iixJ3K4",
+      "title": "Ros biginner tutorial |Ros workspace and packages|മലയാളത്തിൽ|in malayalam",
+      "thumbnail": "https://img.youtube.com/vi/oti_iixJ3K4/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:12",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ZfPMXft3yoc",
+      "video_id": "ZfPMXft3yoc",
+      "title": "Ros biginner tutorial |URDF-part1|മലയാളത്തിൽ|in malayalam",
+      "thumbnail": "https://img.youtube.com/vi/ZfPMXft3yoc/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:15",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=1ajiky7L0xY",
+      "video_id": "1ajiky7L0xY",
+      "title": "Ros biginner tutorial |URDF-part2|മലയാളത്തിൽ|in malayalam",
+      "thumbnail": "https://img.youtube.com/vi/1ajiky7L0xY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:16",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=2lrTcRXIHKI",
+      "video_id": "2lrTcRXIHKI",
+      "title": "Robotics theory 1|Kinematics |intro |malayalam",
+      "thumbnail": "https://img.youtube.com/vi/2lrTcRXIHKI/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:17",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=8QfI5a7lTKU",
+      "video_id": "8QfI5a7lTKU",
+      "title": "What is ROS, When to use it, and Why ? - Robot Operating System Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/8QfI5a7lTKU/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:18",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Eal5-zBamRc",
+      "video_id": "Eal5-zBamRc",
+      "title": "Clear and Easy Introduction to Robot Operating System (ROS) and Turtlesim Simulation Environment",
+      "thumbnail": "https://img.youtube.com/vi/Eal5-zBamRc/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:19",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=UGHE7HyzRXw",
+      "video_id": "UGHE7HyzRXw",
+      "title": "Properly Install ROS in Linux (Ubuntu) and Test Installation by Running \"Hello World\" in ROS",
+      "thumbnail": "https://img.youtube.com/vi/UGHE7HyzRXw/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:20",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=AQMg6HmbbU4",
+      "video_id": "AQMg6HmbbU4",
+      "title": "ROS Tutorial for Beginners: Create Catkin Workspace and Create Packages in Robot Operating System",
+      "thumbnail": "https://img.youtube.com/vi/AQMg6HmbbU4/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:21",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=tGK_wWjcpN8",
+      "video_id": "tGK_wWjcpN8",
+      "title": "ROS Tutorial: Subscriber and Publisher Nodes in Python from Scratch and Connect them Using Topics",
+      "thumbnail": "https://img.youtube.com/vi/tGK_wWjcpN8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:22",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rfwHAYAUm_w",
+      "video_id": "rfwHAYAUm_w",
+      "title": "Use a Camera with ROS and OpenCV in Python - Robotics and Computer Vision in Python and ROS",
+      "thumbnail": "https://img.youtube.com/vi/rfwHAYAUm_w/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:23",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=OAdSxAcel9g",
+      "video_id": "OAdSxAcel9g",
+      "title": "Robot Modeling from Scratch in ROS and RViz - Explanation of URDF Files and Launch ROS Files -PART 1",
+      "thumbnail": "https://img.youtube.com/vi/OAdSxAcel9g/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:25",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=xx5IaBa3O0s",
+      "video_id": "xx5IaBa3O0s",
+      "title": "Robot Modeling from Scratch in ROS and RViz - Explanation of URDF Files and Launch ROS Files -PART 2",
+      "thumbnail": "https://img.youtube.com/vi/xx5IaBa3O0s/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:26",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=2gAYO_fFSlo",
+      "video_id": "2gAYO_fFSlo",
+      "title": "Use Xacro (XML Macro) and URDF to Parametrize and Model Robots in ROS and RViz",
+      "thumbnail": "https://img.youtube.com/vi/2gAYO_fFSlo/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:27",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=CDafpwH4IuE",
+      "video_id": "CDafpwH4IuE",
+      "title": "Properly Model Robots in Gazebo From Scratch by Using URDF and Xacro Files - Complete ROS Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/CDafpwH4IuE/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:28",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=XyGZpgFQKAo",
+      "video_id": "XyGZpgFQKAo",
+      "title": "Installation and Experimental Tests of a Low-Cost Lidar (SLAMTECH RPLIDAR R1) in ROS - Perception",
+      "thumbnail": "https://img.youtube.com/vi/XyGZpgFQKAo/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:29",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=sMyXGvR37hs",
+      "video_id": "sMyXGvR37hs",
+      "title": "Bluetooth HC-06 Module and Arduino from Scratch- Learn How to Control Arduino from Your Mobile Phone",
+      "thumbnail": "https://img.youtube.com/vi/sMyXGvR37hs/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:30",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=RsZBxfpcLu8",
+      "video_id": "RsZBxfpcLu8",
+      "title": "PART1: Building Low-Cost Differential Wheeled Robot For Machine Learning, SLAM, and ROS",
+      "thumbnail": "https://img.youtube.com/vi/RsZBxfpcLu8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:31",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=gw3JOoryvDw",
+      "video_id": "gw3JOoryvDw",
+      "title": "Fix \"cstring\" compiler error when installing Rosserial Arduino Library- Properly Use ROS and Arduino",
+      "thumbnail": "https://img.youtube.com/vi/gw3JOoryvDw/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:32",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=9qZUjEsVWts",
+      "video_id": "9qZUjEsVWts",
+      "title": "Properly Create ROS - Arduino Interface and run ROS on Arduino - PART 1 - Robotics Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/9qZUjEsVWts/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:33",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=mweXb_zJlEA",
+      "video_id": "mweXb_zJlEA",
+      "title": "Write Python ROS (Robot Operating System) Publisher/Subscriber Nodes and Interface with Arduino",
+      "thumbnail": "https://img.youtube.com/vi/mweXb_zJlEA/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:35",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=-4xYOcmnJUQ",
+      "video_id": "-4xYOcmnJUQ",
+      "title": "PART4:ROS Wireless Control and Remote Encoder Readings of Differential Wheeled Robot- Write Nodes",
+      "thumbnail": "https://img.youtube.com/vi/-4xYOcmnJUQ/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:35",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=V3RRqSywSnI",
+      "video_id": "V3RRqSywSnI",
+      "title": "Correct Installation of TurtleBot3 Robot Model  in ROS + Visualization and Control in RViz",
+      "thumbnail": "https://img.youtube.com/vi/V3RRqSywSnI/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:36",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=_RBZ-9_rz9Y",
+      "video_id": "_RBZ-9_rz9Y",
+      "title": "Correctly Install TurtleBot3 Robot in ROS and Simulate Movement in Gazebo 3D Worlds - ROS Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/_RBZ-9_rz9Y/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:38",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=3GneO5fPu8s",
+      "video_id": "3GneO5fPu8s",
+      "title": "Simulation of Mobile Robot in Office/House-Made in ROS and Gazebo- Complete Tutorial Provided",
+      "thumbnail": "https://img.youtube.com/vi/3GneO5fPu8s/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:39",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Eie-KoMQtxs",
+      "video_id": "Eie-KoMQtxs",
+      "title": "Create URDF File and Model of Four-Wheeled Mobile Robot in ROS - ROS Robotics Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/Eie-KoMQtxs/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:40",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ad2jd8SCK-o",
+      "video_id": "ad2jd8SCK-o",
+      "title": "Modeling, Simulation, and Control of 4-Wheeled Mobile Robot in ROS and Gazebo - From Scratch!",
+      "thumbnail": "https://img.youtube.com/vi/ad2jd8SCK-o/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:41",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=6lOoThboEks",
+      "video_id": "6lOoThboEks",
+      "title": "Four-Wheeled Mobile Robot Simulation and Teleoperation in Gazebo/ROS - Tutorial Given Below",
+      "thumbnail": "https://img.youtube.com/vi/6lOoThboEks/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:42",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=YxuJFQZh94Q",
+      "video_id": "YxuJFQZh94Q",
+      "title": "Detailed and Correct Derivation of Kinematics Equations of Differential Drive Mobile Robot",
+      "thumbnail": "https://img.youtube.com/vi/YxuJFQZh94Q/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:45",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=fx6bxPJ6BEs",
+      "video_id": "fx6bxPJ6BEs",
+      "title": "Differential Drive Robot: Solution of Forward Kinematics and Simulation of Motion in Python/Pygame",
+      "thumbnail": "https://img.youtube.com/vi/fx6bxPJ6BEs/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:47",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=iHTBEeRgzPw",
+      "video_id": "iHTBEeRgzPw",
+      "title": "Simulate Mobile Robot Trajectory and Orientation in Python and Pygame (Tutorial Link provided)",
+      "thumbnail": "https://img.youtube.com/vi/iHTBEeRgzPw/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:48",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=14xipN7Gx-I",
+      "video_id": "14xipN7Gx-I",
+      "title": "Position Control of Differential Drive Mobile Robot - Complete Tutorial with  Simulation Animation",
+      "thumbnail": "https://img.youtube.com/vi/14xipN7Gx-I/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:51",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=qYyLksME5ZY",
+      "video_id": "qYyLksME5ZY",
+      "title": "Mobile Robot Control - Python and Pygame Simulation and Animation (tutorial links provided below)",
+      "thumbnail": "https://img.youtube.com/vi/qYyLksME5ZY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:52",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=babCXwvaHUY",
+      "video_id": "babCXwvaHUY",
+      "title": "OpenCV Python Tutorial 4: Draw Rectangles",
+      "thumbnail": "https://img.youtube.com/vi/babCXwvaHUY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:53",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=PeYkp8T71s8",
+      "video_id": "PeYkp8T71s8",
+      "title": "Install ROS2 Iron Irwini on Linux Ubuntu - For Advanced Users - Build from Source",
+      "thumbnail": "https://img.youtube.com/vi/PeYkp8T71s8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:54",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=PRs48cRHiG8",
+      "video_id": "PRs48cRHiG8",
+      "title": "Install ROS 2 Iron Irwini on Linux Ubuntu for Beginners - Install ROS 2 from Binaries",
+      "thumbnail": "https://img.youtube.com/vi/PRs48cRHiG8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:56",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=e_MSlH0YIyA",
+      "video_id": "e_MSlH0YIyA",
+      "title": "ROS 2 Tutorial 1: Learn the Basics of ROS 2 by Using Turtlesim Simulation",
+      "thumbnail": "https://img.youtube.com/vi/e_MSlH0YIyA/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:57",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=jAxHs7M8jCg",
+      "video_id": "jAxHs7M8jCg",
+      "title": "ROS 2 Tutorial 2: Explanation of Node-Topic Structure of ROS 2 System in Turtlesim Environment",
+      "thumbnail": "https://img.youtube.com/vi/jAxHs7M8jCg/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:58",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=VDotKYuKcVY",
+      "video_id": "VDotKYuKcVY",
+      "title": "ROS2 Tutorial 3: Publisher and Subscriber Nodes From Scratch in Python and Ubuntu Linux!",
+      "thumbnail": "https://img.youtube.com/vi/VDotKYuKcVY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:26:59",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=jDsb8xEdbKM",
+      "video_id": "jDsb8xEdbKM",
+      "title": "How to Create URDF and Launch Files in ROS2- Minimal Working Example",
+      "thumbnail": "https://img.youtube.com/vi/jDsb8xEdbKM/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:00",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ZSY0x2mXmps",
+      "video_id": "ZSY0x2mXmps",
+      "title": "Install Gazebo in ROS2 (Iron Irwini) and Run Differential Drive Robot Example",
+      "thumbnail": "https://img.youtube.com/vi/ZSY0x2mXmps/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:01",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=w6Kvq7ac-J8",
+      "video_id": "w6Kvq7ac-J8",
+      "title": "Write Launch Files and Load URDF (Xacro) 3D Model in Gazebo and ROS2 (Iron Irwini)",
+      "thumbnail": "https://img.youtube.com/vi/w6Kvq7ac-J8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:03",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=WVyJjxAyGJc",
+      "video_id": "WVyJjxAyGJc",
+      "title": "Install and Run Lidar on Raspberry Pi and ROS - Linux Ubuntu Mate Solution",
+      "thumbnail": "https://img.youtube.com/vi/WVyJjxAyGJc/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:04",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=TLuG7uruQ9o",
+      "video_id": "TLuG7uruQ9o",
+      "title": "Linux Command Line Tutorial for Robotics, Control, and Machine Learning - Part 1",
+      "thumbnail": "https://img.youtube.com/vi/TLuG7uruQ9o/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:05",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=mkycD7tiiFo",
+      "video_id": "mkycD7tiiFo",
+      "title": "First Test of ROS Implementation of Dead Reckoning and Real-Time Robot Visualization in RViz-",
+      "thumbnail": "https://img.youtube.com/vi/mkycD7tiiFo/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:06",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=6D9qwmjDuv4",
+      "video_id": "6D9qwmjDuv4",
+      "title": "Install ROS Noetic in Windows Through WSL2 - Also Fix Graphical Issues of WSL2",
+      "thumbnail": "https://img.youtube.com/vi/6D9qwmjDuv4/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:07",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=9Cl6utP-xig",
+      "video_id": "9Cl6utP-xig",
+      "title": "ROS2- Modeling, Simulation, and Control of 4-Wheeled Mobile Robot in ROS2  (Iron Irwini) and Gazebo",
+      "thumbnail": "https://img.youtube.com/vi/9Cl6utP-xig/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:08",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=M8BlIjaz7pU",
+      "video_id": "M8BlIjaz7pU",
+      "title": "Real-time Odometry in ROS and Mobile Robot Motion Visualization in Rviz  - Complete Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/M8BlIjaz7pU/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:10",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=iaiz7b_cWh8",
+      "video_id": "iaiz7b_cWh8",
+      "title": "Real-time tracking and visualization of mobile robot motion in ROS-Tutorial Link in Description",
+      "thumbnail": "https://img.youtube.com/vi/iaiz7b_cWh8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:11",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=qqRRyJLiu4U",
+      "video_id": "qqRRyJLiu4U",
+      "title": "Which Version of ROS/ROS2 Should I Learn and Use? - Detailed Guide and Answers to Questions",
+      "thumbnail": "https://img.youtube.com/vi/qqRRyJLiu4U/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:12",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=V9ztoMuSX8w",
+      "video_id": "V9ztoMuSX8w",
+      "title": "2-Wheel Differential Drive Robot - Simulation and Control in ROS2 and Gazebo From Scratch",
+      "thumbnail": "https://img.youtube.com/vi/V9ztoMuSX8w/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:13",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=kEh8pIGXD5c",
+      "video_id": "kEh8pIGXD5c",
+      "title": "Model and Simulate 2-wheel differential drive robot in ROS2 Humble and Gazebo-Tutorial Link Provided",
+      "thumbnail": "https://img.youtube.com/vi/kEh8pIGXD5c/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:14",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=sCLyG8ROUsE",
+      "video_id": "sCLyG8ROUsE",
+      "title": "How to Uninstall ROS2 Jazzy Jalisco in Linux Ubuntu 24.04 (Noble) -  ROS2 tutorials",
+      "thumbnail": "https://img.youtube.com/vi/sCLyG8ROUsE/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:15",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=08o46x5SfJM",
+      "video_id": "08o46x5SfJM",
+      "title": "How to Correctly Install ROS2 Jazzy Jalisco in Linux Ubuntu 24.04 (Noble) - ROS2 Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/08o46x5SfJM/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:20",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=BhyV6rx0tFk",
+      "video_id": "BhyV6rx0tFk",
+      "title": "How to Check if ROS2 is Installed and How to Verify ROS2 Distribution is Installed",
+      "thumbnail": "https://img.youtube.com/vi/BhyV6rx0tFk/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:21",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=SwBb-pIMU60",
+      "video_id": "SwBb-pIMU60",
+      "title": "How to Write C++ Subscriber and Publisher Nodes in ROS2  Humble from Scratch - ROS2 tutorial",
+      "thumbnail": "https://img.youtube.com/vi/SwBb-pIMU60/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:22",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=A9ZaDV9GelA",
+      "video_id": "A9ZaDV9GelA",
+      "title": "How to Write C++ Subscriber and Publisher Nodes in ROS2 Jazzy From Scratch - ROS2 Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/A9ZaDV9GelA/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:24",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=kznJnObCIxw",
+      "video_id": "kznJnObCIxw",
+      "title": "How to Install and Start Using MoveIt2 in ROS2 Humble - Tutorial Link Provided In Description",
+      "thumbnail": "https://img.youtube.com/vi/kznJnObCIxw/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:25",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=c6Bxbq8UdaI",
+      "video_id": "c6Bxbq8UdaI",
+      "title": "How to Correctly Install MoveIt2 in ROS2 Humble and How to Start with Motion Planning of Robots",
+      "thumbnail": "https://img.youtube.com/vi/c6Bxbq8UdaI/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:26",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=kR7w5uvykRg",
+      "video_id": "kR7w5uvykRg",
+      "title": "How to Move Robots Using MoveIt 2 in ROS2 and Perform Motion Planning in RViz - ROS2 Tutorials",
+      "thumbnail": "https://img.youtube.com/vi/kR7w5uvykRg/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:28",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=AiwZpwa3u6M",
+      "video_id": "AiwZpwa3u6M",
+      "title": "Tutorial on How to Move Robot in MoveIt2/ROS2 Using C++ - Link Provided in the Description Below",
+      "thumbnail": "https://img.youtube.com/vi/AiwZpwa3u6M/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:29",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ggOROufX0tE",
+      "video_id": "ggOROufX0tE",
+      "title": "How to Use C++ and MoveIt 2 to Perform Robot Motion Planning in ROS2 - Complete Tutorial for Robots",
+      "thumbnail": "https://img.youtube.com/vi/ggOROufX0tE/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:31",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=xsr7QmEWeu0",
+      "video_id": "xsr7QmEWeu0",
+      "title": "Install Gazebo in Linux Ubuntu/ROS2 Jazzy and Run 3D Realistic  Simulation of Warehouse Robot",
+      "thumbnail": "https://img.youtube.com/vi/xsr7QmEWeu0/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:33",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=a2kD2oKwJdc",
+      "video_id": "a2kD2oKwJdc",
+      "title": "Install Gazebo in Ubuntu and Run Realistic Physics-Based Simulation of a Panda Robot in Real Time",
+      "thumbnail": "https://img.youtube.com/vi/a2kD2oKwJdc/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:34",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=fvJOjDdeGwc",
+      "video_id": "fvJOjDdeGwc",
+      "title": "Install Gazebo and Run Realistic Car (Toyota Prius) Simulation in Gazebo and Linux - ROS2 Tutorials",
+      "thumbnail": "https://img.youtube.com/vi/fvJOjDdeGwc/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:36",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=X-idyugF13k",
+      "video_id": "X-idyugF13k",
+      "title": "Correct and Clear Explanation of Rotation Matrices in Robotics - Learn Robotics Correctly",
+      "thumbnail": "https://img.youtube.com/vi/X-idyugF13k/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:37",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=bC3PYEDHIU4",
+      "video_id": "bC3PYEDHIU4",
+      "title": "ROS2 Humble Tutorial: The Basic Structure of ROS2 Communication Graph – Nodes and Topics",
+      "thumbnail": "https://img.youtube.com/vi/bC3PYEDHIU4/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:38",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=BASJesQGpj8",
+      "video_id": "BASJesQGpj8",
+      "title": "ROS2 Tutorial: Obtain Information About Nodes, Messages, Topics form the Linux Command Line",
+      "thumbnail": "https://img.youtube.com/vi/BASJesQGpj8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:39",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=EObfWIM7oIU",
+      "video_id": "EObfWIM7oIU",
+      "title": "How to Cleanly Uninstall ROS2 Jazzy in Linux Ubuntu - Complete Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/EObfWIM7oIU/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:40",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=1o4T9nwYMm8",
+      "video_id": "1o4T9nwYMm8",
+      "title": "Easily and Correctly Install ROS2 Jazzy (Newest ROS2) in Linux Ubuntu and Run Hello World Example!",
+      "thumbnail": "https://img.youtube.com/vi/1o4T9nwYMm8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:41",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dY8JxldcuqA",
+      "video_id": "dY8JxldcuqA",
+      "title": "Correctly Install Gazebo Harmonic Inside of ROS2 Jazzy Installation -Fix Gazebo Installation Issues",
+      "thumbnail": "https://img.youtube.com/vi/dY8JxldcuqA/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:42",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=oix-Qs75O08",
+      "video_id": "oix-Qs75O08",
+      "title": "ROS2 in Docker From Scratch! - Learn to Write, Install, and Run ROS2 Packages in Docker From Scratch",
+      "thumbnail": "https://img.youtube.com/vi/oix-Qs75O08/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:44",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=fLlO6ImS-lU",
+      "video_id": "fLlO6ImS-lU",
+      "title": "Setup Raspberry Pi and Install Linux Ubuntu - Overclock Linux Ubuntu and Increase Swap File Size",
+      "thumbnail": "https://img.youtube.com/vi/fLlO6ImS-lU/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:45",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=8JnAbxIZH_E",
+      "video_id": "8JnAbxIZH_E",
+      "title": "Building a Raspberry Pi 5 Computer for SLAM, Robotics, and Machine Learning - UPDATE 1",
+      "thumbnail": "https://img.youtube.com/vi/8JnAbxIZH_E/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:46",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=FLkTvZ4vE2c",
+      "video_id": "FLkTvZ4vE2c",
+      "title": "Install Active Cooler and Fan on Raspberry Pi 5: Building a Computer for Robotics | Machine Learning",
+      "thumbnail": "https://img.youtube.com/vi/FLkTvZ4vE2c/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:54",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dAazTc2xuMw",
+      "video_id": "dAazTc2xuMw",
+      "title": "Start with Raspberry Pi 5: Attach Hardware and Install Linux Ubuntu - Robotics and Machine Learning",
+      "thumbnail": "https://img.youtube.com/vi/dAazTc2xuMw/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:55",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Kg5RAgfBOPw",
+      "video_id": "Kg5RAgfBOPw",
+      "title": "Install and Connect Pimoroni NVMe Base and SSD and Base to the Raspberry Pi 5 - Improve Speed RPi5",
+      "thumbnail": "https://img.youtube.com/vi/Kg5RAgfBOPw/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:56",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=qNbMjw89hFY",
+      "video_id": "qNbMjw89hFY",
+      "title": "How to Increase Swap Memory Size in Raspberry Pi and Linux Ubuntu",
+      "thumbnail": "https://img.youtube.com/vi/qNbMjw89hFY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:57",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=KwOl3wfDB24",
+      "video_id": "KwOl3wfDB24",
+      "title": "Install and Run Arduino IDE on Raspberry Pi 5 and Linux Ubuntu",
+      "thumbnail": "https://img.youtube.com/vi/KwOl3wfDB24/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:27:59",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=1PJOzrXAlcg",
+      "video_id": "1PJOzrXAlcg",
+      "title": "Tutorial on Encoders in Arduino (Hall effect encoder with DC motor)",
+      "thumbnail": "https://img.youtube.com/vi/1PJOzrXAlcg/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:01",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Sh4Ikx9TIW0",
+      "video_id": "Sh4Ikx9TIW0",
+      "title": "Learn to Write Objected Oriented C++ Code in Arduino (ESP32) -Learn to write disciplined Aduino Code",
+      "thumbnail": "https://img.youtube.com/vi/Sh4Ikx9TIW0/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:02",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pEXdb3cGNPE",
+      "video_id": "pEXdb3cGNPE",
+      "title": "Object Oriented C++ Implementation of Encoders in Arduino | ESP32 - Learn to Write Structured C++",
+      "thumbnail": "https://img.youtube.com/vi/pEXdb3cGNPE/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:04",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=hEjX8LXzXcc",
+      "video_id": "hEjX8LXzXcc",
+      "title": "Linux Tutorial for Robotics and ML: Create, Copy, Move, Rename Files and Folders",
+      "thumbnail": "https://img.youtube.com/vi/hEjX8LXzXcc/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:05",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Pm6JYAaLCPA",
+      "video_id": "Pm6JYAaLCPA",
+      "title": "Setup and Use USB Camera in Raspberry Pi 5 and Linux Ubuntu",
+      "thumbnail": "https://img.youtube.com/vi/Pm6JYAaLCPA/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:06",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=aQeirEM59zg",
+      "video_id": "aQeirEM59zg",
+      "title": "Install ROS2 Jazzy Jalisco - New 2025 Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/aQeirEM59zg/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:08",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=N8kT0LCgrv8",
+      "video_id": "N8kT0LCgrv8",
+      "title": "Raspberry Pi 5 Power Bank and Battery: How to Power up Raspberry Pi 5 using Battery for Robotics",
+      "thumbnail": "https://img.youtube.com/vi/N8kT0LCgrv8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:09",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=LIOn6QBsVps",
+      "video_id": "LIOn6QBsVps",
+      "title": "C++ Control of Mobile Robot in ROS2 Jazzy: Learn C++ ROS2 Jazzy Control from Scratch - Turtlesim",
+      "thumbnail": "https://img.youtube.com/vi/LIOn6QBsVps/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:10",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=eeaw9Xfg2QI",
+      "video_id": "eeaw9Xfg2QI",
+      "title": "Disciplined ROS2 Jazzy C++ Control of Mobile Robot Tutorial - Embed Controller in C++ Class",
+      "thumbnail": "https://img.youtube.com/vi/eeaw9Xfg2QI/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:11",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=BHB5uvksz2A",
+      "video_id": "BHB5uvksz2A",
+      "title": "Teaser for the tutorial on MASt3R-SLAM: Real-Time Dense SLAM with Phone Camera - Tutorial link Below",
+      "thumbnail": "https://img.youtube.com/vi/BHB5uvksz2A/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:12",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=TK8DK19o6YQ",
+      "video_id": "TK8DK19o6YQ",
+      "title": "MASt3R-SLAM: Best SLAM 3D Reconstruction from Camera Videos | Install and Run Locally on Windows",
+      "thumbnail": "https://img.youtube.com/vi/TK8DK19o6YQ/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:13",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=nWvDr9HFZ-A",
+      "video_id": "nWvDr9HFZ-A",
+      "title": "Mobile Robot Position Control in ROS2 Jazzy and C++ From Scratch - Step-by -Step Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/nWvDr9HFZ-A/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:14",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=zwdGZvhHz9c",
+      "video_id": "zwdGZvhHz9c",
+      "title": "ROS2 Jazzy Robot Modeling from Scratch - Write URDF, Python Launch, and Package Files for 3D Robot",
+      "thumbnail": "https://img.youtube.com/vi/zwdGZvhHz9c/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:15",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Nwr4VvJ17uM",
+      "video_id": "Nwr4VvJ17uM",
+      "title": "Basics of URDF Robot Modeling for ROS2 Jazzy: Links, Joints, and Frames - Correct Definition",
+      "thumbnail": "https://img.youtube.com/vi/Nwr4VvJ17uM/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:20",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=zSu0PBjl2n4",
+      "video_id": "zSu0PBjl2n4",
+      "title": "Easy Introduction to 3D Modeling for Robotics in FreeCAD - Robotics and Mechatronics 3D Modeling",
+      "thumbnail": "https://img.youtube.com/vi/zSu0PBjl2n4/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:21",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rArHPG77Mmc",
+      "video_id": "rArHPG77Mmc",
+      "title": "FreeCAD Assembly Tutorial: Design 3DoF Manipulator from Scratch - FreeCAD 1.0 Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/rArHPG77Mmc/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:22",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ymQJjOBpu0I",
+      "video_id": "ymQJjOBpu0I",
+      "title": "ROS2 Jazzy: Import and Simulate External CAD Robot Geometry and Files: Complete Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/ymQJjOBpu0I/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:23",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=p5LVg6Fre18",
+      "video_id": "p5LVg6Fre18",
+      "title": "ROS2 Jazzy C++: Set, Control, Publish, and Simulate Robot Joint States and Motion in C++",
+      "thumbnail": "https://img.youtube.com/vi/p5LVg6Fre18/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:30",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=a_M7097Vcs0",
+      "video_id": "a_M7097Vcs0",
+      "title": "ROS2 Jazzy Frame transforms in C++: tf2 library (package) and frame broadcaster in C++ from scratch",
+      "thumbnail": "https://img.youtube.com/vi/a_M7097Vcs0/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:31",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=lEsy15oC4rM",
+      "video_id": "lEsy15oC4rM",
+      "title": "ROS2 Jazzy Tutorial on tf2 library and C++ frame broadcaster implementation (link given below)",
+      "thumbnail": "https://img.youtube.com/vi/lEsy15oC4rM/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:33",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=GdVXeAgla1E",
+      "video_id": "GdVXeAgla1E",
+      "title": "ROS2 Jazzy Tutorial and Xacro: Parametrization of Robot Models using Xacro XML Macros",
+      "thumbnail": "https://img.youtube.com/vi/GdVXeAgla1E/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:34",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=uaF3Sx1JKzY",
+      "video_id": "uaF3Sx1JKzY",
+      "title": "ROS2 Jazzy Tutorial: ros2_control library tutorial - Build and run ros2_control package from Scratch",
+      "thumbnail": "https://img.youtube.com/vi/uaF3Sx1JKzY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:35",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=_F8wVuiEmww",
+      "video_id": "_F8wVuiEmww",
+      "title": "ROS2 Jazzy Tutorial: ros2_control in Gazebo - Control Simulation from Scratch in Gazebo!",
+      "thumbnail": "https://img.youtube.com/vi/_F8wVuiEmww/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:36",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=R9H24AOjA24",
+      "video_id": "R9H24AOjA24",
+      "title": "ROS2 Jazzy Tutorials from Scratch: First Python Program in ROS2 Jazzy",
+      "thumbnail": "https://img.youtube.com/vi/R9H24AOjA24/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:37",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=DDUkMd6M1q8",
+      "video_id": "DDUkMd6M1q8",
+      "title": "ROS2 Jazzy Tutorials from Scratch: First C++ Program  in ROS2 Jazzy - Start Learning ROS2 Here",
+      "thumbnail": "https://img.youtube.com/vi/DDUkMd6M1q8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:39",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=BiF1lGI_nCU",
+      "video_id": "BiF1lGI_nCU",
+      "title": "ROS2 Jazzy Tutorial: Control of 2D Mobile Robot in Python using Turtlesim Simulation",
+      "thumbnail": "https://img.youtube.com/vi/BiF1lGI_nCU/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:40",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=7zsaT0E3Eio",
+      "video_id": "7zsaT0E3Eio",
+      "title": "ROS2 Jazzy Tutorial: Control Turtlesim Robot Simulation from Python",
+      "thumbnail": "https://img.youtube.com/vi/7zsaT0E3Eio/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:41",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=IKcVZd4S5L8",
+      "video_id": "IKcVZd4S5L8",
+      "title": "Position Control of Mobile Robot in ROS2 Jazzy and Python - Python ROS2 Tutorials",
+      "thumbnail": "https://img.youtube.com/vi/IKcVZd4S5L8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:42",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=FA7buWMwIII",
+      "video_id": "FA7buWMwIII",
+      "title": "Model Mobile Robot in Gazebo and Control it From C++ in ROS2 Jazzy",
+      "thumbnail": "https://img.youtube.com/vi/FA7buWMwIII/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:43",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=campHHAPtyg",
+      "video_id": "campHHAPtyg",
+      "title": "ROS2 Jazzy Tutorial: Develop and Control Gazebo Model of Mobile Robot in ROS2 and Python",
+      "thumbnail": "https://img.youtube.com/vi/campHHAPtyg/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:44",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=iJ3ssRn37JY",
+      "video_id": "iJ3ssRn37JY",
+      "title": "Position Control of Mobile Robot in Gazebo, Python, ROS2 Jazzy from Scratch | ROS2 Jazzy Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/iJ3ssRn37JY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:45",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=wOa1m8hzrgQ",
+      "video_id": "wOa1m8hzrgQ",
+      "title": "Lidar and Mobile Robot Simulation From Scratch in ROS2 Jazzy and Gazebo - ROS2 Jazzy Tutorials",
+      "thumbnail": "https://img.youtube.com/vi/wOa1m8hzrgQ/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:46",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=gEAdcgM7cCk",
+      "video_id": "gEAdcgM7cCk",
+      "title": "Add and Simulate Lidar in Gazebo and ROS2 Jazzy - Tutorial on Lidars in ROS2 and Jazzy",
+      "thumbnail": "https://img.youtube.com/vi/gEAdcgM7cCk/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:47",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=RBZ16oUv5A0",
+      "video_id": "RBZ16oUv5A0",
+      "title": "Install and Run Locally Genesis - Robotics and Physical AI Simulation Software",
+      "thumbnail": "https://img.youtube.com/vi/RBZ16oUv5A0/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:49",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Zv_TH_Byrgw",
+      "video_id": "Zv_TH_Byrgw",
+      "title": "Install and Run Genesis Robotics Simulation Software (Tutorial Link Given Below)",
+      "thumbnail": "https://img.youtube.com/vi/Zv_TH_Byrgw/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:50",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=efUdV-MntMs",
+      "video_id": "efUdV-MntMs",
+      "title": "Install Genesis on Windows Using WSL - Link Given below",
+      "thumbnail": "https://img.youtube.com/vi/efUdV-MntMs/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:51",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=iEE3HqHF34o",
+      "video_id": "iEE3HqHF34o",
+      "title": "Install Genesis Robotics Simulation on Windows Using WSL -with GPU and CUDA Support",
+      "thumbnail": "https://img.youtube.com/vi/iEE3HqHF34o/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:52",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=7anvL3UYff8",
+      "video_id": "7anvL3UYff8",
+      "title": "Potential Field Method Autonomous Driving in ROS2 Jazzy, Gazebo, and Python (Link Given Below)",
+      "thumbnail": "https://img.youtube.com/vi/7anvL3UYff8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:52",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=69FykUiq6p4",
+      "video_id": "69FykUiq6p4",
+      "title": "Robot Path Planning and Obstacle Avoidance Using Lidar - Potential Field Method - Math Derivation",
+      "thumbnail": "https://img.youtube.com/vi/69FykUiq6p4/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:54",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=FT5DQ-SGYL4",
+      "video_id": "FT5DQ-SGYL4",
+      "title": "Derivation of Potential Field Method for Robot Path Planning and Obstacle Avoidance Using Lidar",
+      "thumbnail": "https://img.youtube.com/vi/FT5DQ-SGYL4/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:55",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=NkhlJlSBKHU",
+      "video_id": "NkhlJlSBKHU",
+      "title": "ROS2 Jazzy and Gazebo Implementation of Potential Field Method for Robot Path Planning Using Lidar",
+      "thumbnail": "https://img.youtube.com/vi/NkhlJlSBKHU/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:56",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=is0ZUBBMnDg",
+      "video_id": "is0ZUBBMnDg",
+      "title": "Ad hoc Prototype of Mobile Robot with Raspberry Pi, Lidar, and Power Bank for ROS2 and Navigation",
+      "thumbnail": "https://img.youtube.com/vi/is0ZUBBMnDg/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:57",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=JA6JCOGDXp8",
+      "video_id": "JA6JCOGDXp8",
+      "title": "Encoder Odometry and Servo Fail for Mobile Robots Due To Wheel Slip",
+      "thumbnail": "https://img.youtube.com/vi/JA6JCOGDXp8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:28:59",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=kQ6p3CkVoIU",
+      "video_id": "kQ6p3CkVoIU",
+      "title": "Learn Modern C++: Smart Pointer unique_ptr",
+      "thumbnail": "https://img.youtube.com/vi/kQ6p3CkVoIU/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:29:00",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=S7QUVVDJaoY",
+      "video_id": "S7QUVVDJaoY",
+      "title": "Learn Modern C++: Range-based for loop -  for (auto x: array )",
+      "thumbnail": "https://img.youtube.com/vi/S7QUVVDJaoY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:29:01",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pv72v88jFkQ",
+      "video_id": "pv72v88jFkQ",
+      "title": "For auto loop in C++ : Range-based for loops in C++",
+      "thumbnail": "https://img.youtube.com/vi/pv72v88jFkQ/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:29:02",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=hR9FFDRMAiU",
+      "video_id": "hR9FFDRMAiU",
+      "title": "Sensor Fusion and Calibration of 9-axis Inertial Measurement Units (IMUs)- Complementary Filter",
+      "thumbnail": "https://img.youtube.com/vi/hR9FFDRMAiU/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:29:03",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=8oF0msD5n7A",
+      "video_id": "8oF0msD5n7A",
+      "title": "Transfer Arduino Data to Computer Using Python and Plot Data in Real-Time on Computer",
+      "thumbnail": "https://img.youtube.com/vi/8oF0msD5n7A/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:29:04",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ohXlY1C-hqk",
+      "video_id": "ohXlY1C-hqk",
+      "title": "How to Fix and Set Arduino Serial Plotter (Monitor) Axis Limits - Solve Arduino Serial Plotter Issue",
+      "thumbnail": "https://img.youtube.com/vi/ohXlY1C-hqk/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:29:07",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=AKYQOttW158",
+      "video_id": "AKYQOttW158",
+      "title": "Install Arduino IDE on Linux Ubuntu - New Tutorial",
+      "thumbnail": "https://img.youtube.com/vi/AKYQOttW158/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:29:08",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=RvFAjO4bMPY",
+      "video_id": "RvFAjO4bMPY",
+      "title": "Transfer Data from Arduino to Linux Computer Using Python and Plot Data",
+      "thumbnail": "https://img.youtube.com/vi/RvFAjO4bMPY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:29:09",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=PKPX3-T1Y1I",
+      "video_id": "PKPX3-T1Y1I",
+      "title": "C++ Implementation of Finite State Machines  - Learn Modern C++ for Robotics",
+      "thumbnail": "https://img.youtube.com/vi/PKPX3-T1Y1I/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:29:10",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=pVdlhAZIs8I",
+      "video_id": "pVdlhAZIs8I",
+      "title": "Simulate Rigid Body Dynamics Isaac Sim",
+      "thumbnail": "https://img.youtube.com/vi/pVdlhAZIs8I/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:29:12",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=JF2Q9besPnU",
+      "video_id": "JF2Q9besPnU",
+      "title": "Import CAD Model in Isaac Sim and Simulate Rigid Body Dynamics",
+      "thumbnail": "https://img.youtube.com/vi/JF2Q9besPnU/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 13:29:13",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=eJZXRncGaGM",
+      "video_id": "eJZXRncGaGM",
+      "title": "How do we add LIDAR to a ROS robot?",
+      "thumbnail": "https://img.youtube.com/vi/eJZXRncGaGM/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 00:41:55",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=A3nw2M47K50",
+      "video_id": "A3nw2M47K50",
+      "title": "How to use Cameras in ROS (Sim Camera and Pi Camera)",
+      "thumbnail": "https://img.youtube.com/vi/A3nw2M47K50/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 00:44:30",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=2dGCcT9rxso",
+      "video_id": "2dGCcT9rxso",
+      "title": "MicroROS and Robot Operating System on Raspberry PI Pico",
+      "thumbnail": "https://img.youtube.com/vi/2dGCcT9rxso/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:19",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=IPxyBB2nrXE",
+      "video_id": "IPxyBB2nrXE",
+      "title": "MicroROS Custom Msg on Raspberry PI Pico",
+      "thumbnail": "https://img.youtube.com/vi/IPxyBB2nrXE/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:20",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=vmnhbRfLp90",
+      "video_id": "vmnhbRfLp90",
+      "title": "MicroROS Reclaiming STDIO",
+      "thumbnail": "https://img.youtube.com/vi/vmnhbRfLp90/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:20",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ckmCrOc1Z_U",
+      "video_id": "ckmCrOc1Z_U",
+      "title": "What is ROS2: Robot Operating System",
+      "thumbnail": "https://img.youtube.com/vi/ckmCrOc1Z_U/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:21",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Fo2PxMVZjx0",
+      "video_id": "Fo2PxMVZjx0",
+      "title": "uROS: Brining ROS2 to Microcontrollers",
+      "thumbnail": "https://img.youtube.com/vi/Fo2PxMVZjx0/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:22",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=mAPIkAIfSKQ",
+      "video_id": "mAPIkAIfSKQ",
+      "title": "MicroROS + FreeRTOS + RPI Pico Publishing Joint State",
+      "thumbnail": "https://img.youtube.com/vi/mAPIkAIfSKQ/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:22",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=f3_Zk93HkgY",
+      "video_id": "f3_Zk93HkgY",
+      "title": "MicroROS + FreeRTOS + RPI Pico: Subscribe to Twist and PoseStamp",
+      "thumbnail": "https://img.youtube.com/vi/f3_Zk93HkgY/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:23",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=WBw8WVFZ5FA",
+      "video_id": "WBw8WVFZ5FA",
+      "title": "Pico C++ Callback WITH Context",
+      "thumbnail": "https://img.youtube.com/vi/WBw8WVFZ5FA/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:24",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=jyOjsR1ntig",
+      "video_id": "jyOjsR1ntig",
+      "title": "Video Turntable Mk2: Raspberry Pi Pico, MicrROS, ROS2 and FreeRTOS",
+      "thumbnail": "https://img.youtube.com/vi/jyOjsR1ntig/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:24",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=s-Xy4mQAFmg",
+      "video_id": "s-Xy4mQAFmg",
+      "title": "Introducing DDD: DIY Dev Droid",
+      "thumbnail": "https://img.youtube.com/vi/s-Xy4mQAFmg/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:25",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=_ns1LYGwLxk",
+      "video_id": "_ns1LYGwLxk",
+      "title": "DDD: Promoting Robot to ROS2 Ecosystem - Raspberry PI 4 & Pico",
+      "thumbnail": "https://img.youtube.com/vi/_ns1LYGwLxk/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:26",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=OGlH70nJplA",
+      "video_id": "OGlH70nJplA",
+      "title": "DDD: ROS2 Twist - Driving Raspberry PI & Pico Robot from Dual Shock 4",
+      "thumbnail": "https://img.youtube.com/vi/OGlH70nJplA/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:27",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=4J54NAZnkWM",
+      "video_id": "4J54NAZnkWM",
+      "title": "DDD: Costs of building a Raspberry Pi Pico and RPI4 ROS2 Robot",
+      "thumbnail": "https://img.youtube.com/vi/4J54NAZnkWM/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:27",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=EfNaTo2mWZY",
+      "video_id": "EfNaTo2mWZY",
+      "title": "Integrating Raspberry Pi Pico With ROS2 For Robot Odometry: A DDD Tutorial | DrJonea.co.uk",
+      "thumbnail": "https://img.youtube.com/vi/EfNaTo2mWZY/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:28",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=VxNHMzch-D0",
+      "video_id": "VxNHMzch-D0",
+      "title": "Robot Santa with Raspberry PI and Pico - Part 1",
+      "thumbnail": "https://img.youtube.com/vi/VxNHMzch-D0/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:29",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=jXPGgRkDeMo",
+      "video_id": "jXPGgRkDeMo",
+      "title": "Robot Santa using Raspberry Pi and Pico - Part 2",
+      "thumbnail": "https://img.youtube.com/vi/jXPGgRkDeMo/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:29",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=1odPd4IEXqI",
+      "video_id": "1odPd4IEXqI",
+      "title": "Build Your Own Robot Santa: Facial Recognition With Raspberry Pi & Pico | DrJonea.co.uk",
+      "thumbnail": "https://img.youtube.com/vi/1odPd4IEXqI/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:30",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=vMQ8v1s-HAo",
+      "video_id": "vMQ8v1s-HAo",
+      "title": "Building a 6DoF Robot Arm by HiWonder and Python control | DrJonea.co.uk",
+      "thumbnail": "https://img.youtube.com/vi/vMQ8v1s-HAo/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:31",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=LeikmlUWqYI",
+      "video_id": "LeikmlUWqYI",
+      "title": "Maximum Raspberry Robot Architecture (#rpi and #rpipico) | DrJonea.co.uk",
+      "thumbnail": "https://img.youtube.com/vi/LeikmlUWqYI/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:31",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=47W5pFRguRQ",
+      "video_id": "47W5pFRguRQ",
+      "title": "MicroROS Control of a 6DoF Robot Arm by HiWonder with Raspberry Pi Pico | DrJonea.co.uk",
+      "thumbnail": "https://img.youtube.com/vi/47W5pFRguRQ/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:32",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=tLQ0_dIPXZI",
+      "video_id": "tLQ0_dIPXZI",
+      "title": "Running MicroROS on Pico 2 | DrJonea.co.uk",
+      "thumbnail": "https://img.youtube.com/vi/tLQ0_dIPXZI/maxresdefault.jpg",
+      "fetched_at": "2026-04-15 01:01:33",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    }
+  ]
+}
