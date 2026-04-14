@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binary Operations • Learning Hub</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+    
+    :root {
+      --primary: 59 130 246;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .title-font {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .video-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .video-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+    }
+
+    .thumbnail-container {
+      position: relative;
+    }
+
+    .play-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.95);
+      width: 60px;
+      height: 60px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+    }
+
+    .video-card:hover .play-overlay {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .hero-bg {
+      background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-white min-h-screen">
+  <!-- Header -->
+  <header class="hero-bg border-b border-zinc-800">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-2xl font-bold">⟡</div>
+          <div>
+            <h1 class="text-4xl font-bold title-font tracking-tighter">Binary Operations</h1>
+            <p class="text-zinc-400 text-sm">Abstract Algebra Mastery</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-8">
+          <div class="text-right">
+            <div class="text-3xl font-semibold text-blue-400" id="total-count">14</div>
+            <div class="text-xs uppercase tracking-widest text-zinc-500">Videos</div>
+          </div>
+          <div class="h-10 w-px bg-zinc-700"></div>
+          <div class="flex items-center gap-2 text-sm text-zinc-400">
+            <div class="px-4 py-2 bg-zinc-900 rounded-full flex items-center gap-2">
+              <i class="fas fa-clock"></i>
+              <span>Updated just now</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <!-- Search -->
+    <div class="relative mb-10">
+      <div class="absolute left-5 top-1/2 -translate-y-1/2 text-zinc-400">
+        <i class="fas fa-search"></i>
+      </div>
+      <input 
+        id="search-input"
+        type="text" 
+        placeholder="Search videos... (Introduction, Abstract Algebra, etc.)"
+        class="w-full bg-zinc-900 border border-zinc-700 focus:border-blue-500 rounded-3xl py-5 pl-12 pr-6 text-lg outline-none transition-all"
+      >
+    </div>
+
+    <!-- Video Grid -->
+    <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <!-- Populated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800 bg-zinc-950 py-12 mt-20">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-zinc-500 text-sm">
+        Curated collection for learning Binary Operations • 
+        <span class="text-blue-400">Generated on 2026-04-14</span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Full JSON data (you can paste more videos here)
+    const data = {
+     
+  "project": "binary-operations",
+  "generated_at": "2026-04-14T07:10:33.566399",
+  "total_videos": 14,
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=RRFXM_ELR8Q",
+      "video_id": "RRFXM_ELR8Q",
+      "title": "Introduction to Binary Operations",
+      "thumbnail": "https://img.youtube.com/vi/RRFXM_ELR8Q/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:45",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=VzsAehzmjrU",
+      "video_id": "VzsAehzmjrU",
+      "title": "What are Binary Operations? | Abstract Algebra",
+      "thumbnail": "https://img.youtube.com/vi/VzsAehzmjrU/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:46",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=7e6vFNPLOKg&t=12s",
+      "video_id": "7e6vFNPLOKg",
+      "title": "Introduction to Binary Operation and Types of Binary Operation - Algebraic Structures - Discrete",
+      "thumbnail": "https://img.youtube.com/vi/7e6vFNPLOKg/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:46",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=eBgVTKVvfyw",
+      "video_id": "eBgVTKVvfyw",
+      "title": "General Properties of Algebraic System || Properties of Binary Operations || Discrete Mathematics",
+      "thumbnail": "https://img.youtube.com/vi/eBgVTKVvfyw/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:47",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=fTG9XefIBC8",
+      "video_id": "fTG9XefIBC8",
+      "title": "1. Binary Operations in Algebra || Algebraic Structure || Examples of Binary Operation in Algebra",
+      "thumbnail": "https://img.youtube.com/vi/fTG9XefIBC8/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:49",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=eH0cr54m2f0",
+      "video_id": "eH0cr54m2f0",
+      "title": "BINARY OPERATIONS- RELATIONS AND FUNCTIONS Class 12th Boards CBSE/ISC 2021",
+      "thumbnail": "https://img.youtube.com/vi/eH0cr54m2f0/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:50",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLdb711l3UvHjrq6epTvx61Jd5Pki5mx1Z",
+      "video_id": NaN,
+      "title": "Invalid URL",
+      "thumbnail": NaN,
+      "fetched_at": "2026-04-14 07:09:50",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLRqJJXr7d4U-ntN1bcEkMj1Aj297hT-kb",
+      "video_id": NaN,
+      "title": "Invalid URL",
+      "thumbnail": NaN,
+      "fetched_at": "2026-04-14 07:09:50",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=5lBn2Yj2D0I&list=PL3CFIjd2I0ij_j_4CgbufHnhkRBLj5RLu",
+      "video_id": "5lBn2Yj2D0I",
+      "title": "Binary Operations # 1 | How to decide an operation is binary or not | Class 12 / JEE Mathematics",
+      "thumbnail": "https://img.youtube.com/vi/5lBn2Yj2D0I/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:50",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=71y3snoLSGc&list=PL5pdglZEO3Ngsg_BNLAvp4OUKHRilhijw",
+      "video_id": "71y3snoLSGc",
+      "title": "Binary Operations (definition) : ExamSolutions Maths Revision",
+      "thumbnail": "https://img.youtube.com/vi/71y3snoLSGc/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:51",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=c80jGpJBWtY&list=PLOHbXQcwWkXyAtbwypCMl2epad50xmHEo",
+      "video_id": "c80jGpJBWtY",
+      "title": "Introduction to Binary Operations",
+      "thumbnail": "https://img.youtube.com/vi/c80jGpJBWtY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:52",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=tDpbyscBLp0",
+      "video_id": "tDpbyscBLp0",
+      "title": "Group Theory | Binary Operation | Lecture 1 |Theta Classes",
+      "thumbnail": "https://img.youtube.com/vi/tDpbyscBLp0/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:53",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=I1Tot6BeofY",
+      "video_id": "I1Tot6BeofY",
+      "title": "Binary Operations in 20 minutes ✅",
+      "thumbnail": "https://img.youtube.com/vi/I1Tot6BeofY/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:54",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dOB23u3zBLE",
+      "video_id": "dOB23u3zBLE",
+      "title": "binary operations",
+      "thumbnail": "https://img.youtube.com/vi/dOB23u3zBLE/maxresdefault.jpg",
+      "fetched_at": "2026-04-14 07:09:55",
+      "added_by": NaN,
+      "category": NaN,
+      "notes": NaN
+    }
+  ]
+
+    };
+
+    // Render cards
+    function renderVideos(filteredVideos) {
+      const grid = document.getElementById('video-grid');
+      grid.innerHTML = '';
+
+      filteredVideos.forEach(video => {
+        const cardHTML = `
+          <a href="${video.url}" target="_blank" class="video-card group block bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 hover:border-blue-500">
+            <div class="thumbnail-container">
+              <img src="${video.thumbnail}" 
+                   alt="${video.title}"
+                   class="w-full aspect-video object-cover">
+              <div class="play-overlay">
+                <i class="fas fa-play text-2xl text-zinc-900 ml-1"></i>
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="font-medium line-clamp-2 leading-tight text-lg group-hover:text-blue-400 transition-colors">
+                ${video.title}
+              </h3>
+              <div class="flex items-center gap-2 mt-4 text-xs text-zinc-500">
+                <i class="fas fa-youtube"></i>
+                <span>YouTube</span>
+                <span class="mx-1">•</span>
+                <span>${new Date(video.fetched_at).toLocaleDateString('en-US', {month:'short', day:'numeric'})}</span>
+              </div>
+            </div>
+          </a>
+        `;
+        grid.innerHTML += cardHTML;
+      });
+    }
+
+    // Search functionality
+    function filterVideos(searchTerm) {
+      const term = searchTerm.toLowerCase();
+      const filtered = data.videos.filter(video => 
+        video.title.toLowerCase().includes(term)
+      );
+      renderVideos(filtered);
+    }
+
+    // Initialize
+    function init() {
+      document.getElementById('total-count').textContent = data.total_videos;
+      renderVideos(data.videos);
+
+      // Live search
+      const searchInput = document.getElementById('search-input');
+      searchInput.addEventListener('input', (e) => {
+        filterVideos(e.target.value);
+      });
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

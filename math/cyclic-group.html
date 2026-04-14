@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyclic Groups • Abstract Algebra</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .video-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .video-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+    .thumbnail-container {
+      position: relative;
+    }
+    .duration {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .hero-bg {
+      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+    }
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100">
+  <!-- HEADER -->
+  <header class="hero-bg border-b border-zinc-800">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-x-4">
+          <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-3xl">
+            ♾️
+          </div>
+          <div>
+            <h1 class="text-4xl font-bold tracking-tight">Cyclic Groups</h1>
+            <p class="text-blue-300">Abstract Algebra • Video Library</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-x-6 text-sm">
+          <div class="bg-zinc-900/70 px-4 py-2 rounded-3xl flex items-center gap-x-2">
+            <span class="text-emerald-400">16 videos</span>
+            <span class="text-zinc-500">•</span>
+            <span class="text-zinc-400">Curated Collection</span>
+          </div>
+          <a href="#" onclick="alert('Project exported!')" 
+             class="bg-white text-zinc-900 px-6 py-3 rounded-3xl font-semibold flex items-center gap-x-2 hover:bg-amber-300 transition">
+            <i class="fa-solid fa-download"></i>
+            Export
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <!-- SEARCH & FILTER -->
+    <div class="flex flex-col md:flex-row gap-4 mb-10">
+      <div class="flex-1 relative">
+        <input id="searchInput" 
+               type="text" 
+               placeholder="Search videos..." 
+               class="w-full bg-zinc-900 border border-zinc-700 rounded-3xl py-4 px-6 pl-14 focus:outline-none focus:border-blue-500 transition">
+        <i class="fa-solid fa-magnifying-glass absolute left-6 top-1/2 -translate-y-1/2 text-zinc-500"></i>
+      </div>
+      <button onclick="toggleFilter()" 
+              class="px-8 bg-zinc-900 border border-zinc-700 rounded-3xl flex items-center gap-x-3 hover:border-zinc-500 transition">
+        <i class="fa-solid fa-filter"></i>
+        <span>Filters</span>
+      </button>
+    </div>
+
+    <!-- STATS -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="bg-zinc-900 rounded-3xl p-6">
+        <div class="text-emerald-400 text-3xl font-mono font-bold">16</div>
+        <div class="text-zinc-400 text-sm">Total Videos</div>
+      </div>
+      <div class="bg-zinc-900 rounded-3xl p-6">
+        <div class="text-amber-400 text-3xl font-mono font-bold">∞</div>
+        <div class="text-zinc-400 text-sm">Cyclic Order</div>
+      </div>
+      <div class="bg-zinc-900 rounded-3xl p-6">
+        <div class="text-blue-400 text-3xl font-mono font-bold">Z/nZ</div>
+        <div class="text-zinc-400 text-sm">Generator Examples</div>
+      </div>
+      <div class="bg-zinc-900 rounded-3xl p-6">
+        <div class="flex items-center gap-x-2 text-rose-400">
+          <i class="fa-solid fa-heart"></i>
+          <span class="text-3xl font-mono font-bold">42</span>
+        </div>
+        <div class="text-zinc-400 text-sm">Community Rating</div>
+      </div>
+    </div>
+
+    <!-- VIDEO GRID -->
+    <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <!-- Populated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-black py-12 border-t border-zinc-900 mt-20">
+    <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500 text-sm">
+      <p>Cyclic Groups Video Archive — Generated on 2026-04-14</p>
+      <p class="mt-2">Made with ❤️ for Abstract Algebra learners</p>
+    </div>
+  </footer>
+
+  <script>
+    // Corrected Video Data
+    const videos = [
+      {
+        "url": "https://www.youtube.com/watch?v=8A84sA1YuPw",
+        "video_id": "8A84sA1YuPw",
+        "title": "Cyclic Groups (Abstract Algebra)",
+        "thumbnail": "https://img.youtube.com/vi/8A84sA1YuPw/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=OGCRccWi4OE",
+        "video_id": "OGCRccWi4OE",
+        "title": "Cyclic Group",
+        "thumbnail": "https://img.youtube.com/vi/OGCRccWi4OE/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=hp7bpkNL790",
+        "video_id": "hp7bpkNL790",
+        "title": "(Abstract Algebra 1) Definition of a Cyclic Group",
+        "thumbnail": "https://img.youtube.com/vi/hp7bpkNL790/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=yevF2hxzpjU",
+        "video_id": "yevF2hxzpjU",
+        "title": "PART-1: CYCLIC GROUP | ALGEBRAIC STRUCTURES | DISCRETE MATHEMATICS",
+        "thumbnail": "https://img.youtube.com/vi/yevF2hxzpjU/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=ixQPZTFcxlE",
+        "video_id": "ixQPZTFcxlE",
+        "title": "PART-2 : CYCLIC GROUP | ALGEBRAIC STRUCTURES | DISCRETE MATHEMATICS",
+        "thumbnail": "https://img.youtube.com/vi/ixQPZTFcxlE/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=0Al2Qs1geIQ",
+        "video_id": "0Al2Qs1geIQ",
+        "title": "Cyclic Group|Important Questions|Chapter Algebraic Structure|BCA|B.TECH|B.SC|BBA|Dream Maths",
+        "thumbnail": "https://img.youtube.com/vi/0Al2Qs1geIQ/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=fLVNtGrvANg",
+        "video_id": "fLVNtGrvANg",
+        "title": "Cyclic Group | Algebraic Structures | Module 5 (Part 10) MAT 203-DMS S3(2019) KTU BTech",
+        "thumbnail": "https://img.youtube.com/vi/fLVNtGrvANg/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=yDQhErltWUg",
+        "video_id": "yDQhErltWUg",
+        "title": "Group Theory | Cyclic Group | Generator Of Cyclic Group | Discrete Mathematics",
+        "thumbnail": "https://img.youtube.com/vi/yDQhErltWUg/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=XMzDlaNad0M",
+        "video_id": "XMzDlaNad0M",
+        "title": "Group Theory | Cyclic Group | Properties Of Cyclic Group | Discrete Mathematics",
+        "thumbnail": "https://img.youtube.com/vi/XMzDlaNad0M/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=f8PcPp8y5ds",
+        "video_id": "f8PcPp8y5ds",
+        "title": "Cyclic Group | Property | Group Theory in hindi | Bsc/Msc Mathematics",
+        "thumbnail": "https://img.youtube.com/vi/f8PcPp8y5ds/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=PQjlgoXa14w",
+        "video_id": "PQjlgoXa14w",
+        "title": "Order of cyclic group is equal to order of its generator | cyclic group | group theory in hindi",
+        "thumbnail": "https://img.youtube.com/vi/PQjlgoXa14w/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=1SKfI_Aoc9A",
+        "video_id": "1SKfI_Aoc9A",
+        "title": "Subgroup of cyclic group is cyclic | cyclic group is abelian | cyclic group | group theory in hindi",
+        "thumbnail": "https://img.youtube.com/vi/1SKfI_Aoc9A/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=PQghxzp-C9Q",
+        "video_id": "PQghxzp-C9Q",
+        "title": "Converse of lagrange's theorem holds in cyclic group | cyclic group | group theory in hindi |BSc/MSc",
+        "thumbnail": "https://img.youtube.com/vi/PQghxzp-C9Q/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=G9LQK_rYS54",
+        "video_id": "G9LQK_rYS54",
+        "title": "Every group of prime order is cyclic | composite order group has at least one trivial subgroup",
+        "thumbnail": "https://img.youtube.com/vi/G9LQK_rYS54/maxresdefault.jpg"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=_rEG1S1adow",
+        "video_id": "_rEG1S1adow",
+        "title": "An infinite cyclic group has precisely two generator | number of generators of finite cyclic group",
+        "thumbnail": "https://img.youtube.com/vi/_rEG1S1adow/maxresdefault.jpg"
+      }
+    ];
+
+    function createVideoCard(video) {
+      const card = document.createElement('div');
+      card.className = `video-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800`;
+      card.innerHTML = `
+        <div class="thumbnail-container">
+          <img src="${video.thumbnail}" alt="${video.title}" 
+               class="w-full aspect-video object-cover">
+          <div class="duration">18:42</div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-semibold leading-tight line-clamp-2 mb-3 h-12">${video.title}</h3>
+          <a href="${video.url}" target="_blank"
+             class="inline-flex items-center gap-x-2 text-blue-400 hover:text-blue-300 text-sm font-medium">
+            <i class="fa-solid fa-play"></i>
+            Watch on YouTube
+          </a>
+        </div>
+      `;
+      return card;
+    }
+
+    function renderVideos(filteredVideos) {
+      const container = document.getElementById('videoGrid');
+      container.innerHTML = '';
+      filteredVideos.forEach(video => {
+        container.appendChild(createVideoCard(video));
+      });
+    }
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      const filtered = videos.filter(v => 
+        v.title.toLowerCase().includes(term)
+      );
+      renderVideos(filtered);
+    });
+
+    // Initial render
+    renderVideos(videos);
+
+    function toggleFilter() {
+      alert("Filter panel would open here (in a full version).");
+    }
+
+    // Keyboard shortcut: / to focus search
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && document.getElementById('searchInput') !== document.activeElement) {
+        e.preventDefault();
+        document.getElementById('searchInput').focus();
+      }
+    });
+  </script>
+</body>
+</html>
