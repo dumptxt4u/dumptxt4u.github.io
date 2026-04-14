@@ -1,0 +1,5488 @@
+[
+  {
+    "id": "root",
+    "parent": "#",
+    "text": "Math Vault",
+    "icon": "fas fa-infinity text-warning"
+  },
+  {
+    "id": "abstract-algebra",
+    "parent": "root",
+    "text": "abstract-algebra",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "plus-two",
+    "parent": "root",
+    "text": "plus-two",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "keam",
+    "parent": "root",
+    "text": "keam",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "vector",
+    "parent": "root",
+    "text": "vector",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus",
+    "parent": "root",
+    "text": "bsc-math-syllabus",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "analytic-geometry",
+    "parent": "root",
+    "text": "analytic-geometry",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "graph",
+    "parent": "root",
+    "text": "graph",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "complex",
+    "parent": "root",
+    "text": "complex",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "plus-two-cbse",
+    "parent": "root",
+    "text": "plus-two-cbse",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "laurent",
+    "parent": "root",
+    "text": "laurent",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "iit1",
+    "parent": "root",
+    "text": "iit1",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "robotics-and-ai",
+    "parent": "root",
+    "text": "robotics-and-ai",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths",
+    "parent": "root",
+    "text": "class-10-icse-maths",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "ktu-s4",
+    "parent": "root",
+    "text": "ktu-s4",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "lyrah-bro",
+    "parent": "root",
+    "text": "lyrah-bro",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "playlist-to-watch.html-bak",
+    "parent": "root",
+    "text": "playlist-to-watch.html-bak",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "functional-analysis",
+    "parent": "root",
+    "text": "functional-analysis",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "vector-calculus.html",
+    "parent": "root",
+    "text": "vector-calculus.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "wavelets.html",
+    "parent": "root",
+    "text": "wavelets.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "small.html",
+    "parent": "root",
+    "text": "small.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "index.py",
+    "parent": "root",
+    "text": "index.py",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "machine-learning.html",
+    "parent": "root",
+    "text": "machine-learning.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "metric-space",
+    "parent": "root",
+    "text": "metric-space",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "real-analyisis-application.html",
+    "parent": "root",
+    "text": "real-analyisis-application.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "generate_tree.py",
+    "parent": "root",
+    "text": "generate_tree.py",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "am.html",
+    "parent": "root",
+    "text": "am.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "statistics",
+    "parent": "root",
+    "text": "statistics",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "resources.html",
+    "parent": "root",
+    "text": "resources.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "styles.css",
+    "parent": "root",
+    "text": "styles.css",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "real-analysis",
+    "parent": "root",
+    "text": "real-analysis",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "inverse.html",
+    "parent": "root",
+    "text": "inverse.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "calculus-book.html",
+    "parent": "root",
+    "text": "calculus-book.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "to-watch.html",
+    "parent": "root",
+    "text": "to-watch.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "complex-analysis]",
+    "parent": "root",
+    "text": "complex-analysis]",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "style.css",
+    "parent": "root",
+    "text": "style.css",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "max.html",
+    "parent": "root",
+    "text": "max.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "calculus.html",
+    "parent": "root",
+    "text": "calculus.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "probability.html",
+    "parent": "root",
+    "text": "probability.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "determinants.html",
+    "parent": "root",
+    "text": "determinants.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "lattice-theory",
+    "parent": "root",
+    "text": "lattice-theory",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc.html",
+    "parent": "root",
+    "text": "bsc.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plaist.txt",
+    "parent": "root",
+    "text": "plaist.txt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "langranges.html",
+    "parent": "root",
+    "text": "langranges.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "functional-analysis.html",
+    "parent": "root",
+    "text": "functional-analysis.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "small.html-add",
+    "parent": "root",
+    "text": "small.html-add",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "mathematicians",
+    "parent": "root",
+    "text": "mathematicians",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "maxima-minima-3-variables.htm-bak",
+    "parent": "root",
+    "text": "maxima-minima-3-variables.htm-bak",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "lyrah-bro.txt",
+    "parent": "root",
+    "text": "lyrah-bro.txt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "partial-derivative.html",
+    "parent": "root",
+    "text": "partial-derivative.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "matrix.html",
+    "parent": "root",
+    "text": "matrix.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "maxima-minima-3-variables.html",
+    "parent": "root",
+    "text": "maxima-minima-3-variables.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "tree_data.json",
+    "parent": "root",
+    "text": "tree_data.json",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "realworld.html",
+    "parent": "root",
+    "text": "realworld.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "playlist-to-watch.html",
+    "parent": "root",
+    "text": "playlist-to-watch.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "best-math-channels.html",
+    "parent": "root",
+    "text": "best-math-channels.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "best-topology",
+    "parent": "root",
+    "text": "best-topology",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "random-variables-and-functional-analysis",
+    "parent": "root",
+    "text": "random-variables-and-functional-analysis",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "tree.txt",
+    "parent": "root",
+    "text": "tree.txt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "lpp.odt",
+    "parent": "root",
+    "text": "lpp.odt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "index.html",
+    "parent": "root",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "1",
+    "parent": "root",
+    "text": "1",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "read-math",
+    "parent": "root",
+    "text": "read-math",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "ict-tools-for-online-teachin",
+    "parent": "root",
+    "text": "ict-tools-for-online-teachin",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "abstract-algebra/binary.html",
+    "parent": "abstract-algebra",
+    "text": "binary.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "abstract-algebra/cyclic-group.html",
+    "parent": "abstract-algebra",
+    "text": "cyclic-group.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plus-two/probability",
+    "parent": "plus-two",
+    "text": "probability",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "plus-two/bayes-slide.html",
+    "parent": "plus-two",
+    "text": "bayes-slide.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plus-two/index.html",
+    "parent": "plus-two",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plus-two/probability/bayes-slide.html",
+    "parent": "plus-two/probability",
+    "text": "bayes-slide.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plus-two/probability/bayes-slide.html-bak2",
+    "parent": "plus-two/probability",
+    "text": "bayes-slide.html-bak2",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plus-two/probability/bayes-slide.html-bak1",
+    "parent": "plus-two/probability",
+    "text": "bayes-slide.html-bak1",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plus-two/probability/index.html",
+    "parent": "plus-two/probability",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "keam/maths-keam-pyq.html",
+    "parent": "keam",
+    "text": "maths-keam-pyq.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "vector/3d.html",
+    "parent": "vector",
+    "text": "3d.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "vector/index.html",
+    "parent": "vector",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails",
+    "parent": "bsc-math-syllabus",
+    "text": "thumbnails",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts",
+    "parent": "bsc-math-syllabus",
+    "text": "fonts",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/17",
+    "parent": "bsc-math-syllabus",
+    "text": "17",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/54",
+    "parent": "bsc-math-syllabus",
+    "text": "54",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/57",
+    "parent": "bsc-math-syllabus",
+    "text": "57",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/50",
+    "parent": "bsc-math-syllabus",
+    "text": "50",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/67",
+    "parent": "bsc-math-syllabus",
+    "text": "67",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/48",
+    "parent": "bsc-math-syllabus",
+    "text": "48",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/7",
+    "parent": "bsc-math-syllabus",
+    "text": "7",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/29",
+    "parent": "bsc-math-syllabus",
+    "text": "29",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/77",
+    "parent": "bsc-math-syllabus",
+    "text": "77",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/75",
+    "parent": "bsc-math-syllabus",
+    "text": "75",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/31",
+    "parent": "bsc-math-syllabus",
+    "text": "31",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/62",
+    "parent": "bsc-math-syllabus",
+    "text": "62",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/42",
+    "parent": "bsc-math-syllabus",
+    "text": "42",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/58",
+    "parent": "bsc-math-syllabus",
+    "text": "58",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/18",
+    "parent": "bsc-math-syllabus",
+    "text": "18",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/35",
+    "parent": "bsc-math-syllabus",
+    "text": "35",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/65",
+    "parent": "bsc-math-syllabus",
+    "text": "65",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/32",
+    "parent": "bsc-math-syllabus",
+    "text": "32",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/55",
+    "parent": "bsc-math-syllabus",
+    "text": "55",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/8",
+    "parent": "bsc-math-syllabus",
+    "text": "8",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/5",
+    "parent": "bsc-math-syllabus",
+    "text": "5",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/45",
+    "parent": "bsc-math-syllabus",
+    "text": "45",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/26",
+    "parent": "bsc-math-syllabus",
+    "text": "26",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/34",
+    "parent": "bsc-math-syllabus",
+    "text": "34",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/69",
+    "parent": "bsc-math-syllabus",
+    "text": "69",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/12",
+    "parent": "bsc-math-syllabus",
+    "text": "12",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/71",
+    "parent": "bsc-math-syllabus",
+    "text": "71",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/25",
+    "parent": "bsc-math-syllabus",
+    "text": "25",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/72",
+    "parent": "bsc-math-syllabus",
+    "text": "72",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/9",
+    "parent": "bsc-math-syllabus",
+    "text": "9",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/23",
+    "parent": "bsc-math-syllabus",
+    "text": "23",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/73",
+    "parent": "bsc-math-syllabus",
+    "text": "73",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/28",
+    "parent": "bsc-math-syllabus",
+    "text": "28",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/19",
+    "parent": "bsc-math-syllabus",
+    "text": "19",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/33",
+    "parent": "bsc-math-syllabus",
+    "text": "33",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/4",
+    "parent": "bsc-math-syllabus",
+    "text": "4",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/56",
+    "parent": "bsc-math-syllabus",
+    "text": "56",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/52",
+    "parent": "bsc-math-syllabus",
+    "text": "52",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/14",
+    "parent": "bsc-math-syllabus",
+    "text": "14",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/43",
+    "parent": "bsc-math-syllabus",
+    "text": "43",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/51",
+    "parent": "bsc-math-syllabus",
+    "text": "51",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/20",
+    "parent": "bsc-math-syllabus",
+    "text": "20",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/74",
+    "parent": "bsc-math-syllabus",
+    "text": "74",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/60",
+    "parent": "bsc-math-syllabus",
+    "text": "60",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/2",
+    "parent": "bsc-math-syllabus",
+    "text": "2",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/76",
+    "parent": "bsc-math-syllabus",
+    "text": "76",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/68",
+    "parent": "bsc-math-syllabus",
+    "text": "68",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/66",
+    "parent": "bsc-math-syllabus",
+    "text": "66",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/30",
+    "parent": "bsc-math-syllabus",
+    "text": "30",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/47",
+    "parent": "bsc-math-syllabus",
+    "text": "47",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/36",
+    "parent": "bsc-math-syllabus",
+    "text": "36",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/70",
+    "parent": "bsc-math-syllabus",
+    "text": "70",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/6",
+    "parent": "bsc-math-syllabus",
+    "text": "6",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/10",
+    "parent": "bsc-math-syllabus",
+    "text": "10",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/39",
+    "parent": "bsc-math-syllabus",
+    "text": "39",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/53",
+    "parent": "bsc-math-syllabus",
+    "text": "53",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/13",
+    "parent": "bsc-math-syllabus",
+    "text": "13",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/40",
+    "parent": "bsc-math-syllabus",
+    "text": "40",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/61",
+    "parent": "bsc-math-syllabus",
+    "text": "61",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/15",
+    "parent": "bsc-math-syllabus",
+    "text": "15",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/63",
+    "parent": "bsc-math-syllabus",
+    "text": "63",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/21",
+    "parent": "bsc-math-syllabus",
+    "text": "21",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/46",
+    "parent": "bsc-math-syllabus",
+    "text": "46",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/27",
+    "parent": "bsc-math-syllabus",
+    "text": "27",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/44",
+    "parent": "bsc-math-syllabus",
+    "text": "44",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/11",
+    "parent": "bsc-math-syllabus",
+    "text": "11",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/49",
+    "parent": "bsc-math-syllabus",
+    "text": "49",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/41",
+    "parent": "bsc-math-syllabus",
+    "text": "41",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/78",
+    "parent": "bsc-math-syllabus",
+    "text": "78",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/64",
+    "parent": "bsc-math-syllabus",
+    "text": "64",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/16",
+    "parent": "bsc-math-syllabus",
+    "text": "16",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/38",
+    "parent": "bsc-math-syllabus",
+    "text": "38",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/1",
+    "parent": "bsc-math-syllabus",
+    "text": "1",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/59",
+    "parent": "bsc-math-syllabus",
+    "text": "59",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/37",
+    "parent": "bsc-math-syllabus",
+    "text": "37",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/22",
+    "parent": "bsc-math-syllabus",
+    "text": "22",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/24",
+    "parent": "bsc-math-syllabus",
+    "text": "24",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/3",
+    "parent": "bsc-math-syllabus",
+    "text": "3",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "bsc-math-syllabus/57.html",
+    "parent": "bsc-math-syllabus",
+    "text": "57.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/4.html",
+    "parent": "bsc-math-syllabus",
+    "text": "4.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/73.html",
+    "parent": "bsc-math-syllabus",
+    "text": "73.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/10.html",
+    "parent": "bsc-math-syllabus",
+    "text": "10.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/50.html",
+    "parent": "bsc-math-syllabus",
+    "text": "50.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/41.html",
+    "parent": "bsc-math-syllabus",
+    "text": "41.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/63.html",
+    "parent": "bsc-math-syllabus",
+    "text": "63.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/78.html",
+    "parent": "bsc-math-syllabus",
+    "text": "78.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/52.html",
+    "parent": "bsc-math-syllabus",
+    "text": "52.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/54.html",
+    "parent": "bsc-math-syllabus",
+    "text": "54.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/annotations.json",
+    "parent": "bsc-math-syllabus",
+    "text": "annotations.json",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/74.html",
+    "parent": "bsc-math-syllabus",
+    "text": "74.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/17.html",
+    "parent": "bsc-math-syllabus",
+    "text": "17.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/47.html",
+    "parent": "bsc-math-syllabus",
+    "text": "47.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/8.html",
+    "parent": "bsc-math-syllabus",
+    "text": "8.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/18.html",
+    "parent": "bsc-math-syllabus",
+    "text": "18.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/14.html",
+    "parent": "bsc-math-syllabus",
+    "text": "14.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/6.html",
+    "parent": "bsc-math-syllabus",
+    "text": "6.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/32.html",
+    "parent": "bsc-math-syllabus",
+    "text": "32.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/39.html",
+    "parent": "bsc-math-syllabus",
+    "text": "39.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/5.html",
+    "parent": "bsc-math-syllabus",
+    "text": "5.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/40.html",
+    "parent": "bsc-math-syllabus",
+    "text": "40.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/12.html",
+    "parent": "bsc-math-syllabus",
+    "text": "12.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/26.html",
+    "parent": "bsc-math-syllabus",
+    "text": "26.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/60.html",
+    "parent": "bsc-math-syllabus",
+    "text": "60.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/48.html",
+    "parent": "bsc-math-syllabus",
+    "text": "48.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/19.html",
+    "parent": "bsc-math-syllabus",
+    "text": "19.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/77.html",
+    "parent": "bsc-math-syllabus",
+    "text": "77.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/36.html",
+    "parent": "bsc-math-syllabus",
+    "text": "36.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/21.html",
+    "parent": "bsc-math-syllabus",
+    "text": "21.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/68.html",
+    "parent": "bsc-math-syllabus",
+    "text": "68.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/34.html",
+    "parent": "bsc-math-syllabus",
+    "text": "34.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/11.html",
+    "parent": "bsc-math-syllabus",
+    "text": "11.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/61.html",
+    "parent": "bsc-math-syllabus",
+    "text": "61.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/70.html",
+    "parent": "bsc-math-syllabus",
+    "text": "70.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/75.html",
+    "parent": "bsc-math-syllabus",
+    "text": "75.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/49.html",
+    "parent": "bsc-math-syllabus",
+    "text": "49.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/24.html",
+    "parent": "bsc-math-syllabus",
+    "text": "24.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/33.html",
+    "parent": "bsc-math-syllabus",
+    "text": "33.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/64.html",
+    "parent": "bsc-math-syllabus",
+    "text": "64.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/config.js",
+    "parent": "bsc-math-syllabus",
+    "text": "config.js",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/15.html",
+    "parent": "bsc-math-syllabus",
+    "text": "15.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/1.html",
+    "parent": "bsc-math-syllabus",
+    "text": "1.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/38.html",
+    "parent": "bsc-math-syllabus",
+    "text": "38.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/28.html",
+    "parent": "bsc-math-syllabus",
+    "text": "28.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/25.html",
+    "parent": "bsc-math-syllabus",
+    "text": "25.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/30.html",
+    "parent": "bsc-math-syllabus",
+    "text": "30.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/66.html",
+    "parent": "bsc-math-syllabus",
+    "text": "66.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/31.html",
+    "parent": "bsc-math-syllabus",
+    "text": "31.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/13.html",
+    "parent": "bsc-math-syllabus",
+    "text": "13.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/2.html",
+    "parent": "bsc-math-syllabus",
+    "text": "2.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/56.html",
+    "parent": "bsc-math-syllabus",
+    "text": "56.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/7.html",
+    "parent": "bsc-math-syllabus",
+    "text": "7.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/59.html",
+    "parent": "bsc-math-syllabus",
+    "text": "59.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/search.json",
+    "parent": "bsc-math-syllabus",
+    "text": "search.json",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/9.html",
+    "parent": "bsc-math-syllabus",
+    "text": "9.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/35.html",
+    "parent": "bsc-math-syllabus",
+    "text": "35.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/22.html",
+    "parent": "bsc-math-syllabus",
+    "text": "22.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/53.html",
+    "parent": "bsc-math-syllabus",
+    "text": "53.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/16.html",
+    "parent": "bsc-math-syllabus",
+    "text": "16.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/72.html",
+    "parent": "bsc-math-syllabus",
+    "text": "72.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/69.html",
+    "parent": "bsc-math-syllabus",
+    "text": "69.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/42.html",
+    "parent": "bsc-math-syllabus",
+    "text": "42.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/71.html",
+    "parent": "bsc-math-syllabus",
+    "text": "71.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/58.html",
+    "parent": "bsc-math-syllabus",
+    "text": "58.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/43.html",
+    "parent": "bsc-math-syllabus",
+    "text": "43.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/29.html",
+    "parent": "bsc-math-syllabus",
+    "text": "29.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/20.html",
+    "parent": "bsc-math-syllabus",
+    "text": "20.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/23.html",
+    "parent": "bsc-math-syllabus",
+    "text": "23.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/65.html",
+    "parent": "bsc-math-syllabus",
+    "text": "65.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/37.html",
+    "parent": "bsc-math-syllabus",
+    "text": "37.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/27.html",
+    "parent": "bsc-math-syllabus",
+    "text": "27.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/76.html",
+    "parent": "bsc-math-syllabus",
+    "text": "76.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/44.html",
+    "parent": "bsc-math-syllabus",
+    "text": "44.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/index.html",
+    "parent": "bsc-math-syllabus",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/3.html",
+    "parent": "bsc-math-syllabus",
+    "text": "3.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/62.html",
+    "parent": "bsc-math-syllabus",
+    "text": "62.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/46.html",
+    "parent": "bsc-math-syllabus",
+    "text": "46.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/51.html",
+    "parent": "bsc-math-syllabus",
+    "text": "51.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/55.html",
+    "parent": "bsc-math-syllabus",
+    "text": "55.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/67.html",
+    "parent": "bsc-math-syllabus",
+    "text": "67.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/45.html",
+    "parent": "bsc-math-syllabus",
+    "text": "45.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/32.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "32.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/66.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "66.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/49.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "49.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/62.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "62.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/67.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "67.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/21.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "21.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/8.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "8.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/1.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "1.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/65.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "65.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/43.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "43.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/70.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "70.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/35.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "35.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/61.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "61.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/24.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "24.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/17.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "17.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/68.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "68.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/2.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "2.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/18.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "18.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/3.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "3.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/57.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "57.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/15.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "15.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/12.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "12.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/71.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "71.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/28.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "28.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/72.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "72.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/31.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "31.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/7.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "7.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/58.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "58.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/46.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "46.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/60.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "60.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/20.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "20.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/5.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "5.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/59.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "59.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/38.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "38.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/77.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "77.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/23.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "23.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/14.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "14.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/54.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "54.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/52.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "52.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/19.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "19.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/63.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "63.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/39.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "39.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/47.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "47.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/4.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "4.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/69.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "69.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/10.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "10.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/55.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "55.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/51.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "51.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/76.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "76.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/36.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "36.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/16.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "16.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/30.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "30.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/26.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "26.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/64.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "64.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/6.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "6.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/22.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "22.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/56.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "56.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/50.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "50.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/34.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "34.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/78.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "78.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/75.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "75.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/41.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "41.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/37.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "37.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/42.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "42.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/48.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "48.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/53.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "53.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/13.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "13.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/40.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "40.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/27.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "27.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/25.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "25.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/74.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "74.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/index.html",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/9.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "9.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/45.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "45.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/11.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "11.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/29.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "29.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/44.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "44.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/33.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "33.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/thumbnails/73.jpg",
+    "parent": "bsc-math-syllabus/thumbnails",
+    "text": "73.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMMI8_6k.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMMI8_6k.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/MSBM10_6g.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "MSBM10_6g.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMCSC10_6c.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMCSC10_6c.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMSY8_61.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMSY8_61.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMB10_ae.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMB10_ae.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMMI10_6h.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMMI10_6h.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMSY10_6f.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMSY10_6f.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMR8_6d.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMR8_6d.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMSS10_6l.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMSS10_6l.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMTI10_6e.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMTI10_6e.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMR10_ag.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMR10_ag.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMTT10_6j.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMTT10_6j.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMSL10_6i.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMSL10_6i.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/CMTI8_1t.woff",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "CMTI8_1t.woff",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/fonts/index.html",
+    "parent": "bsc-math-syllabus/fonts",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/17/17.svg",
+    "parent": "bsc-math-syllabus/17",
+    "text": "17.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/17/index.html",
+    "parent": "bsc-math-syllabus/17",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/54/54.svg",
+    "parent": "bsc-math-syllabus/54",
+    "text": "54.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/54/index.html",
+    "parent": "bsc-math-syllabus/54",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/57/57.svg",
+    "parent": "bsc-math-syllabus/57",
+    "text": "57.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/57/index.html",
+    "parent": "bsc-math-syllabus/57",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/50/50.svg",
+    "parent": "bsc-math-syllabus/50",
+    "text": "50.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/50/index.html",
+    "parent": "bsc-math-syllabus/50",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/67/67.svg",
+    "parent": "bsc-math-syllabus/67",
+    "text": "67.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/67/index.html",
+    "parent": "bsc-math-syllabus/67",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/48/48.svg",
+    "parent": "bsc-math-syllabus/48",
+    "text": "48.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/48/index.html",
+    "parent": "bsc-math-syllabus/48",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/7/7.svg",
+    "parent": "bsc-math-syllabus/7",
+    "text": "7.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/7/index.html",
+    "parent": "bsc-math-syllabus/7",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/29/29.svg",
+    "parent": "bsc-math-syllabus/29",
+    "text": "29.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/29/index.html",
+    "parent": "bsc-math-syllabus/29",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/77/77.svg",
+    "parent": "bsc-math-syllabus/77",
+    "text": "77.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/77/index.html",
+    "parent": "bsc-math-syllabus/77",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/75/75.svg",
+    "parent": "bsc-math-syllabus/75",
+    "text": "75.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/75/index.html",
+    "parent": "bsc-math-syllabus/75",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/31/31.svg",
+    "parent": "bsc-math-syllabus/31",
+    "text": "31.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/31/index.html",
+    "parent": "bsc-math-syllabus/31",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/62/62.svg",
+    "parent": "bsc-math-syllabus/62",
+    "text": "62.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/62/index.html",
+    "parent": "bsc-math-syllabus/62",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/42/42.svg",
+    "parent": "bsc-math-syllabus/42",
+    "text": "42.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/42/index.html",
+    "parent": "bsc-math-syllabus/42",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/58/58.svg",
+    "parent": "bsc-math-syllabus/58",
+    "text": "58.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/58/index.html",
+    "parent": "bsc-math-syllabus/58",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/18/18.svg",
+    "parent": "bsc-math-syllabus/18",
+    "text": "18.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/18/index.html",
+    "parent": "bsc-math-syllabus/18",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/35/35.svg",
+    "parent": "bsc-math-syllabus/35",
+    "text": "35.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/35/index.html",
+    "parent": "bsc-math-syllabus/35",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/65/65.svg",
+    "parent": "bsc-math-syllabus/65",
+    "text": "65.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/65/index.html",
+    "parent": "bsc-math-syllabus/65",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/32/32.svg",
+    "parent": "bsc-math-syllabus/32",
+    "text": "32.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/32/index.html",
+    "parent": "bsc-math-syllabus/32",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/55/55.svg",
+    "parent": "bsc-math-syllabus/55",
+    "text": "55.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/55/index.html",
+    "parent": "bsc-math-syllabus/55",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/8/8.svg",
+    "parent": "bsc-math-syllabus/8",
+    "text": "8.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/8/index.html",
+    "parent": "bsc-math-syllabus/8",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/5/5.svg",
+    "parent": "bsc-math-syllabus/5",
+    "text": "5.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/5/index.html",
+    "parent": "bsc-math-syllabus/5",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/45/45.svg",
+    "parent": "bsc-math-syllabus/45",
+    "text": "45.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/45/index.html",
+    "parent": "bsc-math-syllabus/45",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/26/26.svg",
+    "parent": "bsc-math-syllabus/26",
+    "text": "26.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/26/index.html",
+    "parent": "bsc-math-syllabus/26",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/34/34.svg",
+    "parent": "bsc-math-syllabus/34",
+    "text": "34.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/34/index.html",
+    "parent": "bsc-math-syllabus/34",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/69/69.svg",
+    "parent": "bsc-math-syllabus/69",
+    "text": "69.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/69/index.html",
+    "parent": "bsc-math-syllabus/69",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/12/12.svg",
+    "parent": "bsc-math-syllabus/12",
+    "text": "12.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/12/index.html",
+    "parent": "bsc-math-syllabus/12",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/71/71.svg",
+    "parent": "bsc-math-syllabus/71",
+    "text": "71.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/71/index.html",
+    "parent": "bsc-math-syllabus/71",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/25/25.svg",
+    "parent": "bsc-math-syllabus/25",
+    "text": "25.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/25/index.html",
+    "parent": "bsc-math-syllabus/25",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/72/72.svg",
+    "parent": "bsc-math-syllabus/72",
+    "text": "72.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/72/index.html",
+    "parent": "bsc-math-syllabus/72",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/9/9.svg",
+    "parent": "bsc-math-syllabus/9",
+    "text": "9.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/9/index.html",
+    "parent": "bsc-math-syllabus/9",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/23/23.svg",
+    "parent": "bsc-math-syllabus/23",
+    "text": "23.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/23/index.html",
+    "parent": "bsc-math-syllabus/23",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/73/73.svg",
+    "parent": "bsc-math-syllabus/73",
+    "text": "73.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/73/index.html",
+    "parent": "bsc-math-syllabus/73",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/28/index.html",
+    "parent": "bsc-math-syllabus/28",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/28/28.svg",
+    "parent": "bsc-math-syllabus/28",
+    "text": "28.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/19/19.svg",
+    "parent": "bsc-math-syllabus/19",
+    "text": "19.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/19/index.html",
+    "parent": "bsc-math-syllabus/19",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/33/33.svg",
+    "parent": "bsc-math-syllabus/33",
+    "text": "33.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/33/index.html",
+    "parent": "bsc-math-syllabus/33",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/4/4.svg",
+    "parent": "bsc-math-syllabus/4",
+    "text": "4.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/4/index.html",
+    "parent": "bsc-math-syllabus/4",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/56/56.svg",
+    "parent": "bsc-math-syllabus/56",
+    "text": "56.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/56/index.html",
+    "parent": "bsc-math-syllabus/56",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/52/52.svg",
+    "parent": "bsc-math-syllabus/52",
+    "text": "52.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/52/index.html",
+    "parent": "bsc-math-syllabus/52",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/14/14.svg",
+    "parent": "bsc-math-syllabus/14",
+    "text": "14.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/14/index.html",
+    "parent": "bsc-math-syllabus/14",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/43/43.svg",
+    "parent": "bsc-math-syllabus/43",
+    "text": "43.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/43/index.html",
+    "parent": "bsc-math-syllabus/43",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/51/51.svg",
+    "parent": "bsc-math-syllabus/51",
+    "text": "51.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/51/index.html",
+    "parent": "bsc-math-syllabus/51",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/20/20.svg",
+    "parent": "bsc-math-syllabus/20",
+    "text": "20.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/20/index.html",
+    "parent": "bsc-math-syllabus/20",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/74/74.svg",
+    "parent": "bsc-math-syllabus/74",
+    "text": "74.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/74/index.html",
+    "parent": "bsc-math-syllabus/74",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/60/60.svg",
+    "parent": "bsc-math-syllabus/60",
+    "text": "60.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/60/index.html",
+    "parent": "bsc-math-syllabus/60",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/2/2.svg",
+    "parent": "bsc-math-syllabus/2",
+    "text": "2.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/2/index.html",
+    "parent": "bsc-math-syllabus/2",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/76/76.svg",
+    "parent": "bsc-math-syllabus/76",
+    "text": "76.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/76/index.html",
+    "parent": "bsc-math-syllabus/76",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/68/68.svg",
+    "parent": "bsc-math-syllabus/68",
+    "text": "68.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/68/index.html",
+    "parent": "bsc-math-syllabus/68",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/66/66.svg",
+    "parent": "bsc-math-syllabus/66",
+    "text": "66.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/66/index.html",
+    "parent": "bsc-math-syllabus/66",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/30/30.svg",
+    "parent": "bsc-math-syllabus/30",
+    "text": "30.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/30/index.html",
+    "parent": "bsc-math-syllabus/30",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/47/47.svg",
+    "parent": "bsc-math-syllabus/47",
+    "text": "47.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/47/index.html",
+    "parent": "bsc-math-syllabus/47",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/36/36.svg",
+    "parent": "bsc-math-syllabus/36",
+    "text": "36.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/36/index.html",
+    "parent": "bsc-math-syllabus/36",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/70/70.svg",
+    "parent": "bsc-math-syllabus/70",
+    "text": "70.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/70/index.html",
+    "parent": "bsc-math-syllabus/70",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/6/6.svg",
+    "parent": "bsc-math-syllabus/6",
+    "text": "6.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/6/index.html",
+    "parent": "bsc-math-syllabus/6",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/10/10.svg",
+    "parent": "bsc-math-syllabus/10",
+    "text": "10.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/10/index.html",
+    "parent": "bsc-math-syllabus/10",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/39/39.svg",
+    "parent": "bsc-math-syllabus/39",
+    "text": "39.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/39/index.html",
+    "parent": "bsc-math-syllabus/39",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/53/53.svg",
+    "parent": "bsc-math-syllabus/53",
+    "text": "53.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/53/index.html",
+    "parent": "bsc-math-syllabus/53",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/13/13.svg",
+    "parent": "bsc-math-syllabus/13",
+    "text": "13.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/13/index.html",
+    "parent": "bsc-math-syllabus/13",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/40/40.svg",
+    "parent": "bsc-math-syllabus/40",
+    "text": "40.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/40/index.html",
+    "parent": "bsc-math-syllabus/40",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/61/61.svg",
+    "parent": "bsc-math-syllabus/61",
+    "text": "61.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/61/index.html",
+    "parent": "bsc-math-syllabus/61",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/15/15.svg",
+    "parent": "bsc-math-syllabus/15",
+    "text": "15.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/15/index.html",
+    "parent": "bsc-math-syllabus/15",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/63/63.svg",
+    "parent": "bsc-math-syllabus/63",
+    "text": "63.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/63/index.html",
+    "parent": "bsc-math-syllabus/63",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/21/21.svg",
+    "parent": "bsc-math-syllabus/21",
+    "text": "21.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/21/index.html",
+    "parent": "bsc-math-syllabus/21",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/46/46.svg",
+    "parent": "bsc-math-syllabus/46",
+    "text": "46.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/46/index.html",
+    "parent": "bsc-math-syllabus/46",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/27/27.svg",
+    "parent": "bsc-math-syllabus/27",
+    "text": "27.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/27/index.html",
+    "parent": "bsc-math-syllabus/27",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/44/44.svg",
+    "parent": "bsc-math-syllabus/44",
+    "text": "44.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/44/index.html",
+    "parent": "bsc-math-syllabus/44",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/11/11.svg",
+    "parent": "bsc-math-syllabus/11",
+    "text": "11.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/11/index.html",
+    "parent": "bsc-math-syllabus/11",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/49/49.svg",
+    "parent": "bsc-math-syllabus/49",
+    "text": "49.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/49/index.html",
+    "parent": "bsc-math-syllabus/49",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/41/41.svg",
+    "parent": "bsc-math-syllabus/41",
+    "text": "41.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/41/index.html",
+    "parent": "bsc-math-syllabus/41",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/78/78.svg",
+    "parent": "bsc-math-syllabus/78",
+    "text": "78.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/78/index.html",
+    "parent": "bsc-math-syllabus/78",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/64/64.svg",
+    "parent": "bsc-math-syllabus/64",
+    "text": "64.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/64/index.html",
+    "parent": "bsc-math-syllabus/64",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/16/16.svg",
+    "parent": "bsc-math-syllabus/16",
+    "text": "16.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/16/index.html",
+    "parent": "bsc-math-syllabus/16",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/38/38.svg",
+    "parent": "bsc-math-syllabus/38",
+    "text": "38.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/38/index.html",
+    "parent": "bsc-math-syllabus/38",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/1/1.svg",
+    "parent": "bsc-math-syllabus/1",
+    "text": "1.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/1/index.html",
+    "parent": "bsc-math-syllabus/1",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/59/59.svg",
+    "parent": "bsc-math-syllabus/59",
+    "text": "59.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/59/index.html",
+    "parent": "bsc-math-syllabus/59",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/37/37.svg",
+    "parent": "bsc-math-syllabus/37",
+    "text": "37.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/37/index.html",
+    "parent": "bsc-math-syllabus/37",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/22/22.svg",
+    "parent": "bsc-math-syllabus/22",
+    "text": "22.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/22/index.html",
+    "parent": "bsc-math-syllabus/22",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/24/24.svg",
+    "parent": "bsc-math-syllabus/24",
+    "text": "24.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/24/index.html",
+    "parent": "bsc-math-syllabus/24",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/3/3.svg",
+    "parent": "bsc-math-syllabus/3",
+    "text": "3.svg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "bsc-math-syllabus/3/index.html",
+    "parent": "bsc-math-syllabus/3",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "analytic-geometry/curve.html",
+    "parent": "analytic-geometry",
+    "text": "curve.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "graph/graph-books.html",
+    "parent": "graph",
+    "text": "graph-books.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "graph/index.html",
+    "parent": "graph",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "graph/1",
+    "parent": "graph",
+    "text": "1",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "complex/complex-2.html",
+    "parent": "complex",
+    "text": "complex-2.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "complex/complex.html",
+    "parent": "complex",
+    "text": "complex.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "complex/index.html",
+    "parent": "complex",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions",
+    "parent": "plus-two-cbse",
+    "text": "01realtions_and_functions",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "plus-two-cbse/index.html",
+    "parent": "plus-two-cbse",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/davecae-funcitons.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "davecae-funcitons.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/akash_Byjus_pdf.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "akash_Byjus_pdf.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/generate-index.py",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "generate-index.py",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/0_WORKSHEET_2_FUNCTIONS.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "0_WORKSHEET_2_FUNCTIONS.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/relations.html",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "relations.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/relation_and_functions_case-study.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "relation_and_functions_case-study.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/CH 1 ARQ.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "CH 1 ARQ.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/Function-JEE-Advanced-Previous-Year-Questions-with-Solutions.docx.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "Function-JEE-Advanced-Previous-Year-Questions-with-Solutions.docx.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/hw-functions-day1.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "hw-functions-day1.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/relation_and_function_ziet_buvenewwar.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "relation_and_function_ziet_buvenewwar.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/DGT_Sets_Relations_and_Functions.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "DGT_Sets_Relations_and_Functions.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/input.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "input.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/1_self-study.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "1_self-study.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/CH 1 CBQ.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "CH 1 CBQ.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/4_important-previous-year-questions.pdf",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "4_important-previous-year-questions.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/hw-day-1.odt",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "hw-day-1.odt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "plus-two-cbse/01realtions_and_functions/index.html",
+    "parent": "plus-two-cbse/01realtions_and_functions",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "laurent/laurent.html",
+    "parent": "laurent",
+    "text": "laurent.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "laurent/complex",
+    "parent": "laurent",
+    "text": "complex",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "laurent/applications-1.html",
+    "parent": "laurent",
+    "text": "applications-1.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "laurent/applications.html",
+    "parent": "laurent",
+    "text": "applications.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "laurent/index.html",
+    "parent": "laurent",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "iit1/Screenshot from 2024-05-02 13-59-38.png",
+    "parent": "iit1",
+    "text": "Screenshot from 2024-05-02 13-59-38.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "iit1/img1.png",
+    "parent": "iit1",
+    "text": "img1.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "iit1/Screenshot from 2024-05-02 13-59-24.png",
+    "parent": "iit1",
+    "text": "Screenshot from 2024-05-02 13-59-24.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "iit1/img4.png",
+    "parent": "iit1",
+    "text": "img4.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "iit1/img3.png",
+    "parent": "iit1",
+    "text": "img3.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "iit1/iit1.html",
+    "parent": "iit1",
+    "text": "iit1.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "iit1/img2.png",
+    "parent": "iit1",
+    "text": "img2.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "iit1/index.html",
+    "parent": "iit1",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "iit1/img5.png",
+    "parent": "iit1",
+    "text": "img5.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "robotics-and-ai/robotics.html",
+    "parent": "robotics-and-ai",
+    "text": "robotics.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/quadratic-equations",
+    "parent": "class-10-icse-maths",
+    "text": "quadratic-equations",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/shares-and-divident",
+    "parent": "class-10-icse-maths",
+    "text": "shares-and-divident",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/revision-first-term",
+    "parent": "class-10-icse-maths",
+    "text": "revision-first-term",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/mohammed-class-10-icse-2024",
+    "parent": "class-10-icse-maths",
+    "text": "mohammed-class-10-icse-2024",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/revision-2024-2025-batch",
+    "parent": "class-10-icse-maths",
+    "text": "revision-2024-2025-batch",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/previous-year-icse-chapter-wise",
+    "parent": "class-10-icse-maths",
+    "text": "previous-year-icse-chapter-wise",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/circle",
+    "parent": "class-10-icse-maths",
+    "text": "circle",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/median",
+    "parent": "class-10-icse-maths",
+    "text": "median",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/holyangels-question-paper-class-10",
+    "parent": "class-10-icse-maths",
+    "text": "holyangels-question-paper-class-10",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/similarity",
+    "parent": "class-10-icse-maths",
+    "text": "similarity",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse",
+    "parent": "class-10-icse-maths",
+    "text": "previous year maths icse",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/loci",
+    "parent": "class-10-icse-maths",
+    "text": "loci",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/previous-year-questions-as-a-whole",
+    "parent": "class-10-icse-maths",
+    "text": "previous-year-questions-as-a-whole",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse",
+    "parent": "class-10-icse-maths",
+    "text": "class 10 maths icse",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/selfstudy",
+    "parent": "class-10-icse-maths",
+    "text": "selfstudy",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper",
+    "parent": "class-10-icse-maths",
+    "text": "class 10 icse question paper",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "parent": "class-10-icse-maths",
+    "text": "please-sort-it-out-pdfs-chapter-wise",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse",
+    "parent": "class-10-icse-maths",
+    "text": "2024-2025-icse",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/probability",
+    "parent": "class-10-icse-maths",
+    "text": "probability",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/Good-Reviosn-questions-icse-class-10QUEST-BOOK-ICSE-10-Maths.pdf",
+    "parent": "class-10-icse-maths",
+    "text": "Good-Reviosn-questions-icse-class-10QUEST-BOOK-ICSE-10-Maths.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/christnagar-christmas-exam-class-10-2024.pdf",
+    "parent": "class-10-icse-maths",
+    "text": "christnagar-christmas-exam-class-10-2024.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/index.html",
+    "parent": "class-10-icse-maths",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/quadratic-equations/ICSE CLASS 10 quadratic equations PYQs.pdf",
+    "parent": "class-10-icse-maths/quadratic-equations",
+    "text": "ICSE CLASS 10 quadratic equations PYQs.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/quadratic-equations/ICSE Class 10 Maths Previous Years Questions Chapter-Quadratic Equations - The Brainbox Tutorials.pdf",
+    "parent": "class-10-icse-maths/quadratic-equations",
+    "text": "ICSE Class 10 Maths Previous Years Questions Chapter-Quadratic Equations - The Brainbox Tutorials.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/quadratic-equations/quadratic-pyq-icse.pdf",
+    "parent": "class-10-icse-maths/quadratic-equations",
+    "text": "quadratic-pyq-icse.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/quadratic-equations/quadratic-equations.pdf",
+    "parent": "class-10-icse-maths/quadratic-equations",
+    "text": "quadratic-equations.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/quadratic-equations/index.html",
+    "parent": "class-10-icse-maths/quadratic-equations",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/quadratic-equations/quadratic-equations-1.pdf",
+    "parent": "class-10-icse-maths/quadratic-equations",
+    "text": "quadratic-equations-1.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/shares-and-divident/Selina-Solution-Concise-Maths-Class-10-Chapter-3-Exercise-3B.pdf",
+    "parent": "class-10-icse-maths/shares-and-divident",
+    "text": "Selina-Solution-Concise-Maths-Class-10-Chapter-3-Exercise-3B.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/shares-and-divident/Mensuration 3 extended ms.pdf",
+    "parent": "class-10-icse-maths/shares-and-divident",
+    "text": "Mensuration 3 extended ms.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/shares-and-divident/index.html",
+    "parent": "class-10-icse-maths/shares-and-divident",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/shares-and-divident/Selina-Solution-Concise-Maths-Class-10-Chapter-3-Exercise-3A.pdf",
+    "parent": "class-10-icse-maths/shares-and-divident",
+    "text": "Selina-Solution-Concise-Maths-Class-10-Chapter-3-Exercise-3A.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/revision-first-term/math-rev-1.odt",
+    "parent": "class-10-icse-maths/revision-first-term",
+    "text": "math-rev-1.odt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/revision-first-term/index.html",
+    "parent": "class-10-icse-maths/revision-first-term",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/mohammed-class-10-icse-2024/question-paper-cns-2024",
+    "parent": "class-10-icse-maths/mohammed-class-10-icse-2024",
+    "text": "question-paper-cns-2024",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/mohammed-class-10-icse-2024/index.html",
+    "parent": "class-10-icse-maths/mohammed-class-10-icse-2024",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/mohammed-class-10-icse-2024/question-paper-cns-2024/question-paper-2024-july-class-ten-icse.zip",
+    "parent": "class-10-icse-maths/mohammed-class-10-icse-2024/question-paper-cns-2024",
+    "text": "question-paper-2024-july-class-ten-icse.zip",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/mohammed-class-10-icse-2024/question-paper-cns-2024/index.html",
+    "parent": "class-10-icse-maths/mohammed-class-10-icse-2024/question-paper-cns-2024",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/revision-2024-2025-batch/Maths-Class10-Worksheet5.pdf",
+    "parent": "class-10-icse-maths/revision-2024-2025-batch",
+    "text": "Maths-Class10-Worksheet5.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/revision-2024-2025-batch/revision-schedule-class-10-icse.odt",
+    "parent": "class-10-icse-maths/revision-2024-2025-batch",
+    "text": "revision-schedule-class-10-icse.odt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/revision-2024-2025-batch/QUEST-BOOK-ICSE-10-Maths.pdf",
+    "parent": "class-10-icse-maths/revision-2024-2025-batch",
+    "text": "QUEST-BOOK-ICSE-10-Maths.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/revision-2024-2025-batch/Maths-Class10-Worksheet6-pdf.pdf.pdf",
+    "parent": "class-10-icse-maths/revision-2024-2025-batch",
+    "text": "Maths-Class10-Worksheet6-pdf.pdf.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/revision-2024-2025-batch/index.html",
+    "parent": "class-10-icse-maths/revision-2024-2025-batch",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous-year-icse-chapter-wise/matrices.pdf",
+    "parent": "class-10-icse-maths/previous-year-icse-chapter-wise",
+    "text": "matrices.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous-year-icse-chapter-wise/index.html",
+    "parent": "class-10-icse-maths/previous-year-icse-chapter-wise",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/circle/circles-hw.pdf",
+    "parent": "class-10-icse-maths/circle",
+    "text": "circles-hw.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/circle/circles-hw.odt",
+    "parent": "class-10-icse-maths/circle",
+    "text": "circles-hw.odt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/circle/index.html",
+    "parent": "class-10-icse-maths/circle",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/circle/circles.odt",
+    "parent": "class-10-icse-maths/circle",
+    "text": "circles.odt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/median/median.pdf",
+    "parent": "class-10-icse-maths/median",
+    "text": "median.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/median/index.html",
+    "parent": "class-10-icse-maths/median",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/holyangels-question-paper-class-10/holy-angels-exam.pdf",
+    "parent": "class-10-icse-maths/holyangels-question-paper-class-10",
+    "text": "holy-angels-exam.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/holyangels-question-paper-class-10/qp-hac-model-1.pdf",
+    "parent": "class-10-icse-maths/holyangels-question-paper-class-10",
+    "text": "qp-hac-model-1.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/holyangels-question-paper-class-10/index.html",
+    "parent": "class-10-icse-maths/holyangels-question-paper-class-10",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/similarity/selina-concise-mathematics-class-10-solutions-chapter-15.pdf",
+    "parent": "class-10-icse-maths/similarity",
+    "text": "selina-concise-mathematics-class-10-solutions-chapter-15.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/similarity/Geometry 08 Similarity-l.pdf",
+    "parent": "class-10-icse-maths/similarity",
+    "text": "Geometry 08 Similarity-l.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/similarity/SIMILARITY PYQs.pdf",
+    "parent": "class-10-icse-maths/similarity",
+    "text": "SIMILARITY PYQs.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/similarity/Geometry 08 Similarity.pptx",
+    "parent": "class-10-icse-maths/similarity",
+    "text": "Geometry 08 Similarity.pptx",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/similarity/chapter-15-similarity--with-applications-to-maps-and-models-.pdf",
+    "parent": "class-10-icse-maths/similarity",
+    "text": "chapter-15-similarity--with-applications-to-maps-and-models-.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/similarity/class-work-questions.odt",
+    "parent": "class-10-icse-maths/similarity",
+    "text": "class-work-questions.odt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/similarity/similarity-questions.pdf",
+    "parent": "class-10-icse-maths/similarity",
+    "text": "similarity-questions.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/similarity/Geometry 08 Similarity-l.odp",
+    "parent": "class-10-icse-maths/similarity",
+    "text": "Geometry 08 Similarity-l.odp",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/similarity/Similar Triangles PPT and examples.ppt",
+    "parent": "class-10-icse-maths/similarity",
+    "text": "Similar Triangles PPT and examples.ppt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/similarity/class-work-questions.pdf",
+    "parent": "class-10-icse-maths/similarity",
+    "text": "class-work-questions.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/similarity/index.html",
+    "parent": "class-10-icse-maths/similarity",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/1999.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "1999.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2018.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2018.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2001.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2001.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/1997.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "1997.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2000.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2000.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2004.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2004.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2022.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2022.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2003.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2003.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2019.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2019.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2007.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2007.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2002.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2002.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2014.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2014.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2017.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2017.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2020.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2020.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/1996.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "1996.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2012.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2012.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2009.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2009.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2006.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2006.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2013.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2013.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2010.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2010.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2005.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2005.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2008.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2008.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2015.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2015.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/index.html",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2011.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2011.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/1998.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "1998.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous year maths icse/2016.pdf",
+    "parent": "class-10-icse-maths/previous year maths icse",
+    "text": "2016.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction",
+    "parent": "class-10-icse-maths/loci",
+    "text": "locus-and-construction",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/loci/construction-selina.pdf",
+    "parent": "class-10-icse-maths/loci",
+    "text": "construction-selina.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locusPYQs.pdf",
+    "parent": "class-10-icse-maths/loci",
+    "text": "locusPYQs.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-pyq-1.pdf",
+    "parent": "class-10-icse-maths/loci",
+    "text": "locus-pyq-1.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction.zip",
+    "parent": "class-10-icse-maths/loci",
+    "text": "locus-and-construction.zip",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/index.html",
+    "parent": "class-10-icse-maths/loci",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/Screenshot 2024-12-15 195102.png",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "Screenshot 2024-12-15 195102.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/Screenshot 2024-12-15 195156.png",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "Screenshot 2024-12-15 195156.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/question-11.png",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "question-11.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/constructions.pdf",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "constructions.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/question-20.png",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "question-20.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/board-2024-similarity.jpg",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "board-2024-similarity.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/locus-questions.pdf",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "locus-questions.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/Screenshot 2024-12-15 195231.png",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "Screenshot 2024-12-15 195231.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/qlocus-2010.jpg",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "qlocus-2010.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/ques-sim.jpg",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "ques-sim.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/question16.png",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "question16.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/locus.pdf",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "locus.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/loci/locus-and-construction/index.html",
+    "parent": "class-10-icse-maths/loci/locus-and-construction",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous-year-questions-as-a-whole/trignometry_hw.pdf",
+    "parent": "class-10-icse-maths/previous-year-questions-as-a-whole",
+    "text": "trignometry_hw.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous-year-questions-as-a-whole/icse_board_previous_year_questions_chapter_wise.pdf",
+    "parent": "class-10-icse-maths/previous-year-questions-as-a-whole",
+    "text": "icse_board_previous_year_questions_chapter_wise.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/previous-year-questions-as-a-whole/index.html",
+    "parent": "class-10-icse-maths/previous-year-questions-as-a-whole",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/assignment",
+    "parent": "class-10-icse-maths/class 10 maths icse",
+    "text": "assignment",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/board papers",
+    "parent": "class-10-icse-maths/class 10 maths icse",
+    "text": "board papers",
+    "icon": "fa fa-folder"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/1.png",
+    "parent": "class-10-icse-maths/class 10 maths icse",
+    "text": "1.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/2.png",
+    "parent": "class-10-icse-maths/class 10 maths icse",
+    "text": "2.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/4.png",
+    "parent": "class-10-icse-maths/class 10 maths icse",
+    "text": "4.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/a.odg",
+    "parent": "class-10-icse-maths/class 10 maths icse",
+    "text": "a.odg",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/5.png",
+    "parent": "class-10-icse-maths/class 10 maths icse",
+    "text": "5.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/3.png",
+    "parent": "class-10-icse-maths/class 10 maths icse",
+    "text": "3.png",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/a.pdf",
+    "parent": "class-10-icse-maths/class 10 maths icse",
+    "text": "a.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/index.html",
+    "parent": "class-10-icse-maths/class 10 maths icse",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/assignment/QUEST-BOOK-ICSE-10-Maths.pdf",
+    "parent": "class-10-icse-maths/class 10 maths icse/assignment",
+    "text": "QUEST-BOOK-ICSE-10-Maths.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/assignment/index.html",
+    "parent": "class-10-icse-maths/class 10 maths icse/assignment",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/board papers/MATHEMATICS-ICSE-2005.pdf",
+    "parent": "class-10-icse-maths/class 10 maths icse/board papers",
+    "text": "MATHEMATICS-ICSE-2005.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 maths icse/board papers/index.html",
+    "parent": "class-10-icse-maths/class 10 maths icse/board papers",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/selfstudy/self-study-1question-paper-class-8.pdf",
+    "parent": "class-10-icse-maths/selfstudy",
+    "text": "self-study-1question-paper-class-8.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/selfstudy/index.html",
+    "parent": "class-10-icse-maths/selfstudy",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE-Class-10-Maths-Previous-Year-Question-Paper-2014.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE-Class-10-Maths-Previous-Year-Question-Paper-2014.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE 1996 MATHEMATICS - Worksheet _ Test Paper.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE 1996 MATHEMATICS - Worksheet _ Test Paper.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/2022.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "2022.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/scribfree.com_icse-2001-mathematics.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "scribfree.com_icse-2001-mathematics.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE-Class-10-Maths-Question-Paper-1-2019.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE-Class-10-Maths-Question-Paper-1-2019.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE-Class-10-Maths-Question-Paper-1-2018.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE-Class-10-Maths-Question-Paper-1-2018.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/scribfree.com_icse-2004-mathematics.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "scribfree.com_icse-2004-mathematics.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/MATHEMATICS-PAPER-ICSE-2006.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "MATHEMATICS-PAPER-ICSE-2006.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/maths_2022.odt",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "maths_2022.odt",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE-Class-10-Maths-Previous-Year-Question-Paper-2013.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE-Class-10-Maths-Previous-Year-Question-Paper-2013.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/MATHEMATICS-ICSE-2005.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "MATHEMATICS-ICSE-2005.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE-Class-10-Maths-Previous-Year-Question-Paper-2016.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE-Class-10-Maths-Previous-Year-Question-Paper-2016.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE Board 10th exam Maths Previous year question papers Mathematics 2007.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE Board 10th exam Maths Previous year question papers Mathematics 2007.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE-Class-10-Maths-Question-Paper-1-2020.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE-Class-10-Maths-Question-Paper-1-2020.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE 1997 MATHEMATICS - Worksheet _ Test Paper.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE 1997 MATHEMATICS - Worksheet _ Test Paper.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE-Class-10-Maths-Question-Paper-1-2017.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE-Class-10-Maths-Question-Paper-1-2017.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE 1999 MATHEMATICS - Worksheet _ Test Paper.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE 1999 MATHEMATICS - Worksheet _ Test Paper.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/scribfree.com_icse-2003-mathematics.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "scribfree.com_icse-2003-mathematics.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE-X-Maths-2015.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE-X-Maths-2015.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE Class 10 MATHS Previous year question paper 2008.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE Class 10 MATHS Previous year question paper 2008.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE-Class-10-Maths-Previous-Year-Question-Paper-2012.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE-Class-10-Maths-Previous-Year-Question-Paper-2012.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE Class 10 MATHS Previous year question paper 2009.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE Class 10 MATHS Previous year question paper 2009.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE 1998 MATHEMATICS - Worksheet _ Test Paper.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE 1998 MATHEMATICS - Worksheet _ Test Paper.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/scribfree.com_icse-2002-mathematics.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "scribfree.com_icse-2002-mathematics.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE-Class-10-Maths-Previous-Year-Question-Paper-2011.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE-Class-10-Maths-Previous-Year-Question-Paper-2011.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/index.html",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/ICSE-Class-10-Maths-Previous-Year-Question-Paper-2010.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "ICSE-Class-10-Maths-Previous-Year-Question-Paper-2010.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/class 10 icse question paper/scribfree.com_icse-2000-mathematics.pdf",
+    "parent": "class-10-icse-maths/class 10 icse question paper",
+    "text": "scribfree.com_icse-2000-mathematics.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/MCQ - QE.docx.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "MCQ - QE.docx.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6143355752744598346_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6143355752744598346_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/ICSE Class 10 Maths MCQ - Banking.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "ICSE Class 10 Maths MCQ - Banking.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6093821383818721331_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6093821383818721331_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/circle.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "circle.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6143355752744598338_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6143355752744598338_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6093821383818721332_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6093821383818721332_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6143355752744598339_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6143355752744598339_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Practice Paper Maths.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Practice Paper Maths.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/GST.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "GST.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6143355752744598345_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6143355752744598345_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Linear inequations.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Linear inequations.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Adobe Scan Jan 27, 2023.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Adobe Scan Jan 27, 2023.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/mensuration.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "mensuration.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/MCQ - Proportion.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "MCQ - Proportion.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/KISA Maths 2023 - 2.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "KISA Maths 2023 - 2.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/maths (1).pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "maths (1).pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Preboards Papers Eng,Phy,Maths.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Preboards Papers Eng,Phy,Maths.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6093821383818721333_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6093821383818721333_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Factorisation.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Factorisation.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/ratio-proportions .pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "ratio-proportions .pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Maths (1).pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Maths (1).pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/probability.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "probability.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Banking.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Banking.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/MCQ - Matrices.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "MCQ - Matrices.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/matrix.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "matrix.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/maths half yearly.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "maths half yearly.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/ICSE Class 10 Maths MCQ - GST.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "ICSE Class 10 Maths MCQ - GST.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/MCQ - QE -Word problems.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "MCQ - QE -Word problems.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6143355752744598340_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6143355752744598340_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Maths  (1).pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Maths  (1).pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Maths Formula List - Vasanth.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Maths Formula List - Vasanth.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/AP.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "AP.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/quadratic equations.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "quadratic equations.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/trigonometry.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "trigonometry.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6143355752744598342_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6143355752744598342_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6093821383818721335_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6093821383818721335_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Maths question paper\ud83d\udcc4.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Maths question paper\ud83d\udcc4.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/kisa math sol.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "kisa math sol.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/MCQ - Banking.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "MCQ - Banking.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/MCQ - Similarites.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "MCQ - Similarites.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6143355752744598341_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6143355752744598341_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Maths Term 1 - QPs 1,2,3.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Maths Term 1 - QPs 1,2,3.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/similarity.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "similarity.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6143355752744598343_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6143355752744598343_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/MCQ - Linear Inequations.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "MCQ - Linear Inequations.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6093821383818721334_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6093821383818721334_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/photo_6143355752744598344_y.jpg",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "photo_6143355752744598344_y.jpg",
+    "icon": "fa fa-file-image text-info",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Maths Midterm Paper PPMA 2024.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Maths Midterm Paper PPMA 2024.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/ICSE Class 10 Maths MCQ Arithmetic Progression (1).pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "ICSE Class 10 Maths MCQ Arithmetic Progression (1).pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/locus.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "locus.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Shares and dividends .pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Shares and dividends .pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/maths (2).pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "maths (2).pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/GP.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "GP.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/MCQ - AP.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "MCQ - AP.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/MCQ - RFT.pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "MCQ - RFT.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/Maths (2).pdf",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "Maths (2).pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise/index.html",
+    "parent": "class-10-icse-maths/please-sort-it-out-pdfs-chapter-wise",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/equation-of-line.synctex.gz",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "equation-of-line.synctex.gz",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/trignometry-test-1-draft.pdf",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "trignometry-test-1-draft.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/section-formula.pdf",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "section-formula.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/reaminder-and-factor-therorem.synctex.gz",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "reaminder-and-factor-therorem.synctex.gz",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/banking.log",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "banking.log",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/probablity.aux",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "probablity.aux",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/equation-of-line.tex",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "equation-of-line.tex",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/reaminder-and-factor-therorem.pdf",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "reaminder-and-factor-therorem.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/trignometry-test-1-draft.aux",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "trignometry-test-1-draft.aux",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/banking.aux",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "banking.aux",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/probablity.pdf",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "probablity.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/heights-and-distance.tex",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "heights-and-distance.tex",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/banking.pdf",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "banking.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/gst-1.aux",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "gst-1.aux",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/equation-of-line.log",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "equation-of-line.log",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/section-formula.aux",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "section-formula.aux",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/banking.synctex.gz",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "banking.synctex.gz",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/equation-of-line.pdf",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "equation-of-line.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/trignometry-mcq.pdf",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "trignometry-mcq.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/probablity.tex",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "probablity.tex",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/trignometry-test-1-draft.synctex.gz",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "trignometry-test-1-draft.synctex.gz",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/heights-and-distance.pdf",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "heights-and-distance.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/trignometry-test-1-draft.tex",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "trignometry-test-1-draft.tex",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/reaminder-and-factor-therorem.tex",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "reaminder-and-factor-therorem.tex",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/trignometry-mcq.tex",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "trignometry-mcq.tex",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/gst",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "gst",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/heights-and-distance.log",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "heights-and-distance.log",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/probablity.synctex.gz",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "probablity.synctex.gz",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/trignometry-mcq.synctex.gz",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "trignometry-mcq.synctex.gz",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/gst-1.pdf",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "gst-1.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/heights-and-distance.synctex.gz",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "heights-and-distance.synctex.gz",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/reaminder-and-factor-therorem-tex",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "reaminder-and-factor-therorem-tex",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/trignometry-mcq.aux",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "trignometry-mcq.aux",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/trignometry-test-1-draft.log",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "trignometry-test-1-draft.log",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/heights-and-distance.aux",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "heights-and-distance.aux",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/gst-1.synctex.gz",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "gst-1.synctex.gz",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/reaminder-and-factor-therorem.log",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "reaminder-and-factor-therorem.log",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/banking.tex",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "banking.tex",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/gst-1.log",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "gst-1.log",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/section-formula.tex",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "section-formula.tex",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/trignometry-mcq.log",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "trignometry-mcq.log",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/gst-1.tex",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "gst-1.tex",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/probablity.log",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "probablity.log",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/reaminder-and-factor-therorem.aux",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "reaminder-and-factor-therorem.aux",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/equation-of-line.aux",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "equation-of-line.aux",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/index.html",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/2024-2025-icse/section-formula.log",
+    "parent": "class-10-icse-maths/2024-2025-icse",
+    "text": "section-formula.log",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/probability/probability.pdf",
+    "parent": "class-10-icse-maths/probability",
+    "text": "probability.pdf",
+    "icon": "fa fa-file-pdf text-danger",
+    "type": "file"
+  },
+  {
+    "id": "class-10-icse-maths/probability/index.html",
+    "parent": "class-10-icse-maths/probability",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "ktu-s4/hypo2.html",
+    "parent": "ktu-s4",
+    "text": "hypo2.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "ktu-s4/hypo.html",
+    "parent": "ktu-s4",
+    "text": "hypo.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "ktu-s4/testhyp.html",
+    "parent": "ktu-s4",
+    "text": "testhyp.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "ktu-s4/hypo1.html",
+    "parent": "ktu-s4",
+    "text": "hypo1.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "ktu-s4/index.html",
+    "parent": "ktu-s4",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "lyrah-bro/calculus.html",
+    "parent": "lyrah-bro",
+    "text": "calculus.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  },
+  {
+    "id": "lyrah-bro/index.html",
+    "parent": "lyrah-bro",
+    "text": "index.html",
+    "icon": "fa fa-file-code",
+    "type": "file"
+  }
+]

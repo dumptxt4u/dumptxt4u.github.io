@@ -1,0 +1,801 @@
+.
+├── 1
+├── abstract-algebra
+│   ├── binary.html
+│   └── cyclic-group.html
+├── am.html
+├── analytic-geometry
+│   └── curve.html
+├── best-math-channels.html
+├── best-topology
+├── bsc.html
+├── bsc-math-syllabus
+│   ├── 1
+│   │   ├── 1.svg
+│   │   └── index.html
+│   ├── 10
+│   │   ├── 10.svg
+│   │   └── index.html
+│   ├── 10.html
+│   ├── 11
+│   │   ├── 11.svg
+│   │   └── index.html
+│   ├── 11.html
+│   ├── 12
+│   │   ├── 12.svg
+│   │   └── index.html
+│   ├── 12.html
+│   ├── 13
+│   │   ├── 13.svg
+│   │   └── index.html
+│   ├── 13.html
+│   ├── 14
+│   │   ├── 14.svg
+│   │   └── index.html
+│   ├── 14.html
+│   ├── 15
+│   │   ├── 15.svg
+│   │   └── index.html
+│   ├── 15.html
+│   ├── 16
+│   │   ├── 16.svg
+│   │   └── index.html
+│   ├── 16.html
+│   ├── 17
+│   │   ├── 17.svg
+│   │   └── index.html
+│   ├── 17.html
+│   ├── 18
+│   │   ├── 18.svg
+│   │   └── index.html
+│   ├── 18.html
+│   ├── 19
+│   │   ├── 19.svg
+│   │   └── index.html
+│   ├── 19.html
+│   ├── 1.html
+│   ├── 2
+│   │   ├── 2.svg
+│   │   └── index.html
+│   ├── 20
+│   │   ├── 20.svg
+│   │   └── index.html
+│   ├── 20.html
+│   ├── 21
+│   │   ├── 21.svg
+│   │   └── index.html
+│   ├── 21.html
+│   ├── 22
+│   │   ├── 22.svg
+│   │   └── index.html
+│   ├── 22.html
+│   ├── 23
+│   │   ├── 23.svg
+│   │   └── index.html
+│   ├── 23.html
+│   ├── 24
+│   │   ├── 24.svg
+│   │   └── index.html
+│   ├── 24.html
+│   ├── 25
+│   │   ├── 25.svg
+│   │   └── index.html
+│   ├── 25.html
+│   ├── 26
+│   │   ├── 26.svg
+│   │   └── index.html
+│   ├── 26.html
+│   ├── 27
+│   │   ├── 27.svg
+│   │   └── index.html
+│   ├── 27.html
+│   ├── 28
+│   │   ├── 28.svg
+│   │   └── index.html
+│   ├── 28.html
+│   ├── 29
+│   │   ├── 29.svg
+│   │   └── index.html
+│   ├── 29.html
+│   ├── 2.html
+│   ├── 3
+│   │   ├── 3.svg
+│   │   └── index.html
+│   ├── 30
+│   │   ├── 30.svg
+│   │   └── index.html
+│   ├── 30.html
+│   ├── 31
+│   │   ├── 31.svg
+│   │   └── index.html
+│   ├── 31.html
+│   ├── 32
+│   │   ├── 32.svg
+│   │   └── index.html
+│   ├── 32.html
+│   ├── 33
+│   │   ├── 33.svg
+│   │   └── index.html
+│   ├── 33.html
+│   ├── 34
+│   │   ├── 34.svg
+│   │   └── index.html
+│   ├── 34.html
+│   ├── 35
+│   │   ├── 35.svg
+│   │   └── index.html
+│   ├── 35.html
+│   ├── 36
+│   │   ├── 36.svg
+│   │   └── index.html
+│   ├── 36.html
+│   ├── 37
+│   │   ├── 37.svg
+│   │   └── index.html
+│   ├── 37.html
+│   ├── 38
+│   │   ├── 38.svg
+│   │   └── index.html
+│   ├── 38.html
+│   ├── 39
+│   │   ├── 39.svg
+│   │   └── index.html
+│   ├── 39.html
+│   ├── 3.html
+│   ├── 4
+│   │   ├── 4.svg
+│   │   └── index.html
+│   ├── 40
+│   │   ├── 40.svg
+│   │   └── index.html
+│   ├── 40.html
+│   ├── 41
+│   │   ├── 41.svg
+│   │   └── index.html
+│   ├── 41.html
+│   ├── 42
+│   │   ├── 42.svg
+│   │   └── index.html
+│   ├── 42.html
+│   ├── 43
+│   │   ├── 43.svg
+│   │   └── index.html
+│   ├── 43.html
+│   ├── 44
+│   │   ├── 44.svg
+│   │   └── index.html
+│   ├── 44.html
+│   ├── 45
+│   │   ├── 45.svg
+│   │   └── index.html
+│   ├── 45.html
+│   ├── 46
+│   │   ├── 46.svg
+│   │   └── index.html
+│   ├── 46.html
+│   ├── 47
+│   │   ├── 47.svg
+│   │   └── index.html
+│   ├── 47.html
+│   ├── 48
+│   │   ├── 48.svg
+│   │   └── index.html
+│   ├── 48.html
+│   ├── 49
+│   │   ├── 49.svg
+│   │   └── index.html
+│   ├── 49.html
+│   ├── 4.html
+│   ├── 5
+│   │   ├── 5.svg
+│   │   └── index.html
+│   ├── 50
+│   │   ├── 50.svg
+│   │   └── index.html
+│   ├── 50.html
+│   ├── 51
+│   │   ├── 51.svg
+│   │   └── index.html
+│   ├── 51.html
+│   ├── 52
+│   │   ├── 52.svg
+│   │   └── index.html
+│   ├── 52.html
+│   ├── 53
+│   │   ├── 53.svg
+│   │   └── index.html
+│   ├── 53.html
+│   ├── 54
+│   │   ├── 54.svg
+│   │   └── index.html
+│   ├── 54.html
+│   ├── 55
+│   │   ├── 55.svg
+│   │   └── index.html
+│   ├── 55.html
+│   ├── 56
+│   │   ├── 56.svg
+│   │   └── index.html
+│   ├── 56.html
+│   ├── 57
+│   │   ├── 57.svg
+│   │   └── index.html
+│   ├── 57.html
+│   ├── 58
+│   │   ├── 58.svg
+│   │   └── index.html
+│   ├── 58.html
+│   ├── 59
+│   │   ├── 59.svg
+│   │   └── index.html
+│   ├── 59.html
+│   ├── 5.html
+│   ├── 6
+│   │   ├── 6.svg
+│   │   └── index.html
+│   ├── 60
+│   │   ├── 60.svg
+│   │   └── index.html
+│   ├── 60.html
+│   ├── 61
+│   │   ├── 61.svg
+│   │   └── index.html
+│   ├── 61.html
+│   ├── 62
+│   │   ├── 62.svg
+│   │   └── index.html
+│   ├── 62.html
+│   ├── 63
+│   │   ├── 63.svg
+│   │   └── index.html
+│   ├── 63.html
+│   ├── 64
+│   │   ├── 64.svg
+│   │   └── index.html
+│   ├── 64.html
+│   ├── 65
+│   │   ├── 65.svg
+│   │   └── index.html
+│   ├── 65.html
+│   ├── 66
+│   │   ├── 66.svg
+│   │   └── index.html
+│   ├── 66.html
+│   ├── 67
+│   │   ├── 67.svg
+│   │   └── index.html
+│   ├── 67.html
+│   ├── 68
+│   │   ├── 68.svg
+│   │   └── index.html
+│   ├── 68.html
+│   ├── 69
+│   │   ├── 69.svg
+│   │   └── index.html
+│   ├── 69.html
+│   ├── 6.html
+│   ├── 7
+│   │   ├── 7.svg
+│   │   └── index.html
+│   ├── 70
+│   │   ├── 70.svg
+│   │   └── index.html
+│   ├── 70.html
+│   ├── 71
+│   │   ├── 71.svg
+│   │   └── index.html
+│   ├── 71.html
+│   ├── 72
+│   │   ├── 72.svg
+│   │   └── index.html
+│   ├── 72.html
+│   ├── 73
+│   │   ├── 73.svg
+│   │   └── index.html
+│   ├── 73.html
+│   ├── 74
+│   │   ├── 74.svg
+│   │   └── index.html
+│   ├── 74.html
+│   ├── 75
+│   │   ├── 75.svg
+│   │   └── index.html
+│   ├── 75.html
+│   ├── 76
+│   │   ├── 76.svg
+│   │   └── index.html
+│   ├── 76.html
+│   ├── 77
+│   │   ├── 77.svg
+│   │   └── index.html
+│   ├── 77.html
+│   ├── 78
+│   │   ├── 78.svg
+│   │   └── index.html
+│   ├── 78.html
+│   ├── 7.html
+│   ├── 8
+│   │   ├── 8.svg
+│   │   └── index.html
+│   ├── 8.html
+│   ├── 9
+│   │   ├── 9.svg
+│   │   └── index.html
+│   ├── 9.html
+│   ├── annotations.json
+│   ├── config.js
+│   ├── fonts
+│   │   ├── CMB10_ae.woff
+│   │   ├── CMCSC10_6c.woff
+│   │   ├── CMMI10_6h.woff
+│   │   ├── CMMI8_6k.woff
+│   │   ├── CMR10_ag.woff
+│   │   ├── CMR8_6d.woff
+│   │   ├── CMSL10_6i.woff
+│   │   ├── CMSS10_6l.woff
+│   │   ├── CMSY10_6f.woff
+│   │   ├── CMSY8_61.woff
+│   │   ├── CMTI10_6e.woff
+│   │   ├── CMTI8_1t.woff
+│   │   ├── CMTT10_6j.woff
+│   │   ├── index.html
+│   │   └── MSBM10_6g.woff
+│   ├── index.html
+│   ├── search.json
+│   └── thumbnails
+│       ├── 10.jpg
+│       ├── 11.jpg
+│       ├── 12.jpg
+│       ├── 13.jpg
+│       ├── 14.jpg
+│       ├── 15.jpg
+│       ├── 16.jpg
+│       ├── 17.jpg
+│       ├── 18.jpg
+│       ├── 19.jpg
+│       ├── 1.jpg
+│       ├── 20.jpg
+│       ├── 21.jpg
+│       ├── 22.jpg
+│       ├── 23.jpg
+│       ├── 24.jpg
+│       ├── 25.jpg
+│       ├── 26.jpg
+│       ├── 27.jpg
+│       ├── 28.jpg
+│       ├── 29.jpg
+│       ├── 2.jpg
+│       ├── 30.jpg
+│       ├── 31.jpg
+│       ├── 32.jpg
+│       ├── 33.jpg
+│       ├── 34.jpg
+│       ├── 35.jpg
+│       ├── 36.jpg
+│       ├── 37.jpg
+│       ├── 38.jpg
+│       ├── 39.jpg
+│       ├── 3.jpg
+│       ├── 40.jpg
+│       ├── 41.jpg
+│       ├── 42.jpg
+│       ├── 43.jpg
+│       ├── 44.jpg
+│       ├── 45.jpg
+│       ├── 46.jpg
+│       ├── 47.jpg
+│       ├── 48.jpg
+│       ├── 49.jpg
+│       ├── 4.jpg
+│       ├── 50.jpg
+│       ├── 51.jpg
+│       ├── 52.jpg
+│       ├── 53.jpg
+│       ├── 54.jpg
+│       ├── 55.jpg
+│       ├── 56.jpg
+│       ├── 57.jpg
+│       ├── 58.jpg
+│       ├── 59.jpg
+│       ├── 5.jpg
+│       ├── 60.jpg
+│       ├── 61.jpg
+│       ├── 62.jpg
+│       ├── 63.jpg
+│       ├── 64.jpg
+│       ├── 65.jpg
+│       ├── 66.jpg
+│       ├── 67.jpg
+│       ├── 68.jpg
+│       ├── 69.jpg
+│       ├── 6.jpg
+│       ├── 70.jpg
+│       ├── 71.jpg
+│       ├── 72.jpg
+│       ├── 73.jpg
+│       ├── 74.jpg
+│       ├── 75.jpg
+│       ├── 76.jpg
+│       ├── 77.jpg
+│       ├── 78.jpg
+│       ├── 7.jpg
+│       ├── 8.jpg
+│       ├── 9.jpg
+│       └── index.html
+├── calculus-book.html
+├── calculus.html
+├── class-10-icse-maths
+│   ├── 2024-2025-icse
+│   │   ├── banking.aux
+│   │   ├── banking.log
+│   │   ├── banking.pdf
+│   │   ├── banking.synctex.gz
+│   │   ├── banking.tex
+│   │   ├── equation-of-line.aux
+│   │   ├── equation-of-line.log
+│   │   ├── equation-of-line.pdf
+│   │   ├── equation-of-line.synctex.gz
+│   │   ├── equation-of-line.tex
+│   │   ├── gst
+│   │   ├── gst-1.aux
+│   │   ├── gst-1.log
+│   │   ├── gst-1.pdf
+│   │   ├── gst-1.synctex.gz
+│   │   ├── gst-1.tex
+│   │   ├── heights-and-distance.aux
+│   │   ├── heights-and-distance.log
+│   │   ├── heights-and-distance.pdf
+│   │   ├── heights-and-distance.synctex.gz
+│   │   ├── heights-and-distance.tex
+│   │   ├── index.html
+│   │   ├── probablity.aux
+│   │   ├── probablity.log
+│   │   ├── probablity.pdf
+│   │   ├── probablity.synctex.gz
+│   │   ├── probablity.tex
+│   │   ├── reaminder-and-factor-therorem.aux
+│   │   ├── reaminder-and-factor-therorem.log
+│   │   ├── reaminder-and-factor-therorem.pdf
+│   │   ├── reaminder-and-factor-therorem.synctex.gz
+│   │   ├── reaminder-and-factor-therorem-tex
+│   │   ├── reaminder-and-factor-therorem.tex
+│   │   ├── section-formula.aux
+│   │   ├── section-formula.log
+│   │   ├── section-formula.pdf
+│   │   ├── section-formula.tex
+│   │   ├── trignometry-mcq.aux
+│   │   ├── trignometry-mcq.log
+│   │   ├── trignometry-mcq.pdf
+│   │   ├── trignometry-mcq.synctex.gz
+│   │   ├── trignometry-mcq.tex
+│   │   ├── trignometry-test-1-draft.aux
+│   │   ├── trignometry-test-1-draft.log
+│   │   ├── trignometry-test-1-draft.pdf
+│   │   ├── trignometry-test-1-draft.synctex.gz
+│   │   └── trignometry-test-1-draft.tex
+│   ├── christnagar-christmas-exam-class-10-2024.pdf
+│   ├── circle
+│   │   ├── circles-hw.odt
+│   │   ├── circles-hw.pdf
+│   │   ├── circles.odt
+│   │   └── index.html
+│   ├── class 10 icse question paper
+│   │   ├── 2022.pdf
+│   │   ├── ICSE 1996 MATHEMATICS - Worksheet _ Test Paper.pdf
+│   │   ├── ICSE 1997 MATHEMATICS - Worksheet _ Test Paper.pdf
+│   │   ├── ICSE 1998 MATHEMATICS - Worksheet _ Test Paper.pdf
+│   │   ├── ICSE 1999 MATHEMATICS - Worksheet _ Test Paper.pdf
+│   │   ├── ICSE Board 10th exam Maths Previous year question papers Mathematics 2007.pdf
+│   │   ├── ICSE Class 10 MATHS Previous year question paper 2008.pdf
+│   │   ├── ICSE Class 10 MATHS Previous year question paper 2009.pdf
+│   │   ├── ICSE-Class-10-Maths-Previous-Year-Question-Paper-2010.pdf
+│   │   ├── ICSE-Class-10-Maths-Previous-Year-Question-Paper-2011.pdf
+│   │   ├── ICSE-Class-10-Maths-Previous-Year-Question-Paper-2012.pdf
+│   │   ├── ICSE-Class-10-Maths-Previous-Year-Question-Paper-2013.pdf
+│   │   ├── ICSE-Class-10-Maths-Previous-Year-Question-Paper-2014.pdf
+│   │   ├── ICSE-Class-10-Maths-Previous-Year-Question-Paper-2016.pdf
+│   │   ├── ICSE-Class-10-Maths-Question-Paper-1-2017.pdf
+│   │   ├── ICSE-Class-10-Maths-Question-Paper-1-2018.pdf
+│   │   ├── ICSE-Class-10-Maths-Question-Paper-1-2019.pdf
+│   │   ├── ICSE-Class-10-Maths-Question-Paper-1-2020.pdf
+│   │   ├── ICSE-X-Maths-2015.pdf
+│   │   ├── index.html
+│   │   ├── MATHEMATICS-ICSE-2005.pdf
+│   │   ├── MATHEMATICS-PAPER-ICSE-2006.pdf
+│   │   ├── maths_2022.odt
+│   │   ├── scribfree.com_icse-2000-mathematics.pdf
+│   │   ├── scribfree.com_icse-2001-mathematics.pdf
+│   │   ├── scribfree.com_icse-2002-mathematics.pdf
+│   │   ├── scribfree.com_icse-2003-mathematics.pdf
+│   │   └── scribfree.com_icse-2004-mathematics.pdf
+│   ├── class 10 maths icse
+│   │   ├── 1.png
+│   │   ├── 2.png
+│   │   ├── 3.png
+│   │   ├── 4.png
+│   │   ├── 5.png
+│   │   ├── a.odg
+│   │   ├── a.pdf
+│   │   ├── assignment
+│   │   │   ├── index.html
+│   │   │   └── QUEST-BOOK-ICSE-10-Maths.pdf
+│   │   ├── board papers
+│   │   │   ├── index.html
+│   │   │   └── MATHEMATICS-ICSE-2005.pdf
+│   │   └── index.html
+│   ├── Good-Reviosn-questions-icse-class-10QUEST-BOOK-ICSE-10-Maths.pdf
+│   ├── holyangels-question-paper-class-10
+│   │   ├── holy-angels-exam.pdf
+│   │   ├── index.html
+│   │   └── qp-hac-model-1.pdf
+│   ├── index.html
+│   ├── loci
+│   │   ├── construction-selina.pdf
+│   │   ├── index.html
+│   │   ├── locus-and-construction
+│   │   │   ├── board-2024-similarity.jpg
+│   │   │   ├── constructions.pdf
+│   │   │   ├── index.html
+│   │   │   ├── locus.pdf
+│   │   │   ├── locus-questions.pdf
+│   │   │   ├── qlocus-2010.jpg
+│   │   │   ├── ques-sim.jpg
+│   │   │   ├── question-11.png
+│   │   │   ├── question16.png
+│   │   │   ├── question-20.png
+│   │   │   ├── Screenshot 2024-12-15 195102.png
+│   │   │   ├── Screenshot 2024-12-15 195156.png
+│   │   │   └── Screenshot 2024-12-15 195231.png
+│   │   ├── locus-and-construction.zip
+│   │   ├── locus-pyq-1.pdf
+│   │   └── locusPYQs.pdf
+│   ├── median
+│   │   ├── index.html
+│   │   └── median.pdf
+│   ├── mohammed-class-10-icse-2024
+│   │   ├── index.html
+│   │   └── question-paper-cns-2024
+│   │       ├── index.html
+│   │       └── question-paper-2024-july-class-ten-icse.zip
+│   ├── please-sort-it-out-pdfs-chapter-wise
+│   │   ├── Adobe Scan Jan 27, 2023.pdf
+│   │   ├── AP.pdf
+│   │   ├── Banking.pdf
+│   │   ├── circle.pdf
+│   │   ├── Factorisation.pdf
+│   │   ├── GP.pdf
+│   │   ├── GST.pdf
+│   │   ├── ICSE Class 10 Maths MCQ Arithmetic Progression (1).pdf
+│   │   ├── ICSE Class 10 Maths MCQ - Banking.pdf
+│   │   ├── ICSE Class 10 Maths MCQ - GST.pdf
+│   │   ├── index.html
+│   │   ├── KISA Maths 2023 - 2.pdf
+│   │   ├── kisa math sol.pdf
+│   │   ├── Linear inequations.pdf
+│   │   ├── locus.pdf
+│   │   ├── maths (1).pdf
+│   │   ├── Maths  (1).pdf
+│   │   ├── Maths (1).pdf
+│   │   ├── maths (2).pdf
+│   │   ├── Maths (2).pdf
+│   │   ├── Maths Formula List - Vasanth.pdf
+│   │   ├── maths half yearly.pdf
+│   │   ├── Maths Midterm Paper PPMA 2024.pdf
+│   │   ├── Maths question paper📄.pdf
+│   │   ├── Maths Term 1 - QPs 1,2,3.pdf
+│   │   ├── matrix.pdf
+│   │   ├── MCQ - AP.pdf
+│   │   ├── MCQ - Banking.pdf
+│   │   ├── MCQ - Linear Inequations.pdf
+│   │   ├── MCQ - Matrices.pdf
+│   │   ├── MCQ - Proportion.pdf
+│   │   ├── MCQ - QE.docx.pdf
+│   │   ├── MCQ - QE -Word problems.pdf
+│   │   ├── MCQ - RFT.pdf
+│   │   ├── MCQ - Similarites.pdf
+│   │   ├── mensuration.pdf
+│   │   ├── photo_6093821383818721331_y.jpg
+│   │   ├── photo_6093821383818721332_y.jpg
+│   │   ├── photo_6093821383818721333_y.jpg
+│   │   ├── photo_6093821383818721334_y.jpg
+│   │   ├── photo_6093821383818721335_y.jpg
+│   │   ├── photo_6143355752744598338_y.jpg
+│   │   ├── photo_6143355752744598339_y.jpg
+│   │   ├── photo_6143355752744598340_y.jpg
+│   │   ├── photo_6143355752744598341_y.jpg
+│   │   ├── photo_6143355752744598342_y.jpg
+│   │   ├── photo_6143355752744598343_y.jpg
+│   │   ├── photo_6143355752744598344_y.jpg
+│   │   ├── photo_6143355752744598345_y.jpg
+│   │   ├── photo_6143355752744598346_y.jpg
+│   │   ├── Practice Paper Maths.pdf
+│   │   ├── Preboards Papers Eng,Phy,Maths.pdf
+│   │   ├── probability.pdf
+│   │   ├── quadratic equations.pdf
+│   │   ├── ratio-proportions .pdf
+│   │   ├── Shares and dividends .pdf
+│   │   ├── similarity.pdf
+│   │   └── trigonometry.pdf
+│   ├── previous-year-icse-chapter-wise
+│   │   ├── index.html
+│   │   └── matrices.pdf
+│   ├── previous year maths icse
+│   │   ├── 1996.pdf
+│   │   ├── 1997.pdf
+│   │   ├── 1998.pdf
+│   │   ├── 1999.pdf
+│   │   ├── 2000.pdf
+│   │   ├── 2001.pdf
+│   │   ├── 2002.pdf
+│   │   ├── 2003.pdf
+│   │   ├── 2004.pdf
+│   │   ├── 2005.pdf
+│   │   ├── 2006.pdf
+│   │   ├── 2007.pdf
+│   │   ├── 2008.pdf
+│   │   ├── 2009.pdf
+│   │   ├── 2010.pdf
+│   │   ├── 2011.pdf
+│   │   ├── 2012.pdf
+│   │   ├── 2013.pdf
+│   │   ├── 2014.pdf
+│   │   ├── 2015.pdf
+│   │   ├── 2016.pdf
+│   │   ├── 2017.pdf
+│   │   ├── 2018.pdf
+│   │   ├── 2019.pdf
+│   │   ├── 2020.pdf
+│   │   ├── 2022.pdf
+│   │   └── index.html
+│   ├── previous-year-questions-as-a-whole
+│   │   ├── icse_board_previous_year_questions_chapter_wise.pdf
+│   │   ├── index.html
+│   │   └── trignometry_hw.pdf
+│   ├── probability
+│   │   ├── index.html
+│   │   └── probability.pdf
+│   ├── quadratic-equations
+│   │   ├── ICSE Class 10 Maths Previous Years Questions Chapter-Quadratic Equations - The Brainbox Tutorials.pdf
+│   │   ├── ICSE CLASS 10 quadratic equations PYQs.pdf
+│   │   ├── index.html
+│   │   ├── quadratic-equations-1.pdf
+│   │   ├── quadratic-equations.pdf
+│   │   └── quadratic-pyq-icse.pdf
+│   ├── revision-2024-2025-batch
+│   │   ├── index.html
+│   │   ├── Maths-Class10-Worksheet5.pdf
+│   │   ├── Maths-Class10-Worksheet6-pdf.pdf.pdf
+│   │   ├── QUEST-BOOK-ICSE-10-Maths.pdf
+│   │   └── revision-schedule-class-10-icse.odt
+│   ├── revision-first-term
+│   │   ├── index.html
+│   │   └── math-rev-1.odt
+│   ├── selfstudy
+│   │   ├── index.html
+│   │   └── self-study-1question-paper-class-8.pdf
+│   ├── shares-and-divident
+│   │   ├── index.html
+│   │   ├── Mensuration 3 extended ms.pdf
+│   │   ├── Selina-Solution-Concise-Maths-Class-10-Chapter-3-Exercise-3A.pdf
+│   │   └── Selina-Solution-Concise-Maths-Class-10-Chapter-3-Exercise-3B.pdf
+│   └── similarity
+│       ├── chapter-15-similarity--with-applications-to-maps-and-models-.pdf
+│       ├── class-work-questions.odt
+│       ├── class-work-questions.pdf
+│       ├── Geometry 08 Similarity-l.odp
+│       ├── Geometry 08 Similarity-l.pdf
+│       ├── Geometry 08 Similarity.pptx
+│       ├── index.html
+│       ├── selina-concise-mathematics-class-10-solutions-chapter-15.pdf
+│       ├── SIMILARITY PYQs.pdf
+│       ├── similarity-questions.pdf
+│       └── Similar Triangles PPT and examples.ppt
+├── complex
+│   ├── complex-2.html
+│   ├── complex.html
+│   └── index.html
+├── complex-analysis]
+├── determinants.html
+├── functional-analysis
+├── functional-analysis.html
+├── graph
+│   ├── 1
+│   ├── graph-books.html
+│   └── index.html
+├── ict-tools-for-online-teachin
+├── iit1
+│   ├── iit1.html
+│   ├── img1.png
+│   ├── img2.png
+│   ├── img3.png
+│   ├── img4.png
+│   ├── img5.png
+│   ├── index.html
+│   ├── Screenshot from 2024-05-02 13-59-24.png
+│   └── Screenshot from 2024-05-02 13-59-38.png
+├── index.html
+├── index.py
+├── inverse.html
+├── keam
+│   └── maths-keam-pyq.html
+├── ktu-s4
+│   ├── hypo1.html
+│   ├── hypo2.html
+│   ├── hypo.html
+│   ├── index.html
+│   └── testhyp.html
+├── langranges.html
+├── lattice-theory
+├── laurent
+│   ├── applications-1.html
+│   ├── applications.html
+│   ├── complex
+│   ├── index.html
+│   └── laurent.html
+├── lpp.odt
+├── lyrah-bro
+│   ├── calculus.html
+│   └── index.html
+├── lyrah-bro.txt
+├── machine-learning.html
+├── mathematicians
+├── matrix.html
+├── max.html
+├── maxima-minima-3-variables.htm-bak
+├── maxima-minima-3-variables.html
+├── metric-space
+├── partial-derivative.html
+├── plaist.txt
+├── playlist-to-watch.html
+├── playlist-to-watch.html-bak
+├── plus-two
+│   ├── bayes-slide.html
+│   ├── index.html
+│   └── probability
+│       ├── bayes-slide.html
+│       ├── bayes-slide.html-bak1
+│       ├── bayes-slide.html-bak2
+│       └── index.html
+├── plus-two-cbse
+│   ├── 01realtions_and_functions
+│   │   ├── 0_WORKSHEET_2_FUNCTIONS.pdf
+│   │   ├── 1_self-study.pdf
+│   │   ├── 4_important-previous-year-questions.pdf
+│   │   ├── akash_Byjus_pdf.pdf
+│   │   ├── CH 1 ARQ.pdf
+│   │   ├── CH 1 CBQ.pdf
+│   │   ├── davecae-funcitons.pdf
+│   │   ├── DGT_Sets_Relations_and_Functions.pdf
+│   │   ├── Function-JEE-Advanced-Previous-Year-Questions-with-Solutions.docx.pdf
+│   │   ├── generate-index.py
+│   │   ├── hw-day-1.odt
+│   │   ├── hw-functions-day1.pdf
+│   │   ├── index.html
+│   │   ├── input.pdf
+│   │   ├── relation_and_functions_case-study.pdf
+│   │   ├── relation_and_function_ziet_buvenewwar.pdf
+│   │   └── relations.html
+│   └── index.html
+├── probability.html
+├── random-variables-and-functional-analysis
+├── read-math
+├── real-analyisis-application.html
+├── real-analysis
+├── realworld.html
+├── resources.html
+├── robotics-and-ai
+│   └── robotics.html
+├── small.html
+├── small.html-add
+├── statistics
+├── style.css
+├── styles.css
+├── to-watch.html
+├── tree.txt
+├── vector
+│   ├── 3d.html
+│   └── index.html
+├── vector-calculus.html
+└── wavelets.html
+
+120 directories, 678 files
