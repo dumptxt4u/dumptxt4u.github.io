@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTU MAT102 - Premium ODE Playlists</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .navbar {
+            background: linear-gradient(90deg, #0d6efd, #6610f2) !important;
+        }
+        .hero {
+            background: linear-gradient(rgba(13, 110, 253, 0.85), rgba(102, 16, 242, 0.85)), url('https://source.unsplash.com/1600x900/?mathematics,equation') center/cover;
+            color: white;
+            padding: 120px 0 80px;
+        }
+        .playlist-card {
+            transition: all 0.4s ease;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            height: 100%;
+        }
+        .playlist-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(13, 110, 253, 0.25);
+        }
+        .yt-icon {
+            font-size: 3rem;
+            color: #ff0000;
+        }
+        .badge-ktu {
+            background: linear-gradient(90deg, #198754, #0d6efd);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#"><i class="fas fa-university"></i> KTU MAT102</a>
+            <span class="navbar-text fw-bold fs-5">Ordinary Differential Equations - Premium Playlists</span>
+        </div>
+    </nav>
+
+    <div class="hero text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Best YouTube Playlists for ODE</h1>
+            <p class="lead mb-4">High-quality university-level playlists perfect for KTU S2 MAT102 Module 3</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <span class="badge badge-ktu fs-6 px-4 py-3">MIT • Steve Brunton • Dr. Trefor Bazett • Professor Leonard</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row g-4" id="playlistContainer"></div>
+
+        <div class="mt-5 alert alert-info">
+            <strong>Tip for KTU Students:</strong> Start with Steve Brunton or Dr. Trefor Bazett playlists for excellent conceptual clarity. Use Professor Leonard for detailed problem solving.
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-5 text-center">
+        <p>Curated Premium ODE Playlists for KTU MAT102 • All links open in new tab</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const playlists = [
+            {
+                title: "MIT 18.03 Differential Equations",
+                channel: "MIT OpenCourseWare",
+                videos: "Full Course",
+                desc: "Classic MIT course on Differential Equations. Excellent for strong foundation.",
+                playlistUrl: "https://www.youtube.com/playlist?list=PLUl4u3cNGP63oTpyxCMLKt_JmB0WtSZfG",
+                startVideo: "https://www.youtube.com/watch?v=ZvL88xqYSak"
+            },
+            {
+                title: "Professor Leonard - Differential Equations",
+                channel: "Professor Leonard",
+                videos: "Complete Series",
+                desc: "Very detailed, slow-paced, and student-friendly. Highly recommended for engineering students.",
+                playlistUrl: "https://www.youtube.com/playlist?list=PLEC88901EBADDD980",
+                startVideo: "https://www.youtube.com/watch?v=XDhJ8lVGbl8"
+            },
+            {
+                title: "Differential Equations (Professor Leonard Alternate / GATE)",
+                channel: "Professor Leonard",
+                videos: "Full Playlist",
+                desc: "Another excellent series from Professor Leonard focused on problem solving.",
+                playlistUrl: "https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E",
+                startVideo: "https://www.youtube.com/watch?v=76WdBlGpxVw"
+            },
+            {
+                title: "Ordinary Differential Equations (Dr. Trefor Bazett)",
+                channel: "Dr. Trefor Bazett",
+                videos: "25 Videos",
+                desc: "Beautiful explanations with clear visuals. One of the best modern ODE playlists.",
+                playlistUrl: "https://www.youtube.com/playlist?list=PLHXZ9OQGMqxde-SlgmWlCmNHroIWtujBw",
+                startVideo: "https://www.youtube.com/watch?v=B5IjsTONKkw"
+            },
+            {
+                title: "Essence of Differential Equations / 3Blue1Brown Style",
+                channel: "3Blue1Brown",
+                videos: "Visual Intuition Series",
+                desc: "Visual and intuitive understanding of ODE concepts (highly recommended).",
+                playlistUrl: "https://www.youtube.com/playlist?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6",
+                startVideo: "https://www.youtube.com/watch?v=p_x2y8z8q3g"
+            },
+            {
+                title: "Ordinary Differential Equations - Full Course",
+                channel: "Maths by Dr. Gajendra Purohit",
+                videos: "Multiple Lectures",
+                desc: "Popular Indian educator series covering complete syllabus.",
+                playlistUrl: "https://www.youtube.com/playlist?list=PLBh2i93oe2qtAFfLUm_dAVcTf3N9McK0U",
+                startVideo: "https://www.youtube.com/watch?v=pOD5oKpBP-c"
+            },
+            {
+                title: "Engineering Math: Differential Equations and Dynamical Systems",
+                channel: "Steve Brunton",
+                videos: "49 Videos",
+                desc: "Excellent applied approach with real engineering examples. Perfect for B.Tech.",
+                playlistUrl: "https://www.youtube.com/playlist?list=PLMrJAkhIeNNTYaOnVI3QpH7jgULnAmvPA",
+                startVideo: "https://www.youtube.com/watch?v=Em339AlejIs"
+            }
+        ];
+
+        let html = '';
+        playlists.forEach((pl, index) => {
+            html += `
+            <div class="col-lg-6 col-xl-4">
+                <div class="card playlist-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="fab fa-youtube yt-icon"></i>
+                            <div class="flex-grow-1">
+                                <h5 class="card-title">${pl.title}</h5>
+                                <p class="text-primary fw-semibold mb-1">${pl.channel}</p>
+                                <p class="card-text text-muted">${pl.desc}</p>
+                                <p class="small text-success">${pl.videos}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white d-flex gap-2">
+                        <a href="${pl.playlistUrl}" target="_blank" class="btn btn-outline-primary flex-fill">
+                            <i class="fas fa-list"></i> Full Playlist
+                        </a>
+                        <a href="${pl.startVideo}" target="_blank" class="btn btn-danger flex-fill">
+                            <i class="fab fa-youtube"></i> Start Watching
+                        </a>
+                    </div>
+                </div>
+            </div>`;
+        });
+
+        document.getElementById('playlistContainer').innerHTML = html;
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTU MAT102 - Previous Year ODE Questions (Module 3)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background: linear-gradient(135deg, #f0f4f8, #d9e2ec); font-family: 'Segoe UI', sans-serif; }
+        .navbar { background: linear-gradient(90deg, #0d6efd, #6610f2); }
+        .card { transition: all 0.3s ease; border: none; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+        .question-header { background: linear-gradient(90deg, #0d6efd, #198754); color: white; }
+        pre { background: #f8f9fa; border-left: 4px solid #0d6efd; padding: 15px; border-radius: 8px; font-size: 0.95rem; overflow-x: auto; }
+        .badge-year { font-size: 0.8rem; }
+        .table th { background-color: #f1f3f5; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><i class="fas fa-university"></i> KTU MAT102</a>
+            <span class="navbar-text fw-semibold">Module 3: Ordinary Differential Equations - Previous Year Questions</span>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+            <i class="fas fa-info-circle fa-2x me-3"></i>
+            <div>
+                <strong>Compiled from Previous Years (2019 Scheme)</strong><br>
+                Dec 2019, Jan 2021, July 2021, June 2022, June 2023, Jan 2024, Dec 2024 &amp; Model Papers. 
+                More than 50 questions with variations.
+            </div>
+        </div>
+
+        <h1 class="text-center mb-5 display-5 fw-bold text-primary">Ordinary Differential Equations Previous Year Questions</h1>
+
+        <div class="row g-4" id="questionsContainer">
+            <!-- Questions populated via JS for easier management -->
+        </div>
+
+        <div class="mt-5 card">
+            <div class="card-header bg-warning text-dark fw-bold">
+                <i class="fas fa-lightbulb"></i> Exam Tips for ODE Module
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">• Homogeneous + Particular (Undetermined Coefficients / Variation of Parameters) = Most repeated 14-mark questions</li>
+                            <li class="list-group-item">• Always find Wronskian for linear independence</li>
+                            <li class="list-group-item">• Cauchy-Euler: Use x = e<sup>t</sup> substitution</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">• Practice IVPs with initial conditions</li>
+                            <li class="list-group-item">• Higher order equations frequently appear</li>
+                            <li class="list-group-item">• Recent trend: More Variation of Parameters &amp; System of DEs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 text-center">
+        <p>Best of Luck for KTU Exams! Compiled for quick revision • Save as HTML and open in browser</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const questions = [
+            { q: "Solve: (D² + 4D + 13)y = 0", year: "Jan 2024, July 2021" },
+            { q: "Solve: y'' + 6y' + 9y = 0", year: "Dec 2019" },
+            { q: "Solve by undetermined coefficients: y'' - 4y' + 4y = e^{2x} + x", year: "Jan 2024" },
+            { q: "Solve: y'' + y = x cos x", year: "June 2022" },
+            { q: "Using variation of parameters, solve: y'' + y = sec x", year: "July 2021, Jan 2024" },
+            { q: "Solve: y'' - y = e^x / x", year: "June 2023" },
+            { q: "Solve the Cauchy-Euler equation: x²y'' - 3xy' + 4y = 0", year: "June 2023" },
+            { q: "Solve: 2x²y'' + 5xy' - 3y = 0", year: "Dec 2024" },
+            { q: "Solve the system: (D+1)x + (D-1)y = e^t , (D-1)x + (D+1)y = 0", year: "Jan 2024" },
+            { q: "Solve: y''' - 3y'' + 3y' - y = e^x", year: "July 2021" },
+            { q: "Solve with IC: y'' + 3y' + 2y = 0, y(0)=1, y'(0)=0", year: "Dec 2019" },
+            { q: "Solve IVP: y'' + y = 30e^x, y(0)=3, y'(0)=-3", year: "June 2022" },
+            { q: "Find the general solution: y'' + 4y' + 5y = 0", year: "Model Paper" },
+            { q: "Solve: y'' - 6y' + 9y = e^{3x}", year: "Jan 2021" },
+            { q: "Using undetermined coefficients: y'' + y' - 2y = sin x", year: "June 2023" },
+            { q: "Solve: x²y'' - xy' + y = 0", year: "July 2021" },
+            { q: "Variation of parameters: y'' + 4y = tan 2x", year: "Dec 2024" },
+            { q: "Solve: (D² + 2D + 5)y = x e^{-x}", year: "Jan 2024" },
+            { q: "Find Wronskian for y1 = e^x, y2 = x e^x", year: "Multiple" },
+            { q: "Solve higher order: y^{(4)} + 2y'' + y = 0", year: "June 2022" },
+            { q: "Solve: y'' + 9y = e^{3x} cos 3x", year: "July 2021" },
+            { q: "Cauchy-Euler: x²y'' + 3xy' + y = ln x", year: "Jan 2024" },
+            { q: "Solve IVP: y'' - 5y' + 6y = 0, y(0)=1, y'(0)=4", year: "Dec 2019" },
+            { q: "y'' + 2y' + y = x e^{-x}", year: "June 2023" },
+            { q: "Solve: y'' - 4y = cos 2x", year: "Model" },
+            { q: "Using variation: y'' - 3y' + 2y = e^{2x} / (1 + e^x)", year: "Jan 2024" },
+            { q: "Solve the Euler equation: x² y'' - 5x y' + 9y = 0", year: "July 2021" },
+            { q: "y''' + 3y'' + 3y' + y = e^{-x}", year: "Dec 2024" },
+            { q: "Solve: (D² + 1)y = sec x", year: "June 2022" },
+            { q: "Find particular integral for y'' + y = x² + sin x", year: "Multiple" },
+            { q: "Solve system of DE: dx/dt = x + y, dy/dt = x - y", year: "Jan 2024" },
+            { q: "y'' + 4y' + 4y = e^{-2x} sin x", year: "June 2023" },
+            { q: "Cauchy-Euler with IC: x²y'' - 2xy' + 2y = 0, y(1)=1, y'(1)=0", year: "Dec 2019" },
+            { q: "Solve: y^{(4)} - y = 0", year: "Model" },
+            { q: "Variation of parameters for y'' + y = cot x", year: "July 2021" },
+            { q: "Solve: y'' - 2y' + y = x e^x", year: "Jan 2024" },
+            { q: "Find general solution of y'' + 6y' + 13y = 0", year: "Multiple" },
+            { q: "Undetermined coefficients: y'' + y = x² e^x", year: "June 2022" },
+            { q: "Solve IVP: y' + y = e^x, y(0)=0 (First order as warm-up)", year: "Dec 2024" },
+            { q: "Higher order: (D-1)^3 y = e^x", year: "Jan 2021" },
+            { q: "Solve: x²y'' + xy' - 4y = x^3", year: "June 2023" },
+            { q: "y'' + 4y = 8x sin 2x", year: "Model" },
+            { q: "Wronskian test: Are sin x and cos x linearly independent?", year: "Multiple" },
+            { q: "Solve: y'' - y' - 2y = 4 e^{2x}", year: "July 2021" },
+            { q: "Cauchy-Euler: 4x²y'' + 4xy' - y = 0", year: "Jan 2024" },
+            { q: "Using variation: y'' - 4y' + 4y = e^{2x}/x", year: "Dec 2024" },
+            { q: "Solve system: D²x - y = 0, x + D²y = 0", year: "June 2022" },
+            { q: "y''' - 6y'' + 11y' - 6y = 0", year: "Multiple" },
+            { q: "Solve with IC: y'' + 2y' + 5y = 0, y(0)=1, y'(0)=2", year: "Jan 2024" },
+            { q: "Particular integral for y'' + y' = x² + e^x", year: "June 2023" },
+            { q: "Euler equation: x²y'' - xy' + 5y = x", year: "Model" },
+            { q: "Solve: y'' + 9y = 9x + sin 3x", year: "July 2021" },
+            { q: "Variation of parameters for non-homogeneous term 1/x", year: "Dec 2019" },
+            { q: "Find complementary function and particular integral for y'' - 5y' + 6y = e^{3x} + sin x", year: "Jan 2024" }
+        ];
+
+        let html = '';
+        questions.forEach((item, index) => {
+            html += `
+            <div class="col-lg-6 col-md-12">
+                <div class="card h-100">
+                    <div class="card-header question-header fw-bold d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-question-circle"></i> Question ${index+1}</span>
+                        <span class="badge bg-light text-dark badge-year">${item.year}</span>
+                    </div>
+                    <div class="card-body">
+                        <pre class="mb-0">${item.q}</pre>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        <i class="fas fa-book"></i> MAT102 Module 3 - ODE
+                    </div>
+                </div>
+            </div>`;
+        });
+
+        document.getElementById('questionsContainer').innerHTML = html;
+    </script>
+</body>
+</html>
