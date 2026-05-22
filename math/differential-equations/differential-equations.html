@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Math: Differential Equations & Dynamical Systems</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body { 
+            background: #f8f9fa; 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+        }
+        .hero {
+            background: linear-gradient(135deg, #0d6efd, #6610f2);
+            color: white;
+            padding: 100px 0;
+        }
+        .video-card {
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+        }
+        .thumbnail-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .thumbnail-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .video-card:hover .thumbnail-container img {
+            transform: scale(1.08);
+        }
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .video-card:hover .play-overlay {
+            background: #ff0000;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        .card-body {
+            padding: 1.25rem;
+        }
+        .desc {
+            font-size: 0.875rem;
+            line-height: 1.45;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Engineering Math</h1>
+            <h2 class="mb-3">Differential Equations & Dynamical Systems</h2>
+            <p class="lead mb-4">Steve Brunton • University of Washington • 49 Lectures</p>
+            <a href="https://www.youtube.com/playlist?list=PLMrJAkhIeNNTYaOnVI3QpH7jgULnAmvPA" 
+               target="_blank" class="btn btn-light btn-lg px-4">
+                <i class="fab fa-youtube me-2"></i> Open Full Playlist on YouTube
+            </a>
+        </div>
+    </section>
+
+    <div class="container py-5">
+        <h3 class="mb-4">All Videos with Thumbnails</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="videoGrid"></div>
+    </div>
+
+    <footer class="bg-dark text-light py-5 text-center">
+        <div class="container">
+            <p class="mb-1">Steve Brunton – Differential Equations & Dynamical Systems (Complete Course)</p>
+            <small class="text-muted">Thumbnails &amp; curated descriptions for easy browsing</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const videos = [
+            { id: "9fQkLQZe3u8", title: "Differential Equations and Dynamical Systems: Overview", desc1: "Excellent course introduction covering what dynamical systems are.", desc2: "Applications in engineering, physics, biology, and control theory.", desc3: "Motivation and overview of the entire series." },
+            { id: "-NhgElcA3K8", title: "Calculus Review: The Derivative", desc1: "Quick review of differentiation fundamentals.", desc2: "Power rule and chain rule explained clearly.", desc3: "Essential prerequisite for differential equations." },
+            { id: "K-8F_zDMDUI", title: "Gentle Introduction to Modeling with Matrices and Vectors", desc1: "Probabilistic weather model as motivation.", desc2: "Introduction to linear algebra in modeling.", desc3: "Great bridge between math and real systems." },
+            { id: "BjvkBLfvkqY", title: "The Simplest Ordinary Differential Equation (ODE)", desc1: "First-order linear ODE solved analytically.", desc2: "Exponential growth/decay explained.", desc3: "Foundational example." },
+            { id: "3icbG3geC60", title: "Solving Differential Equations with Power Series", desc1: "Power series method for solving ODEs.", desc2: "Simple example with step-by-step derivation.", desc3: "Useful technique for many equations." },
+            { id: "ebfOSDj4j3I", title: "Taylor Series and Power Series Made Easy", desc1: "Visual and intuitive review of Taylor series.", desc2: "Why they are important in differential equations.", desc3: "Excellent intuitive explanation." },
+            { id: "H0Zbg_CqMCs", title: "Taylor Series of the Exponential Function and Euler's Formula", desc1: "Derivation of Euler's famous formula.", desc2: "Complex exponentials and connections to trig functions.", desc3: "Beautiful mathematical insight." },
+            { id: "8ePqqZXSMQs", title: "Second-Order Ordinary Differential Equations: Harmonic Oscillator", desc1: "Solving the harmonic oscillator four different ways.", desc2: "Mass-spring system analysis.", desc3: "Core example in mechanical systems." },
+            { id: "r1eWerqrcqo", title: "Example Second-Order ODE: Spring-Mass-Damper", desc1: "Realistic damped harmonic oscillator.", desc2: "Overdamped, critically damped, underdamped cases.", desc3: "Very practical engineering example." },
+            { id: "fi54Hz5TiWI", title: "More Examples of Second Order Differential Equations", desc1: "Additional physical examples.", desc2: "Various applications of 2nd order ODEs.", desc3: "Reinforces concepts from previous lectures." },
+            { id: "uIqJF1rgRJI", title: "High-Order Ordinary Differential Equations", desc1: "Higher-order ODEs from physics.", desc2: "Reduction to systems of first-order equations.", desc3: "Important modeling technique." },
+            { id: "vA3MjD0cfS4", title: "Solving General High-Order, Linear Ordinary Differential Equations", desc1: "General solution methods for linear ODEs.", desc2: "Characteristic equation approach.", desc3: "Systematic solving strategy." },
+            { id: "Vtijyyo5fKI", title: "Matrix Systems of Differential Equations", desc1: "Converting higher-order systems to matrix form.", desc2: "Vector form of ODEs.", desc3: "Foundation for eigenvalue methods." },
+            { id: "QYS-ML_vn4k", title: "Motivating Eigenvalues and Eigenvectors", desc1: "Why eigenvalues matter in dynamical systems.", desc2: "Physical intuition behind eigenvectors.", desc3: "Excellent motivation." },
+            { id: "ZSGrJBS_qtc", title: "Eigenvalues and Eigenvectors", desc1: "Clear explanation of eigenvalues/eigenvectors.", desc2: "Computation and geometric meaning.", desc3: "Core linear algebra concept." },
+            { id: "Zwb5eiYcL8w", title: "Solving Systems of Differential Equations with Eigenvalues", desc1: "Full solution using diagonalization.", desc2: "General solution for linear systems.", desc3: "Very important technique." },
+            { id: "NaNdkCPLftc", title: "2x2 Systems of ODEs: Sources and Sinks", desc1: "Phase plane analysis - stable nodes.", desc2: "Source and sink behavior.", desc3: "Visual dynamical systems." },
+            { id: "fA86UJcFM60", title: "2x2 Systems of ODEs: Saddle Points and Instability", desc1: "Saddle point behavior.", desc2: "Instability in dynamical systems.", desc3: "Important stability concepts." },
+            { id: "b7389fIVey0", title: "2x2 Systems of ODEs: Imaginary Eigenvalues and Centers", desc1: "Oscillatory behavior with pure imaginary eigenvalues.", desc2: "Center fixed points.", desc3: "Harmonic motion in phase space." },
+            { id: "XXjoh8L1HkE", title: "Stability and Eigenvalues", desc1: "Stability criteria based on eigenvalues.", desc2: "Re vs Im parts and system behavior.", desc3: "Crucial for understanding long-term dynamics." },
+            { id: "78we91-gWy8", title: "What is a Linear Differential Equation?", desc1: "Definition and properties of linearity.", desc2: "Superposition principle.", desc3: "Why linearity is powerful." },
+            { id: "RCWkzzLgwf0", title: "Linearizing Nonlinear Differential Equations", desc1: "Linear approximation of nonlinear systems.", desc2: "Local behavior near equilibrium.", desc3: "Key technique in nonlinear dynamics." },
+            { id: "d83Rq81Ojlc", title: "A Particle in a Potential Well: Nonlinear Dynamics", desc1: "Nonlinear example with potential energy.", desc2: "Qualitative analysis.", desc3: "Physical intuition for nonlinear systems." },
+            { id: "vBwyD4JJlSs", title: "Drawing Phase Portraits for Nonlinear Systems", desc1: "Step-by-step phase portrait construction.", desc2: "Nullclines and flow direction.", desc3: "Visual analysis tool." },
+            { id: "vuZmaSyJpUY", title: "Phase Portrait for Double Well Potential", desc1: "Classic double-well potential example.", desc2: "Multiple equilibria analysis.", desc3: "Bistable system." },
+            { id: "vRaUSnB7qNw", title: "The Hartman-Grobman Theorem", desc1: "Theoretical foundation for linearization.", desc2: "When linearization is valid.", desc3: "Advanced dynamical systems theory." },
+            { id: "5tjDDNp5v6I", title: "Non-Normal Linear Systems and Transient Energy Growth", desc1: "Non-normality in matrices.", desc2: "Transient growth despite stability.", desc3: "Important in fluid dynamics." },
+            { id: "9xWqNPXRl7o", title: "Repeated Eigenvalues and Secular Terms", desc1: "Jordan form and generalized eigenvectors.", desc2: "Transient growth in non-normal systems.", desc3: "Advanced linear algebra." },
+            { id: "SsCiQym5yQU", title: "Systems of Differential Equations: Diagonalization and Jordan Form", desc1: "Complete coverage of matrix diagonalization.", desc2: "Jordan canonical form for defective matrices.", desc3: "Full theoretical treatment." },
+            { id: "Jvmb2jeRaGE", title: "Differential Equations with Forcing: Undetermined Coefficients", desc1: "Method of undetermined coefficients.", desc2: "Particular solutions for forced systems.", desc3: "Practical solving technique." },
+            { id: "wCeDUbZQ_zA", title: "Differential Equations with Forcing: Variation of Parameters", desc1: "Variation of parameters method.", desc2: "More general than undetermined coefficients.", desc3: "Powerful solution method." },
+            { id: "vKgbYRw21xA", title: "Systems of Differential Equations with Forcing", desc1: "Forcing in multi-variable systems.", desc2: "Control theory motivation.", desc3: "Engineering application." },
+            { id: "q1phVuNCuf0", title: "Linear Systems with Forcing: Convolution and Dirac Delta", desc1: "Convolution integral.", desc2: "Impulse response and Green's function.", desc3: "Fundamental in linear systems." },
+            { id: "0zxHJd8OgE0", title: "Forced Systems in Matlab and Python", desc1: "Numerical implementation of forced systems.", desc2: "Code examples in both languages.", desc3: "Practical computing." },
+            { id: "9fGaTU1-f-0", title: "Numerical Differentiation with Finite Differences", desc1: "Finite difference approximations.", desc2: "Accuracy and error analysis.", desc3: "Foundation for numerical methods." },
+            { id: "dKyqCPjhv0I", title: "Numerical Differentiation: Second Derivatives", desc1: "Higher-order derivatives.", desc2: "Differentiating noisy data.", desc3: "Real-world considerations." },
+            { id: "W-wxKgjBDnc", title: "Sources of Error in Numerical Differentiation", desc1: "Truncation vs round-off error.", desc2: "Why we can't take dt → 0.", desc3: "Important numerical analysis." },
+            { id: "Xw6W3Ph3Wzc", title: "Numerical Integration: Riemann Sums and Trapezoid Rule", desc1: "Basic quadrature rules.", desc2: "Trapezoidal integration.", desc3: "Building toward ODE solvers." },
+            { id: "QBeNXHrAYns", title: "Numerical Simulation of Ordinary Differential Equations", desc1: "General framework for integrating ODEs.", desc2: "Overview of numerical integrators.", desc3: "Transition to specific methods." },
+            { id: "MstPeOTCVzQ", title: "Deriving Forward and Backward Euler Methods", desc1: "Derivation of explicit and implicit Euler.", desc2: "Basic time-stepping schemes.", desc3: "Foundation of numerical ODEs." },
+            { id: "ITFolyl_66U", title: "Forward and Backward Euler in Python and Matlab", desc1: "Code implementation of Euler methods.", desc2: "Practical coding examples.", desc3: "Hands-on learning." },
+            { id: "h2i550iaEv0", title: "Error Analysis of Euler Integration", desc1: "Local truncation error analysis.", desc2: "Order of accuracy.", desc3: "Theoretical understanding of errors." },
+            { id: "RdXCGnTT6UY", title: "Stability of Forward and Backward Euler Schemes", desc1: "Stability regions analysis.", desc2: "When methods blow up or dampen.", desc3: "Critical for choosing solvers." },
+            { id: "HOWJp8NV5xU", title: "Runge-Kutta Integrator Overview", desc1: "Comprehensive overview of Runge-Kutta methods.", desc2: "Why they are popular.", desc3: "All-purpose numerical integration." },
+            { id: "vNoFdtcPFdk", title: "Coding a Fourth-Order Runge-Kutta Integrator", desc1: "Implementation of classical RK4.", desc2: "Python and Matlab code.", desc3: "Ready-to-use solver." },
+            { id: "LRF4dGP4xeo", title: "Numerical Integration of Chaotic Dynamics", desc1: "Uncertainty in chaotic systems.", desc2: "Vectorized integration.", desc3: "Advanced numerical topics." },
+            { id: "PDeN3iCtyNY", title: "Chaotic Dynamical Systems", desc1: "Introduction to chaos theory.", desc2: "Lorenz attractor and sensitivity.", desc3: "Fascinating final topic." },
+            { id: "-CX9B_SB8ME", title: "Quick and Dirty Introduction to Python", desc1: "Python basics for engineers.", desc2: "Numpy and plotting.", desc3: "Prerequisite for coding lectures." },
+            { id: "U9EL8-9MuYA", title: "Quick and Dirty Introduction to Matlab", desc1: "MATLAB basics and syntax.", desc2: "Useful for numerical computing.", desc3: "Alternative to Python." }
+        ];
+
+        const grid = document.getElementById('videoGrid');
+
+        videos.forEach(video => {
+            const thumbnailUrl = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+            
+            const cardHTML = `
+                <div class="col">
+                    <div class="card video-card shadow-sm h-100">
+                        <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank" class="text-decoration-none">
+                            <div class="thumbnail-container">
+                                <img src="${thumbnailUrl}" alt="${video.title}" class="img-fluid">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-semibold mb-3">${video.title}</h5>
+                            <p class="desc flex-grow-1">
+                                ${video.desc1}<br>
+                                ${video.desc2}<br>
+                                ${video.desc3}
+                            </p>
+                            <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank" 
+                               class="btn btn-primary mt-3">
+                                <i class="fab fa-youtube"></i> Watch Video
+                            </a>
+                        </div>
+                    </div>
+                </div>`;
+            
+            grid.innerHTML += cardHTML;
+        });
+    </script>
+</body>
+</html>

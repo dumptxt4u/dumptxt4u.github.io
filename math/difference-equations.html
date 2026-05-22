@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stability of Difference Equations</title>
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d6efd;
+        }
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        .hero {
+            background: linear-gradient(rgba(13, 110, 253, 0.85), rgba(0, 47, 109, 0.9)), 
+                        url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover;
+            color: white;
+            padding: 120px 0 80px;
+        }
+        .nav-link {
+            font-weight: 500;
+        }
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(13, 110, 253, 0.2);
+        }
+        .video-card {
+            height: 100%;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary);
+            bottom: -8px;
+            left: 0;
+        }
+        .resource-link {
+            transition: all 0.2s;
+        }
+        .resource-link:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#">
+                <i class="fas fa-chart-line me-2"></i>
+                DiffEq Stability
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nptel">NPTEL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#lectures">Lectures</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Stability Conditions for Difference Equations</h1>
+            <p class="lead mb-5 col-lg-8 mx-auto">
+                Master numerical stability analysis, finite difference methods, and second-order difference equations with curated video lectures and NPTEL courses.
+            </p>
+            <a href="#resources" class="btn btn-light btn-lg px-5 py-3 rounded-pill fw-semibold">
+                Explore Resources <i class="fas fa-arrow-down ms-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <div class="container py-5">
+
+        <!-- Quick Links -->
+        <div id="resources" class="mb-5">
+            <h2 class="section-title display-6 mb-4">Featured Resources</h2>
+            
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 video-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-primary me-2">Stability</span>
+                            </div>
+                            <h5 class="card-title">Stability Conditions for Difference Equations</h5>
+                            <p class="text-muted small">Core lecture on stability analysis</p>
+                            <a href="https://www.youtube.com/watch?v=U9d8w70CBQE&t=1029s" target="_blank" 
+                               class="btn btn-outline-primary w-100">
+                                <i class="fab fa-youtube"></i> Watch Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 video-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-success me-2">2nd Order</span>
+                            </div>
+                            <h5 class="card-title">Second Order Difference Equations</h5>
+                            <p class="text-muted small">Detailed treatment of second-order systems</p>
+                            <a href="https://www.youtube.com/watch?v=u1ec0t1doAM&t=1212s" target="_blank" 
+                               class="btn btn-outline-primary w-100">
+                                <i class="fab fa-youtube"></i> Watch Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 video-card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-info me-2">NPTEL</span>
+                            </div>
+                            <h5 class="card-title">Finite Difference Methods - NPTEL</h5>
+                            <p class="text-muted small">Official NPTEL lecture series</p>
+                            <a href="https://www.youtube.com/watch?v=j5h-rFoiBgI&list=PLq-Gm0yRYwTizWtb_xwk0KEMzcoeLbOZq" target="_blank" 
+                               class="btn btn-outline-primary w-100">
+                                <i class="fab fa-youtube"></i> Playlist
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- All Resources -->
+        <h2 class="section-title display-6 mb-4" id="lectures">Complete Video Collection</h2>
+        
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="list-group">
+                    <a href="https://www.youtube.com/watch?v=U9d8w70CBQE&t=1029s" target="_blank" 
+                       class="list-group-item list-group-item-action resource-link d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>Stability Conditions for Difference Equations</strong>
+                            <small class="text-muted d-block">Core stability analysis lecture</small>
+                        </div>
+                        <i class="fas fa-external-link-alt text-primary"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=u1ec0t1doAM&t=1212s" target="_blank" 
+                       class="list-group-item list-group-item-action resource-link d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>Second Order Difference Equations</strong>
+                            <small class="text-muted d-block">Advanced second-order methods</small>
+                        </div>
+                        <i class="fas fa-external-link-alt text-primary"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=j5h-rFoiBgI&list=PLq-Gm0yRYwTizWtb_xwk0KEMzcoeLbOZq" target="_blank" 
+                       class="list-group-item list-group-item-action resource-link d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>NPTEL Finite Difference Methods</strong>
+                            <small class="text-muted d-block">Complete NPTEL playlist</small>
+                        </div>
+                        <i class="fas fa-external-link-alt text-primary"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=88ys5ZIolSg&list=PLC_rPNSm6iagB4aqOc-48eXws1fEtm3EA" target="_blank" 
+                       class="list-group-item list-group-item-action resource-link d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>NPTEL Numerical Methods</strong>
+                            <small class="text-muted d-block">Numerical Systems playlist</small>
+                        </div>
+                        <i class="fas fa-external-link-alt text-primary"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/@SwatiThengMathematics" target="_blank" 
+                       class="list-group-item list-group-item-action resource-link d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>Swati Theng Mathematics</strong>
+                            <small class="text-muted d-block">Excellent math education channel</small>
+                        </div>
+                        <i class="fas fa-external-link-alt text-primary"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=hjjAwWZdV5s&t=316s" target="_blank" 
+                       class="list-group-item list-group-item-action resource-link d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>R. Agarwal - Difference Equations (Lecture 1)</strong>
+                        </div>
+                        <i class="fas fa-external-link-alt text-primary"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=Z2lI_ZBMT0o" target="_blank" 
+                       class="list-group-item list-group-item-action resource-link d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>R. Agarwal - Difference Equations (Lecture 2)</strong>
+                        </div>
+                        <i class="fas fa-external-link-alt text-primary"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=-wVCKOvceok" target="_blank" 
+                       class="list-group-item list-group-item-action resource-link d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>R. Agarwal - Difference Equations</strong>
+                        </div>
+                        <i class="fas fa-external-link-alt text-primary"></i>
+                    </a>
+
+                    <a href="https://youtu.be/eybxWpVAu8I" target="_blank" 
+                       class="list-group-item list-group-item-action resource-link d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>Additional Stability Lecture</strong>
+                        </div>
+                        <i class="fas fa-external-link-alt text-primary"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/watch?v=eAaP4XaB8hM" target="_blank" 
+                       class="list-group-item list-group-item-action resource-link d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>Numerical Methods Lecture</strong>
+                        </div>
+                        <i class="fas fa-external-link-alt text-primary"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- NPTEL Section -->
+        <div id="nptel" class="mt-5">
+            <h2 class="section-title display-6 mb-4">NPTEL &amp; Structured Courses</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Finite Difference Methods</h5>
+                            <p class="card-text">Comprehensive NPTEL course covering discretization, stability, and implementation of finite difference schemes.</p>
+                            <a href="https://www.youtube.com/watch?v=j5h-rFoiBgI&list=PLq-Gm0yRYwTizWtb_xwk0KEMzcoeLbOZq" class="btn btn-primary" target="_blank">
+                                View Playlist →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Numerical Methods</h5>
+                            <p class="card-text">Broad NPTEL series including numerical systems, error analysis, and stability concepts.</p>
+                            <a href="https://www.youtube.com/watch?v=88ys5ZIolSg&list=PLC_rPNSm6iagB4aqOc-48eXws1fEtm3EA" class="btn btn-primary" target="_blank">
+                                View Playlist →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Learning Difference Equations</h5>
+                    <p class="text-muted">
+                        Curated collection for students and researchers studying stability analysis in numerical methods.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">
+                        Built with ❤️ using Bootstrap 5<br>
+                        <small class="text-muted">For educational purposes</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

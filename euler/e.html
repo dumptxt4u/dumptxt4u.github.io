@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Math Constants • e, π, Euler's Identity</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+            color: #e2e8f0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        .navbar { background: linear-gradient(90deg, #7c3aed, #ec4899) !important; }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://source.unsplash.com/1600x900/?cosmos,mathematics') center/cover;
+            padding: 140px 0 90px;
+        }
+        .video-card {
+            background: #1e2937;
+            border: none;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        .video-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(236, 72, 153, 0.4) !important;
+        }
+        .thumbnail {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 4px solid #ec4899;
+        }
+        .yt-icon { color: #ff0000; font-size: 1.8rem; }
+        .section-header {
+            position: relative;
+            display: inline-block;
+        }
+        .section-header:after {
+            content: '';
+            position: absolute;
+            width: 65%;
+            height: 5px;
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+            bottom: -12px;
+            left: 17%;
+            border-radius: 50px;
+        }
+        .short-badge { position: absolute; top: 12px; right: 12px; background: #22c55e; color: black; font-size: 0.75rem; padding: 3px 8px; border-radius: 20px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#"><i class="fas fa-infinity"></i> Beautiful Math</a>
+            <span class="navbar-text fw-bold fs-5">e • π • Euler's Identity &amp; More</span>
+        </div>
+    </nav>
+
+    <div class="hero text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-3">The Beauty of Mathematical Constants</h1>
+            <p class="lead fs-4">Stunning videos with **thumbnails** explaining <strong>e (Euler's Number)</strong>, <strong>π</strong>, Euler's Identity &amp; more</p>
+        </div>
+    </div>
+
+    <div class="container py-5">
+
+        <!-- User's Videos -->
+        <h2 class="section-header display-6 fw-bold text-center mb-5 text-warning">⭐ Your Selected Videos</h2>
+        <div class="row g-4" id="userVideos"></div>
+
+        <!-- Euler's Number e -->
+        <h2 class="section-header display-6 fw-bold text-center my-5 text-info">🌟 Euler's Number <strong>e</strong></h2>
+        <div class="row g-4" id="eVideos"></div>
+
+        <!-- Pi -->
+        <h2 class="section-header display-6 fw-bold text-center my-5 text-success">🌟 Pi <strong>π</strong> – Visual Masterpieces</h2>
+        <div class="row g-4" id="piVideos"></div>
+
+        <!-- Euler's Identity -->
+        <h2 class="section-header display-6 fw-bold text-center my-5 text-pink">🌟 Euler's Identity – Most Beautiful Equation</h2>
+        <div class="row g-4" id="eulerVideos"></div>
+
+        <!-- More Constants -->
+        <h2 class="section-header display-6 fw-bold text-center my-5 text-light">🌟 Golden Ratio, √2 &amp; Other Gems</h2>
+        <div class="row g-4" id="otherVideos"></div>
+
+    </div>
+
+    <footer class="bg-black text-white py-5 text-center">
+        <p>Curated collection of the most visually stunning math videos • Thumbnails included</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function getThumbnail(id) {
+            return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+        }
+
+        function createVideoCard(title, url, id) {
+            const isShort = url.includes('/shorts/');
+            return `
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card video-card h-100 shadow">
+                    <div class="position-relative">
+                        <img src="${getThumbnail(id)}" class="thumbnail" alt="${title}">
+                        ${isShort ? `<span class="short-badge">SHORT</span>` : ''}
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title flex-grow-1">${title}</h6>
+                        <a href="${url}" target="_blank" class="btn btn-danger btn-sm mt-3">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        // User's Provided Videos with accurate titles
+        const userVideos = [
+            {title: "e (Euler's Number) - Numberphile", url: "https://www.youtube.com/watch?v=AuA2EAgAegE", id: "AuA2EAgAegE"},
+            {title: "What's so special about Euler's number e? - 3Blue1Brown", url: "https://www.youtube.com/watch?v=m2MIpDrF7Es", id: "m2MIpDrF7Es"},
+            {title: "Euler's Identity e^iπ = -1 Visualized", url: "https://www.youtube.com/watch?v=pxSTZMae0Ug", id: "pxSTZMae0Ug"},
+            {title: "Euler's Number Explained", url: "https://www.youtube.com/watch?v=WS8bQ_obgT8", id: "WS8bQ_obgT8"},
+            {title: "Euler's Number Short", url: "https://www.youtube.com/shorts/ZzOR9-dzUtU", id: "ZzOR9-dzUtU"},
+            {title: "The Most Beautiful Equation in Mathematics", url: "https://www.youtube.com/watch?v=oo1ZZlvT2LQ", id: "oo1ZZlvT2LQ"},
+            {title: "The Most Beautiful Equation of Mathematics (Explained for Beginners)", url: "https://www.youtube.com/watch?v=LkM1ScyROZE", id: "LkM1ScyROZE"},
+            {title: "The most beautiful equation in math, explained visually [Euler’s Formula]", url: "https://www.youtube.com/watch?v=f8CXG7dS-D0", id: "f8CXG7dS-D0"},
+            {title: "Why e is e (and why it matters)", url: "https://www.youtube.com/watch?v=2mfSpcaG8E0", id: "2mfSpcaG8E0"},
+            {title: "Euler's Identity Explained", url: "https://www.youtube.com/watch?v=Vsi3ZcwWavI", id: "Vsi3ZcwWavI"},
+            {title: "The Beauty of Euler's Number", url: "https://www.youtube.com/watch?v=kbx2Pxyhpy4", id: "kbx2Pxyhpy4"}
+        ];
+
+        let html = '';
+        userVideos.forEach(v => { html += createVideoCard(v.title, v.url, v.id); });
+        document.getElementById('userVideos').innerHTML = html;
+
+        // e Videos
+        const eVideos = [
+            {title: "What's so special about Euler's number e? – 3Blue1Brown", url: "https://www.youtube.com/watch?v=m2MIpDrF7Es", id: "m2MIpDrF7Es"},
+            {title: "e (Euler's Number) - Numberphile", url: "https://www.youtube.com/watch?v=AuA2EAgAegE", id: "AuA2EAgAegE"},
+            {title: "Why e is the Most Important Number in Math", url: "https://www.youtube.com/watch?v=Wsp9zegkIlQ", id: "Wsp9zegkIlQ"},
+            {title: "All the Ways to Define e", url: "https://www.youtube.com/watch?v=DoAbA6rXrwA", id: "DoAbA6rXrwA"}
+        ];
+        html = '';
+        eVideos.forEach(v => { html += createVideoCard(v.title, v.url, v.id); });
+        document.getElementById('eVideos').innerHTML = html;
+
+        // Pi Videos
+        const piVideos = [
+            {title: "Pi is Beautiful – Numberphile", url: "https://www.youtube.com/watch?v=NPoj8lk9Fo4", id: "NPoj8lk9Fo4"},
+            {title: "The Best Visual Explanation of π", url: "https://www.youtube.com/watch?v=TlY-Sh9Rzas", id: "TlY-Sh9Rzas"},
+            {title: "Animation of Pi", url: "https://www.youtube.com/watch?v=hfIhPaNKxN8", id: "hfIhPaNKxN8"}
+        ];
+        html = '';
+        piVideos.forEach(v => { html += createVideoCard(v.title, v.url, v.id); });
+        document.getElementById('piVideos').innerHTML = html;
+
+        // Euler Identity
+        const eulerVideos = [
+            {title: "The most beautiful equation in math [Euler’s Formula] - Welch Labs", url: "https://www.youtube.com/watch?v=f8CXG7dS-D0", id: "f8CXG7dS-D0"},
+            {title: "Euler's Identity Visualized", url: "https://www.youtube.com/watch?v=pxSTZMae0Ug", id: "pxSTZMae0Ug"},
+            {title: "The Most Beautiful Equation (Explained for Beginners)", url: "https://www.youtube.com/watch?v=LkM1ScyROZE", id: "LkM1ScyROZE"}
+        ];
+        html = '';
+        eulerVideos.forEach(v => { html += createVideoCard(v.title, v.url, v.id); });
+        document.getElementById('eulerVideos').innerHTML = html;
+
+        // Other Constants
+        const otherVideos = [
+            {title: "The Golden Ratio – Most Beautiful Number", url: "https://www.youtube.com/watch?v=cmziKiMmfl4", id: "cmziKiMmfl4"},
+            {title: "Ten Visual Mathematical Constants", url: "https://www.youtube.com/watch?v=MBPB9aJBfAA", id: "MBPB9aJBfAA"},
+            {title: "Every Important Math Constant Explained", url: "https://www.youtube.com/watch?v=wwZwzilkh8g", id: "wwZwzilkh8g"}
+        ];
+        html = '';
+        otherVideos.forEach(v => { html += createVideoCard(v.title, v.url, v.id); });
+        document.getElementById('otherVideos').innerHTML = html;
+    </script>
+</body>
+</html>
