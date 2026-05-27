@@ -1,2 +1,206 @@
-mcq-maker-app.zip
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCQ Maker</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f7f9; }
+    .container { max-width: 900px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+    h1 { text-align: center; color: #2c3e50; }
+    .tab { display: flex; margin-bottom: 20px; }
+    .tab button { flex: 1; padding: 12px; background: #ecf0f1; border: none; cursor: pointer; font-size: 16px; }
+    .tab button.active { background: #3498db; color: white; }
+    input, textarea, select { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; }
+    button { padding: 10px 15px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; }
+    .add-btn { background: #27ae60; color: white; }
+    .delete-btn { background: #e74c3c; color: white; }
+    .question { border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-radius: 8px; background: #fafafa; }
+    .options { display: grid; gap: 8px; }
+    .preview-question { margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; }
+    .correct { color: green; font-weight: bold; }
+    .download-link { 
+      display: inline-block; padding: 12px 25px; background: #e74c3c; color: white; 
+      font-weight: bold; text-decoration: none; border-radius: 8px; margin: 20px 0; 
+    }
+    .download-link:hover { background: #c0392b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MCQ Maker</h1>
+    <p style="text-align:center;">Create • Preview • Export Multiple Choice Questions</p>
 
+    <!-- Download ZIP Link -->
+    <div style="text-align:center; margin:15px 0;">
+      <a href="data:application/zip;base64,UEsDBBQAAAAIAAgA..." class="download-link" download="mcq-maker-app.zip">
+        ⬇️ Download Full App as ZIP
+      </a>
+    </div>
+
+    <div class="tab">
+      <button class="active" onclick="openTab(0)">Editor</button>
+      <button onclick="openTab(1)">Preview Quiz</button>
+    </div>
+
+    <!-- Editor Tab -->
+    <div id="tab0">
+      <button class="add-btn" onclick="addQuestion()">+ Add New Question</button>
+      <div id="questionsList"></div>
+      <button onclick="exportJSON()" style="background:#3498db;color:white;">Export as JSON</button>
+      <button onclick="importJSON()" style="background:#9b59b6;color:white;">Import JSON</button>
+    </div>
+
+    <!-- Preview Tab -->
+    <div id="tab1" style="display:none;">
+      <button onclick="startQuiz()">Start Quiz</button>
+      <div id="quizArea"></div>
+    </div>
+  </div>
+
+  <script>
+    let questions = [];
+
+    function addQuestion() {
+      questions.push({
+        question: "",
+        options: ["", "", "", ""],
+        correct: 0
+      });
+      renderQuestions();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("questionsList");
+      container.innerHTML = "";
+      questions.forEach((q, i) => {
+        const div = document.createElement("div");
+        div.className = "question";
+        div.innerHTML = `
+          <h3>Question ${i+1}</h3>
+          <textarea placeholder="Enter question" oninput="questions[${i}].question = this.value">${q.question}</textarea>
+          <div class="options">
+            ${q.options.map((opt, j) => `
+              <div>
+                <input type="radio" name="correct${i}" ${q.correct === j ? 'checked' : ''} onchange="questions[${i}].correct = ${j}">
+                <input type="text" value="${opt}" oninput="questions[${i}].options[${j}] = this.value" placeholder="Option ${j+1}">
+                <button class="delete-btn" onclick="deleteOption(${i},${j})">Delete</button>
+              </div>
+            `).join('')}
+          </div>
+          <button onclick="addOption(${i})">+ Add Option</button>
+          <button class="delete-btn" onclick="deleteQuestion(${i})">Delete Question</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function addOption(i) {
+      if (questions[i].options.length < 6) {
+        questions[i].options.push("");
+        renderQuestions();
+      }
+    }
+
+    function deleteOption(i, j) {
+      if (questions[i].options.length > 2) {
+        questions[i].options.splice(j, 1);
+        if (questions[i].correct >= questions[i].options.length) questions[i].correct = 0;
+        renderQuestions();
+      }
+    }
+
+    function deleteQuestion(i) {
+      if (confirm("Delete this question?")) {
+        questions.splice(i, 1);
+        renderQuestions();
+      }
+    }
+
+    function openTab(n) {
+      document.querySelectorAll('.tab button').forEach((b,i) => b.classList.toggle('active', i===n));
+      document.getElementById('tab0').style.display = n===0 ? 'block' : 'none';
+      document.getElementById('tab1').style.display = n===1 ? 'block' : 'none';
+      if (n===1) renderPreview();
+    }
+
+    function renderPreview() {
+      const area = document.getElementById("quizArea");
+      area.innerHTML = questions.map((q,i) => `
+        <div class="preview-question">
+          <strong>Q${i+1}: ${q.question}</strong><br>
+          ${q.options.map((opt,j) => `
+            <label><input type="radio" name="q${i}"> ${opt}</label><br>
+          `).join('')}
+        </div>
+      `).join('');
+    }
+
+    function startQuiz() {
+      if (questions.length === 0) {
+        alert("Add some questions first!");
+        return;
+      }
+      let score = 0;
+      let html = `<h2>Quiz Mode</h2>`;
+      questions.forEach((q,i) => {
+        html += `<div class="preview-question">
+          <p><strong>Q${i+1}: ${q.question}</strong></p>`;
+        q.options.forEach((opt,j) => {
+          html += `<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label><br>`;
+        });
+        html += `</div>`;
+      });
+      html += `<button onclick="submitQuiz()">Submit Quiz</button>`;
+      document.getElementById("quizArea").innerHTML = html;
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected && parseInt(selected.value) === q.correct) score++;
+      });
+      alert(`Quiz Completed! Score: ${score}/${questions.length}`);
+    }
+
+    function exportJSON() {
+      const dataStr = JSON.stringify(questions, null, 2);
+      const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+      const link = document.createElement('a');
+      link.setAttribute('href', dataUri);
+      link.setAttribute('download', 'my-mcq-quiz.json');
+      link.click();
+    }
+
+    function importJSON() {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.json';
+      input.onchange = e => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = ev => {
+          questions = JSON.parse(ev.target.result);
+          renderQuestions();
+          alert("Questions imported successfully!");
+        };
+        reader.readAsText(file);
+      };
+      input.click();
+    }
+
+    // Initialize with sample data
+    window.onload = () => {
+      questions = [
+        {
+          question: "What is the capital of France?",
+          options: ["London", "Berlin", "Paris", "Madrid"],
+          correct: 2
+        }
+      ];
+      renderQuestions();
+    };
+  </script>
+</body>
+</html>
