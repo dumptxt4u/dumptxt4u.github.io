@@ -1,0 +1,112 @@
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {section}{\numberline {2}Taxonomy of 101 Problem Categories}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Basic Quadratic Foundations \& Algebraic Identities}{4}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Category 1: Basic Evaluation of Symmetric Functions of Roots}{4}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Category 2: Non-Symmetric Expressions Involving Roots}{4}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Category 3: Advanced Polynomial \& Negative Power Algebraic Identities}{4}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Category 4: Given Difference of Roots}{4}{subsubsection.2.1.4}%
+\contentsline {subsubsection}{\numberline {2.1.5}Category 5: Roots in Given Numerical Ratios}{4}{subsubsection.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.1.6}Category 6: One Root is a Multiple/Fraction of the Other}{4}{subsubsection.2.1.6}%
+\contentsline {subsubsection}{\numberline {2.1.7}Category 7: One Root is the Power of the Other}{4}{subsubsection.2.1.7}%
+\contentsline {subsubsection}{\numberline {2.1.8}Category 8: Equal Roots in Magnitude but Opposite in Sign / Reciprocal Roots}{5}{subsubsection.2.1.8}%
+\contentsline {subsubsection}{\numberline {2.1.9}Category 9: Roots Differing by a Fixed Constant}{5}{subsubsection.2.1.9}%
+\contentsline {subsubsection}{\numberline {2.1.10}Category 10: Linear Relations Between Roots}{5}{subsubsection.2.1.10}%
+\contentsline {subsection}{\numberline {2.2}Equation Formation \& Root Transformations}{5}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Category 11: Formation of Equations with Given Numerical/Complex Roots}{5}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Category 12: Formation of Equations with Scaled or Shifted Roots}{5}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Category 13: Formation of Equations with Reciprocal / Symmetric Transformations}{5}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Category 14: Formation of Equations with Composite Rational Expressions}{5}{subsubsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.3}Multi-Polynomial Intersections \& Common Roots}{5}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Category 15: Single Common Root Between Two Equations}{5}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Category 16: Both Roots Common Between Two Quadratic Equations}{6}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Category 17: Equating Difference of Roots Across Two Different Equations}{6}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Category 18: Reconstructing Equations from Incorrectly Copied Coefficients}{6}{subsubsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.5}Category 19: Geometric Progressions of Roots Across Two Equations}{6}{subsubsection.2.3.5}%
+\contentsline {subsubsection}{\numberline {2.3.6}Category 20: Conditions for Roots to Have Specific Signs}{6}{subsubsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.4}Degree-N Systems \& Higher Order Vieta Relations}{6}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Category 21: Substituting Roots Back into Quadratic Polynomials}{6}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Category 22: Cubic Equations – Basic Symmetric Sums of Roots}{6}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Category 23: Higher Degree Polynomials (Biquadratic \& Degree $n$)}{6}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Category 24: Roots of Polynomials in Arithmetic Progression (A.P.)}{6}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Category 25: Roots of Polynomials in Harmonic Progression (H.P.)}{7}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Category 26: Trigonometric Relations Between Roots}{7}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.7}Category 27: Newton's Sums / Newton's Theorem on Powers of Roots}{7}{subsubsection.2.4.7}%
+\contentsline {subsubsection}{\numberline {2.4.8}Category 28: Recurrence Relations for Symmetric Power Sums}{7}{subsubsection.2.4.8}%
+\contentsline {subsubsection}{\numberline {2.4.9}Category 29: Common Roots Between Quadratic and Higher Degree Equations}{7}{subsubsection.2.4.9}%
+\contentsline {subsubsection}{\numberline {2.4.10}Category 30: Equations with Imaginary / Complex Coefficients}{7}{subsubsection.2.4.10}%
+\contentsline {subsection}{\numberline {2.5}Transformations, Modular Systems, \& Bounds}{7}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Category 31: Transformation of Equations – Diminishing or Increasing Roots}{7}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Category 32: Transformation of Equations – Reciprocating Higher Degree Roots}{7}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Category 33: Integral / Rational Root Constraints}{7}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.4}Category 34: Condition for Negative Reciprocal Roots ($\alpha \beta = -1$)}{8}{subsubsection.2.5.4}%
+\contentsline {subsubsection}{\numberline {2.5.5}Category 35: Systems of Non-Linear Symmetric Equations Solved via Roots}{8}{subsubsection.2.5.5}%
+\contentsline {subsubsection}{\numberline {2.5.6}Category 36: Logarithmic and Exponential Expressions Involving Roots}{8}{subsubsection.2.5.6}%
+\contentsline {subsubsection}{\numberline {2.5.7}Category 37: Geometric Progression of Roots in Higher Degree Equations}{8}{subsubsection.2.5.7}%
+\contentsline {subsubsection}{\numberline {2.5.8}Category 38: Sum of Two Roots Equals Zero ($\beta = -\alpha $) in Higher Degrees}{8}{subsubsection.2.5.8}%
+\contentsline {subsubsection}{\numberline {2.5.9}Category 39: Product of Two Roots Equals Unity ($\alpha \beta = 1$) in Higher Degrees}{8}{subsubsection.2.5.9}%
+\contentsline {subsubsection}{\numberline {2.5.10}Category 40: One Root is the Sum of Other Roots ($\gamma = \alpha + \beta $)}{8}{subsubsection.2.5.10}%
+\contentsline {subsection}{\numberline {2.6}Reciprocal Equations, Geometry, \& inequalities}{8}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Category 41: Biquadratic Equations with Roots in A.P. / G.P.}{8}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Category 42: Symmetric / Reciprocal Equations of Degree $n$}{8}{subsubsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.3}Category 43: Roots as Vertices of Geometric Shapes in Complex Plane}{9}{subsubsection.2.6.3}%
+\contentsline {subsubsection}{\numberline {2.6.4}Category 44: Trigonometric Products and Sums via Polynomial Roots}{9}{subsubsection.2.6.4}%
+\contentsline {subsubsection}{\numberline {2.6.5}Category 45: Vector/Dot Product Parameterization of Roots}{9}{subsubsection.2.6.5}%
+\contentsline {subsubsection}{\numberline {2.6.6}Category 46: Functional Equations Involving Roots}{9}{subsubsection.2.6.6}%
+\contentsline {subsubsection}{\numberline {2.6.7}Category 47: Sums of Squares of Differences $(\alpha - \beta )^2 + (\beta - \gamma )^2 + (\gamma - \alpha )^2$}{9}{subsubsection.2.6.7}%
+\contentsline {subsubsection}{\numberline {2.6.8}Category 48: Transforming Roots to Squares ($\alpha ^2, \beta ^2, \gamma ^2$)}{9}{subsubsection.2.6.8}%
+\contentsline {subsubsection}{\numberline {2.6.9}Category 49: Equations with Complex Conjugate Pair Constraints}{9}{subsubsection.2.6.9}%
+\contentsline {subsubsection}{\numberline {2.6.10}Category 50: Irrational Conjugate Pair Constraints ($p + \sqrt {q}$)}{9}{subsubsection.2.6.10}%
+\contentsline {subsection}{\numberline {2.7}Analytic Properties, Derivatives, \& Advanced Applications}{9}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Category 51: Bounds on Roots via Vieta's Identities}{9}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\numberline {2.7.2}Category 52: Determinant / Matrix Expressions of Root Systems}{10}{subsubsection.2.7.2}%
+\contentsline {subsubsection}{\numberline {2.7.3}Category 53: Modular Arithmetic / Congruence Relations on Root Sums}{10}{subsubsection.2.7.3}%
+\contentsline {subsubsection}{\numberline {2.7.4}Category 54: Calculus / Derivative Relations with Root Sums}{10}{subsubsection.2.7.4}%
+\contentsline {subsubsection}{\numberline {2.7.5}Category 55: Root Continuity under Parameter Perturbations}{10}{subsubsection.2.7.5}%
+\contentsline {subsubsection}{\numberline {2.7.6}Category 56: Generating Functions for Power Sums of Roots}{10}{subsubsection.2.7.6}%
+\contentsline {subsubsection}{\numberline {2.7.7}Category 57: Equations Solvable via Auxiliary Substitution of Root Products}{10}{subsubsection.2.7.7}%
+\contentsline {subsubsection}{\numberline {2.7.8}Category 58: Roots of Unity and Cyclotomic Polynomial Relations}{10}{subsubsection.2.7.8}%
+\contentsline {subsubsection}{\numberline {2.7.9}Category 59: Symmetric Functions Involving Fractional Powers ($\sqrt {\alpha } + \sqrt {\beta }$)}{10}{subsubsection.2.7.9}%
+\contentsline {subsubsection}{\numberline {2.7.10}Category 60: Quadratic Forms and Discriminant Invariants}{10}{subsubsection.2.7.10}%
+\contentsline {subsubsection}{\numberline {2.7.11}Category 61: Roots in Harmonic Progression (H.P.) for Quadratics}{11}{subsubsection.2.7.11}%
+\contentsline {subsubsection}{\numberline {2.7.12}Category 62: Sums of Cubes of Root Differences $(\alpha - \beta )^3 + (\beta - \gamma )^3 + (\gamma - \alpha )^3$}{11}{subsubsection.2.7.12}%
+\contentsline {subsubsection}{\numberline {2.7.13}Category 63: Maximum and Minimum Values of Symmetric Functions}{11}{subsubsection.2.7.13}%
+\contentsline {subsubsection}{\numberline {2.7.14}Category 64: Equations with Roots as Specific Geometric Parameters}{11}{subsubsection.2.7.14}%
+\contentsline {subsubsection}{\numberline {2.7.15}Category 65: Operator/Differential Invariants on Polynomial Roots}{11}{subsubsection.2.7.15}%
+\contentsline {subsubsection}{\numberline {2.7.16}Category 66: System of Equations with Alternating Signs of Roots}{11}{subsubsection.2.7.16}%
+\contentsline {subsubsection}{\numberline {2.7.17}Category 67: Roots of Polynomials over Finite Fields ($\mathbb {Z}_p$)}{11}{subsubsection.2.7.17}%
+\contentsline {subsubsection}{\numberline {2.7.18}Category 68: Transformation via Logarithmic Differentiation}{11}{subsubsection.2.7.18}%
+\contentsline {subsubsection}{\numberline {2.7.19}Category 69: Symmetric Sums of Inverse Cubes $\DOTSB \sum@ \slimits@ \frac {1}{\alpha ^3}$}{11}{subsubsection.2.7.19}%
+\contentsline {subsubsection}{\numberline {2.7.20}Category 70: Roots of Multi-Variable Homogeneous Quadratic Forms}{11}{subsubsection.2.7.20}%
+\contentsline {subsection}{\numberline {2.8}Specialized Structure, Physics, \& Special Functions}{12}{subsection.2.8}%
+\contentsline {subsubsection}{\numberline {2.8.1}Category 71: Sums of Roots Taking $k$ at a Time ($\sigma _k$) for Degree $n$}{12}{subsubsection.2.8.1}%
+\contentsline {subsubsection}{\numberline {2.8.2}Category 72: Characterizing Equations with Purely Imaginary Roots}{12}{subsubsection.2.8.2}%
+\contentsline {subsubsection}{\numberline {2.8.3}Category 73: Parameter Elimination in Coupled Root Equations}{12}{subsubsection.2.8.3}%
+\contentsline {subsubsection}{\numberline {2.8.4}Category 74: Polynomials with Roots in Exponential Progression}{12}{subsubsection.2.8.4}%
+\contentsline {subsubsection}{\numberline {2.8.5}Category 75: Continued Fraction Representations Derived from Roots}{12}{subsubsection.2.8.5}%
+\contentsline {subsubsection}{\numberline {2.8.6}Category 76: Hyperbolic Function Parameterization of Roots}{12}{subsubsection.2.8.6}%
+\contentsline {subsubsection}{\numberline {2.8.7}Category 77: Roots Involving Floor / Ceiling Functions}{12}{subsubsection.2.8.7}%
+\contentsline {subsubsection}{\numberline {2.8.8}Category 78: Roots Related by Complex Phase / Argument Differences}{12}{subsubsection.2.8.8}%
+\contentsline {subsubsection}{\numberline {2.8.9}Category 79: Symmetric Power Sums with Alternating Signs}{12}{subsubsection.2.8.9}%
+\contentsline {subsubsection}{\numberline {2.8.10}Category 80: Roots Parameterized by Hyperbolic Substitution ($x = \cosh t$)}{12}{subsubsection.2.8.10}%
+\contentsline {subsubsection}{\numberline {2.8.11}Category 81: Self-Conjugate Root Sets under Möbius Inversion}{13}{subsubsection.2.8.11}%
+\contentsline {subsubsection}{\numberline {2.8.12}Category 82: Sums of Weighted Powers of Roots ($\lambda \alpha ^n + \mu \beta ^n$)}{13}{subsubsection.2.8.12}%
+\contentsline {subsubsection}{\numberline {2.8.13}Category 83: Orthogonal Polynomial Root Relations (Chebyshev / Legendre)}{13}{subsubsection.2.8.13}%
+\contentsline {subsubsection}{\numberline {2.8.14}Category 84: Polynomials with Integer Coefficients Having All Real Roots}{13}{subsubsection.2.8.14}%
+\contentsline {subsubsection}{\numberline {2.8.15}Category 85: Symmetric Functions Involving Binomial Coefficients}{13}{subsubsection.2.8.15}%
+\contentsline {subsubsection}{\numberline {2.8.16}Category 86: Equations with Roots as Eigenvalues of Matrices}{13}{subsubsection.2.8.16}%
+\contentsline {subsubsection}{\numberline {2.8.17}Category 87: Vieta's Formulas Applied to Infinite Polynomial Series}{13}{subsubsection.2.8.17}%
+\contentsline {subsubsection}{\numberline {2.8.18}Category 88: Cyclic Expressions of the Form $(\alpha + \omega \beta + \omega ^2 \gamma )^3$}{13}{subsubsection.2.8.18}%
+\contentsline {subsubsection}{\numberline {2.8.19}Category 89: Resultants and Elimination via Root Products}{13}{subsubsection.2.8.19}%
+\contentsline {subsubsection}{\numberline {2.8.20}Category 90: Roots of Polynomials under Quadratic Transformations}{13}{subsubsection.2.8.20}%
+\contentsline {subsubsection}{\numberline {2.8.21}Category 91: Sums of Cross-Ratios of Four Roots}{13}{subsubsection.2.8.21}%
+\contentsline {subsubsection}{\numberline {2.8.22}Category 92: Equations where Roots Represent Critical Points of Potentials}{14}{subsubsection.2.8.22}%
+\contentsline {subsubsection}{\numberline {2.8.23}Category 93: Bounds on Maximum Root Absolute Value ($|\alpha |_{\text {max}}$)}{14}{subsubsection.2.8.23}%
+\contentsline {subsubsection}{\numberline {2.8.24}Category 94: Sum of Roots of Exponential Polynomials}{14}{subsubsection.2.8.24}%
+\contentsline {subsubsection}{\numberline {2.8.25}Category 95: Trigonometric Sums via Roots of $\cos (n\theta )$ Polynomials}{14}{subsubsection.2.8.25}%
+\contentsline {subsubsection}{\numberline {2.8.26}Category 96: Conditions for Roots to Lie Inside the Unit Circle ($|\alpha | < 1$)}{14}{subsubsection.2.8.26}%
+\contentsline {subsubsection}{\numberline {2.8.27}Category 97: Relations between Roots of a Polynomial and its Antiderivative}{14}{subsubsection.2.8.27}%
+\contentsline {subsubsection}{\numberline {2.8.28}Category 98: Distance Between Roots in the Argand Plane ($|\alpha - \beta |$)}{14}{subsubsection.2.8.28}%
+\contentsline {subsubsection}{\numberline {2.8.29}Category 99: Systems Solved by Symmetric Polynomial Inversion}{14}{subsubsection.2.8.29}%
+\contentsline {subsubsection}{\numberline {2.8.30}Category 100: Sums of Reciprocals of Pairwise Root Sums ($\DOTSB \sum@ \slimits@ \frac {1}{\alpha +\beta }$)}{14}{subsubsection.2.8.30}%
+\contentsline {subsubsection}{\numberline {2.8.31}Category 101: Discriminant of the Cubic Equation via Root Differences}{14}{subsubsection.2.8.31}%
+\contentsline {section}{\numberline {3}Top 10 Reference Books}{15}{section.3}%

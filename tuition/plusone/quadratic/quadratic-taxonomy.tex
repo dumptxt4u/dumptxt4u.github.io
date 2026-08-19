@@ -1,0 +1,763 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+\title{\textbf{Comprehensive Taxonomy of Theory of Equations \& Vieta's Relations}\\
+\large A Master Categorization of 101 Problem Types with Representative Questions}
+\author{\textbf{Advanced Mathematics Pedagogy Series}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+The theory of equations and the algebraic relations between the roots and coefficients of polynomials form a foundational pillar of higher-secondary and undergraduate algebra. This document provides an exhaustive, 101-category taxonomy ranging from fundamental quadratic symmetric functions to advanced analytic, linear algebraic, and topological properties of polynomial roots.
+
+---
+
+\section{Taxonomy of 101 Problem Categories}
+
+\subsection{Basic Quadratic Foundations \& Algebraic Identities}
+
+\subsubsection{Category 1: Basic Evaluation of Symmetric Functions of Roots}
+Evaluating fundamental symmetric combinations using $\alpha + \beta = -\frac{b}{a}$ and $\alpha\beta = \frac{c}{a}$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\alpha, \beta$ are roots of $x^2 - 4x + 2 = 0$, evaluate $\alpha^2 + \beta^2$, $\alpha^3 + \beta^3$, and $\frac{1}{\alpha} + \frac{1}{\beta}$.
+    \item \textbf{Q2:} If $\alpha, \beta$ are roots of $3x^2 - 6x + 4 = 0$, evaluate $\left(\frac{\alpha^2}{\beta} + \frac{\beta^2}{\alpha}\right) + \left(\frac{\alpha}{\beta} + \frac{\beta}{\alpha}\right) + 2\left(\frac{1}{\alpha} + \frac{1}{\beta}\right) + 3\alpha\beta$.
+\end{itemize}
+
+\subsubsection{Category 2: Non-Symmetric Expressions Involving Roots}
+Evaluating non-symmetric functions where swapping $\alpha$ and $\beta$ alters the output sign or structure.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\alpha, \beta$ are roots of $x^2 - 4x + 2 = 0$, find the exact value of $\alpha^2 - \beta^2$.
+    \item \textbf{Q2:} Express $\alpha^3 - \beta^3$ in terms of the coefficients $a, b, c$ for $ax^2 + bx + c = 0$.
+\end{itemize}
+
+\subsubsection{Category 3: Advanced Polynomial \& Negative Power Algebraic Identities}
+Manipulating higher powers and negative exponent combinations of roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\alpha, \beta$ are roots of $ax^2 + bx + c = 0$, evaluate $(a\alpha + b)^{-2} + (a\beta + b)^{-2}$.
+    \item \textbf{Q2:} Find the expression for $\alpha^6 + \beta^6$ in terms of $a, b, c$.
+\end{itemize}
+
+\subsubsection{Category 4: Given Difference of Roots}
+Solving for parameters when $|\alpha - \beta|$ or $(\alpha - \beta)^2$ is constrained.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find $p$ such that the roots of $x^2 - px + 10 = 0$ differ by $3$.
+    \item \textbf{Q2:} Solve $x^2 + px + 45 = 0$, given that $(\alpha - \beta)^2 = 144$.
+\end{itemize}
+
+\subsubsection{Category 5: Roots in Given Numerical Ratios}
+Analyzing equations where roots satisfy a given ratio $\alpha : \beta = p : q$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Derive the condition on $a, b, c$ for the roots of $ax^2 + bx + c = 0$ to be in the ratio $p : q$.
+    \item \textbf{Q2:} If the ratio of the roots of $x^2 + \alpha x + \alpha + 2 = 0$ is $2$, determine $\alpha$.
+\end{itemize}
+
+\subsubsection{Category 6: One Root is a Multiple/Fraction of the Other}
+Special case of ratio constraints where $\beta = n\alpha$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} For what values of $a$ is one root of $x^2 + (2a+1)x + a^2 + 2 = 0$ double the other?
+    \item \textbf{Q2:} Determine $k$ if one root of $k(x-1)^2 = 5x - 7$ is twice the other.
+\end{itemize}
+
+\subsubsection{Category 7: One Root is the Power of the Other}
+Problems where $\beta = \alpha^2$ or $\beta = \alpha^n$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If one root of $ax^2 + bx + c = 0$ is the square of the other, prove that $b^3 + ac(c+a) = 3abc$.
+    \item \textbf{Q2:} Find $a$ if one root of $8x^2 - 6x + a = 0$ is the square of the other.
+\end{itemize}
+
+\subsubsection{Category 8: Equal Roots in Magnitude but Opposite in Sign / Reciprocal Roots}
+Parameter conditions for symmetric cancellation ($\beta = -\alpha$) or reciprocal relation ($\alpha\beta = 1$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find $k$ such that $(k-1)x^2 - kx + 1 = 0$ has roots numerically equal but opposite in sign.
+    \item \textbf{Q2:} State the condition for one root of $ax^2 + bx + c = 0$ to be the reciprocal of the other.
+\end{itemize}
+
+\subsubsection{Category 9: Roots Differing by a Fixed Constant}
+Cases where $\beta = \alpha + k$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If the roots of $x^2 - lx + m = 0$ differ by $1$, prove $l^2 = 4m + 1$.
+    \item \textbf{Q2:} Find $k$ such that one root of $2kx^2 - 20x + 21 = 0$ exceeds the other by $2$.
+\end{itemize}
+
+\subsubsection{Category 10: Linear Relations Between Roots}
+Solving subject to custom linear relations $A\alpha + B\beta = C$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find $k$ if the roots $\alpha, \beta$ of $x^2 - 6x + k = 0$ satisfy $2\alpha + 3\beta = 20$.
+\end{itemize}
+
+---
+
+\subsection{Equation Formation \& Root Transformations}
+
+\subsubsection{Category 11: Formation of Equations with Given Numerical/Complex Roots}
+Constructing polynomials $x^2 - Sx + P = 0$ given specific roots or conjugate pairs.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Form a quadratic equation with rational coefficients having one root as $\frac{1}{3+2\sqrt{2}}$.
+    \item \textbf{Q2:} Form an equation with real coefficients having $-2 + i$ as a root.
+\end{itemize}
+
+\subsubsection{Category 12: Formation of Equations with Scaled or Shifted Roots}
+Constructing equations whose roots are $n\alpha, n\beta$ or $\alpha + k, \beta + k$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\alpha, \beta$ are roots of $ax^2 + bx + c = 0$, form an equation with roots $n\alpha, n\beta$.
+    \item \textbf{Q2:} Form an equation whose roots are $\alpha + k$ and $\beta + k$.
+\end{itemize}
+
+\subsubsection{Category 13: Formation of Equations with Reciprocal / Symmetric Transformations}
+Transformations such as $\frac{1}{\alpha}, \frac{1}{\beta}$ or $\alpha^2, \beta^2$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Form an equation whose roots are $\frac{1}{\alpha}$ and $\frac{1}{\beta}$.
+    \item \textbf{Q2:} Form an equation whose roots are $\alpha^3$ and $\beta^3$.
+\end{itemize}
+
+\subsubsection{Category 14: Formation of Equations with Composite Rational Expressions}
+New roots defined by multi-term rational combinations like $\frac{\alpha}{2\beta+3}$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\alpha, \beta$ are roots of $2x^2 - 3x + 1 = 0$, form an equation with roots $\frac{\alpha}{2\beta+3}$ and $\frac{\beta}{2\alpha+3}$.
+    \item \textbf{Q2:} Form an equation with roots $\alpha + \frac{1}{\beta}$ and $\beta + \frac{1}{\alpha}$.
+\end{itemize}
+
+---
+
+\subsection{Multi-Polynomial Intersections \& Common Roots}
+
+\subsubsection{Category 15: Single Common Root Between Two Equations}
+Conditions for two quadratics to share exactly one root.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find $k$ such that $3x^2 + kx + 2 = 0$ and $2x^2 + 3x - 2 = 0$ share a common root.
+    \item \textbf{Q2:} Prove $a+b+1 = 0$ if $x^2 + ax + b = 0$ and $x^2 + bx + a = 0$ share a root ($a \neq b$).
+\end{itemize}
+
+\subsubsection{Category 16: Both Roots Common Between Two Quadratic Equations}
+Condition for two equations to have identical root sets ($\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2}$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} State the condition for $a_1 x^2 + b_1 x + c_1 = 0$ and $a_2 x^2 + b_2 x + c_2 = 0$ to have both roots common.
+\end{itemize}
+
+\subsubsection{Category 17: Equating Difference of Roots Across Two Different Equations}
+Parameter relations when $|\alpha_1 - \beta_1| = |\alpha_2 - \beta_2|$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If the root differences of $x^2 + px + q = 0$ and $x^2 + qx + p = 0$ are equal, prove $p+q+4 = 0$ ($p \neq q$).
+\end{itemize}
+
+\subsubsection{Category 18: Reconstructing Equations from Incorrectly Copied Coefficients}
+Deducing correct roots when individual terms are misread.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Student A miscopies $p$ and gets roots $2, 6$. Student B miscopies $q$ and gets roots $2, -9$. Find the correct roots.
+    \item \textbf{Q2:} The linear coefficient $p$ was misread as $17$ instead of $13$, yielding roots $-2, -15$. Find original roots.
+\end{itemize}
+
+\subsubsection{Category 19: Geometric Progressions of Roots Across Two Equations}
+Sequence coupling across roots of two distinct quadratics ($\alpha, \beta, \gamma, \delta \in \text{G.P.}$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If roots of $x^2 + px + q = 0$ and $x^2 + bx + c = 0$ form a continuous G.P., prove $p^2 c = b^2 q$.
+\end{itemize}
+
+\subsubsection{Category 20: Conditions for Roots to Have Specific Signs}
+Determining parameter ranges for positive, negative, or opposite-sign roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Calculate $a$ if both roots of $x^2 - (a+1)x + a + 4 = 0$ are negative.
+    \item \textbf{Q2:} If roots of $2x^2 + (k+1)x + (k^2-5k+6) = 0$ are of opposite signs, show $2 < k < 3$.
+\end{itemize}
+
+---
+
+\subsection{Degree-N Systems \& Higher Order Vieta Relations}
+
+\subsubsection{Category 21: Substituting Roots Back into Quadratic Polynomials}
+Simplification using $a\alpha^2 + b\alpha + c = 0 \implies a\alpha + b = -\frac{c}{\alpha}$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\alpha, \beta$ are roots of $x^2 = 7x + 4$, show $\alpha^3 = 53\alpha + 28$.
+    \item \textbf{Q2:} Form an equation with roots $\frac{1}{p\alpha - q}$ and $\frac{1}{p\beta - q}$ for $x^2 - px + q = 0$.
+\end{itemize}
+
+\subsubsection{Category 22: Cubic Equations – Basic Symmetric Sums of Roots}
+Evaluating $\sum \alpha, \sum \alpha\beta, \alpha\beta\gamma$ for cubic polynomials.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\alpha, \beta, \gamma$ are roots of $x^3 - 6x^2 + 11x - 6 = 0$, evaluate $\alpha^2 + \beta^2 + \gamma^2$.
+    \item \textbf{Q2:} For $2x^3 - 3x^2 + 5x - 1 = 0$, evaluate $\alpha^3 + \beta^3 + \gamma^3$.
+\end{itemize}
+
+\subsubsection{Category 23: Higher Degree Polynomials (Biquadratic \& Degree $n$)}
+Vieta's relations applied to polynomials of degree $4$ or higher.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} For $x^4 - 4x^3 + 8x^2 - 7x + 3 = 0$, evaluate $\sum \alpha^2 \beta$.
+    \item \textbf{Q2:} Find the product of roots of $3x^5 - 15x^4 + 2x^2 - 9 = 0$.
+\end{itemize}
+
+\subsubsection{Category 24: Roots of Polynomials in Arithmetic Progression (A.P.)}
+Solving polynomials whose roots form an A.P. ($\alpha - d, \alpha, \alpha + d$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Solve $x^3 - 12x^2 + 39x - 28 = 0$ given its roots are in A.P.
+    \item \textbf{Q2:} Derive the coefficient condition for $ax^3 + bx^2 + cx + d = 0$ to have roots in A.P.
+\end{itemize}
+
+\subsubsection{Category 25: Roots of Polynomials in Harmonic Progression (H.P.)}
+Solving polynomials with roots in H.P. via substitution $x = 1/y$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Solve $6x^3 - 11x^2 + 6x - 1 = 0$ given its roots are in H.P.
+    \item \textbf{Q2:} Find the condition on coefficients of $x^3 - px^2 + qx - r = 0$ for roots to be in H.P.
+\end{itemize}
+
+\subsubsection{Category 26: Trigonometric Relations Between Roots}
+Parametrization of roots as trigonometric values ($\tan A, \tan B$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\tan A, \tan B$ are roots of $x^2 - px + q = 0$, express $\sin^2(A+B)$ in terms of $p, q$.
+    \item \textbf{Q2:} If $\cos\theta_1, \cos\theta_2$ are roots of $acx^2 + bcx + c = 0$, evaluate $\cos(\theta_1 + \theta_2)$.
+\end{itemize}
+
+\subsubsection{Category 27: Newton's Sums / Newton's Theorem on Powers of Roots}
+Utilizing $a S_n + b S_{n-1} + c S_{n-2} = 0$ for efficient power-sum computation.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\alpha, \beta$ are roots of $x^2 - 6x - 2 = 0$ and $a_n = \alpha^n - \beta^n$, evaluate $\frac{a_{10} - 2a_8}{2a_9}$.
+    \item \textbf{Q2:} For $x^2 - x - 1 = 0$, prove $P_{n+1} = P_n + P_{n-1}$ where $P_n = \alpha^n + \beta^n$.
+\end{itemize}
+
+\subsubsection{Category 28: Recurrence Relations for Symmetric Power Sums}
+Formulating linear recurrence relations for $S_n = \alpha^n + \beta^n$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Express $S_n$ in terms of $S_{n-1}$ and $S_{n-2}$ for $x^2 - 3x + 1 = 0$, and evaluate $\alpha^5 + \beta^5$.
+\end{itemize}
+
+\subsubsection{Category 29: Common Roots Between Quadratic and Higher Degree Equations}
+Intersection of roots between quadratics and cubics/quartic polynomials.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $x^2 - 3x + 2 = 0$ and $x^3 - 6x^2 + ax - 6 = 0$ share a root, find $a$.
+    \item \textbf{Q2:} Find $k$ such that $x^2 + kx - 6 = 0$ and $x^3 - 2x^2 - x + 2 = 0$ share a root.
+\end{itemize}
+
+\subsubsection{Category 30: Equations with Imaginary / Complex Coefficients}
+Vieta's relations extended to polynomials with complex coefficients $a,b,c \in \mathbb{C}$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} For $x^2 - (3+2i)x + (1+3i) = 0$, form an equation with roots $2\alpha, 2\beta$.
+    \item \textbf{Q2:} Find the condition on $k \in \mathbb{C}$ for $x^2 + ix + k = 0$ to have one real root.
+\end{itemize}
+
+---
+
+\subsection{Transformations, Modular Systems, \& Bounds}
+
+\subsubsection{Category 31: Transformation of Equations – Diminishing or Increasing Roots}
+Constructing equations with shifted roots $\alpha - h, \beta - h$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Transform $x^3 - 6x^2 + 11x - 6 = 0$ into an equation whose roots are diminished by $2$.
+    \item \textbf{Q2:} Find the equation whose roots are greater by $3$ than the roots of $2x^2 - 5x + 1 = 0$.
+\end{itemize}
+
+\subsubsection{Category 32: Transformation of Equations – Reciprocating Higher Degree Roots}
+Inverting roots for polynomials of degree $n \ge 3$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Form the equation whose roots are reciprocals of the roots of $ax^3 + bx^2 + cx + d = 0$.
+    \item \textbf{Q2:} For $x^3 - 2x^2 + 3x - 4 = 0$, find the equation with roots $\frac{1}{\alpha\beta}, \frac{1}{\beta\gamma}, \frac{1}{\gamma\alpha}$.
+\end{itemize}
+
+\subsubsection{Category 33: Integral / Rational Root Constraints}
+Combining Vieta's formulas with integer divisibility ($\alpha, \beta \in \mathbb{Z}$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find all integral values of $p$ for which $x^2 - px + 6 = 0$ has integer roots.
+    \item \textbf{Q2:} If $x^2 + ax + b = 0$ has rational roots ($a,b \in \mathbb{Z}$), prove $a^2 - 4b$ is a perfect square.
+\end{itemize}
+
+\subsubsection{Category 34: Condition for Negative Reciprocal Roots ($\alpha\beta = -1$)}
+Parameter conditions when one root is the negative reciprocal of the other.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Derive the coefficient condition for $ax^2 + bx + c = 0$ to satisfy $\alpha\beta = -1$.
+    \item \textbf{Q2:} Find $k$ such that $2x^2 + 5x + (k-3) = 0$ has negative reciprocal roots.
+\end{itemize}
+
+\subsubsection{Category 35: Systems of Non-Linear Symmetric Equations Solved via Roots}
+Solving symmetric system of equations by constructing auxiliary polynomials.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Solve for $x, y$: $x + y = 7, x^3 + y^3 = 91$.
+    \item \textbf{Q2:} Solve for real $x, y, z$: $x+y+z=6, xy+yz+zx=11, xyz=6$.
+\end{itemize}
+
+\subsubsection{Category 36: Logarithmic and Exponential Expressions Involving Roots}
+Evaluating logarithmic or exponential combinations of roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\alpha, \beta > 0$ are roots of $x^2 - 10x + 16 = 0$, evaluate $\log_2 \alpha + \log_2 \beta$.
+    \item \textbf{Q2:} For $x^2 - 5x + 2 = 0$, evaluate $e^{\alpha+\beta} \cdot e^{-\alpha\beta}$.
+\end{itemize}
+
+\subsubsection{Category 37: Geometric Progression of Roots in Higher Degree Equations}
+Solving polynomials whose roots form a G.P. ($\frac{a}{r}, a, ar$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Solve $x^3 - 7x^2 + 14x - 8 = 0$ given its roots are in G.P.
+    \item \textbf{Q2:} Find coefficient relations for $ax^3 + bx^2 + cx + d = 0$ to have roots in G.P.
+\end{itemize}
+
+\subsubsection{Category 38: Sum of Two Roots Equals Zero ($\beta = -\alpha$) in Higher Degrees}
+Symmetric cancellation in cubic or quartic equations.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Solve $x^3 - 3x^2 - x + 3 = 0$ given two roots sum to zero.
+    \item \textbf{Q2:} Find the condition on $p, q, r$ for $x^3 + px^2 + qx + r = 0$ to have two roots summing to zero.
+\end{itemize}
+
+\subsubsection{Category 39: Product of Two Roots Equals Unity ($\alpha\beta = 1$) in Higher Degrees}
+Higher degree polynomials with a pair of reciprocal roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Solve $2x^3 - 9x^2 + 12x - 4 = 0$ given two roots multiply to $1$.
+    \item \textbf{Q2:} Derive the condition for $ax^3 + bx^2 + cx + d = 0$ to have two roots whose product is $1$.
+\end{itemize}
+
+\subsubsection{Category 40: One Root is the Sum of Other Roots ($\gamma = \alpha + \beta$)}
+Polynomials where one root equals the sum of all remaining roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Solve $x^3 - 6x^2 + 11x - 6 = 0$ given one root equals the sum of the other two.
+\end{itemize}
+
+---
+
+\subsection{Reciprocal Equations, Geometry, \& inequalities}
+
+\subsubsection{Category 41: Biquadratic Equations with Roots in A.P. / G.P.}
+Solving degree $4$ polynomials with structured root progressions.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Solve $x^4 - 10x^2 + 9 = 0$ given its roots are in A.P.
+    \item \textbf{Q2:} Find $k$ such that the roots of $x^4 - 15x^2 + k = 0$ are in A.P.
+\end{itemize}
+
+\subsubsection{Category 42: Symmetric / Reciprocal Equations of Degree $n$}
+Palindromic polynomials ($a_k = a_{n-k}$) invariant under $x \to 1/x$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Solve $6x^4 - 35x^3 + 62x^2 - 35x + 6 = 0$.
+    \item \textbf{Q2:} Show that if $\alpha$ is a root of $ax^4 + bx^3 + cx^2 + bx + a = 0$, then $1/\alpha$ is also a root.
+\end{itemize}
+
+\subsubsection{Category 43: Roots as Vertices of Geometric Shapes in Complex Plane}
+Connecting roots to Argand plane geometric configurations (equilateral triangles, squares).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If roots of $z^3 + pz^2 + qz + r = 0$ form an equilateral triangle in $\mathbb{C}$, prove $p^2 = 3q$.
+    \item \textbf{Q2:} If roots of $z^2 + az + b = 0$ and the origin form an equilateral triangle, prove $a^2 = 3b$.
+\end{itemize}
+
+\subsubsection{Category 44: Trigonometric Products and Sums via Polynomial Roots}
+Constructing polynomials with roots like $\tan^2(\pi/7)$ to derive exact trigonometric sums.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Form a cubic with roots $\tan^2(\frac{\pi}{7}), \tan^2(\frac{2\pi}{7}), \tan^2(\frac{3\pi}{7})$ and find their sum.
+    \item \textbf{Q2:} Evaluate $\cos(\frac{\pi}{5})\cos(\frac{2\pi}{5})$ using roots of a quadratic.
+\end{itemize}
+
+\subsubsection{Category 45: Vector/Dot Product Parameterization of Roots}
+Connecting root values to vector magnitudes and dot products.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If roots $\alpha, \beta$ of $x^2 - 2px + q = 0$ represent vector magnitudes $|\vec{a}|, |\vec{b}|$, express $\theta = \angle(\vec{a},\vec{b})$ in terms of $p, q, |\vec{a}+\vec{b}|$.
+\end{itemize}
+
+\subsubsection{Category 46: Functional Equations Involving Roots}
+Evaluating expressions of the form $f(\alpha) + f(\beta)$ for a given function $f(x)$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Evaluate $f(\alpha) + f(\beta)$ for $f(x) = x^3 - 2x^2 + 5x + 7$ where $\alpha, \beta$ are roots of $x^2 - 2x + 5 = 0$.
+    \item \textbf{Q2:} For $g(x) = \frac{x^2+1}{x}$ and roots of $x^2 - x - 1 = 0$, find $g(\alpha)g(\beta)$.
+\end{itemize}
+
+\subsubsection{Category 47: Sums of Squares of Differences $(\alpha - \beta)^2 + (\beta - \gamma)^2 + (\gamma - \alpha)^2$}
+Symmetric dispersion metrics for cubic and higher-order roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} For $x^3 + px + q = 0$, evaluate $(\alpha - \beta)^2 + (\beta - \gamma)^2 + (\gamma - \alpha)^2$ in terms of $p, q$.
+\end{itemize}
+
+\subsubsection{Category 48: Transforming Roots to Squares ($\alpha^2, \beta^2, \gamma^2$)}
+Constructing equations satisfied by squared roots of higher-degree polynomials.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Form an equation whose roots are $\alpha^2, \beta^2, \gamma^2$ for $x^3 - px^2 + qx - r = 0$.
+\end{itemize}
+
+\subsubsection{Category 49: Equations with Complex Conjugate Pair Constraints}
+Utilizing $\beta = \bar{\alpha}$ for real-coefficient polynomials to find remaining roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Given $2 + 3i$ is a root of $x^3 - 7x^2 + 19x - 13 = 0$, find the real root and verify the root product.
+\end{itemize}
+
+\subsubsection{Category 50: Irrational Conjugate Pair Constraints ($p + \sqrt{q}$)}
+Properties of irrational conjugate pairs in polynomials with rational coefficients.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $1 + \sqrt{2}$ is a root of $x^4 - 2x^3 - 3x^2 + 2x + 1 = 0$, find all roots and the sum of their squares.
+\end{itemize}
+
+---
+
+\subsection{Analytic Properties, Derivatives, \& Advanced Applications}
+
+\subsubsection{Category 51: Bounds on Roots via Vieta's Identities}
+Applying inequalities (AM-GM, Cauchy-Schwarz) to root-coefficient relations.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If all roots of $x^3 - 6x^2 + px - 8 = 0$ are positive real numbers, find $p$ using the AM-GM inequality.
+    \item \textbf{Q2:} Prove $\alpha^2 + \beta^2 \ge \frac{b^2}{2}$ for real roots of $x^2 + bx + c = 0$.
+\end{itemize}
+
+\subsubsection{Category 52: Determinant / Matrix Expressions of Root Systems}
+Evaluating determinants whose components consist of polynomial roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Evaluate $\begin{vmatrix} \alpha & \beta & \gamma \\ \beta & \gamma & \alpha \\ \gamma & \alpha & \beta \end{vmatrix}$ where $\alpha, \beta, \gamma$ are roots of $x^3 + px + q = 0$.
+\end{itemize}
+
+\subsubsection{Category 53: Modular Arithmetic / Congruence Relations on Root Sums}
+Evaluating power-sum values modulo $m$ ($S_n \pmod m$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Prove $\alpha^n + \beta^n \in \mathbb{Z}$ for roots of $x^2 - 4x + 1 = 0$, and evaluate its value modulo $3$.
+\end{itemize}
+
+\subsubsection{Category 54: Calculus / Derivative Relations with Root Sums}
+Connecting derivatives to root reciprocals: $\frac{f'(x)}{f(x)} = \sum \frac{1}{x - \alpha_i}$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} For $f(x) = x^3 - 5x + 3$, evaluate $\frac{1}{f'(\alpha)} + \frac{1}{f'(\beta)} + \frac{1}{f'(\gamma)}$.
+    \item \textbf{Q2:} Express $\frac{1}{\alpha - x} + \frac{1}{\beta - x}$ in terms of $f(x)$ and $f'(x)$ for $f(x) = ax^2 + bx + c$.
+\end{itemize}
+
+\subsubsection{Category 55: Root Continuity under Parameter Perturbations}
+Estimating variations in root sums/products under coefficient shifts ($c \to c + \epsilon$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find the linear approximation for the change in root sum and product when $x^2 - 5x + 6 = 0$ becomes $x^2 - 5x + (6+\epsilon) = 0$.
+\end{itemize}
+
+\subsubsection{Category 56: Generating Functions for Power Sums of Roots}
+Formal power series $G(t) = \sum_{n=0}^{\infty} S_n t^n$ derived from Vieta's identities.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find the generating function for $S_n = \alpha^n + \beta^n$ for $x^2 - 3x + 2 = 0$, and evaluate $S_6$.
+\end{itemize}
+
+\subsubsection{Category 57: Equations Solvable via Auxiliary Substitution of Root Products}
+Simplifying systems by setting $y = \alpha\beta$ or $y = \alpha + \beta$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\alpha^2 + \beta^2 = 5$ for $x^2 - px + q = 0$, express $p$ in terms of $q$.
+    \item \textbf{Q2:} Find $k$ if roots of $x^2 - 8x + k = 0$ satisfy $\alpha^2 + \beta^2 = 40$.
+\end{itemize}
+
+\subsubsection{Category 58: Roots of Unity and Cyclotomic Polynomial Relations}
+Vieta's relations applied to cyclotomic equations $x^n - 1 = 0$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} For roots $1, \omega, \omega^2$ of $x^3 - 1 = 0$, evaluate $(1 - \omega + \omega^2)(1 + \omega - \omega^2)$.
+    \item \textbf{Q2:} Compute $\prod_{k=1}^{n-1} (1 - e^{\frac{2\pi i k}{n}})$ using relations between roots and coefficients.
+\end{itemize}
+
+\subsubsection{Category 59: Symmetric Functions Involving Fractional Powers ($\sqrt{\alpha} + \sqrt{\beta}$)}
+Radical expressions of roots derived from elementary symmetric functions.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Evaluate $\sqrt{\alpha} + \sqrt{\beta}$ for positive roots of $x^2 - 10x + 9 = 0$.
+    \item \textbf{Q2:} Express $\sqrt{\frac{\alpha}{\beta}} + \sqrt{\frac{\beta}{\alpha}}$ in terms of $a,b,c$ for $ax^2 + bx + c = 0$.
+\end{itemize}
+
+\subsubsection{Category 60: Quadratic Forms and Discriminant Invariants}
+Direct identification of $(\alpha - \beta)^2 = \frac{D}{a^2}$ with discriminant invariants.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Prove $(\alpha - \beta)^2 = \frac{D}{a^2}$ for $ax^2 + bx + c = 0$ with discriminant $D = b^2 - 4ac$.
+    \item \textbf{Q2:} Express $\alpha^4 + \beta^4$ in terms of $a, c$ and discriminant $D$.
+\end{itemize}
+
+\subsubsection{Category 61: Roots in Harmonic Progression (H.P.) for Quadratics}
+Arithmetic constraints on reciprocal roots $1/\alpha, 1/\beta$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $1/\alpha, 1/\beta$ are in A.P. with common difference $d$, express $d^2$ in terms of coefficients of $ax^2 + bx + c = 0$.
+\end{itemize}
+
+\subsubsection{Category 62: Sums of Cubes of Root Differences $(\alpha - \beta)^3 + (\beta - \gamma)^3 + (\gamma - \alpha)^3$}
+Cyclic cubic identities applied to root differences.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Prove $(\alpha - \beta)^3 + (\beta - \gamma)^3 + (\gamma - \alpha)^3 = 3(\alpha - \beta)(\beta - \gamma)(\gamma - \alpha)$ for $x^3 + px + q = 0$.
+\end{itemize}
+
+\subsubsection{Category 63: Maximum and Minimum Values of Symmetric Functions}
+Optimization of symmetric root functions subject to parameter constraints.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find the minimum value of $\alpha^2 + \beta^2$ for real roots of $x^2 - 2px + (p^2 - 1) = 0$.
+    \item \textbf{Q2:} Find the maximum value of $\alpha\beta(\alpha+\beta)$ for roots of $x^2 - mx + 4 = 0$ ($m \in [4,6]$).
+\end{itemize}
+
+\subsubsection{Category 64: Equations with Roots as Specific Geometric Parameters}
+Relating roots to geometric measurements (triangle sides, inradius, circumradius).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If roots of $x^2 - 7x + 12 = 0$ represent leg lengths of a right triangle, find its hypotenuse.
+    \item \textbf{Q2:} Roots of $x^2 - 2Rx + A = 0$ represent circumradius $R$ and inradius $r$. Express the distance between circumcenter and incenter using roots.
+\end{itemize}
+
+\subsubsection{Category 65: Operator/Differential Invariants on Polynomial Roots}
+Utilizing higher order logarithmic derivative operators $\frac{d}{dx}\left(\frac{f'(x)}{f(x)}\right) = -\sum \frac{1}{(x-\alpha_i)^2}$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Evaluate $\frac{1}{(1-\alpha)^2} + \frac{1}{(1-\beta)^2} + \frac{1}{(1-\gamma)^2}$ for roots of $x^3 - x - 1 = 0$.
+\end{itemize}
+
+\subsubsection{Category 66: System of Equations with Alternating Signs of Roots}
+Combining Descartes' Rule of Signs with Vieta's formulas.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $x^3 - 4x^2 + x + 6 = 0$ has two positive roots and one negative root, find the product of the positive roots.
+\end{itemize}
+
+\subsubsection{Category 67: Roots of Polynomials over Finite Fields ($\mathbb{Z}_p$)}
+Evaluating root relations under modular arithmetic field structures.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find the sum and product of roots of $x^2 + 3x + 2 \equiv 0 \pmod 7$.
+    \item \textbf{Q2:} Determine if $x^2 + x + 1 \equiv 0 \pmod 5$ has roots, and evaluate their sum in $\mathbb{Z}_5$.
+\end{itemize}
+
+\subsubsection{Category 68: Transformation via Logarithmic Differentiation}
+Evaluating rational sums $\sum \frac{1}{k - \alpha_i}$ at fixed evaluation points.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Evaluate $\sum_{i=1}^4 \frac{1}{2 - \alpha_i}$ for roots of $x^4 - 3x^3 + 2x^2 - x + 5 = 0$.
+\end{itemize}
+
+\subsubsection{Category 69: Symmetric Sums of Inverse Cubes $\sum \frac{1}{\alpha^3}$}
+Evaluating inverse cubic power sums via reciprocal polynomial transformations.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Evaluate $\frac{1}{\alpha^3} + \frac{1}{\beta^3} + \frac{1}{\gamma^3}$ for roots of $x^3 - 2x^2 + 4x - 8 = 0$.
+\end{itemize}
+
+\subsubsection{Category 70: Roots of Multi-Variable Homogeneous Quadratic Forms}
+Slopes of binary quadratic forms $ax^2 + bxy + cy^2 = 0$ as roots of $a m^2 + bm + c = 0$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $m_1, m_2$ are slopes represented by $3x^2 - 8xy + 4y^2 = 0$, evaluate $m_1 + m_2$ and $m_1 m_2$.
+\end{itemize}
+
+---
+
+\subsection{Specialized Structure, Physics, \& Special Functions}
+
+\subsubsection{Category 71: Sums of Roots Taking $k$ at a Time ($\sigma_k$) for Degree $n$}
+Direct extraction of intermediate elementary symmetric functions $\sigma_k$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Extract $\sigma_1, \sigma_2, \sigma_3, \sigma_4, \sigma_5$ for $x^5 - 5x^4 + 10x^3 - 10x^2 + 5x - 1 = 0$.
+\end{itemize}
+
+\subsubsection{Category 72: Characterizing Equations with Purely Imaginary Roots}
+Coefficient constraints ensuring $\text{Re}(\alpha) = 0$ for all roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find conditions on $b, c \in \mathbb{R}$ for $x^2 + bx + c = 0$ to have purely imaginary roots.
+    \item \textbf{Q2:} Prove $x^3 + bx^2 + cx + d = 0$ cannot have purely imaginary roots if $b \neq 0$.
+\end{itemize}
+
+\subsubsection{Category 73: Parameter Elimination in Coupled Root Equations}
+Eliminating parametric variables $t$ to establish direct Cartesian relations.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Eliminate $t$ from $x^2 - 2tx + (t^2 - 1) = 0$ to find a relation between $\alpha+\beta$ and $\alpha\beta$.
+\end{itemize}
+
+\subsubsection{Category 74: Polynomials with Roots in Exponential Progression}
+Roots forming exponential terms $e^a, e^b, e^c$ with exponents in A.P.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If roots of $x^3 - px^2 + qx - r = 0$ are $e^a, e^b, e^c$ with $a,b,c \in \text{A.P.}$, prove $q^3 = p^3 r$.
+\end{itemize}
+
+\subsubsection{Category 75: Continued Fraction Representations Derived from Roots}
+Expressing roots as infinite continued fractions $\alpha = x_1 + \frac{1}{\alpha}$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Express the positive root of $x^2 - x - 1 = 0$ as $1 + \frac{1}{1 + \frac{1}{1 + \dots}}$, and evaluate using Vieta's relations.
+\end{itemize}
+
+\subsubsection{Category 76: Hyperbolic Function Parameterization of Roots}
+Utilizing $\cosh t, \sinh t$ in cubic evaluation.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\cosh t, \sinh t$ are roots of $x^2 - px + q = 0$, express the relation between $p, q$ using hyperbolic identities.
+\end{itemize}
+
+\subsubsection{Category 77: Roots Involving Floor / Ceiling Functions}
+Tying integer bounds $\lfloor \alpha \rfloor, \lceil \beta \rceil$ to polynomial coefficients.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} For roots of $x^2 - 7x + 11 = 0$, evaluate $\lfloor \alpha \rfloor + \lfloor \beta \rfloor$ and $\lfloor \alpha+\beta \rfloor$.
+    \item \textbf{Q2:} Find integral $k$ values such that roots of $x^2 - kx + 6 = 0$ satisfy $\lfloor \alpha \rfloor = \lfloor \beta \rfloor$.
+\end{itemize}
+
+\subsubsection{Category 78: Roots Related by Complex Phase / Argument Differences}
+Constraints on phase angle differences $|\arg(\alpha) - \arg(\beta)|$ in the Argand plane.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If roots of $z^2 + az + b = 0$ have equal magnitudes and phase difference $\pi/2$, prove $a^2 = 2b$.
+    \item \textbf{Q2:} Find condition on $p, q$ for roots of $z^2 + pz + q = 0$ to lie on $\arg(z) = \pi/4$.
+\end{itemize}
+
+\subsubsection{Category 79: Symmetric Power Sums with Alternating Signs}
+Alternating power sum combinations $\alpha^3 - \beta^3 + \gamma^3$ for ordered roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Evaluate $\alpha^3 - \beta^3 + \gamma^3$ for roots of $x^3 - 2x^2 - x + 2 = 0$ ordered as $\alpha < \beta < \gamma$.
+\end{itemize}
+
+\subsubsection{Category 80: Roots Parameterized by Hyperbolic Substitution ($x = \cosh t$)}
+Solving $4x^3 - 3x - a = 0$ ($|a|>1$) using hyperbolic triple-angle identities.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Use $\cosh(3t) = 4\cosh^3 t - 3\cosh t$ to find real roots of $4x^3 - 3x - 2 = 0$.
+\end{itemize}
+
+\subsubsection{Category 81: Self-Conjugate Root Sets under Möbius Inversion}
+Invariance of root sets under rational transformations $x \to \frac{1-x}{1+x}$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Prove that if $\alpha$ is a root of $x^3 + x^2 - 2x - 1 = 0$, then $\beta = 2 - \alpha^2$ is also a root.
+\end{itemize}
+
+\subsubsection{Category 82: Sums of Weighted Powers of Roots ($\lambda \alpha^n + \mu \beta^n$)}
+Constructing non-symmetric sequences using initial values and root recurrences.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find $A, B$ such that $L_n = A\alpha^n + B\beta^n$ satisfies $L_1 = 1, L_2 = 3$ for roots of $x^2 - x - 1 = 0$.
+\end{itemize}
+
+\subsubsection{Category 83: Orthogonal Polynomial Root Relations (Chebyshev / Legendre)}
+Deriving trigonometric identities from roots of Chebyshev polynomials $T_n(x)$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Evaluate the root sum and product of $T_3(x) = 4x^3 - 3x = 0$, verifying connection to $\cos(\pi/6), \cos(\pi/2), \cos(5\pi/6)$.
+\end{itemize}
+
+\subsubsection{Category 84: Polynomials with Integer Coefficients Having All Real Roots}
+Applying Rolle's theorem and Vieta's relations simultaneously to derive coefficient bounds.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If all roots of $x^3 - 6x^2 + px - 8 = 0$ are real, prove $p = 12$ using $f'(x) = 0$.
+\end{itemize}
+
+\subsubsection{Category 85: Symmetric Functions Involving Binomial Coefficients}
+Evaluating combinatorial expressions $\binom{\alpha}{2} + \binom{\beta}{2}$ evaluated at polynomial roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Evaluate $\binom{\alpha}{2} + \binom{\beta}{2}$ for roots of $x^2 - 9x + 20 = 0$.
+    \item \textbf{Q2:} Express $\binom{\alpha}{3} + \binom{\beta}{3}$ in terms of $p, q$ for roots of $x^2 - px + q = 0$.
+\end{itemize}
+
+\subsubsection{Category 86: Equations with Roots as Eigenvalues of Matrices}
+Equating matrix trace and determinant to root sums and products: $\det(A - \lambda I) = 0$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} For $A = \begin{pmatrix} 2 & 3 \\ 1 & 4 \end{pmatrix}$, form the characteristic equation and evaluate $\lambda_1^2 + \lambda_2^2$.
+\end{itemize}
+
+\subsubsection{Category 87: Vieta's Formulas Applied to Infinite Polynomial Series}
+Extending product expansions to transcendental entire functions ($\sin x = x \prod (1 - x^2/n^2\pi^2)$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Evaluate the sum of reciprocals of squared non-zero roots of $\sin x = 0$.
+\end{itemize}
+
+\subsubsection{Category 88: Cyclic Expressions of the Form $(\alpha + \omega \beta + \omega^2 \gamma)^3$}
+Utilizing Lagrange resolvents and complex cube roots of unity $\omega$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Express $L = \alpha + \omega \beta + \omega^2 \gamma$ in terms of $p, q$ for $x^3 - 3px + q = 0$.
+\end{itemize}
+
+\subsubsection{Category 89: Resultants and Elimination via Root Products}
+Determining root-sharing conditions via the polynomial resultant $R(f,g) = a^m b^n \prod (\alpha_i - \beta_j)$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Compute the resultant of $f(x) = x^2 - px + q$ and $g(x) = x - k$.
+\end{itemize}
+
+\subsubsection{Category 90: Roots of Polynomials under Quadratic Transformations}
+Constructing equations satisfied by $y = ax^2 + bx + c$ when $x$ satisfies a given cubic equation.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} If $\alpha, \beta, \gamma$ are roots of $x^3 - x - 1 = 0$, find the cubic equation with roots $y_i = \alpha_i^2 + 1$.
+\end{itemize}
+
+\subsubsection{Category 91: Sums of Cross-Ratios of Four Roots}
+Evaluating projective geometric invariants $(\alpha, \beta; \gamma, \delta) = \frac{(\alpha-\gamma)(\beta-\delta)}{(\alpha-\delta)(\beta-\gamma)}$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Evaluate the sum of all cross-ratios formed by the roots of $x^4 + px + q = 0$.
+\end{itemize}
+
+\subsubsection{Category 92: Equations where Roots Represent Critical Points of Potentials}
+Physical equilibrium problems where electrostatic net force vanishes ($\sum \frac{1}{x - \alpha_i} = 0$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find the equilibrium point on $\mathbb{R}$ where net force vanishes between two unit charges placed at roots of $x^2 - 6x + 8 = 0$.
+\end{itemize}
+
+\subsubsection{Category 93: Bounds on Maximum Root Absolute Value ($|\alpha|_{\text{max}}$)}
+Applying Cauchy's bound and Eneström-Kakeya theorem to coefficient magnitudes.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Show that all roots of $x^3 + 3x^2 + 4x + 12 = 0$ satisfy $|\alpha| \le 13$, and refine the bound using root products.
+\end{itemize}
+
+\subsubsection{Category 94: Sum of Roots of Exponential Polynomials}
+Transforming transcendental equations $a e^{2x} + b e^x + c = 0$ into quadratics $u = e^x$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Solve $e^{2x} - 5e^x + 6 = 0$ and find the exact sum of real solutions using the root product of the transformed equation.
+    \item \textbf{Q2:} Prove $x_1 + x_2 = \log_2(c/a)$ for real roots of $a 4^x + b 2^x + c = 0$.
+\end{itemize}
+
+\subsubsection{Category 95: Trigonometric Sums via Roots of $\cos(n\theta)$ Polynomials}
+Deriving sum identities $\sum \cos(\frac{(2k-1)\pi}{2n}) = 0$ using Chebyshev roots.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Form the polynomial with roots $\cos(\pi/6), \cos(3\pi/6), \cos(5\pi/6)$ and verify their product.
+\end{itemize}
+
+\subsubsection{Category 96: Conditions for Roots to Lie Inside the Unit Circle ($|\alpha| < 1$)}
+Applying Schur-Cohn stability criteria to root-coefficient relationships.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Find the range of $k$ such that both roots of $x^2 + kx + 1/2 = 0$ lie strictly inside the unit circle.
+\end{itemize}
+
+\subsubsection{Category 97: Relations between Roots of a Polynomial and its Antiderivative}
+Root relationships between $f(x)$ and $F(x) = \int_0^x f(t)dt$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} For $f(x) = 3x^2 - 6x + 2$, find the roots of $F(x) = \int_0^x f(t)dt$ and express the product of non-zero roots using $f(x)$ coefficients.
+\end{itemize}
+
+\subsubsection{Category 98: Distance Between Roots in the Argand Plane ($|\alpha - \beta|$)}
+Computing Euclidean distance between complex conjugate roots $x = u \pm iv$ using discriminant $D < 0$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Compute the Euclidean distance in $\mathbb{C}$ between the conjugate roots of $x^2 - 4x + 13 = 0$.
+\end{itemize}
+
+\subsubsection{Category 99: Systems Solved by Symmetric Polynomial Inversion}
+Solving non-linear algebraic systems by creating auxiliary polynomials $t^3 - e_1 t^2 + e_2 t - e_3 = 0$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Solve $x+y+z=2, x^2+y^2+z^2=14, x^3+y^3+z^3=20$ by constructing the corresponding cubic equation.
+\end{itemize}
+
+\subsubsection{Category 100: Sums of Reciprocals of Pairwise Root Sums ($\sum \frac{1}{\alpha+\beta}$)}
+Evaluating symmetric functions formed by adding pairs of roots for cubic equations.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} For $x^3 - px^2 + qx - r = 0$, evaluate $\frac{1}{\alpha+\beta} + \frac{1}{\beta+\gamma} + \frac{1}{\gamma+\alpha}$ in terms of $p, q, r$.
+\end{itemize}
+
+\subsubsection{Category 101: Discriminant of the Cubic Equation via Root Differences}
+Connecting $\Delta = a^4 (\alpha-\beta)^2 (\beta-\gamma)^2 (\gamma-\alpha)^2$ directly to coefficients of $x^3 + px + q = 0$.
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Q1:} Prove that for $x^3 + px + q = 0$, the product of squared root differences $(\alpha-\beta)^2(\beta-\gamma)^2(\gamma-\alpha)^2$ equals $-4p^3 - 27q^2$.
+\end{itemize}
+
+---
+
+\section{Top 10 Reference Books}
+
+The following ten standard text references cover the theoretical foundations, historical developments, competitive examination frameworks, and advanced problem-solving techniques associated with the 101 categories presented above:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Hall, H. S., \& Knight, S. R.} (1887). \textit{Higher Algebra: A Sequel to Elementary Algebra for Schools}. Macmillan and Co. 
+    \textit{(The classical benchmark text for Vieta's formulas, symmetric functions, transformations of equations, and reciprocal equations).}
+    
+    \item \textbf{Burnside, W. S., \& Panton, A. W.} (1912). \textit{The Theory of Equations: With an Introduction to the Theory of Binary Algebraic Forms} (Vol. 1 \& 2). Longmans, Green, and Co.
+    \textit{(An exhaustive historical treatise detailing symmetric functions, Newton's sums, transformed equations, and resultants).}
+
+    \item \textbf{Uspensky, J. V.} (1948). \textit{Theory of Equations}. McGraw-Hill Book Company.
+    \textit{(Provides rigorous analytical proofs for root bounds, Rolle's applications, symmetric functions, and numerical approximation methods).}
+
+    \item \textbf{Borwein, P., \& Erdélyi, T.} (1995). \textit{Polynomials and Polynomial Inequalities}. Springer-Verlag.
+    \textit{(Covers advanced analytical properties, root distributions, bounds inside the unit circle, and extremal problems).}
+
+    \item \textbf{Prasolov, V. V.} (2004). \textit{Polynomials} (Algorithms and Computation in Mathematics, Vol. 11). Springer.
+    \textit{(Comprehensive modern theoretical text exploring resultants, symmetric functions, Newton's sums, and complex root geometry).}
+
+    \item \textbf{Andreescu, T., \& Gelca, R.} (2017). \textit{Mathematical Olympiad Challenges}. Birkhäuser / Springer.
+    \textit{(Focuses on high-level problem-solving involving symmetric polynomials, matrix eigenvalue links, and complex root configurations).}
+
+    \item \textbf{Agarwal, R. S.} (2020). \textit{Senior Secondary School Mathematics for Class 11 \& 12}. Bharati Bhawan Publishers.
+    \textit{(Standard higher-secondary pedagogical reference for foundational board preparation and introductory Vieta problems).}
+
+    \item \textbf{Bernard, S., \& Child, J. M.} (1936). \textit{Higher Algebra}. Macmillan and Co.
+    \textit{(Detailed coverage of cubic and biquadratic equations, progression of roots, and reciprocal transformations).}
+
+    \item \textbf{Lovász, L., Pelikán, J., \& Vesztergombi, K.} (2003). \textit{Discrete Mathematics: Elementary and Beyond}. Springer.
+    \textit{(Examines generating functions, power-sum recurrences, and modular arithmetic properties of polynomial roots).}
+
+    \item \textbf{Barbeau, E. J.} (2003). \textit{Polynomials}. Problem Books in Mathematics. Springer.
+    \textit{(An interactive, problem-driven book containing extensive categories on fractional power transformations, inequalities, and functional equations involving roots).}
+\end{enumerate}
+
+\end{document}

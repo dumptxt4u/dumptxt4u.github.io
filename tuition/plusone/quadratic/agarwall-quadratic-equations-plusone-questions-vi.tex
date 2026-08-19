@@ -1,0 +1,435 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Quadratic Equations -- ISC Class XI}
+\lhead{All Questions + Final Answers}
+\cfoot{\thepage}
+
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+
+\title{\textbf{Quadratic Equations -- Complete Extraction}\\[0.3cm]
+\large 5.2 (remaining), 5.3 Nature of Roots \& 5.4 Relations between Roots}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+%============================================================
+\section{5.2 Equations Reducible to Quadratic Form (Continued)}
+%============================================================
+
+\subsection{Exercise 5.2 -- Questions 8 to 18}
+
+Solve the following equations:
+
+\begin{enumerate}[start=8]
+    \item \( x(x+2)(x^2-1) = -1 \)
+    \item \( (x+1)(2x+3)(2x+5)(x+3) = 945 \)
+    \item \( (x^2 + x - 6)(x^2 - 3x - 4) = 24 \)
+    \item (i) \( \sqrt{\dfrac{x}{1-x}} + \sqrt{\dfrac{1-x}{x}} = \dfrac{13}{6} \)
+    \item (ii) \( \sqrt{\dfrac{4x-1}{4x+1}} - \sqrt{\dfrac{4x+1}{4x-1}} = \dfrac{8}{3} \), \( x \neq \pm \dfrac{1}{4} \)
+    \item (i) \( \sqrt{3x+4} = x \) \quad (ii) \( \sqrt{3x+1} - \sqrt{x-1} = 2 \)
+    \item (i) \( \sqrt{x+1} + \sqrt{x-1} = 1 \) \quad (ii) \( \sqrt{x+3} + \sqrt{x-3} = 6 \)
+    \item (i) \( \sqrt{3x^2 - 4x + 34} - \sqrt{3x^2 - 4x - 11} = 5 \)
+    \item (ii) \( \sqrt{3x^2 - 7x - 30} - \sqrt{2x^2 - 7x - 5} = x - 5 \)
+    \item \( 12 + 9\sqrt{(x-1)(3x+2)} = 3x^2 - x \)
+    \item \( \dfrac{\sqrt{x^2+1} - \sqrt{x^2-1}}{\sqrt{x^2+1} + \sqrt{x^2-1}} = \dfrac{1}{3} \)
+    \item (i) \( \left(x + \dfrac{1}{x}\right)^2 - 2\left(x - \dfrac{1}{x} + 4\right) = 11 \)
+    \item (ii) \( 12x^4 - 56x^3 + 89x^2 - 56x + 12 = 0 \)
+    \item Solve \( (x^2 + 2)^2 + 8x^2 = 6x(x^2 + 2) \)
+\end{enumerate}
+
+\subsection{Answers -- Exercise 5.2 (Questions 8--18)}
+
+\begin{enumerate}[start=8]
+    \item \( -\dfrac{1+\sqrt{5}}{2},\ -\dfrac{1-\sqrt{5}}{2} \)
+    \item \( 2,\ -6,\ \dfrac{-4 + i\sqrt{59}}{2} \)
+    \item \( 0,\ 1,\ \dfrac{1 + \sqrt{57}}{2} \)
+    \item (i) \( \dfrac{9}{13},\ \dfrac{4}{13} \)
+    \item (ii) \( -\dfrac{5}{16} \)
+    \item (i) \( 4 \) \quad (ii) \( 1,\ 5 \)
+    \item (i) No solution \quad (ii) \( \dfrac{37}{4} \)
+    \item (i) \( 3,\ -\dfrac{5}{3} \) \quad (ii) \( 5,\ 6 \)
+    \item \( 6,\ -\dfrac{17}{3} \)
+    \item \( \pm\sqrt{\dfrac{5}{3}} \)
+    \item (i) \( \dfrac{5 \pm \sqrt{29}}{2},\ -\dfrac{3 \pm \sqrt{13}}{2} \)
+    \item (ii) \( \dfrac{1}{2},\ \dfrac{2}{3},\ \dfrac{3}{2},\ 2 \)
+    \item \( 1 \pm i,\ 2 \pm \sqrt{2} \)
+\end{enumerate}
+
+%============================================================
+\section{5.3 Nature of Roots of a Quadratic Equation}
+%============================================================
+
+\subsection{Illustrative Examples}
+
+\begin{enumerate}[label=Example \arabic*.]
+    \item Discuss the nature of the roots of the following equations:
+    \begin{enumerate}[label=(\roman*)]
+        \item \( 4x^2 - 12x + 9 = 0 \)
+        \item \( 3x^2 - 10x + 3 = 0 \)
+        \item \( 9x^2 - 2 = 0 \)
+        \item \( x^2 + x + 1 = 0 \)
+    \end{enumerate}
+
+    \item Discuss the nature of the roots of the following equations:
+    \begin{enumerate}[label=(\roman*)]
+        \item \( 4x^2 - 4\sqrt{3}x + 3 = 0 \)
+        \item \( 2\sqrt{3}x^2 - 5x + \sqrt{3} = 0 \)
+    \end{enumerate}
+
+    \item If \( a, b, h \in \mathbb{R} \), show that the equation \( (x - a)(x - b) = h^2 \) has real roots.
+
+    \item If the roots of \( ax^2 + x + b = 0 \) are real and distinct, show that the roots of \( \dfrac{x^2 + 1}{x} = 4\sqrt{ab} \) are imaginary.
+
+    \item Given that \( a, b, c \in \mathbb{Q} \), show that the roots of \( (b - c)x^2 + (c - a)x + (a - b) = 0 \) are rational. Find the condition for the roots to be equal.
+
+    \item Discuss the nature of the roots of the equation \( (m + 6)x^2 + (m + 6)x + 2 = 0 \).
+
+    \item For what value of \( k \) does the expression \( x^2 - 2x(1 + 3k) + 7(3 + 2k) \) become a perfect square? Also write the expression as a perfect square.
+
+    \item Determine a positive real value of \( k \) such that both the equations \( x^2 + kx + 64 = 0 \) and \( x^2 - 8x + k = 0 \) may have real roots.
+
+    \item Show that if \( p, q, r, s \) are real numbers and \( pr = 2(q + s) \), then at least one of the equations \( x^2 + px + q = 0 \) and \( x^2 + rx + s = 0 \) has real roots.
+\end{enumerate}
+
+\subsection{Answers -- Illustrative Examples (5.3)}
+
+\begin{enumerate}[label=Example \arabic*.]
+    \item 
+    \begin{enumerate}[label=(\roman*)]
+        \item Rational and equal
+        \item Rational and unequal
+        \item Irrational and unequal (conjugates)
+        \item Pair of complex conjugates
+    \end{enumerate}
+
+    \item 
+    \begin{enumerate}[label=(\roman*)]
+        \item Real and equal
+        \item Real and unequal
+    \end{enumerate}
+
+    \item Proven (\(\Delta \geq 0\))
+
+    \item Proven (second equation has negative discriminant)
+
+    \item Roots are rational. Equal when \( b = \dfrac{a+c}{2} \)
+
+    \item 
+    \begin{itemize}
+        \item Equal when \( m = 2 \) or \( m = -6 \)
+        \item Real \& unequal when \( m < -6 \) or \( m > 2 \)
+        \item Complex when \( -6 < m < 2 \)
+    \end{itemize}
+
+    \item \( k = 2 \) (\( (x-7)^2 \)) or \( k = -\dfrac{10}{9} \) (\( \left(x + \dfrac{7}{3}\right)^2 \))
+
+    \item \( k = 16 \)
+
+    \item Proven
+\end{enumerate}
+
+%------------------------------------------------------------
+\subsection{Exercise 5.3}
+
+\begin{enumerate}
+    \item Find the nature of roots (without solving):
+    \begin{enumerate}[label=(\roman*)]
+        \item \( x^2 + 9 = 0 \)
+        \item \( 4x^2 - 24x + 35 = 0 \)
+        \item \( x^2 - 2\sqrt{2}x + 1 = 0 \)
+        \item \( 2x^2 - 2\sqrt{5}x + 3 = 0 \)
+    \end{enumerate}
+
+    \item (i) Prove that roots of \( x^2 - 2ax + a^2 - b^2 - c^2 = 0 \) are always real.
+    \item (ii) Show that roots of \( (x-a)(x-b) = abx^2 \) are always real. When are they equal?
+
+    \item Show that roots of \( (x-a)(x-b) + (x-b)(x-c) + (x-c)(x-a) = 0 \) are always real. Find condition for equal roots.
+
+    \item Discuss nature of roots:
+    \begin{enumerate}[label=(\roman*)]
+        \item \( \sqrt{3}x^2 - 2x - \sqrt{3} = 0 \)
+        \item \( x^2 - (p+1)x + p = 0 \) (\( p \in \mathbb{Q} \))
+        \item \( (x-a)(x-b) = ab \) (\( a,b \in \mathbb{R} \))
+    \end{enumerate}
+
+    \item Find \( m \) so that roots of \( (4+m)x^2 + (m+1)x + 1 = 0 \) are equal.
+
+    \item Show that roots of \( x^2 + 2(3a+5)x + 2(9a^2 + 25) = 0 \) are complex unless \( a = \dfrac{5}{3} \).
+
+    \item If \( a,b,c,d \in \mathbb{R} \), show that roots of \( (a^2 + c^2)x^2 + 2(ab+cd)x + (b^2 + d^2) = 0 \) cannot be real unless equal.
+
+    \item If \( a,b,c \in \mathbb{Q} \) and \( a+b+c = 0 \), show that roots of \( ax^2 + bx + c = 0 \) are rational. Is converse true?
+
+    \item Prove that \( x^2 + px - 1 = 0 \) has real and distinct roots for all real \( p \).
+
+    \item Show that roots of \( x^2 - 2\left( \dfrac{m+1}{m} \right)x + 3 = 0 \) are real for all non-zero real \( m \).
+
+    \item If roots of \( ax^2 + 2cx + b = 0 \) are real and distinct, show that roots of \( x^2 - 2(a+b)x + a^2 + b^2 + 2c^2 = 0 \) are non-real complex.
+
+    \item If roots of \( a(b-c)x^2 + b(c-a)x + c(a-b) = 0 \) are equal, show that \( \dfrac{2}{b} = \dfrac{1}{a} + \dfrac{1}{c} \).
+
+    \item For what value of \( k \) is \( (4-k)x^2 + 2(k+2)x + (8k+1) \) a perfect square?
+
+    \item If roots of \( x^2 - 8x + m(m-6) = 0 \) are real and distinct, find all possible values of \( m \).
+\end{enumerate}
+
+\subsection{Answers -- Exercise 5.3 (Final Answers Only)}
+
+\begin{enumerate}
+    \item (i) Complex conjugates \quad (ii) Rational \& unequal \quad (iii) Real \& unequal \quad (iv) Complex conjugates
+    \item (ii) Equal when \( a = b = 0 \)
+    \item Equal when \( a = b = c \); roots = \( a, a \)
+    \item (i) Real \& distinct \quad (ii) Rational \& distinct (\( p \neq 1 \)); equal when \( p=1 \) \quad (iii) Real \& distinct (\( a+b \neq 0 \)); both zero when \( a+b=0 \)
+    \item \( m = 5 \) or \( m = -3 \)
+    \item Proven
+    \item Proven
+    \item Proven (converse false)
+    \item Proven
+    \item Proven
+    \item Proven
+    \item Proven
+    \item \( k = 0 \) or \( k = 3 \)
+    \item \( -2 < m < 8 \)
+\end{enumerate}
+
+%============================================================
+\section{5.4 Relations between Roots and Coefficients}
+%============================================================
+
+\subsection{Illustrative Examples}
+
+\begin{enumerate}[label=Example \arabic*.]
+    \item If \( \alpha, \beta \) are roots of \( x^2 - 4x + 2 = 0 \), find:
+    \begin{enumerate}[label=(\roman*)]
+        \item \( \alpha^2 + \beta^2 \)
+        \item \( \alpha^2 - \beta^2 \)
+        \item \( \alpha^3 + \beta^3 \)
+        \item \( \dfrac{1}{\alpha} + \dfrac{1}{\beta} \)
+    \end{enumerate}
+
+    \item If \( \alpha, \beta \) are roots of \( ax^2 + bx + c = 0 \), show that \( ax^2 + bx + c = a(x - \alpha)(x - \beta) \).
+
+    \item For \( (k-1)x^2 = kx - 1 \) (\( k \neq 1 \)), find \( k \) so that:
+    \begin{enumerate}[label=(\roman*)]
+        \item one root is \( -3 \)
+        \item sum of roots = 2
+        \item product of roots = \( -3 \)
+        \item roots are equal
+        \item roots numerically equal but opposite in sign
+    \end{enumerate}
+
+    \item If one root of \( 3x^2 - 7px + 10p = 0 \) is 5, find \( p \) and the other root.
+
+    \item The sum of roots of \( \dfrac{1}{x+a} + \dfrac{1}{x+b} = \dfrac{1}{c} \) is zero. Prove that product of roots is \( -\dfrac{1}{2}(a^2 + b^2) \).
+
+    \item If \( \alpha, \beta \) are roots of \( ax^2 + bx + c = 0 \), evaluate:
+    \begin{enumerate}[label=(\roman*)]
+        \item \( \alpha^3\beta + \alpha\beta^3 \)
+        \item \( \dfrac{\alpha^2}{\beta} + \dfrac{\beta^2}{\alpha} \)
+        \item \( (a\alpha + b)^2 + (a\beta + b)^2 \)
+    \end{enumerate}
+
+    \item Form an equation whose roots are:
+    \begin{enumerate}[label=(\roman*)]
+        \item \( 2, -\dfrac{1}{2} \)
+        \item one root \( \dfrac{1}{3+2\sqrt{2}} \) (rational coefficients)
+        \item one root \( -2 + i \) (real coefficients)
+    \end{enumerate}
+
+    \item If \( \alpha, \beta \) are roots of \( ax^2 + bx + c = 0 \), form equation with roots:
+    \begin{enumerate}[label=(\roman*)]
+        \item \( -\alpha, -\beta \)
+        \item \( \dfrac{1}{\alpha}, \dfrac{1}{\beta} \)
+        \item \( \alpha^2, \beta^2 \)
+        \item \( \alpha^3, \beta^3 \)
+    \end{enumerate}
+
+    \item Find the equation whose roots are \( n \) times the roots of \( ax^2 + bx + c = 0 \).
+
+    \item Find \( p \) such that difference of roots of \( x^2 - px + 10 = 0 \) is 3. Also form equation whose roots are \( (\alpha + \beta)^2 \) and \( \alpha^2\beta - \alpha\beta^2 \).
+
+    \item Let \( p, q \) be roots of \( 3x^2 + 6x + 2 = 0 \). Form equation with roots \( -\dfrac{p^2}{q}, -\dfrac{q^2}{p} \).
+
+    \item (i) If roots of \( x^2 - lx + m = 0 \) differ by 1, prove \( l^2 = 4m + 1 \).
+    \item (ii) Find condition that roots of \( ax^2 + bx + c = 0 \) are in ratio \( p:q \).
+
+    \item If \( \alpha, \beta \) are roots of \( x^2 + ax + b = 0 \), prove that \( \dfrac{\alpha}{\beta} \) is a root of \( bx^2 + (2b - a^2)x + b = 0 \).
+
+    \item If roots of \( ax^2 + bx + b = 0 \) (\( b^2 \geq 4ab \)) are in ratio \( p:q \), prove \( \sqrt{\dfrac{p}{q}} + \sqrt{\dfrac{q}{p}} = \sqrt{\dfrac{b}{a}} \).
+
+    \item Roots of \( px^2 - 2(p+2)x + 3p = 0 \) differ by 2. Find \( p \) and the roots.
+
+    \item Solve \( x^2 + px + 45 = 0 \) given that square of difference of roots is 144.
+
+    \item If difference of roots of \( x^2 + px + q = 0 \) equals difference of roots of \( x^2 + qx + p = 0 \), prove \( p + q + 4 = 0 \) (\( p \neq q \)).
+
+    \item (i) If ratio of roots of \( x^2 + px + q = 0 \) equals ratio of roots of \( x^2 + bx + c = 0 \), prove \( p^2 c = b^2 q \).
+    \item (ii) If roots \( \alpha,\beta \) and \( \gamma,\delta \) are in G.P., prove same.
+
+    \item Coefficient of \( x \) in \( x^2 + px + q = 0 \) was taken as 17 instead of 13; roots found as -2 and -15. Find roots of original equation.
+
+    \item If one root of \( ax^2 + bx + c = 0 \) is square of the other, prove \( b^3 + ac(c + a) = 3abc \).
+
+    \item If one root of \( ax^2 + bx + c = 0 \) is \( n \)-th power of the other, show that \( (ac^n)^{n+1} + (a^n c)^{n+1} + b = 0 \).
+
+    \item If \( x^2 + ax + b = 0 \) and \( x^2 + bx + a = 0 \) have a common root and \( a \neq b \), prove \( a + b + 1 = 0 \).
+
+    \item If \( 3x^2 + px + 1 = 0 \) and \( 2x^2 + qx + 1 = 0 \) have a common root, show that \( 2p^2 + 3q^2 - 5pq + 1 = 0 \).
+\end{enumerate}
+
+\subsection{Answers -- Illustrative Examples (5.4) -- Final Answers Only}
+
+\begin{enumerate}[label=Example \arabic*.]
+    \item (i) \( 12 \) \quad (ii) \( \pm 8\sqrt{2} \) \quad (iii) \( 40 \) \quad (iv) \( 2 \)
+    \item Proven
+    \item (i) \( \dfrac{2}{3} \) \quad (ii) \( 2 \) \quad (iii) \( \dfrac{2}{3} \) \quad (iv) \( 2 \) \quad (v) \( 0 \)
+    \item \( p = 3 \), other root = 2
+    \item Proven
+    \item (i) \( \dfrac{c(b^2-2ac)}{a^3} \) \quad (ii) \( \dfrac{b(b^2-2ac)}{a^2 c} \) \quad (iii) \( \dfrac{b^2(b^2-2ac)}{a^2} \)
+    \item (i) \( 2x^2 - 3x - 2 = 0 \) \quad (ii) \( x^2 - 6x + 1 = 0 \) \quad (iii) \( x^2 + 4x + 5 = 0 \)
+    \item (i) \( ax^2 - bx + c = 0 \) \quad (ii) \( cx^2 + bx + a = 0 \) \quad (iii) \( a^2 x^2 - (b^2 - 2ac)x + c^2 = 0 \) \quad (iv) \( a^3 x^2 - (3abc - b^3)x + c^3 = 0 \)
+    \item \( ax^2 + n b x + n^2 c = 0 \)
+    \item \( p = 7 \) or \( -7 \); new equation \( x^2 - 79x + 1470 = 0 \)
+    \item \( 3x^2 - 18x + 2 = 0 \)
+    \item (i) Proven \quad (ii) \( p q b^2 = c a (p + q)^2 \)
+    \item Proven
+    \item Proven
+    \item \( p = 2 \) (roots 1, 3) or \( p = -\dfrac{2}{3} \) (roots -3, -1)
+    \item \( p = 18 \) (roots -3, -15) or \( p = -18 \) (roots 3, 15)
+    \item Proven
+    \item (i) \& (ii) Proven (\( p^2 c = b^2 q \))
+    \item Original equation: \( x^2 + 13x + 30 = 0 \) (roots -3, -10)
+    \item Proven
+    \item Proven
+    \item Proven
+    \item Proven
+\end{enumerate}
+
+
+\section*{Exercise 5.4}
+
+	
+	\begin{enumerate}
+		\item If $\alpha, \beta$ are roots of the equation $x^2 - 4x + 2 = 0$, find the values of:
+		\begin{enumerate}[label=(\roman*)]
+			\item $\alpha^2 + \beta^2$
+			\item $\alpha^2 - \beta^2$
+			\item $\alpha^3 + \beta^3$
+			\item $\dfrac{1}{\alpha} + \dfrac{1}{\beta}$
+		\end{enumerate}
+		
+		\item If $\alpha, \beta$ are the roots of the equation $ax^2 + bx + c = 0$, then show that $ax^2 + bx + c = a(x - \alpha)(x - \beta)$.
+		
+		\item For the quadratic equation $(k-1)x^2 = kx - 1$ ($k \neq 1$), find $k$ so that:
+		\begin{enumerate}[label=(\roman*)]
+			\item one root is $-3$
+			\item the sum of the roots is 2
+			\item the product of the roots is $-3$
+			\item the roots are equal
+			\item the roots are numerically equal but opposite in sign
+		\end{enumerate}
+		
+		\item If one of the roots of $3x^2 - 7px + 10p = 0$ is 5, find $p$ and also the other root.
+		
+		\item The sum of the roots of the equation $\dfrac{1}{x+a} + \dfrac{1}{x+b} = \dfrac{1}{c}$ is zero. Prove that the product of the roots is $-\dfrac{1}{2}(a^2 + b^2)$.
+		
+		\item If $\alpha, \beta$ are the roots of the equation $ax^2 + bx + c = 0$, evaluate:
+		\begin{enumerate}[label=(\roman*)]
+			\item $\alpha^3\beta + \alpha\beta^3$
+			\item $\dfrac{\alpha^2}{\beta} + \dfrac{\beta^2}{\alpha}$
+			\item $(a\alpha + b)^2 + (a\beta + b)^2$
+		\end{enumerate}
+		
+		\item Form an equation whose roots are:
+		\begin{enumerate}[label=(\roman*)]
+			\item $2, -\dfrac{1}{2}$
+			\item one root $\dfrac{1}{3 + 2\sqrt{2}}$ (with rational coefficients)
+			\item one root $-2 + i$ (with real coefficients)
+		\end{enumerate}
+		
+		\item If $\alpha, \beta$ are roots of the quadratic equation $ax^2 + bx + c = 0$, form an equation whose roots are:
+		\begin{enumerate}[label=(\roman*)]
+			\item $-\alpha, -\beta$
+			\item $\dfrac{1}{\alpha}, \dfrac{1}{\beta}$
+			\item $\alpha^2, \beta^2$
+			\item $\alpha^3, \beta^3$
+		\end{enumerate}
+		
+		\item Find the equation whose roots are $n$ times the roots of the equation $ax^2 + bx + c = 0$.
+		
+		\item Find the value of $p$ such that the difference of the roots of the equation $x^2 - px + 10 = 0$ is 3. If the roots of $x^2 - px + 10 = 0$ are $\alpha$ and $\beta$, find the quadratic equation whose roots are $(\alpha + \beta)^2$ and $\alpha^2\beta - \alpha\beta^2$.
+		
+		\item Let $p, q$ be roots of $3x^2 + 6x + 2 = 0$. Form an equation whose roots are $-\dfrac{p^2}{q}, -\dfrac{q^2}{p}$.
+		
+		\item (i) If the roots of the equation $x^2 - lx + m = 0$ differ by 1, then prove that $l^2 = 4m + 1$.
+		\item (ii) Find the condition that roots of the equation $ax^2 + bx + c = 0$ may be in the ratio $p : q$.
+		
+		\item If $\alpha, \beta$ are the roots of $x^2 + ax + b = 0$, then prove that $\dfrac{\alpha}{\beta}$ is a root of the equation $bx^2 + (2b - a^2)x + b = 0$.
+		
+		\item If the roots of the equation $ax^2 + bx + b = 0$ ($b^2 \geq 4ab$) are in ratio $p : q$, prove that $\sqrt{\dfrac{p}{q}} + \sqrt{\dfrac{q}{p}} = \sqrt{\dfrac{b}{a}}$.
+		
+		\item The roots of the equation $px^2 - 2(p+2)x + 3p = 0$ differ by 2. Find $p$ and also the roots.
+		
+		\item Solve the equation $x^2 + px + 45 = 0$, given that the square of the difference of its roots is 144.
+		
+		\item If the difference of the roots of the equation $x^2 + px + q = 0$ be the same as that of the roots of $x^2 + qx + p = 0$, then prove that $p + q + 4 = 0$ ($p \neq q$).
+		
+		\item (i) If the ratio of the roots of the equation $x^2 + px + q = 0$ is equal to the ratio of the roots of the equation $x^2 + bx + c = 0$, then prove that $p^2c = b^2q$.
+		\item (ii) If $\alpha, \beta$ are roots of $x^2 + px + q = 0$ and $\gamma, \delta$ are roots of $x^2 + bx + c = 0$ such that $\alpha, \beta, \gamma, \delta$ are in G.P., then prove that $p^2c = b^2q$.
+		
+		\item The coefficient of $x$ in the equation $x^2 + px + q = 0$ was taken as 17 in place of 13 and thus its roots were found to be $-2$ and $-15$. Find the roots of the original equation.
+		
+		\item If one root of the equation $ax^2 + bx + c = 0$ is the square of the other, prove that $b^3 + ac(c + a) = 3abc$.
+		
+		\item If one root of the quadratic equation $ax^2 + bx + c = 0$ is equal to the $n$th power of the other root, then show that $(ac^n)^{n+1} + (a^n c)^{n+1} + b = 0$.
+		
+		\item If the equations $x^2 + ax + b = 0$ and $x^2 + bx + a = 0$ have a common root and $a \neq b$, then prove that $a + b + 1 = 0$.
+		
+		\item If the equations $3x^2 + px + 1 = 0$ and $2x^2 + qx + 1 = 0$ have a common root, show that $2p^2 + 3q^2 - 5pq + 1 = 0$.
+	\end{enumerate}
+	
+	\section*{Answers -- Exercise 5.4 (Final Answers Only)}
+	
+	\begin{enumerate}
+		\item (i) $12$ \quad (ii) $\pm 8\sqrt{2}$ \quad (iii) $40$ \quad (iv) $2$
+		\item Proven
+		\item (i) $\dfrac{2}{3}$ \quad (ii) $2$ \quad (iii) $\dfrac{2}{3}$ \quad (iv) $2$ \quad (v) $0$
+		\item $p = 3$, other root = $2$
+		\item Proven
+		\item (i) $\dfrac{c(b^2 - 2ac)}{a^3}$ \quad (ii) $\dfrac{b(b^2 - 2ac)}{a^2c}$ \quad (iii) $\dfrac{b^2(b^2 - 2ac)}{a^2}$
+		\item (i) $2x^2 - 3x - 2 = 0$ \quad (ii) $x^2 - 6x + 1 = 0$ \quad (iii) $x^2 + 4x + 5 = 0$
+		\item (i) $ax^2 - bx + c = 0$ \quad (ii) $cx^2 + bx + a = 0$ \quad (iii) $a^2x^2 - (b^2 - 2ac)x + c^2 = 0$ \quad (iv) $a^3x^2 - (3abc - b^3)x + c^3 = 0$
+		\item $ax^2 + nbx + n^2c = 0$
+		\item $p = 7$ or $-7$; new equation: $x^2 - 79x + 1470 = 0$
+		\item $3x^2 - 18x + 2 = 0$
+		\item (i) Proven \quad (ii) $pqb^2 = ca(p + q)^2$
+		\item Proven
+		\item Proven
+		\item $p = 2$ (roots: $1, 3$) or $p = -\dfrac{2}{3}$ (roots: $-3, -1$)
+		\item $p = 18$ (roots: $-3, -15$) or $p = -18$ (roots: $3, 15$)
+		\item Proven
+		\item (i) \& (ii) Proven ($p^2c = b^2q$)
+		\item Original equation: $x^2 + 13x + 30 = 0$ (roots: $-3, -10$)
+		\item Proven
+		\item Proven
+		\item Proven
+		\item Proven
+	\end{enumerate}
+
+
+
+
+\end{document}

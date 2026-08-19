@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}5.2 Equations Reducible to Quadratic Form (Continued)}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Exercise 5.2 -- Questions 8 to 18}{2}{}%
+\contentsline {subsection}{\numberline {1.2}Answers -- Exercise 5.2 (Questions 8--18)}{2}{}%
+\contentsline {section}{\numberline {2}5.3 Nature of Roots of a Quadratic Equation}{3}{}%
+\contentsline {subsection}{\numberline {2.1}Illustrative Examples}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Answers -- Illustrative Examples (5.3)}{4}{}%
+\contentsline {subsection}{\numberline {2.3}Exercise 5.3}{4}{}%
+\contentsline {subsection}{\numberline {2.4}Answers -- Exercise 5.3 (Final Answers Only)}{5}{}%
+\contentsline {section}{\numberline {3}5.4 Relations between Roots and Coefficients}{6}{}%
+\contentsline {subsection}{\numberline {3.1}Illustrative Examples}{6}{}%
+\contentsline {subsection}{\numberline {3.2}Answers -- Illustrative Examples (5.4) -- Final Answers Only}{7}{}%
